@@ -1,0 +1,1 @@
+c:\users\suresh\documents\visual studio 2015\Projects\vzentbot\bin\Microsoft.NodejsTools.WebRole.dll

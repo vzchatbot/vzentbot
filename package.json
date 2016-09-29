@@ -1,0 +1,13 @@
+{
+  "name": "vzentbot",
+  "version": "0.0.0",
+  "description": "vzentbot",
+  "main": "server.js",
+  "author": {
+    "name": "Suresh"
+  },
+  "dependencies": {
+    "botbuilder": "^3.2.3",
+    "restify": "^4.1.1"
+  }
+}
