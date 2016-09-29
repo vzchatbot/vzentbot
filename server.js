@@ -30,7 +30,17 @@ bot.dialog('/', function (session) {
     var request = app.textRequest(session.message.text);
 
     request.on('response', function (response) {
+
+        var intent = "response.result.action";
+
+        switch (intent) {
+            case "showrecommendation":
+
+                break;
+        } 
+
         session.send('you have type ' + session.message.text + ' hello world');
+
     });
 
     request.on('error', function (error) {
