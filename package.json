@@ -7,8 +7,8 @@
     "name": "Suresh"
   },
   "dependencies": {
+    "apiai": "^2.0.7",
     "botbuilder": "^3.2.3",
     "restify": "^4.1.1"
   }
-
 }

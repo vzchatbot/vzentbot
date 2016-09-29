@@ -1,5 +1,7 @@
 ﻿var restify = require('restify');
 var builder = require('botbuilder');
+var apiai = require('apiai');
+var app = apiai("2a408bf5bb40488cb63d7efaee842140 ");
 
 //=========================================================
 // Bot Setup
@@ -24,5 +26,18 @@ server.post('/api/messages', connector.listen());
 //=========================================================
 
 bot.dialog('/', function (session) {
-    session.send("Hello World");
+
+    var request = app.textRequest(session.message.text);
+
+    request.on('response', function (response) {
+        session.send('you have type ' + session.message.text + ' hello world');
+    });
+
+    request.on('error', function (error) {
+        console.log(error);
+    });
+    
+    request.end()
+
+   
 });
