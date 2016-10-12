@@ -30,12 +30,32 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="modules\Billing.js" />
+    <Compile Include="modules\Channelsearch.js" />
+    <Compile Include="modules\getStarted.js" />
+    <Compile Include="modules\LinkOptions.js" />
+    <Compile Include="modules\MoreOptions.js" />
+    <Compile Include="modules\programSearch.js" />
+    <Compile Include="modules\programSearchdummy.js" />
+    <Compile Include="modules\recommendation.js" />
+    <Compile Include="modules\record.js" />
+    <Compile Include="modules\server.js" />
+    <Compile Include="modules\stblist.js" />
+    <Compile Include="modules\stgexternalcall.js" />
+    <Compile Include="modules\Trending.js" />
+    <Compile Include="modules\unknown.js" />
+    <Compile Include="modules\upgradeDVR.js" />
+    <Compile Include="modules\upsell.js" />
+    <Compile Include="modules\welcome.js" />
     <Compile Include="server.js" />
     <Content Include="app.json" />
     <Content Include="package.json" />
     <Content Include="Procfile" />
     <Content Include="README.md" />
     <Content Include="webchat.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="modules\" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
