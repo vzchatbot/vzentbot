@@ -1,7 +1,7 @@
 ﻿var restify = require('restify');
 var builder = require('botbuilder');
 var apiai = require('apiai');
-var app = apiai("2a408bf5bb40488cb63d7efaee842140 ");
+var app = apiai("2a408bf5bb40488cb63d7efaee842140");
 
 //=========================================================
 // Bot Setup
@@ -15,8 +15,8 @@ server.listen(process.env.port || process.env.PORT || 3978, function () {
 
 // Create chat bot
 var connector = new builder.ChatConnector({
-    appId: '31c8d108-cdc4-4474-8e08-c2f6a3b54364',
-    appPassword: 'm5JLXWcRfymrNfHTta454Qj'
+    appId: 'd5637416-8da0-442e-99a9-8c3867ffd9bf',
+    appPassword: 'ZVfk1mP1bBLn4h2R5WLMjyP'
 });
 var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
