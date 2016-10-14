@@ -24,30 +24,19 @@ server.post('/api/messages', connector.listen());
 //=========================================================
 // Bots Dialogs
 //=========================================================
-
-bot.dialog('/', function (session) {
-
-    var request = app.textRequest(session.message.text);
-
-    request.on('response', function (response) {
-
-        var intent = "response.result.action";
-
-        switch (intent) {
-            case "showrecommendation":
-
-                break;
-        } 
-
-        session.send('you have type ' + session.message.text + ' hello world');
-
-    });
-
-    request.on('error', function (error) {
-        console.log(error);
-    });
-    
-    request.end()
-
-   
-});
+bot.dialog('/', function (session)
+           { 
+    var options = {    sessionId: '9f04e63b-9ca6-4243-95ef-936be5a94g12'      } 
+    var request = app.textRequest(session.message.text, options);   
+    request.on('response', function (response) 
+               {        
+        var intent = response.result.action;
+        //console.log(JSON.stringify(response));     
+        session.send(response.result.fulfillment.speech);     
+        var msg = new builder.Message(session).sourceEvent({       facebook: response.result.fulfillment.data.facebook.attachment    });
+        //console.log(JSON.stringify(msg)); 
+        session.send(msg);   
+    });  
+    request.on('error', function (error) {          console.log(error);  
+                                         }); 
+    request.end()        }); 
