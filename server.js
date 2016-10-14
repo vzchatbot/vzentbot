@@ -38,8 +38,20 @@ bot.dialog('/', function (session) {
         var intent = response.result.action;
 console.log(JSON.stringify(response));
         
+session.send(response.result.fulfillment.speech);
+
+		session.send(response.result.fulfillment.speech.data);
+
+		var msg = new builder.Message(session).sourceEvent({
+
+			facebook: response.result.fulfillment.data.facebook
+
+		});
+
+
+		session.send(msg);
       
-        session.send('you have type ' + session.message.text + ' hello world');
+        
 
     });
 
