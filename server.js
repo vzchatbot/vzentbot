@@ -1,7 +1,7 @@
 ﻿var restify = require('restify');
 var builder = require('botbuilder');
 var apiai = require('apiai');
-var app = apiai("2a408bf5bb40488cb63d7efaee842140 ");
+var app = apiai("19c8bad1930f4e28ad3527a8a69fda04");
 
 //=========================================================
 // Bot Setup
@@ -26,19 +26,19 @@ server.post('/api/messages', connector.listen());
 //=========================================================
 
 bot.dialog('/', function (session) {
+       var options = {
+		sessionId: '9f04e63b-9ca6-4243-95ef-936be5a94g12'
+				}
 
-    var request = app.textRequest(session.message.text);
-
+	var request = app.textRequest(session.message.text, options);
+    
+    
     request.on('response', function (response) {
 
-        var intent = "response.result.action";
-
-        switch (intent) {
-            case "showrecommendation":
-
-                break;
-        } 
-
+        var intent = response.result.action;
+console.log(JSON.stringify(response));
+        
+      
         session.send('you have type ' + session.message.text + ' hello world');
 
     });
