@@ -98,7 +98,7 @@ facebook: {
 
 		});
 
-console.log(JSON.stringify(msg));
+//console.log(JSON.stringify(msg));
 		session.send(msg);
       
         
