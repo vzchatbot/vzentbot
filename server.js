@@ -1,7 +1,7 @@
 ﻿var restify = require('restify');
 var builder = require('botbuilder');
 var apiai = require('apiai');
-var app = apiai("901c05fa26b7415196db699acdc5d193 ");
+var app = apiai("db847b425ad44ca38e2d696d8b0750cd");
 
 //=========================================================
 // Bot Setup
