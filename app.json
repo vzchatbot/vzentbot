@@ -1,7 +1,7 @@
 {
   "name": "vzentchatbot",
   "description": "A barebones Node.js app using Express 4",
-  "repository": "https://github.com/vzchatbot/vzentbot/tree/Sarvesh",
+  "repository": "https://github.com/vzchatbot/vzentbot/blob/Sarvesh",
   "logo": "http://node-js-sample.herokuapp.com/node.svg",
   "keywords": ["node", "express", "static", "body-parser"],
   "image": "heroku/nodejs"
