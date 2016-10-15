@@ -42,10 +42,10 @@ session.send(response.result.fulfillment.data.facebook );
 
 
 
-		//var msg = new builder.Message(session).sourceEvent({
+		/*var msg = new builder.Message(session).sourceEvent({
 			
 facebook: response.result.fulfillment.data.facebook.attachment
-		});
+		});*/
 
 //console.log(JSON.stringify(msg));
 		session.send(msg);
