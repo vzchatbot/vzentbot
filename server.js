@@ -38,11 +38,11 @@ bot.dialog('/', function (session) {
         var intent = response.result.action;
 //console.log(JSON.stringify(response));
         
-session.send(response.result.fulfillment.speech);
+session.send(response.result.fulfillment.data.facebook );
 
 
 
-		var msg = new builder.Message(session).sourceEvent({
+		//var msg = new builder.Message(session).sourceEvent({
 			
 facebook: response.result.fulfillment.data.facebook.attachment
 		});
