@@ -40,6 +40,7 @@ console.log(JSON.stringify(response));
         
       
 session.send(response.result.fulfillment.speech );
+session.send(response.result.fulfillment.data );
 session.send(response.result.fulfillment.data.facebook );
 
 
