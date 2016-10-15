@@ -30,6 +30,10 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="config\production.js" />
+    <Compile Include="config\test.js" />
+    <Compile Include="config\stage.js" />
+    <Compile Include="config\development.js" />
     <Compile Include="modules\Billing.js" />
     <Compile Include="modules\Channelsearch.js" />
     <Compile Include="modules\getStarted.js" />
@@ -48,6 +52,7 @@
     <Compile Include="modules\welcome.js" />
     <Compile Include="server.js" />
     <Content Include="app.json" />
+    <Content Include="config\config.json" />
     <Content Include="package.json" />
     <Content Include="Procfile" />
     <Content Include="README.md" />
@@ -55,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="modules\" />
+    <Folder Include="config\" />
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />

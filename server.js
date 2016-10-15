@@ -1,22 +1,29 @@
-var restify = require('restify');
+﻿var restify = require('restify');
 var builder = require('botbuilder');
 var apiai = require('apiai');
-var app = apiai("19c8bad1930f4e28ad3527a8a69fda04");
+var nconf = require('nconf');
+
+nconf.file('./config/config.json');
+var app = apiai("apiai:clientid");
 
 //=========================================================
 // Bot Setup
 //=========================================================
 
+
 // Setup Restify Server
 var server = restify.createServer();
 server.listen(process.env.port || process.env.PORT || 3978, function () {
     console.log('%s listening to %s', server.name, server.url);
+    console.log('NODE_ENV: ' + nconf.get('NODE_ENV'));
+    console.log('Microsoft_AppID: ' + nconf.get('msbot:Microsoft_AppID'));
+    console.log('apiai: ' + nconf.get('apiai:clientid'));
 });
 
 // Create chat bot
 var connector = new builder.ChatConnector({
-    appId: '31c8d108-cdc4-4474-8e08-c2f6a3b54364',
-    appPassword: 'm5JLXWcRfymrNfHTta454Qj'
+    appId: nconf.get('msbot:Microsoft_AppID'),
+    appPassword: nconf.get('msbot:Microsoft_AppPassword')
 });
 var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
@@ -26,22 +33,22 @@ server.post('/api/messages', connector.listen());
 //=========================================================
 
 bot.dialog('/', function (session) {
-       var options = {
-		sessionId: '9f04e63b-9ca6-4243-95ef-936be5a94g12'
+    var options = {
+        sessionId: '9f04e63b-9ca6-4243-95ef-936be5a94g12'
 				}
 
-	var request = app.textRequest(session.message.text, options);
-    
-    
+    var request = app.textRequest(session.message.text, options);
+
+
     request.on('response', function (response) {
 
         var intent = response.result.action;
-console.log(JSON.stringify(response));
-        
-      
-session.send(response.result.fulfillment.speech );
-session.send(response.result.fulfillment.data );
-session.send(response.result.fulfillment.data.facebook );
+        console.log(JSON.stringify(response));
+
+
+        session.send(response.result.fulfillment.speech);
+        session.send(response.result.fulfillment.data);
+        session.send(response.result.fulfillment.data.facebook);
 
 
 
@@ -50,18 +57,18 @@ session.send(response.result.fulfillment.data.facebook );
 facebook: response.result.fulfillment.data.facebook.attachment
 		});*/
 
-//console.log(JSON.stringify(msg));
-		//session.send(msg);
-      
-        
+        //console.log(JSON.stringify(msg));
+        //session.send(msg);
+
+
 
     });
 
     request.on('error', function (error) {
         console.log(error);
     });
-    
+
     request.end()
 
-   
+
 });
