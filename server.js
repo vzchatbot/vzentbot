@@ -38,6 +38,8 @@ bot.dialog('/', function (session) {
         var intent = response.result.action;
 console.log(JSON.stringify(response));
         
+      
+session.send(response.result.fulfillment.speech );
 session.send(response.result.fulfillment.data.facebook );
 
 
