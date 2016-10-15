@@ -39,7 +39,6 @@
     <Compile Include="modules\programSearchdummy.js" />
     <Compile Include="modules\recommendation.js" />
     <Compile Include="modules\record.js" />
-    <Compile Include="modules\server.js" />
     <Compile Include="modules\stblist.js" />
     <Compile Include="modules\stgexternalcall.js" />
     <Compile Include="modules\Trending.js" />
