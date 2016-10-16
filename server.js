@@ -49,16 +49,14 @@ bot.dialog('/', function (session) {
 
         session.send(response.result.fulfillment.speech);
        // session.send(response.result.fulfillment.data);
-        session.send(response.result.fulfillment.data.facebook);
-       session.send(response.result.fulfillment.data.facebook.attachment);
+      //  session.send(response.result.fulfillment.data.facebook);
+      // session.send(response.result.fulfillment.data.facebook.attachment);
 
-		/*var msg = new builder.Message(session).sourceEvent({
-			
-facebook: response.result.fulfillment.data.facebook.attachment
-		});*/
+		var msg = new builder.Message(session).attachment(response.result.fulfillment.data.facebook.attachment
+		);
 
-        //console.log(JSON.stringify(msg));
-        //session.send(msg);
+        console.log(JSON.stringify(msg));
+        session.send(msg);
 
 
 
