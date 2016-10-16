@@ -48,10 +48,9 @@ bot.dialog('/', function (session) {
 
 
         session.send(response.result.fulfillment.speech);
-        session.send(response.result.fulfillment.data);
+       // session.send(response.result.fulfillment.data);
         session.send(response.result.fulfillment.data.facebook);
-
-
+       session.send(response.result.fulfillment.data.facebook.attachment);
 
 		/*var msg = new builder.Message(session).sourceEvent({
 			
