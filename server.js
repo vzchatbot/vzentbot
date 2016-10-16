@@ -29,7 +29,7 @@ bot.dialog('/', function (session)
            { 
     var options =
         {
-            sessionId: '9f04e63b-9ca6-4243-95ef-936be5a94g12'
+            sessionId: '94642ab5-31b3-4eac-aa1f-d4ef57284007'
         } 
     var request = app.textRequest(session.message.text, options);   
     request.on('response', function (response) 
