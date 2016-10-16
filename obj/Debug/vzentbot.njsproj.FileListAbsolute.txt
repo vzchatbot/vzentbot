@@ -1,1 +1,3 @@
 c:\users\suresh\documents\visual studio 2015\Projects\vzentbot\bin\Microsoft.NodejsTools.WebRole.dll
+C:\Users\Suresh\Source\Repos\vzentbot2\obj\Debug\vzentbot.njsprojResolveAssemblyReference.cache
+C:\Users\Suresh\Source\Repos\vzentbot2\bin\Microsoft.NodejsTools.WebRole.dll

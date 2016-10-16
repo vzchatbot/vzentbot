@@ -2,6 +2,7 @@
 var builder = require('botbuilder');
 var apiai = require('apiai');
 var nconf = require('nconf');
+var uuid = require('node-uuid');
 
 nconf.file('./config/config.json');
 var app = apiai("apiai:clientid");
@@ -34,7 +35,7 @@ server.post('/api/messages', connector.listen());
 
 bot.dialog('/', function (session) {
     var options = {
-        sessionId: '9f04e63b-9ca6-4243-95ef-936be5a94g12'
+        sessionId: uuid.v1()
 				}
 
     var request = app.textRequest(session.message.text, options);
