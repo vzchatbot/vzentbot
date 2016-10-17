@@ -3,8 +3,7 @@ var builder = require('botbuilder');
 var apiai = require('apiai');
 var app = apiai("901c05fa26b7415196db699acdc5d193");
 //=============
-session.send("hello there");
-session.send("hello there %s", name);
+
 //=============
 //=========================================================
 // Bot Setup
