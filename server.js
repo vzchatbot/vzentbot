@@ -21,6 +21,10 @@ var connector = new builder.ChatConnector({
 var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
 
+//==========
+session.send("hello there")
+//===========
+
 //=========================================================
 // Bots Dialogs
 //=========================================================
