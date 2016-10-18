@@ -1,5 +1,6 @@
 
 
+
 var restify = require('restify');
 var builder = require('botbuilder');
 var apiai = require('apiai');
@@ -24,7 +25,17 @@ var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
 
 // New =============
-
+// Typing Indicator
+bot.dialog('/countItems', function (session, args) {
+    session.sendTyping();
+    lookupItemsAsync(args, function (err, items) {
+        if (!err) {
+            session.send("%d items found", items.length);
+        } else {
+            session.error(err);
+        }
+    });
+});
 //=========================================================
 // Bots Global Actions
 //=========================================================
