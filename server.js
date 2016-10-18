@@ -42,8 +42,8 @@ bot.endConversationAction('goodbye', 'Goodbye ,Have a greatday ', { matches: /^g
 // Get user profile details
 //=======================
 
-bot.beginDialogAction('getstarted', '/getstarted');
-bot.dialog('/getstarted', [
+
+bot.dialog('/', [
     function (session) {
         console.log("=== DIALOG: GETSTARTED | STEP: 1/4 ====");
 
@@ -53,11 +53,7 @@ bot.dialog('/getstarted', [
         if( !session.userData.firstRun ) {
             // Store the returned user page-scoped id (USER_ID) and page id
             session.userData.userid = session.message.sourceEvent.sender.id;
-            session.userData.pageid = session.message.sourceEvent.recipient.id;
-
-            // DELAY ISN'T THE REQUEST - I THINK IT'S THE INITIAL REQUEST TO BOTFRAMEWORK
-
-            // Move to the /getprofile dialog
+            session.userData.pageid = session.message.sourceEvent.recipient.id;       
             session.beginDialog('/getprofile');
         } else {
             // The firstname has been stored so the user has completed the /getstarted dialog
