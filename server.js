@@ -104,7 +104,7 @@ bot.dialog('/getprofile', [
 //=========================================================
 // Bots Dialogs
 //=========================================================
-bot.dialog('/receipt', [    function (session)
+bot.dialog('/', [    function (session)
                  {   
                     // session.beginDialog("/getprofile");                   
                      // Send a greeting and show help.  
@@ -188,7 +188,7 @@ bot.dialog('/menu',
 
 //===============
 
-bot.dialog('/', [
+bot.dialog('/receipt', [
     function (session) {
         session.send("You can send a receipts for facebook using Bot Builders ReceiptCard...");
         var msg = new builder.Message(session)
