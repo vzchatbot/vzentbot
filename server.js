@@ -22,3 +22,7 @@ var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
 
 // New =============
+//=========================================================
+// Bots Global Actions
+//=========================================================
+bot.endConversationAction('goodbye', 'Goodbye :)', { matches: /^goodbye/i });
