@@ -89,12 +89,14 @@ bot.dialog('/startsession', [
                 {        
                     var intent = response.result.action;
                     console.log(JSON.stringify(response));     
-                    session.send(response.result.fulfillment.speech);     
+                    session.send(response.result.fulfillment.speech);   
+                    console.log(response.result.fulfillment.data.facebook.attachment);
                     var msg = new builder.Message(session).sourceEvent(
                     {
-                        facebook: {response.result.fulfillment.data.facebook.attachment}
+                        facebook: response.result.fulfillment.data.facebook.attachment
                     });
-                    console.log(JSON.stringify(msg)); 
+                    console.log(msg); 
+                    
                     session.send(msg);   
                 });  
                 request.on('error', function (error)
