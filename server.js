@@ -1,6 +1,3 @@
-
-
-
 var restify = require('restify');
 var builder = require('botbuilder');
 var apiai = require('apiai');
@@ -100,7 +97,7 @@ bot.dialog('/', [    function (session)
                      console.log("hi");                           
                      session.beginDialog('/startsession');
                  }
-                 /*,    function (session, results)
+                ,    function (session, results)
                  {       
                  // Display menu        
                  session.beginDialog('/menu'); 
@@ -108,7 +105,7 @@ bot.dialog('/', [    function (session)
                  function (session, results) 
                  {      
                  // Always say goodbye      
-                 session.send("Ok... See you later!");    }*/
+                 session.send("Ok... See you later!");    }
                 ]);
 
 bot.dialog('/menu',
