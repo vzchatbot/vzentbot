@@ -1,4 +1,5 @@
- 
+
+
 var restify = require('restify');
 var builder = require('botbuilder');
 var apiai = require('apiai');
@@ -23,6 +24,10 @@ var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
 
 // New =============
+bot.getUserProfile(userId, function (err, profile)
+                   {  
+                      console.log(profile);
+                   });
 //=========================================================
 // Bots Global Actions
 //=========================================================
