@@ -135,13 +135,36 @@ bot.dialog('/', [
 
             ]);
 
-        var msg = new builder.Message(session).attachments([card]);
+        //var msg = new builder.Message(session).attachments([card]);
+        
+        msg = new builder.Message(session)
+
+            .sourceEvent({
+                facebook:{  
+                    attachment:{  
+                        type:"template",
+                        payload:{  
+                             template_type:"button",
+                             text:"Congrats, we got your details. Click Continue button.",
+                             buttons:[  
+                                {  
+                                   "type":"postback",
+                                   "title":"Continue",
+                                   "payload":"Userid : demoacct102 Regionid : 92377"
+                                }
+                             ]
+                  }
+               }
+            }
+        });
+
+       // session.endDialog(msg);
 
         session.send(msg);
 
         session.send("Hi... I'm the Microsoft Bot Framework demo bot for Facebook. I can show you everything you can use our Bot Builder SDK to do on Facebook.");
 
-        session.beginDialog('/help');
+        //session.beginDialog('/help');
 
     },
 
