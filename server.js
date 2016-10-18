@@ -42,6 +42,7 @@ bot.dialog('/', [
             ]);
         var msg = new builder.Message(session).attachments([card]);
         session.send(msg);*/
+        console.log("hi");
         session.send("Hi... Welcome to the Verizon, How can we help??");
         session.beginDialog('/startsession');
     }/*,
@@ -82,6 +83,7 @@ bot.dialog('/startsession', [
                 {
                     sessionId: '94642ab5-31b3-4eac-aa1f-d4ef57284007'
                 } 
+            console.log("inside startsession");
             var request = app.textRequest(session.message.text, options);   
             request.on('response', function (response) 
             {        
