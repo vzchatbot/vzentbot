@@ -43,8 +43,7 @@ bot.dialog('/', [    function (session)
                      ]);  
                      var msg = new builder.Message(session).attachments([card]); 
                      session.send(msg);     
-                     console.log("hi");       
-                     session.send("Hi... Welcome to the Verizon, How can we help??"); 
+                     console.log("hi");                           
                      session.beginDialog('/startsession');
                  }
                  /*,    function (session, results)
