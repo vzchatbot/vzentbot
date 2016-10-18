@@ -49,46 +49,9 @@ bot.dialog('/', function (session)        
         console.log(error);     
     });  
     request.end()});
+//==============
 
-//=============
-// Getting User Profile details (message sender)
-//=============
-
-bot.dialog('/getprofile', [
-    function (session) {
-        console.log("=== DIALOG: GETPROFILE | STEP: 1/1 ====");
-
-        // Store the returned user page-scoped id (USER_ID) and page id
-        session.userData.userid = session.message.sourceEvent.sender.id;
-        session.userData.pageid = session.message.sourceEvent.recipient.id;
-
-        // Let the user know we are 'working'
-        session.sendTyping();
-        // Get the users profile information from FB
-        request({
-            url: 'https://graph.facebook.com/v2.6/'+ session.userData.userid +'?fields=first_name,last_name,profile_pic,locale,timezone,gender',
-            qs: { access_token: process.env.FB_PAGE_ACCESS_TOKEN },
-            method: 'GET'
-        }, function(error, response, body) {
-            if (!error && response.statusCode == 200) {
-                // Parse the JSON returned from FB
-                body = JSON.parse(body);
-                // Save profile to userData
-                session.dialogData.firstname = body.first_name;
-                session.dialogData.lastname = body.last_name;
-                session.dialogData.profilepic = body.profile_pic;
-                session.dialogData.locale = body.locale;
-                session.dialogData.timezone = body.timezone;
-                session.dialogData.gender = body.gender;
-                // Return to /getstarted
-                session.endDialogWithResult({ response: session.dialogData });
-            } else {
-                // TODO: Handle errors
-                console.log(error);
-                console.log("Get user profile failed");
-            }
-        });
-    }
-]);
-
-
+bot.getUserProfile(userId, function (err, profile)
+           {  
+    console.log(profile);
+});
