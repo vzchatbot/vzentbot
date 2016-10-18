@@ -120,10 +120,37 @@ bot.dialog('/startsession', [
 bot.dialog('/', [
 
     function (session) {
+        
+         var options =
+                    {
+                        sessionId: '94642ab5-31b3-4eac-aa1f-d4ef57284007'
+                    } 
+                console.log("inside startsession");
+                var request = app.textRequest(session.message.text, options);   
+                request.on('response', function (response) 
+                {        
+                    var intent = response.result.action;
+                    //console.log(JSON.stringify(response));     
+                    session.send(response.result.fulfillment.speech);   
+                    console.log(response.result.fulfillment.data.facebook.attachment);
+                    var msg = new builder.Message(session).sourceEvent(
+                    {
+                        facebook: response.result.fulfillment.data.facebook.attachment
+                    });
+                    console.log(msg); 
+                    
+                    session.send(msg);   
+                });  
+                request.on('error', function (error)
+                {
+                   console.log(error);  
+                }); 
+                request.end();
+        
 
         // Send a greeting and show help.
 
-        var card = new builder.HeroCard(session)
+        /*var card = new builder.HeroCard(session)
 
             .title("Microsoft Bot Framework")
 
@@ -164,7 +191,7 @@ bot.dialog('/', [
 
         session.send("Hi... I'm the Microsoft Bot Framework demo bot for Facebook. I can show you everything you can use our Bot Builder SDK to do on Facebook.");
 
-        //session.beginDialog('/help');
+        session.beginDialog('/help'); */
 
     },
 
