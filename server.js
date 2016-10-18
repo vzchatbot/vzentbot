@@ -26,7 +26,7 @@ server.post('/api/messages', connector.listen());
 //=========================================================
 // Bots Global Actions
 //=========================================================
-bot.endConversationAction('goodbye', 'Goodbye ,Have a greatday ', { matches: /^goodbye/i , /^bye/i });
+bot.endConversationAction('goodbye', 'Goodbye ,Have a greatday ', { matches: /^goodbye/i});
 
 
 //=========================================================
