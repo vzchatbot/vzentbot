@@ -1,4 +1,4 @@
-
+ 
 var restify = require('restify');
 var builder = require('botbuilder');
 var apiai = require('apiai');
@@ -26,7 +26,7 @@ server.post('/api/messages', connector.listen());
 //=========================================================
 // Bots Global Actions
 //=========================================================
-bot.endConversationAction('goodbye', 'Goodbye ,Have a greatday ', { matches: /^goodbye/i});
+bot.endConversationAction('goodbye', 'Goodbye ,Have a greatday ', { matches: /^goodbye|bye|close/i });
 
 
 //=========================================================
@@ -61,6 +61,7 @@ bot.dialog('/menu',
            [    function (session) 
             {       
                 builder.Prompts.choice(session, "What demo would you like to run?", "prompts|picture|cards|list|carousel|receipt|actions|(quit)");
+                console.log( "in menu"+ result.response.entity)
             },  
             function (session, results) 
             {       
@@ -68,6 +69,7 @@ bot.dialog('/menu',
                 {        
                     // Launch demo dialog       
                     session.beginDialog('/' + results.response.entity);  
+                    console.log( "in quit"+ result.response.entity)
                 } 
                 else
                 {      
