@@ -20,6 +20,17 @@ var connector = new builder.ChatConnector({
 });
 var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
+server.listen(process.env.port || process.env.PORT || 3978, function () {
+    console.log('%s listening to %s', server.name, server.url);
+});
+
+// Create chat bot
+var connector = new builder.ChatConnector({
+    appId: 'd5637416-8da0-442e-99a9-8c3867ffd9bf',
+    appPassword: 'ZVfk1mP1bBLn4h2R5WLMjyP'
+});
+var bot = new builder.UniversalBot(connector);
+server.post('/api/messages', connector.listen());
 
 //=========================================================
 // Bots Global Actions
@@ -33,7 +44,45 @@ bot.dialog('/', [    function (session) {
     var card = new builder.HeroCard(session)       
     .title("Microsoft Bot Framework")  
     .text("Your bots - wherever your users are talking.")  
-    .images([                 builder.CardImage.create(session, "http://docs.botframework.com/images/demo_bot_image.png")   
+    .images([                 builder.CardImage.create(session, "
+
+//=========================================================
+// Bots Global Actions
+//=========================================================
+bot.endConversationAction('goodbye', 'Goodbye :)', { matches: /^goodbye/i });
+//=========================================================
+// Bots Dialogs
+//=========================================================
+bot.dialog('/', [    function (session) {   
+    // Send a greeting and show help.    
+    var card = new builder.HeroCard(session)       
+    .title("Microsoft Bot Framework")  
+    .text("Your bots - wherever your users are talking.")  
+    .images([   
+             builder.CardImage.create(session, "server.listen(process.env.port || process.env.PORT || 3978, function () {
+    console.log('%s listening to %s', server.name, server.url);
+});
+// Create chat bot
+var connector = new builder.ChatConnector({
+    appId: 'd5637416-8da0-442e-99a9-8c3867ffd9bf',
+    appPassword: 'ZVfk1mP1bBLn4h2R5WLMjyP'
+});
+var bot = new builder.UniversalBot(connector);
+server.post('/api/messages', connector.listen());
+//=========================================================
+// Bots Global Actions
+//=========================================================
+bot.endConversationAction('goodbye', 'Goodbye :)', { matches: /^goodbye/i });
+//=========================================================
+// Bots Dialogs
+//=========================================================
+bot.dialog('/', [    function (session) {   
+    // Send a greeting and show help.    
+    var card = new builder.HeroCard(session)       
+    .title("Microsoft Bot Framework")  
+    .text("Your bots - wherever your users are talking.")  
+    .images([                 builder.CardImage.create(session, ""
+)   
             ]);
     var msg = new builder.Message(session).attachments([card]);   
     session.send(msg);      
