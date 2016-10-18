@@ -56,7 +56,7 @@ bot.dialog('/getprofile', [
         // Get the users profile information from FB
         request({
             url: 'https://graph.facebook.com/v2.6/'+ session.userData.userid +'?fields=first_name,last_name,profile_pic,locale,timezone,gender',
-            qs: { access_token: process.env.EAAYeV8WAScYBAN9UT9yRYZAg4M7jP9zzlnCRVJVfoJ20LAmxR3XgvTo7km6tNBU1HihQn8Bhkhpzh4uT4URydgthctJSfC1nbd0QOHsPtu8YbRdQcQGecZAdVAQ1zkPNrzRQHkP31LBNewmaSx1sAn4NNtnAAWqSWnk1HzvwZDZD },
+            qs: { access_token: process.env.FB_PAGE_ACCESS_TOKEN },
             method: 'GET'
         }, function(error, response, body) {
             if (!error && response.statusCode == 200) {
@@ -86,8 +86,7 @@ bot.dialog('/getprofile', [
 //=========================================================
 bot.dialog('/', [    function (session)
                  {   
-                    // session.beginDialog("/getprofile");
-                     session.beginDialog("/menu");
+                    // session.beginDialog("/getprofile");                   
                      // Send a greeting and show help.  
                      var card = new builder.HeroCard(session)            
                      .title("Verizon Bot ")            
@@ -99,11 +98,12 @@ bot.dialog('/', [    function (session)
                      session.send(msg);     
                      console.log("hi");                           
                      session.beginDialog('/startsession');
+                      session.beginDialog('/menu');   
                  }
                 ,    function (session, results)
                  {       
                  // Display menu        
-                 session.beginDialog('/menu'); 
+                 session.beginDialog('/menu');                       
                  },   
                  function (session, results) 
                  {      
