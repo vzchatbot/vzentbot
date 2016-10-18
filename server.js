@@ -20,12 +20,6 @@ var connector = new builder.ChatConnector({
 });
 var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
-
-
-//=============
-
-
-
 //=========================================================
 // Bots Dialogs
 //=========================================================
@@ -54,4 +48,24 @@ bot.dialog('/', function (session)
                                          }); 
     request.end()
 });
+
+
+
+//=============
+    var request = app.textRequest(session.message.text, options);  
+request.on('response', function (response)      
+           {        
+    var intent = response.result.action;      
+    //console.log(JSON.stringify(response)); 
+    session.send(response.result.fulfillment.speech);  
+    var msg = new builder.Message(session).sourceEvent(  
+        {          
+            facebook: response.result.fulfillment.data.facebook.attachment              });   
+    //console.log(JSON.stringify(msg));  
+    session.send(msg);    
+});   
+request.on('error', function (error)          
+           {                console.log(error);  
+           });     request.end()});
+
 
