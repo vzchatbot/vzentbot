@@ -79,27 +79,28 @@ bot.dialog('/menu', [
 bot.dialog('/startsession', [
     function (session)
            { 
-            var options =
+                var options =
+                    {
+                        sessionId: '94642ab5-31b3-4eac-aa1f-d4ef57284007'
+                    } 
+                console.log("inside startsession");
+                var request = app.textRequest(session.message.text, options);   
+                request.on('response', function (response) 
+                {        
+                    var intent = response.result.action;
+                    console.log(JSON.stringify(response));     
+                    session.send(response.result.fulfillment.speech);     
+                    var msg = new builder.Message(session).sourceEvent(
+                    {
+                        facebook: response.result.fulfillment.data.facebook.attachment  
+                    });
+                    console.log(JSON.stringify(msg)); 
+                    session.send(msg);   
+                });  
+                request.on('error', function (error)
                 {
-                    sessionId: '94642ab5-31b3-4eac-aa1f-d4ef57284007'
-                } 
-            console.log("inside startsession");
-            var request = app.textRequest(session.message.text, options);   
-            request.on('response', function (response) 
-            {        
-                var intent = response.result.action;
-                console.log(JSON.stringify(response));     
-                session.send(response.result.fulfillment.speech);     
-                var msg = new builder.Message(session).sourceEvent(
-                {
-                    facebook: response.result.fulfillment.data.facebook.attachment  
-                });
-                console.log(JSON.stringify(msg)); 
-                session.send(msg);   
-            });  
-            request.on('error', function (error)
-            {
-               console.log(error);  
-            }); 
-            request.end();
+                   console.log(error);  
+                }); 
+                request.end();
+           }
 ]);
