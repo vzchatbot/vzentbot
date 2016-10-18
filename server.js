@@ -85,6 +85,7 @@ bot.dialog('/getprofile', [
 //=========================================================
 bot.dialog('/', [    function (session)
                  {   
+                     session.beginDialog("/getprofile");
                      // Send a greeting and show help.  
                      var card = new builder.HeroCard(session)            
                      .title("Verizon Bot ")            
