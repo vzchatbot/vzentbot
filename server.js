@@ -35,14 +35,14 @@ bot.endConversationAction('goodbye', 'Goodbye :)', { matches: /^goodbye/i });
 bot.dialog('/', [    function (session)
                  {   
                      // Send a greeting and show help.  
-                     /*var card = new builder.HeroCard(session)            
-                     .title("Microsoft Bot Framework")            
+                     var card = new builder.HeroCard(session)            
+                     .title("Verizon Bot ")            
                      .text("Your bots - wherever your users are talking.")            
                      .images([                
-                     builder.CardImage.create(session, "http://docs.botframework.com/images/demo_bot_image.png")         
+                     builder.CardImage.create(session, "http://www.verizon.com//cs/groups/public/documents/adacct/vzlogo_lg.png")         
                      ]);  
                      var msg = new builder.Message(session).attachments([card]); 
-                     session.send(msg);*/      
+                     session.send(msg);     
                      console.log("hi");       
                      session.send("Hi... Welcome to the Verizon, How can we help??"); 
                      session.beginDialog('/startsession');
@@ -83,8 +83,8 @@ bot.dialog('/menu',
             }]).reloadAction('reloadMenu', null, { matches: /^menu|show menu/i });
 
 
-bot.dialog('/startsession', [    
-    function (session)  
+                bot.dialog('/startsession', [    
+                function (session)  
                              {
                                  var options =   
                                      {
