@@ -130,7 +130,7 @@ bot.dialog('/', [
                 request.on('response', function (response) 
                 {        
                     var intent = response.result.action;
-                    //console.log(JSON.stringify(response));     
+                    console.log(JSON.stringify(response));     
                     session.send(response.result.fulfillment.speech);   
                     console.log(response.result.fulfillment.data.facebook.attachment);
                     var msg = new builder.Message(session).sourceEvent(
