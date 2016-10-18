@@ -48,7 +48,7 @@ bot.endConversationAction('goodbye', 'Goodbye :)', { matches: /^goodbye/i });
 bot.dialog('/', [    function (session) {   
     // Send a greeting and show help.    
     var card = new builder.HeroCard(session)       
-    .title("Microsoft Bot Framework")  
+    .title("Verizon Bot Framework")  
     .text("Your bots - wherever your users are talking.")  
     .images([   
              builder.CardImage.create(session, "server.listen(process.env.port || process.env.PORT || 3978, function () {
@@ -71,7 +71,7 @@ bot.endConversationAction('goodbye', 'Goodbye :)', { matches: /^goodbye/i });
 bot.dialog('/', [    function (session) {   
     // Send a greeting and show help.    
     var card = new builder.HeroCard(session)       
-    .title("Microsoft Bot Framework")  
+    .title("Verizon Bot Framework")  
     .text("Your bots - wherever your users are talking.")  
     .images([                 builder.CardImage.create(session, "http://www.verizon.com//cs/groups/public/documents/adacct/vzlogo_lg.png"
 )   
