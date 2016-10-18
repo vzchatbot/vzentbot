@@ -193,7 +193,7 @@ bot.dialog('/', [
 
         session.beginDialog('/help'); */
 
-    },
+    }/*,
 
     function (session, results) {
 
@@ -209,7 +209,7 @@ bot.dialog('/', [
 
         session.send("Ok... See you later!");
 
-    }
+    }*/
 
 ]);
 
