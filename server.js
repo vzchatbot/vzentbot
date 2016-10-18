@@ -50,8 +50,3 @@ bot.dialog('/', function (session)        
     });  
     request.end()});
 //==============
-
-bot.getUserProfile(userId, function (err, profile)
-           {  
-    console.log(profile);
-});
