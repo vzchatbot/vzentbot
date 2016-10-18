@@ -43,7 +43,7 @@ bot.endConversationAction('goodbye', 'Goodbye ,Have a greatday ', { matches: /^g
 //=======================
 
 
-bot.dialog('/', [
+/* bot.dialog('/', [
     function (session) {
         console.log("=== DIALOG: GETSTARTED | STEP: 1/4 ====");
 
@@ -60,7 +60,7 @@ bot.dialog('/', [
             // Stop this dialog and Welcome them back
             session.replaceDialog('/welcomeback');
         }
-    }
+    } */
 //=====================
 bot.dialog('/getprofile', [
     function (session) {
@@ -104,7 +104,7 @@ bot.dialog('/getprofile', [
 //=========================================================
 // Bots Dialogs
 //=========================================================
-bot.dialog('/welcomeback', [    function (session)
+bot.dialog('/', [    function (session)
                  {   
                     // session.beginDialog("/getprofile");                   
                      // Send a greeting and show help.  
