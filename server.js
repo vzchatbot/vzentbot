@@ -1,4 +1,4 @@
-﻿var restify = require('restify');
+var restify = require('restify');
 var builder = require('botbuilder');
 var apiai = require('apiai');
 var app = apiai("901c05fa26b7415196db699acdc5d193");
@@ -24,14 +24,6 @@ server.listen(process.env.port || process.env.PORT || 3978, function () {
     console.log('%s listening to %s', server.name, server.url);
 });
 
-// Create chat bot
-var connector = new builder.ChatConnector({
-    appId: 'd5637416-8da0-442e-99a9-8c3867ffd9bf',
-    appPassword: 'ZVfk1mP1bBLn4h2R5WLMjyP'
-});
-var bot = new builder.UniversalBot(connector);
-server.post('/api/messages', connector.listen());
-
 //=========================================================
 // Bots Global Actions
 //=========================================================
@@ -42,7 +34,7 @@ bot.endConversationAction('goodbye', 'Goodbye :)', { matches: /^goodbye/i });
 bot.dialog('/', [    function (session) {   
     // Send a greeting and show help.    
     var card = new builder.HeroCard(session)       
-    .title("Microsoft Bot Framework")  
+    .title("Verizon Bot ")  
     .text("Your bots - wherever your users are talking.")  
     .images([                 builder.CardImage.create(session, "
 
@@ -81,12 +73,12 @@ bot.dialog('/', [    function (session) {
     var card = new builder.HeroCard(session)       
     .title("Microsoft Bot Framework")  
     .text("Your bots - wherever your users are talking.")  
-    .images([                 builder.CardImage.create(session, ""
+    .images([                 builder.CardImage.create(session, "http://www.verizon.com//cs/groups/public/documents/adacct/vzlogo_lg.png"
 )   
             ]);
     var msg = new builder.Message(session).attachments([card]);   
     session.send(msg);      
-    session.send("Hi... I'm the Microsoft Bot Framework demo bot for Facebook. I can show you everything you can use our Bot Builder SDK to do on Facebook.");        
+    session.send("Hi... I'm the Verizon Bot for Facebook. I can show you everything you can use our Bot Builder SDK to do on Facebook.");        
     session.send('Hello %s!', session.userData.profile.name);    
     session.beginDialog('/help');
 },   
@@ -100,9 +92,9 @@ bot.dialog('/', [    function (session) {
                      // Always say goodbye    
                      session.send("Ok... See you later!");  
                  }]);
-bot.dialog('/menu', [    function (session)
+              bot.dialog('/menu', [    function (session)
                      {   
-                         builder.Prompts.choice(session, "What demo would you like to run?", "prompts|picture|cards|list|carousel|receipt|actions|(quit)");    
+                         builder.Prompts.choice(session, "What would you like to run?", "prompts|picture|cards|list|carousel|receipt|actions|(quit)");    
                      },   
                      function (session, results) 
                      {      
