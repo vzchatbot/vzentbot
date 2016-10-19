@@ -120,7 +120,7 @@ bot.dialog('/startsession', [
 bot.dialog('/', [
 
     function (session) {
-        
+         console.log(JSON.stringify(session)); 
          var options =
                     {
                         sessionId: '94642ab5-31b3-4eac-aa1f-d4ef57284007'
