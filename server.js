@@ -7,9 +7,7 @@ var app = apiai("db847b425ad44ca38e2d696d8b0750cd");
 // Bot Setup
 //=========================================================
 
-var actualFBMessage={"attachment":{"type":"template","payload":{"template_type":"generic","elements":[{"title":"Login to Verizon","image_url":"https://www.verizon.com/cs/groups/public/documents/adacct/vzlogo_lg.png","buttons":[{"type":"account_link","url":"https://www98.verizon.com/foryourhome/myaccount/ngen/upr/bots/preauth.html"}]}]}}};
-var datResponse={"speech":"Sign in ","data":{"facebook": actualFBMessage},"contextOut":[{"name":"sigin", "lifespan":2, "parameters":{"type":"signin"}}],"source":"apiaiwebhook"};
-res.send(datResponse);
+
 
 // Setup Restify Server
 var server = restify.createServer();
@@ -58,7 +56,7 @@ bot.dialog('/startsession', [
                 var request = app.textRequest(session.message.text, options);   
                 request.on('response', function (response) 
                 {        
-                    var intent = response.result.action;
+                   /* var intent = response.result.action;
                     //console.log(JSON.stringify(response));     
                     session.send(response.result.fulfillment.speech);   
                     console.log(response.result.fulfillment.data);
@@ -70,7 +68,11 @@ bot.dialog('/startsession', [
                     });
                     //console.log(msg); 
                     
-                    session.send(msg);   
+                    session.send(msg);   */
+                    
+                    var actualFBMessage={"attachment":{"type":"template","payload":{"template_type":"generic","elements":[{"title":"Login to Verizon","image_url":"https://www.verizon.com/cs/groups/public/documents/adacct/vzlogo_lg.png","buttons":[{"type":"account_link","url":"https://www98.verizon.com/foryourhome/myaccount/ngen/upr/bots/preauth.html"}]}]}}};
+                    var datResponse={"speech":"Sign in ","data":{"facebook": actualFBMessage},"contextOut":[{"name":"sigin", "lifespan":2, "parameters":{"type":"signin"}}],"source":"apiaiwebhook"};
+                    session.send(datResponse);
                 });  
                 request.on('error', function (error)
                 {
