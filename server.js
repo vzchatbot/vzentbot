@@ -69,7 +69,7 @@ bot.dialog('/getprofile', [
         // Store the returned user page-scoped id (USER_ID) and page id
         session.userData.userid = session.message.sourceEvent.sender.id;
         session.userData.pageid = session.message.sourceEvent.recipient.id;
-        console.log( "recipien ID : " + session.message.sourceEvent.recipient.id);
+        console.log( "recipient ID : " + session.message.sourceEvent.recipient.id);
 
         // Let the user know we are 'working'
         session.sendTyping();
@@ -106,7 +106,9 @@ bot.dialog('/getprofile', [
 //=========================================================
 bot.dialog('/', [    function (session)
                  {   
-                    // session.beginDialog("/getprofile");                   
+                      console.log( "sender ID : " + session.message.sourceEvent.sender.id);
+                      console.log( "recipient ID : " + session.message.sourceEvent.recipient.id);
+                      console.log("Page ID" + session.message.sourceEvent.recipient.id);
                      // Send a greeting and show help.  
                      var card = new builder.HeroCard(session)            
                      .title("Verizon Bot ")            
