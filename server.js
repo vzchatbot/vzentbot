@@ -35,6 +35,7 @@ bot.dialog('/', [
     function (session) {
         console.log("hi");
         console.log(session);
+        console.log(JSON.stringify(session)); 
         session.send("Hi... Welcome to the Verizon, How can we help??");
         //session.beginDialog('/startsession');
     }
