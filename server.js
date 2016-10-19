@@ -41,7 +41,13 @@ bot.dialog('/', [
         //session.send('Hi, Welcome to the Verizon, How can we help??');
        // console.log(JSON.stringify(session)); 
        //session.send('Ok... Changed your name to %s', session.userData.name);
-        session.beginDialog('/startsession');
+        //session.beginDialog('/startsession');
+         var senderID = session.sender.id;
+  var recipientID = session.recipient.id;
+  var timeOfMessage = session.timestamp;
+  var message = session.message;
+                console.log("Received message for user %d and page %d at %d with message:", 
+    senderID, recipientID, timeOfMessage);
     }
 ]);
 
@@ -52,10 +58,18 @@ bot.dialog('/startsession', [
                     {
                         sessionId: '94642ab5-31b3-4eac-aa1f-d4ef57284007'
                     } 
-                console.log("inside startsession");
-                var request = app.textRequest(session.message.text, options);   
-                request.on('response', function (response) 
-                {        
+                  var senderID = session.sender.id;
+  var recipientID = session.recipient.id;
+  var timeOfMessage = session.timestamp;
+  var message = session.message;
+                console.log("Received message for user %d and page %d at %d with message:", 
+    senderID, recipientID, timeOfMessage);
+
+  
+  //              console.log("inside startsession");
+    //            var request = app.textRequest(session.message.text, options);   
+      //          request.on('response', function (response) 
+        //        {        
                    /* var intent = response.result.action;
                     //console.log(JSON.stringify(response));     
                     session.send(response.result.fulfillment.speech);   
@@ -70,15 +84,15 @@ bot.dialog('/startsession', [
                     
                     session.send(msg);   */
                     
-                    var actualFBMessage={"attachment":{"type":"template","payload":{"template_type":"generic","elements":[{"title":"Login to Verizon","image_url":"https://www.verizon.com/cs/groups/public/documents/adacct/vzlogo_lg.png","buttons":[{"type":"account_link","url":"https://www98.verizon.com/foryourhome/myaccount/ngen/upr/bots/preauth.html"}]}]}}};
-                    var datResponse={"speech":"Sign in ","data":{"facebook": actualFBMessage},"contextOut":[{"name":"sigin", "lifespan":2, "parameters":{"type":"signin"}}],"source":"apiaiwebhook"};
-                    session.send(datResponse);
-                });  
-                request.on('error', function (error)
-                {
-                   console.log(error);  
-                }); 
-                request.end();
+                    //var actualFBMessage={"attachment":{"type":"template","payload":{"template_type":"generic","elements":[{"title":"Login to Verizon","image_url":"https://www.verizon.com/cs/groups/public/documents/adacct/vzlogo_lg.png","buttons":[{"type":"account_link","url":"https://www98.verizon.com/foryourhome/myaccount/ngen/upr/bots/preauth.html"}]}]}}};
+                    //var datResponse={"speech":"Sign in ","data":{"facebook": actualFBMessage},"contextOut":[{"name":"sigin", "lifespan":2, "parameters":{"type":"signin"}}],"source":"apiaiwebhook"};
+                    //session.send(datResponse);
+          //      });  
+            //    request.on('error', function (error)
+              //  {
+                //   console.log(error);  
+                //}); 
+               // request.end();
            }
 ]);
 
