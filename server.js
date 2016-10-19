@@ -33,13 +33,13 @@ bot.endConversationAction('goodbye', 'Goodbye :)', { matches: /^goodbye/i });
 
 bot.dialog('/', [
     function (session) {
-        console.log("hi");
-        console.log(session.user.name);
-        console.log(session);
-        session.send('Hi, Welcome to the Verizon, How can we help??');
+        //console.log("hi");
+        //console.log(session.user.name);
+        //console.log(session);
+        //session.send('Hi, Welcome to the Verizon, How can we help??');
        // console.log(JSON.stringify(session)); 
-                    //session.send('Ok... Changed your name to %s', session.userData.name);
-        //session.beginDialog('/startsession');
+       //session.send('Ok... Changed your name to %s', session.userData.name);
+        session.beginDialog('/startsession');
     }
 ]);
 
@@ -55,14 +55,16 @@ bot.dialog('/startsession', [
                 request.on('response', function (response) 
                 {        
                     var intent = response.result.action;
-                    console.log(JSON.stringify(response));     
+                    //console.log(JSON.stringify(response));     
                     session.send(response.result.fulfillment.speech);   
+                    console.log(response.result.fulfillment.data);
                     console.log(response.result.fulfillment.data.facebook.attachment);
+                    
                     var msg = new builder.Message(session).sourceEvent(
                     {
                         facebook: response.result.fulfillment.data.facebook.attachment
                     });
-                    console.log(msg); 
+                    //console.log(msg); 
                     
                     session.send(msg);   
                 });  
