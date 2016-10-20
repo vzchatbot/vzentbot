@@ -149,10 +149,10 @@ bot.dialog('/', [    function (session)
                  session.send("Ok... See you later!");    }
                 ]);
 
-bot.dialog('/menu',
+bot.dialog('/MAYBE LATER',
            [    function (session) 
             {       
-                builder.Prompts.choice(session, "What would you like to run?", "prompts|picture|cards|list|carousel|receipt|actions|(quit)");
+                builder.Prompts.choice(session, "What would you like to run?", "On later|picture|cards|Show category list|actions|(quit)");
                 console.log( "in menu"+ result.response.entity)
             },  
             function (session, results) 
