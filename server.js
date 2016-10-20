@@ -54,7 +54,7 @@ bot.dialog('/', [
         //} else {
             // The firstname has been stored so the user has completed the /getstarted dialog
             // Stop this dialog and Welcome them back
-            session.send('Welcome back');
+          //  session.send('Welcome back');
         //}
     }
 ]);
@@ -63,7 +63,7 @@ bot.dialog('/', [
 bot.dialog('/getprofile', [
     function (session) {
         console.log("=== DIALOG: GETPROFILE | STEP: 1/1 ====");
-        console.log(session);
+        //console.log(session);
         // Store the returned user page-scoped id (USER_ID) and page id
         session.userData.userid = session.message.sourceEvent.sender.id;
         session.userData.pageid = session.message.sourceEvent.recipient.id;
@@ -72,10 +72,10 @@ bot.dialog('/getprofile', [
         console.log(session.userData.pageid);
 
         // Let the user know we are 'working'
-        session.sendTyping();
+        //session.sendTyping();
         // Get the users profile information from FB
         request({
-            url: 'https://graph.facebook.com/v2.6/'+ session.userData.userid +'?fields=first_name,last_name,profile_pic,locale,location,email,timezone,gender',
+            url: 'https://graph.facebook.com/v2.6/'+ session.userData.userid +'?fields=first_name,last_name,profile_pic,locale,timezone,gender',
             qs: { access_token: 'EAAZA7BXIxv6IBAFBtCK9KWGd1Jxd3QxAZAkv2C5Pxst32398Porj49cvtFPvi4ElLikPFewaFkYASW8iypqafgQa5jZBVMpHrhMwx5pOHZBN9Its71UlhWTawpWZC0onXiZBSr6GiAahYD65psujylXzqKw2IL9uclE4IZAXxInMQZDZD' },
             method: 'GET'
         }, function(error, response, body) {
@@ -89,16 +89,16 @@ bot.dialog('/getprofile', [
                 session.dialogData.locale = body.locale;
                 session.dialogData.timezone = body.timezone;
                 session.dialogData.gender = body.gender;
-                session.dialogData.email = body.email;
-                session.dialogData.location = body.location;
+                //session.dialogData.email = body.email;
+                //session.dialogData.location = body.location;
                 // Return to /getstarted
            
                 console.log("Gender " + body.gender);
                 console.log("Locale " + body.locale);
                 console.log("Last Name " + body.last_name);
                 console.log("First Name " + body.first_name);
-                console.log("Location " + body.location);
-                console.log("Email " + body.email);
+                //console.log("Location " + body.location);
+                //console.log("Email " + body.email);
                 session.endDialogWithResult({ response: session.dialogData });
             } else {
                 // TODO: Handle errors
