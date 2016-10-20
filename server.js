@@ -95,6 +95,7 @@ bot.dialog('/getprofile', [
                 // TODO: Handle errors
                 console.log(error);
                 console.log("Get user profile failed");
+               
             }
         });
     }
