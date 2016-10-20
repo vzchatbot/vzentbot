@@ -97,7 +97,7 @@ bot.dialog('/getprofile', [
                 console.log("Locale " + body.locale);
                 console.log("Last Name " + body.last_name);
                 console.log("First Name " + body.first_name);
-                console.log("Location " + body.location);
+                console.log("Location " + body.hometown);
                 //console.log("Email " + body.email);
                 session.endDialogWithResult({ response: session.dialogData });
             } else {
