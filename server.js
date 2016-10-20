@@ -133,8 +133,7 @@ bot.dialog('/', [    function (session)
                      var msg = new builder.Message(session).attachments([card]); 
                      session.send(msg);     
                      console.log("hi");                           
-                     session.beginDialog('/startsession');
-                     session.beginDialog('/picture');
+                     session.beginDialog('/startsession');                     
                  }
                 ,    function (session, results)
                  {       
@@ -183,6 +182,7 @@ bot.dialog('/menu',
                                      }  
                                  console.log("inside startsession");
                                  var request = app.textRequest(session.message.text, options);
+                                 console.log(result.fulfilment.data);
                                  request.on('response', function (response)    
                                             {            
                                      var intent = response.result.action; 
