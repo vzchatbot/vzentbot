@@ -35,16 +35,68 @@ bot.endConversationAction('goodbye', 'Goodbye :)', { matches: /^goodbye/i });
 
 bot.dialog('/', [
     function (session) {
-        //console.log("hi");
-        //console.log(session.user.name);
-        //console.log(session);
-        //session.send('Hi, Welcome to the Verizon, How can we help??');
-       // console.log(JSON.stringify(session)); 
-       //session.send('Ok... Changed your name to %s', session.userData.name);
-        //session.beginDialog('/startsession');
-       var welcome = require('./modules/fbgraph.js');
-       var results=     welcome.getFacebookInfo('EAAZA7BXIxv6IBALThAuzTqAvPgAsbCC6dZCe7Lam35TrtwISCpyDZCMSgc24ZBPRWlUIzUa8x1lZAc14TKSsSLu5NpLzRfy8sA59y6oKCIArnZCsKHhMtH0AFabvfAIDXQZBQ58PrO3uS4cZAm7t4l8eRUv2u0XzQdJMLUHjtJ5MxgZDZD');
-       console.log(results);
+        
+        console.log("=== DIALOG: GETSTARTED | STEP: 1/4 ====");
+
+        console.log(session.userData);
+        // Let the user know we are 'working'
+        session.sendTyping();
+        if( !session.userData.firstRun ) {
+            // Store the returned user page-scoped id (USER_ID) and page id
+            session.userData.userid = session.message.sourceEvent.sender.id;
+            session.userData.pageid = session.message.sourceEvent.recipient.id;
+
+            // DELAY ISN'T THE REQUEST - I THINK IT'S THE INITIAL REQUEST TO BOTFRAMEWORK
+
+            // Move to the /getprofile dialog
+            session.beginDialog('/getprofile');
+        } else {
+            // The firstname has been stored so the user has completed the /getstarted dialog
+            // Stop this dialog and Welcome them back
+            session.send('Welcome back');
+        }
+    }
+]);
+
+// Get users profile
+bot.dialog('/getprofile', [
+    function (session) {
+        console.log("=== DIALOG: GETPROFILE | STEP: 1/1 ====");
+        console.log(session);
+        // Store the returned user page-scoped id (USER_ID) and page id
+        session.userData.userid = session.message.sourceEvent.sender.id;
+        session.userData.pageid = session.message.sourceEvent.recipient.id;
+        
+        console.log(session.userData.userid);
+        console.log(session.userData.pageid);
+
+        // Let the user know we are 'working'
+        session.sendTyping();
+        // Get the users profile information from FB
+        request({
+            url: 'https://graph.facebook.com/v2.6/'+ session.userData.userid +'?fields=first_name,last_name,profile_pic,locale,timezone,gender',
+            qs: { access_token: 'EAAZA7BXIxv6IBAFBtCK9KWGd1Jxd3QxAZAkv2C5Pxst32398Porj49cvtFPvi4ElLikPFewaFkYASW8iypqafgQa5jZBVMpHrhMwx5pOHZBN9Its71UlhWTawpWZC0onXiZBSr6GiAahYD65psujylXzqKw2IL9uclE4IZAXxInMQZDZD' },
+            method: 'GET'
+        }, function(error, response, body) {
+            if (!error && response.statusCode == 200) {
+                // Parse the JSON returned from FB
+                body = JSON.parse(body);
+                // Save profile to userData
+                session.dialogData.firstname = body.first_name;
+                session.dialogData.lastname = body.last_name;
+                session.dialogData.profilepic = body.profile_pic;
+                session.dialogData.locale = body.locale;
+                session.dialogData.timezone = body.timezone;
+                session.dialogData.gender = body.gender;
+                // Return to /getstarted
+            //    session.endDialogWithResult({ response: session.dialogData });
+                console.log(body.gender);
+            } else {
+                // TODO: Handle errors
+                console.log(error);
+                console.log("Get user profile failed");
+            }
+        });
     }
 ]);
 
