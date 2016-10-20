@@ -75,7 +75,7 @@ bot.dialog('/getprofile', [
         //session.sendTyping();
         // Get the users profile information from FB
         request({
-            url: 'https://graph.facebook.com/v2.8/'+ session.userData.userid +'?fields=first_name,last_name,profile_pic,locale,timezone,gender,hometown',
+            url: 'https://graph.facebook.com/v2.8/'+ session.userData.userid +'?fields=first_name,last_name,profile_pic,locale,timezone,gender',
             qs: { access_token: 'EAAZA7BXIxv6IBAF0ce1LuQUZBqepPjBbTnFYcQ9jBITFpFEtoGi3H2kAcBAvT1eTV3BNERepLnpQzexlyIFEmvMrZCBOaROeJgBIlkcGCxwkVtDF92o5ZAvMbBm09ObPxO5opABmcZAZCdD3sp4WwUzh08JU5ZApiQXVBUQWoQhqQZDZD' },
             method: 'GET'
         }, function(error, response, body) {
@@ -89,7 +89,7 @@ bot.dialog('/getprofile', [
                 session.dialogData.locale = body.locale;
                 session.dialogData.timezone = body.timezone;
                 session.dialogData.gender = body.gender;
-                session.dialogData.hometown = body.hometown;
+                //session.dialogData.hometown = body.hometown;
                 //session.dialogData.location = body.location;
                 // Return to /getstarted
            
@@ -97,7 +97,7 @@ bot.dialog('/getprofile', [
                 console.log("Locale " + body.locale);
                 console.log("Last Name " + body.last_name);
                 console.log("First Name " + body.first_name);
-                console.log("Location " + body.hometown);
+                //console.log("Location " + body.hometown);
                 //console.log("Email " + body.email);
                 session.endDialogWithResult({ response: session.dialogData });
             } else {
