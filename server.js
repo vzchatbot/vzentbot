@@ -100,6 +100,7 @@ bot.dialog('/getprofile', [
     }
 ]);
 
+/*
 bot.dialog('/picture', [
     function (session) {
         session.send("You can easily send pictures ...");
@@ -111,7 +112,7 @@ bot.dialog('/picture', [
         session.endDialog(msg);
     }
 ]);
-
+*/
 
 //=========================================================
 // Bots Dialogs
@@ -133,7 +134,8 @@ bot.dialog('/', [    function (session)
                      var msg = new builder.Message(session).attachments([card]); 
                      session.send(msg);     
                      console.log("hi");                           
-                     session.beginDialog('/startsession');                     
+                     session.beginDialog('/startsession'); 
+                     session.beginDialog('/menu');
                  }
                 ,    function (session, results)
                  {       
@@ -149,7 +151,7 @@ bot.dialog('/', [    function (session)
 bot.dialog('/menu',
            [    function (session) 
             {       
-                builder.Prompts.choice(session, "What demo would you like to run?", "prompts|picture|cards|list|carousel|receipt|actions|(quit)");
+                builder.Prompts.choice(session, "What would you like to run?", "prompts|picture|cards|list|carousel|receipt|actions|(quit)");
                 console.log( "in menu"+ result.response.entity)
             },  
             function (session, results) 
@@ -182,7 +184,7 @@ bot.dialog('/menu',
                                      }  
                                  console.log("inside startsession");
                                  var request = app.textRequest(session.message.text, options);
-                                 console.log(result.fulfilment.data);
+                               //  console.log(result.fulfilment.data);
                                  request.on('response', function (response)    
                                             {            
                                      var intent = response.result.action; 
