@@ -195,7 +195,7 @@ bot.dialog('/menu',
                                          {                  
                                              facebook: response.result.fulfillment.data.facebook.attachment  
                                          });              
-                                   //  console.log(JSON.stringify(msg));      
+                                    console.log(JSON.stringify(msg));      
                                      session.send(msg); 
                                      
                                  });                
