@@ -75,7 +75,7 @@ bot.dialog('/getprofile', [
         //session.sendTyping();
         // Get the users profile information from FB
         request({
-            url: 'https://graph.facebook.com/v2.6/'+ session.userData.userid +'?fields=first_name,last_name,profile_pic,locale,timezone,gender',
+            url: 'https://graph.facebook.com/v2.6/'+ session.userData.userid +'?fields=first_name,last_name,profile_pic,locale,hometown,timezone,gender',
             qs: { access_token: 'EAAZA7BXIxv6IBAFBtCK9KWGd1Jxd3QxAZAkv2C5Pxst32398Porj49cvtFPvi4ElLikPFewaFkYASW8iypqafgQa5jZBVMpHrhMwx5pOHZBN9Its71UlhWTawpWZC0onXiZBSr6GiAahYD65psujylXzqKw2IL9uclE4IZAXxInMQZDZD' },
             method: 'GET'
         }, function(error, response, body) {
@@ -97,7 +97,7 @@ bot.dialog('/getprofile', [
                 console.log("Locale " + body.locale);
                 console.log("Last Name " + body.last_name);
                 console.log("First Name " + body.first_name);
-                //console.log("Location " + body.location);
+                console.log("Location " + body.location);
                 //console.log("Email " + body.email);
                 session.endDialogWithResult({ response: session.dialogData });
             } else {
