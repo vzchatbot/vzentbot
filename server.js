@@ -134,7 +134,7 @@ bot.dialog('/', [    function (session)
                      var msg = new builder.Message(session).attachments([card]); 
                      session.send(msg);     
                      console.log("hi"); 
-                     console.log("msg :" + JSON.stringify(msg));
+                    // console.log("msg :" + JSON.stringify(msg));
                      session.beginDialog('/startsession'); 
                     // session.beginDialog('/menu');
                  }
@@ -189,7 +189,7 @@ bot.dialog('/menu',
                                  request.on('response', function (response)    
                                             {            
                                      var intent = response.result.action; 
-                                    // console.log(JSON.stringify(response)); 
+                                     console.log(JSON.stringify(response)); 
                                      session.send(response.result.fulfillment.speech); 
                                      var msg = new builder.Message(session).sourceEvent(  
                                          {                  
