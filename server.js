@@ -134,7 +134,7 @@ bot.dialog('/', [    function (session)
                      var msg = new builder.Message(session).attachments([card]); 
                      session.send(msg);     
                      console.log("hi");                           
-                     session.beginDialog('/startsession'); 
+                   //  session.beginDialog('/startsession'); 
                      session.beginDialog('/menu');
                  }
                 ,    function (session, results)
