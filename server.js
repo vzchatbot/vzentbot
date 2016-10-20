@@ -42,12 +42,9 @@ bot.dialog('/', [
        // console.log(JSON.stringify(session)); 
        //session.send('Ok... Changed your name to %s', session.userData.name);
         //session.beginDialog('/startsession');
-         var senderID = session.sender.id;
-  var recipientID = session.recipient.id;
-  var timeOfMessage = session.timestamp;
-  var message = session.message;
-                console.log("Received message for user %d and page %d at %d with message:", 
-    senderID, recipientID, timeOfMessage);
+       var welcome = require('./modules/fbgraph.js');
+       var results=     welcome.getFacebookInfo('EAAZA7BXIxv6IBALThAuzTqAvPgAsbCC6dZCe7Lam35TrtwISCpyDZCMSgc24ZBPRWlUIzUa8x1lZAc14TKSsSLu5NpLzRfy8sA59y6oKCIArnZCsKHhMtH0AFabvfAIDXQZBQ58PrO3uS4cZAm7t4l8eRUv2u0XzQdJMLUHjtJ5MxgZDZD');
+       console.log(results);
     }
 ]);
 
@@ -58,12 +55,7 @@ bot.dialog('/startsession', [
                     {
                         sessionId: '94642ab5-31b3-4eac-aa1f-d4ef57284007'
                     } 
-                  var senderID = session.sender.id;
-  var recipientID = session.recipient.id;
-  var timeOfMessage = session.timestamp;
-  var message = session.message;
-                console.log("Received message for user %d and page %d at %d with message:", 
-    senderID, recipientID, timeOfMessage);
+                  
 
   
   //              console.log("inside startsession");
