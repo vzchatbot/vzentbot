@@ -21,7 +21,92 @@ var connector = new builder.ChatConnector({
 var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
 
-// New =============
+// common dialog =============
+//***************************
+var router = express.Router();
+var headersInfo = { "Content-Type": "application/json" };
+var args = {
+    "headers": headersInfo
+};
+
+router.post('/webhook', function (req, res) {
+
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+
+    var action = req.body.result.action;
+    var mysource = req.body.result.source;
+
+    switch (action) {
+        case "welcome":
+            var welcome = require('./modules/welcome.js').Welcome;
+            welcome.doWelcome(req, res);
+
+
+            break;
+        case "getStarted":
+
+            var getstarted = require('./modules/getStarted.js').getStarted;
+            getstarted.dogetStarted(req, res);
+           
+            break;
+        case "LinkOptions":
+
+            var linkOptions = require('./modules/LinkOptions.js').LinkOptions;
+            linkOptions.doLinkOptions(req, res);
+
+            break;
+        case "MoreOptions":
+
+            var moreOptions = require('./modules/MoreOptions.js').MoreOptions;
+            moreOptions.doMoreOptions(req, res);
+
+            break;
+        case "Billing":
+
+            var billing = require('./modules/MoreOptions.js').Billing;
+            billing.doBilling(req, res,);
+
+            STBList(req, function (str) { res.json(STBListCallBack(str)); });
+
+            break;
+      
+        case "stblist":
+            getstblist(req, function (subflow) { res.json(subflow); });
+            break;
+        case "upsell":
+            res.json(upsell(req));
+            break;
+        case "upgradeDVR":
+            res.json(upgradeDVR(req));
+            break;
+        case "stgexternalcall":
+            recommendTVStg(function (str) { res.json(recommendTVNew1(str)); });
+            break;
+        case "Trending":
+            recommendTVNew('Trending', function (str) { res.json(recommendTVNew1(str)); });
+            break;
+        case "recommendation":
+            recommendTVNew('whatshot', function (str) { res.json(recommendTVNew1(str)); });
+            break;
+        case "channelsearch":
+            ChnlSearch(req, function (str) { res.json(ChnlSearchCallback(str)); });
+            break;
+        case "programSearchdummy":
+            res.json(programSearch(req));
+            break;
+        case "programSearch":
+            PgmSearch(req, function (str) { res.json(PgmSearchCallback(str)); });
+            break;
+        case "recordnew":
+            var record = require('./modules/record/record.js').Record;
+            record.doRecord(req, res);
+        default:
+            res.json(recommendTV());
+    }
+});
+
+//===========================
 // Typing Indicator
 bot.dialog('/countItems', function (session, args) {
     session.sendTyping();
