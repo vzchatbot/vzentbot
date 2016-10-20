@@ -152,7 +152,7 @@ bot.dialog('/', [    function (session)
 bot.dialog('/menu',
            [    function (session) 
             {       
-                builder.Prompts.choice(session, "What would you like to run?", "On later|picture|cards|Show category list|actions|(quit)");
+                builder.Prompts.choice(session, "What would you like to run?", "picture|cards|actions|(quit)");
                 console.log( "in menu"+ result.response.entity)
             },  
             function (session, results) 
