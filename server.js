@@ -111,7 +111,7 @@ bot.dialog('/', [    function (session)
                   //   console.log( "recipient ID : " + session.message.sourceEvent.recipient.id);
                   //  console.log("Page ID" + session.message.sourceEvent.recipient.id);
                 
-                      console.log("Strat chat");
+                      //console.log("Strat chat");
                      // Send a greeting and show help.  
                      var card = new builder.HeroCard(session)            
                      .title("Verizon Bot ")            
