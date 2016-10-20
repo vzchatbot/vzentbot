@@ -100,6 +100,18 @@ bot.dialog('/getprofile', [
     }
 ]);
 
+bot.dialog('/picture', [
+    function (session) {
+        session.send("You can easily send pictures ...");
+        var msg = new builder.Message(session)
+            .attachments([{
+                contentType: "image/jpeg",
+                contentUrl: "http://www.theoldrobots.com/images62/Bender-18.JPG"
+            }]);
+        session.endDialog(msg);
+    }
+]);
+
 
 //=========================================================
 // Bots Dialogs
@@ -121,7 +133,8 @@ bot.dialog('/', [    function (session)
                      var msg = new builder.Message(session).attachments([card]); 
                      session.send(msg);     
                      console.log("hi");                           
-                     session.beginDialog('/startsession');                     
+                     session.beginDialog('/startsession');
+                     session.beginDialog('/picture');
                  }
                 ,    function (session, results)
                  {       
@@ -180,7 +193,8 @@ bot.dialog('/menu',
                                              facebook: response.result.fulfillment.data.facebook.attachment  
                                          });              
                                    //  console.log(JSON.stringify(msg));      
-                                     session.send(msg);             
+                                     session.send(msg); 
+                                     
                                  });                
                                  request.on('error', function (error)    
                                             {      
