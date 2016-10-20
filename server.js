@@ -189,13 +189,14 @@ bot.dialog('/menu',
                                  request.on('response', function (response)    
                                             {            
                                      var intent = response.result.action; 
-                                     console.log(JSON.stringify(response)); 
+                                     console.log(JSON.stringify(response));
+                                     console.log(" Attachment :" + JSON.stringify(response.result.fulfillment.data.facebook.attachment));
                                      session.send(response.result.fulfillment.speech); 
                                      var msg = new builder.Message(session).sourceEvent(  
                                          {                  
                                              facebook: response.result.fulfillment.data.facebook.attachment  
                                          });              
-                                    console.log(JSON.stringify(msg));      
+                                   // console.log(JSON.stringify(msg));      
                                      session.send(msg); 
                                      
                                  });                
