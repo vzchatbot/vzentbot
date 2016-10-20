@@ -39,10 +39,10 @@ bot.dialog('/', [
         
         console.log("=== DIALOG: GETSTARTED | STEP: 1/4 ====");
 
-        console.log(session.userData);
+        //console.log(session.userData);
         // Let the user know we are 'working'
-        session.sendTyping();
-        if( !session.userData.firstRun ) {
+        //session.sendTyping();
+        //if( !session.userData.firstRun ) {
             // Store the returned user page-scoped id (USER_ID) and page id
             session.userData.userid = session.message.sourceEvent.sender.id;
             session.userData.pageid = session.message.sourceEvent.recipient.id;
@@ -51,11 +51,11 @@ bot.dialog('/', [
 
             // Move to the /getprofile dialog
             session.beginDialog('/getprofile');
-        } else {
+        //} else {
             // The firstname has been stored so the user has completed the /getstarted dialog
             // Stop this dialog and Welcome them back
             session.send('Welcome back');
-        }
+        //}
     }
 ]);
 
@@ -92,13 +92,14 @@ bot.dialog('/getprofile', [
                 session.dialogData.email = body.email;
                 session.dialogData.location = body.location;
                 // Return to /getstarted
-            //    session.endDialogWithResult({ response: session.dialogData });
+           
                 console.log("Gender " + body.gender);
                 console.log("Locale " + body.locale);
                 console.log("Last Name " + body.last_name);
                 console.log("First Name " + body.first_name);
                 console.log("Location " + body.location);
                 console.log("Email " + body.email);
+                session.endDialogWithResult({ response: session.dialogData });
             } else {
                 // TODO: Handle errors
                 console.log(error);
