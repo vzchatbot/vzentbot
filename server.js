@@ -135,21 +135,24 @@ bot.dialog('/menu',
                                      console.log(" Attachment value :" + JSON.stringify(response.result.fulfillment.data));
                                      console.log(" text value :" + JSON.stringify(response.result.fulfillment.data.facebook.attachment.payload.text));
                                      console.log(" speech value :" + JSON.stringify(response.result.fulfillment.speech));
-                                     var text1= JSON.stringify(response.result.fulfillment.data.facebook.attachment.payload.text);
-                                     console.log('Text1 value'+ text1);
+                                     var text1= response.result.fulfillment.data.facebook.attachment.payload.text;
+                                     console.log('Text1 value'+ JSON.stringify(text1));
                                      //session.send(response.result.fulfillment.speech); 
+                                     
+                                      if (text1 == "" || text1 == undefined) 
+                                      {
                                      var msg = new builder.Message(session).sourceEvent(  
+                                         {                                           
+                                              facebook: response.result.fulfillment.data.facebook.attachment.payload //for speech                                         
+                                           });                                          
+                                         else 
+                                         var msg = new builder.Message(session).sourceEvent(  
                                          {     
-                                           // facebook: response.result.fulfillment.data.facebook 
-                                           if (text1 == "" || text1 == undefined)                                            
-                                                 facebook: response.result.fulfillment.data.facebook.attachment.payload //for speech                                            
-                                             
-                                            else
-                                             
-                                                 facebook: response.result.fulfillment.data.facebook // for text
-                                            
+                                           // facebook: response.result.fulfillment.data.facebook                                                                                      
+                                                    facebook: response.result.fulfillment.data.facebook // for text                                                                                  
+                                         } );                
                                             // facebook: response.result.fulfillment.data.facebook.attachment.payload.buttons 
-                                         });              
+                                         }
                                    // console.log(JSON.stringify(msg));      
                                      session.send(msg); 
                                      
