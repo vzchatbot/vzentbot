@@ -141,14 +141,13 @@ bot.dialog('/menu',
                                      var msg = new builder.Message(session).sourceEvent(  
                                          {     
                                            // facebook: response.result.fulfillment.data.facebook 
-                                             if(!text1.trim())
-                                             {
-                                                 facebook: response.result.fulfillment.data.facebook.attachment.payload //for speech                                               
-                                             }
-                                             else
-                                             {
+                                           if (text1 == "" || text1 == undefined)                                            
+                                                 facebook: response.result.fulfillment.data.facebook.attachment.payload //for speech                                            
+                                             
+                                            else
+                                             
                                                  facebook: response.result.fulfillment.data.facebook // for text
-                                             }
+                                            
                                             // facebook: response.result.fulfillment.data.facebook.attachment.payload.buttons 
                                          });              
                                    // console.log(JSON.stringify(msg));      
