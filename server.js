@@ -141,7 +141,7 @@ bot.dialog('/menu',
                                      var msg = new builder.Message(session).sourceEvent(  
                                          {     
                                            // facebook: response.result.fulfillment.data.facebook 
-                                             if(typeof text1 !== 'undefined' && text1 !== null )
+                                             if(text1 !== 'undefined' && text1 !== null )
                                              {
                                                 facebook: response.result.fulfillment.data.facebook // for text
                                              }
