@@ -136,8 +136,8 @@ bot.dialog('/menu',
                                      //session.send(response.result.fulfillment.speech); 
                                      var msg = new builder.Message(session).sourceEvent(  
                                          {     
-                                             console.log(facebook: response.result.fulfillment.data.facebook.attachment.payload.text);
-                                             if(facebook: response.result.fulfillment.data.facebook.attachment.payload.text == '')
+                                             console.log(response.result.fulfillment.data.facebook.attachment.payload.text);
+                                             if(response.result.fulfillment.data.facebook.attachment.payload.text == '')
                                              {
                                                 facebook: response.result.fulfillment.data.facebook // for text
                                              }
