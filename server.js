@@ -137,15 +137,15 @@ bot.dialog('/menu',
                                      //session.send(response.result.fulfillment.speech); 
                                      var msg = new builder.Message(session).sourceEvent(  
                                          {     
-                                            // console.log(response.result.fulfillment.data.facebook.attachment.payload.text);
-                                             if(text1 == '')
-                                             {
-                                                facebook: response.result.fulfillment.data.facebook // for text
-                                             }
-                                             else
-                                             {
-                                                facebook: response.result.fulfillment.data.facebook.attachment.payload //for speech
-                                             }
+                                            facebook: response.result.fulfillment.data.facebook 
+                                            // if(text1 != undefined || text1 != null || text1 !='' )
+                                            // {
+                                            //    facebook: response.result.fulfillment.data.facebook // for text
+                                           //  }
+                                           //  else
+                                           //  {
+                                              //  facebook: response.result.fulfillment.data.facebook.attachment.payload //for speech
+                                          //   }
                                             // facebook: response.result.fulfillment.data.facebook.attachment.payload.buttons 
                                          });              
                                    // console.log(JSON.stringify(msg));      
