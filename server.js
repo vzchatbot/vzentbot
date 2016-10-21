@@ -133,10 +133,10 @@ bot.dialog('/menu',
                                      var intent = response.result.action; 
                                      console.log(JSON.stringify(response));
                                      console.log(" Attachment :" + JSON.stringify(response.result.fulfillment.data.facebook.attachment.payload.buttons));
-                                     session.send(response.result.fulfillment.speech); 
+                                     //session.send(response.result.fulfillment.speech); 
                                      var msg = new builder.Message(session).sourceEvent(  
                                          {                  
-                                             facebook: response.result.fulfillment.data.facebook.attachment
+                                             facebook: response.result.fulfillment.data.facebook
                                             // facebook: response.result.fulfillment.data.facebook.attachment.payload.buttons 
                                          });              
                                    // console.log(JSON.stringify(msg));      
