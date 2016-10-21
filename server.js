@@ -27,14 +27,14 @@ server.post('/api/messages', connector.listen());
 // Bots Global Actions
 //=========================================================
 
-bot.beginDialog('/startsession');
+//bot.beginDialog('/startsession');
 bot.endConversationAction('goodbye', 'Goodbye :)', { matches: /^goodbye/i });
 
 //=========================================================
 // Bots Dialogs
 //=========================================================
 
-bot.dialog('/startsession', [
+bot.dialog('/', [
     function (session) {
         
         console.log("=== DIALOG: New Session Started ====");
