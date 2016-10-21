@@ -8,8 +8,6 @@ var request = require('request');
 // Bot Setup
 //=========================================================
 
-
-
 // Setup Restify Server
 var server = restify.createServer();
 server.listen(process.env.port || process.env.PORT || 3978, function () {
@@ -21,6 +19,7 @@ var connector = new builder.ChatConnector({
     appId: '4f5df286-2591-477d-af7d-547dd13a0156',
     appPassword: 'oTwfDnKyx1gCwiQoP53k2oC'
 });
+
 var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
 
@@ -28,38 +27,42 @@ server.post('/api/messages', connector.listen());
 // Bots Global Actions
 //=========================================================
 
+bot.beginDialogAction('Get Started', '/startsession');
 bot.endConversationAction('goodbye', 'Goodbye :)', { matches: /^goodbye/i });
 
 //=========================================================
 // Bots Dialogs
 //=========================================================
 
-bot.dialog('/', [
+bot.dialog('/startsession', [
     function (session) {
         
-        console.log("=== DIALOG: GETSTARTED | STEP: 1/4 ====");
-
-        //console.log(session.userData);
-        // Let the user know we are 'working'
-        //session.sendTyping();
-        //if( !session.userData.firstRun ) {
+        console.log("=== DIALOG: New Session Started ====");
+        
+        if( !session.userData.firstRun ) {
             // Store the returned user page-scoped id (USER_ID) and page id
             session.userData.userid = session.message.sourceEvent.sender.id;
             session.userData.pageid = session.message.sourceEvent.recipient.id;
 
             // DELAY ISN'T THE REQUEST - I THINK IT'S THE INITIAL REQUEST TO BOTFRAMEWORK
-
             // Move to the /getprofile dialog
             session.beginDialog('/getprofile');
-        //} else {
+            session.replaceDialog('/afterprofilecall');
+            
+        } else {
             // The firstname has been stored so the user has completed the /getstarted dialog
             // Stop this dialog and Welcome them back
-          //  session.send('Welcome back');
-        //}
+            console.log("Welcome Back User");
+            console.log("Gender " + session.dialogData.gender);
+            console.log("Locale " + session.dialogData.locale);
+            console.log("Last Name " + session.dialogData.lastname);
+            console.log("First Name " + session.dialogData.firstname);
+            session.send('Welcome back');
+        }
     }
 ]);
 
-// Get users profile
+// Get facebook users profile
 bot.dialog('/getprofile', [
     function (session) {
         console.log("=== DIALOG: GETPROFILE | STEP: 1/1 ====");
@@ -68,8 +71,8 @@ bot.dialog('/getprofile', [
         session.userData.userid = session.message.sourceEvent.sender.id;
         session.userData.pageid = session.message.sourceEvent.recipient.id;
         
-        console.log(session.userData.userid);
-        console.log(session.userData.pageid);
+        console.log("FB User ID " + session.userData.userid);
+        console.log("FB Page ID " + session.userData.pageid);
 
         // Let the user know we are 'working'
         //session.sendTyping();
@@ -89,16 +92,13 @@ bot.dialog('/getprofile', [
                 session.dialogData.locale = body.locale;
                 session.dialogData.timezone = body.timezone;
                 session.dialogData.gender = body.gender;
-                //session.dialogData.hometown = body.hometown;
-                //session.dialogData.location = body.location;
-                // Return to /getstarted
-           
+                
+                console.log("Last Name " + body.last_name);
+                console.log("First Name " + body.first_name);           
                 console.log("Gender " + body.gender);
                 console.log("Locale " + body.locale);
-                console.log("Last Name " + body.last_name);
-                console.log("First Name " + body.first_name);
-                //console.log("Location " + body.hometown);
-                //console.log("Email " + body.email);
+                
+                // Return to /startSession
                 session.endDialogWithResult({ response: session.dialogData });
             } else {
                 // TODO: Handle errors
@@ -109,51 +109,34 @@ bot.dialog('/getprofile', [
     }
 ]);
 
-bot.dialog('/startsession', [
+bot.dialog('/afterprofilecall', [
     function (session)
            { 
                 var options =
-                    {
-                        sessionId: '94642ab5-31b3-4eac-aa1f-d4ef57284007'
-                    } 
-                  
-
-  
-  //              console.log("inside startsession");
-    //            var request = app.textRequest(session.message.text, options);   
-      //          request.on('response', function (response) 
-        //        {        
-                   /* var intent = response.result.action;
+                {
+                    sessionId: '94642ab5-31b3-4eac-aa1f-d4ef57284007'
+                } 
+                console.log("Start getting information from API.AI after profile call");
+                var request = app.textRequest(session.message.text, options);   
+                request.on('response', function (response) 
+                {        
+                    var intent = response.result.action;
                     //console.log(JSON.stringify(response));     
                     session.send(response.result.fulfillment.speech);   
-                    console.log(response.result.fulfillment.data);
-                    console.log(response.result.fulfillment.data.facebook.attachment);
-                    
+
                     var msg = new builder.Message(session).sourceEvent(
                     {
-                        facebook: response.result.fulfillment.data.facebook.attachment
+                        facebook: response.result.fulfillment.data.facebook
                     });
-                    //console.log(msg); 
-                    
-                    session.send(msg);   */
-                    
-                    //var actualFBMessage={"attachment":{"type":"template","payload":{"template_type":"generic","elements":[{"title":"Login to Verizon","image_url":"https://www.verizon.com/cs/groups/public/documents/adacct/vzlogo_lg.png","buttons":[{"type":"account_link","url":"https://www98.verizon.com/foryourhome/myaccount/ngen/upr/bots/preauth.html"}]}]}}};
-                    //var datResponse={"speech":"Sign in ","data":{"facebook": actualFBMessage},"contextOut":[{"name":"sigin", "lifespan":2, "parameters":{"type":"signin"}}],"source":"apiaiwebhook"};
-                    //session.send(datResponse);
-          //      });  
-            //    request.on('error', function (error)
-              //  {
-                //   console.log(error);  
-                //}); 
-               // request.end();
-           }
-]);
 
+                    session.send(msg);
+                });  
+                request.on('error', function (error)
+                {
+                    console.log(error);  
+                }); 
 
-
-
-
-
-
-
-
+                request.end();
+           
+           } // end of function declaration
+]); // End of dialoag function
