@@ -47,8 +47,8 @@ bot.dialog('/', [
 
             // DELAY ISN'T THE REQUEST - I THINK IT'S THE INITIAL REQUEST TO BOTFRAMEWORK
             // Move to the /getprofile dialog
-            session.beginDialog('/getprofile');
-            session.replaceDialog('/afterprofilecall');
+            //session.beginDialog('/getprofile');
+            session.beginDialog('/startsession');
             
         } else {
             // The firstname has been stored so the user has completed the /getstarted dialog
@@ -110,7 +110,7 @@ bot.dialog('/getprofile', [
     }
 ]);
 
-bot.dialog('/afterprofilecall', [
+bot.dialog('/startsession', [
     function (session)
            { 
                 var options =
@@ -118,7 +118,7 @@ bot.dialog('/afterprofilecall', [
                     sessionId: '94642ab5-31b3-4eac-aa1f-d4ef57284007'
                 } 
                 console.log("Start getting information from API.AI after profile call");
-               console.log(Message Text + "session.message.text");
+               console.log("Message Text "+ session.message.text);
                 var request = app.textRequest(session.message.text, options);   
                
                 request.on('response', function (response) 
@@ -139,7 +139,16 @@ bot.dialog('/afterprofilecall', [
                     console.log(error);  
                 }); 
 
+                session.replaceDialog('/accountlink');
                 request.end();
            
            } // end of function declaration
 ]); // End of dialoag function
+
+bot.dialog('/accountlink', [
+    function (session) {
+        console.log("Account Linking function");
+        session.endDialog();
+           } // end of function declaration
+]); // End of dialoag function account link
+        
