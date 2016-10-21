@@ -141,7 +141,7 @@ bot.dialog('/menu',
                                      var msg = new builder.Message(session).sourceEvent(  
                                          {     
                                            // facebook: response.result.fulfillment.data.facebook 
-                                             if(text1 === 'undefined' && text1 === null )
+                                             if(!text1.trim())
                                              {
                                                  facebook: response.result.fulfillment.data.facebook.attachment.payload //for speech                                               
                                              }
