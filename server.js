@@ -27,7 +27,7 @@ server.post('/api/messages', connector.listen());
 // Bots Global Actions
 //=========================================================
 
-bot.beginDialogAction('Get Started', '/startsession');
+bot.beginDialog('/startsession');
 bot.endConversationAction('goodbye', 'Goodbye :)', { matches: /^goodbye/i });
 
 //=========================================================
