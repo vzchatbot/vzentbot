@@ -139,19 +139,13 @@ bot.dialog('/menu',
                                      console.log('Text1 value'+ JSON.stringify(text1));
                                      //session.send(response.result.fulfillment.speech); 
                                      
-                                      if (text1 == "" || text1 == undefined) 
-                                      {
-                                     var msg = new builder.Message(session).sourceEvent(  
-                                         {                                           
-                                              facebook: response.result.fulfillment.data.facebook.attachment.payload //for speech                                         
-                                           });                                          
+                                      if (text1 == "" || text1 == undefined) {
+                                      var msg = new builder.Message(session).sourceEvent(
+                                         facebook: response.result.fulfillment.data.facebook.attachment.payload );  //for speech                                         
                                          else 
                                          var msg = new builder.Message(session).sourceEvent(  
-                                         {     
                                            // facebook: response.result.fulfillment.data.facebook                                                                                      
-                                                    facebook: response.result.fulfillment.data.facebook // for text                                                                                  
-                                         } );                
-                                            // facebook: response.result.fulfillment.data.facebook.attachment.payload.buttons 
+                                              facebook: response.result.fulfillment.data.facebook ); // for text 
                                          }
                                    // console.log(JSON.stringify(msg));      
                                      session.send(msg); 
