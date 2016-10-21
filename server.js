@@ -1,7 +1,8 @@
 var restify = require('restify');
 var builder = require('botbuilder');
 var apiai = require('apiai');
-var app = apiai("db847b425ad44ca38e2d696d8b0750cd");
+//var app = apiai("901c05fa26b7415196db699acdc5d193"); // Prabu
+var app = apiai("db847b425ad44ca38e2d696d8b0750cd"); // Mine
 var request = require('request');
 
 //=========================================================
@@ -121,8 +122,9 @@ bot.dialog('/afterprofilecall', [
                 request.on('response', function (response) 
                 {        
                     var intent = response.result.action;
-                    //console.log(JSON.stringify(response));     
-                    session.send(response.result.fulfillment.speech);   
+                    console.log("Action " + intent);     
+                    session.send(response.result.fulfillment.speech);  
+                    
 
                     var msg = new builder.Message(session).sourceEvent(
                     {
