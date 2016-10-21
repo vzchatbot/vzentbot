@@ -135,8 +135,9 @@ bot.dialog('/menu',
                                      console.log(" Attachment :" + JSON.stringify(response.result.fulfillment.data.facebook.attachment.payload.buttons));
                                      //session.send(response.result.fulfillment.speech); 
                                      var msg = new builder.Message(session).sourceEvent(  
-                                         {                  
-                                             if(facebook: response.result.fulfillment.data.facebook.attachment == '')
+                                         {     
+                                             console.log(facebook: response.result.fulfillment.data.facebook.attachment.payload.text);
+                                             if(facebook: response.result.fulfillment.data.facebook.attachment.payload.text == '')
                                              {
                                                 facebook: response.result.fulfillment.data.facebook // for text
                                              }
