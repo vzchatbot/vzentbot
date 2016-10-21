@@ -132,8 +132,11 @@ bot.dialog('/menu',
                                             {            
                                      var intent = response.result.action; 
                                      console.log(JSON.stringify(response));
-                                     console.log(" Attachment :" + JSON.stringify(response.result.fulfillment.data.facebook.attachment.payload.text));
+                                     console.log(" Attachment value :" + JSON.stringify(response.result.fulfillment.data));
+                                     console.log(" text value :" + JSON.stringify(response.result.fulfillment.data.facebook.attachment.payload.text));
+                                     console.log(" speech value :" + JSON.stringify(response.result.fulfillment.speech));
                                      var text1= JSON.stringify(response.result.fulfillment.data.facebook.attachment.payload.text);
+                                     console.log('Text1 value'+ text1);
                                      //session.send(response.result.fulfillment.speech); 
                                      var msg = new builder.Message(session).sourceEvent(  
                                          {     
