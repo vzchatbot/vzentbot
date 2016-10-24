@@ -121,9 +121,10 @@ bot.dialog('/menu',
                 function (session)  
                              { 
                                  var options =   {sessionId: '94642ab5-31b3-4eac-aa1f-d4ef57284007'}  
-                                 console.log("inside startsession");
+                                 console.log("inside startsession");                                 
                                  var request = app.textRequest(session.message.text, options);
-                               //  console.log(result.fulfilment.data);
+                                 var text1= response.result.fulfillment.data.facebook.attachment.payload.text;
+                                 console.log(" TEXT1 :" + JSON.stringify(response.result.fulfillment.data.facebook.attachment.payload.text));
                                  request.on('response', function (response)    
                                             {            
                                      var intent = response.result.action; 
