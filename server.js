@@ -39,7 +39,7 @@ bot.dialog('/', [
     function (session) {
         
         console.log("=== DIALOG: New Session Started ====");
-        console.log("Session Info " + session.message));
+        console.log("Session Info " + session.message);
         
         if( !session.userData.firstRun ) {
             // Store the returned user page-scoped id (USER_ID) and page id
