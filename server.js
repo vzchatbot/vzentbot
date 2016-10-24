@@ -121,8 +121,9 @@ bot.dialog('/menu',
                 function (session)  
                              { 
                                  var options =   {sessionId: '94642ab5-31b3-4eac-aa1f-d4ef57284007'}  
-                                 console.log("inside startsession");                                 
+                                                          
                                  var request = app.textRequest(session.message.text, options);
+                                    console.log("inside startsession");     
                                  request.on('response', function (response)    
                                             {            
                                      var intent = response.result.action;
