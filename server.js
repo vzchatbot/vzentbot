@@ -100,11 +100,11 @@ bot.dialog('/', function (session) {
 				default:
 				    
 			   	 }
-				    }
-				var msg = new builder.Message(session).attachment(response.result.fulfillment.data.facebook.attachment
-					);
-				console.log(JSON.stringify(msg));
-				session.send(msg);
+    }
+
+				//var msg = new builder.Message(session).attachment(response.result.fulfillment.data.facebook.attachment);
+				//console.log(JSON.stringify(msg));
+				//session.send(msg);
     });
     request.on('error', function (error) {
         console.log(error);
