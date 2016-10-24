@@ -123,11 +123,11 @@ bot.dialog('/menu',
                                  var options =   {sessionId: '94642ab5-31b3-4eac-aa1f-d4ef57284007'}  
                                  console.log("inside startsession");                                 
                                  var request = app.textRequest(session.message.text, options);
-                                 var text1= response.result.fulfillment.data.facebook.attachment.payload.text;
-                                 console.log(" TEXT1 :" + JSON.stringify(response.result.fulfillment.data.facebook.attachment.payload.text));
                                  request.on('response', function (response)    
                                             {            
-                                     var intent = response.result.action; 
+                                     var intent = response.result.action;
+                                     var text1= response.result.fulfillment.data.facebook.attachment.payload.text;
+                                     console.log(" TEXT1 :" + JSON.stringify(response.result.fulfillment.data.facebook.attachment.payload.text));
                                      console.log(" Attachment value :" + JSON.stringify(response.result.fulfillment.data));
                                      console.log(" text value :" + JSON.stringify(response.result.fulfillment.data.facebook.attachment.payload.text));
                                      console.log(" speech value :" + JSON.stringify(response.result.fulfillment.speech));
