@@ -136,7 +136,7 @@ bot.dialog('/menu',
                                      var msg = new builder.Message(session).sourceEvent(  
                                          {                  
                                              //facebook: response.result.fulfillment.data.facebook // for Text
-                                             facebook: response.result.fulfillment.data.facebook.attachment.payload   //for speech
+                                             facebook: response.result.fulfillment.data.facebook.attachment.payload.buttons   //for speech
                                             // facebook: response.result.fulfillment.data.facebook.attachment.payload.buttons 
                                          });              
                                    // console.log(JSON.stringify(msg));      
