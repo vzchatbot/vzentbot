@@ -119,25 +119,23 @@ bot.dialog('/menu',
 
  bot.dialog('/startsession', [    
                 function (session)  
-                             {
-                                 var options =   
-                                     {
-                                         sessionId: '94642ab5-31b3-4eac-aa1f-d4ef57284007'
-                                     }  
+                             { 
+                                 var options =   {sessionId: '94642ab5-31b3-4eac-aa1f-d4ef57284007'}  
                                  console.log("inside startsession");
                                  var request = app.textRequest(session.message.text, options);
                                //  console.log(result.fulfilment.data);
                                  request.on('response', function (response)    
                                             {            
                                      var intent = response.result.action; 
-                                     console.log(JSON.stringify(response));
-                                     console.log(" Attachment :" + JSON.stringify(response.result.fulfillment.data.facebook.attachment.payload.buttons));
+                                     console.log(" Attachment value :" + JSON.stringify(response.result.fulfillment.data));
+                                     console.log(" text value :" + JSON.stringify(response.result.fulfillment.data.facebook.attachment.payload.text));
+                                     console.log(" speech value :" + JSON.stringify(response.result.fulfillment.speech));
                                      session.send(response.result.fulfillment.text); 
                                      var msg = new builder.Message(session).sourceEvent(  
                                          {                  
                                               facebook: response.result.fulfillment.data.facebook // for Text
-                                             //facebook: response.result.fulfillment.data.facebook.attachment.payload.buttons   //for speech
-                                            // facebook: response.result.fulfillment.data.facebook.attachment.payload.buttons 
+                                            // facebook: response.result.fulfillment.data.facebook.attachment.payload );  //for speech
+                                            // facebook: response.result.fulfillment.data.facebook ); // for text 
                                          });              
                                    // console.log(JSON.stringify(msg));      
                                      session.send(msg); 
