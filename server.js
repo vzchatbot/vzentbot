@@ -132,15 +132,15 @@ bot.dialog('/menu',
                                      console.log(" text value :" + JSON.stringify(response.result.fulfillment.data.facebook.attachment.payload.text));
                                      console.log(" speech value :" + JSON.stringify(response.result.fulfillment.speech));
                                      session.send(response.result.fulfillment.text); 
+                                      console.log(" session send text:" + JSON.stringify(response.result.fulfillment.text));
+                                      console.log(" session send speech:" + JSON.stringify(response.result.fulfillment.speech));
                                      var msg = new builder.Message(session).sourceEvent(  
                                          {                  
                                               facebook: response.result.fulfillment.data.facebook // for Text
                                             // facebook: response.result.fulfillment.data.facebook.attachment.payload );  //for speech
                                             // facebook: response.result.fulfillment.data.facebook ); // for text 
                                          });              
-                                   // console.log(JSON.stringify(msg));      
                                      session.send(msg); 
-                                     
                                  });                
                                  request.on('error', function (error)    
                                             {      
