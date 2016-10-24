@@ -118,8 +118,8 @@ bot.dialog('/startsession', [
                     sessionId: '94642ab5-31b3-4eac-aa1f-d4ef57284007'
                 } 
                 console.log("Start getting information from API.AI after profile call");
-               console.log("Message Text "+ session.message.text);
-                var request = app.textRequest(session.message.text, options);   
+                console.log("Message Text "+ session.message.text);
+               /* var request = app.textRequest(session.message.text, options);   
                
                 request.on('response', function (response) 
                 {        
@@ -137,7 +137,7 @@ bot.dialog('/startsession', [
                 request.on('error', function (error)
                 {
                     console.log(error);  
-                }); 
+                }); */
 
                 session.replaceDialog('/accountlink');
                 request.end();
