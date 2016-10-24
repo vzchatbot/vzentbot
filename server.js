@@ -142,7 +142,7 @@ bot.dialog('/menu',
                                          });
                                      session.send(msg); 
                                      }
-                                     else  (text1 !== "" || text1 !== undefined)                                  
+                                     else if (text1 !== "" || text1 !== undefined)                                  
                                      {
                                      session.send(response.result.fulfillment.text);
                                      console.log(" text value :" + JSON.stringify(response.result.fulfillment.data.facebook.attachment.payload.text));
