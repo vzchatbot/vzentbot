@@ -131,7 +131,7 @@ bot.dialog('/menu',
                                      console.log(" Attachment value :" + JSON.stringify(response.result.fulfillment.data)); 
                                      var text1= response.result.fulfillment.data.facebook.attachment.payload.text;
                                      var speech1=response.result.fulfillment.speech
-                                     if ((text1 !== "" || text1 !== undefined)) //for Text
+                                     if (text1 !== "" || text1 !== undefined) //for Text
                                      {
                                      session.send(response.result.fulfillment.text);
                                      console.log(" Text value :" + JSON.stringify(response.result.fulfillment.data.facebook.attachment.payload.text));
@@ -141,7 +141,7 @@ bot.dialog('/menu',
                                          });              
                                      session.send(msg1);
                                      }
-                                     else if ((speech1 !== "" || speech1 !== undefined)&&(text1 == "" || text1 == undefined))                                  
+                                     else if (speech1 !== "" || speech1 !== undefined)                                  
                                      {
                                      session.send(response.result.fulfillment.speech); //For speech
                                      console.log("Text values is empty and the speech value is :" + JSON.stringify(response.result.fulfillment.speech));
@@ -152,10 +152,22 @@ bot.dialog('/menu',
                                          });
                                      session.send(msg);                                   
                                      }
-                                     else if ((speech1 == "" || speech1 == undefined)&&(text1 == "" || text1 == undefined)) // text and speech empty
+                                      else if ((speech1 !== "" || speech1 !== undefined)&&(response.fulfillment.webhookUsed == "true"))                                  
+                                     {
+                                     session.send(response.result.fulfillment.speech ); //For speech
+                                     console.log("Text values is empty and the speech value is :" + JSON.stringify(response.result.fulfillment.speech));
+                                     console.log("Speech Value :" + JSON.stringify(response.result.fulfillment.speech));
+                                     var msg = new builder.Message(session).sourceEvent(
+                                         {                                      
+                                          facebook: response.result.fulfillment.speech 
+                                         });
+                                     session.send(msg);                                   
+                                     }
+                                    // else if ((speech1 == "" || speech1 == undefined)&&(text1 == "" || text1 == undefined)) // text and speech empty
+                                     else if(response.fulfillment.action =="input.unknown" || response.fulfillment.webhookUsed == "false")
                                      {
                                           var card1 = new builder.HeroCard(session)            
-                                         .title("Verizon Bot ")            
+                                         .title("Verizon Bot")            
                                          .text("Sorry...I think I may have misunderstood your last statement.")            
                                          .images([                
                                           builder.CardImage.create(session, "http://www.verizon.com/cs/groups/public/documents/adacct/vzlogo_lg.png")         
