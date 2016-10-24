@@ -40,20 +40,21 @@ bot.dialog('/', function (session) {
     request.on('response', function (response) {
         var intent = response.result.action;
         console.log(JSON.stringify(response));
-	var Finished_Status=response.result.metadata.intentId
+	var Finished_Status=response.result.fulfillment.speech
 	
-	if(Finished_Status !=="Finished")
+	if(Finished_Status !=="IntentFinished")
 	{
         	session.send(response.result.fulfillment.speech);
 	}
-	    else if(Finished_Status =="Finished")
+	    else if(Finished_Status =="IntentFinished")
 	    {
-		    var Selected_intentName=response.result.metadata.intentName
+		    var Selected_intentName=response.result.metadata.source
 		    switch (Selected_intentName) {
        				 case "welcome":
 				      	var welcome = require('./modules/welcome.js').Welcome;
            			 break;
-      				 case "getStarted":
+      				// case "getStarted":
+			    case "Program Search":
 					var getstarted = require('./modules/getStarted.js').getStarted;
 					break;
 				case "LinkOptions":
