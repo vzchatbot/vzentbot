@@ -136,23 +136,23 @@ bot.dialog('/menu',
                                      session.send(response.result.fulfillment.speech);
                                      console.log("Text values is empty and the speech value is :" + JSON.stringify(response.result.fulfillment.speech));
                                      console.log("Speech Value :" + JSON.stringify(response.result.fulfillment.speech));
-                                     var msg1 = new builder.Message(session).sourceEvent(
+                                     var msg = new builder.Message(session).sourceEvent(
                                          {                                      
                                           facebook: response.result.fulfillment.data.facebook.attachment.payload 
                                          });
-                                     session.send(msg1); 
+                                     session.send(msg); 
                                      }
                                      else  (text1 !== "" || text1 !== undefined)                                  
                                      {
                                      session.send(response.result.fulfillment.text);
                                      console.log(" text value :" + JSON.stringify(response.result.fulfillment.data.facebook.attachment.payload.text));
-                                     var msg = new builder.Message(session).sourceEvent(  
+                                     var msg1 = new builder.Message(session).sourceEvent(  
                                          {                  
                                               facebook: response.result.fulfillment.data.facebook // for Text                                        
                                          });              
-                                     session.send(msg); 
+                                     session.send(msg1); 
                                      }
-                                     else ((text1 !== "" || text1 !== undefined)&&(speech1 !== "" || speech1 !== undefined))
+                                     else 
                                      {
                                           var card1 = new builder.HeroCard(session)            
                                          .title("Verizon Bot ")            
