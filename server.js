@@ -135,7 +135,7 @@ bot.dialog('/menu',
                                             {            
                                      var intent = response.result.action; 
                                      console.log(JSON.stringify(response));
-                                     console.log("In SPEECH "));
+                                     console.log("In SPEECH ");
                                      console.log(" Attachment value :" + JSON.stringify(response.result.fulfillment.data));
                                      console.log(" text value :" + JSON.stringify(response.result.fulfillment.data.facebook.attachment.payload.text));
                                      console.log(" speech value :" + JSON.stringify(response.result.fulfillment.speech));
@@ -152,7 +152,7 @@ bot.dialog('/menu',
                                             {            
                                      var intent = response.result.action; 
                                      console.log(JSON.stringify(response));
-                                     console.log("In TEXT "));
+                                     console.log("In TEXT ");
                                      console.log(" Attachment value :" + JSON.stringify(response.result.fulfillment.data));
                                      console.log(" text value :" + JSON.stringify(response.result.fulfillment.data.facebook.attachment.payload.text));
                                      console.log(" speech value :" + JSON.stringify(response.result.fulfillment.speech));
