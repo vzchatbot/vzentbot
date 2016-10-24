@@ -117,32 +117,31 @@ bot.dialog('/menu',
                 session.replaceDialog('/menu'); 
             }]).reloadAction('reloadMenu', null, { matches: /^menu|show menu/i });
 
-
-                bot.dialog('/startsession', [    
+ bot.dialog('/startsession', [    
                 function (session)  
-                             { 
-                                var options =
+                             {
+                                 var options =   
                                      {
-                                          sessionId: '94642ab5-31b3-4eac-aa1f-d4ef57284007'
-                                        } 
-                                  console.log("inside startsession");
-                                   var request = app.textRequest(session.message.text, options);
-                                   //  console.log(result.fulfilment.data);
-                                   request.on('response', function (response)
-                                            { 
-                                     var intent = response.result.action;
+                                         sessionId: '94642ab5-31b3-4eac-aa1f-d4ef57284007'
+                                     }  
+                                 console.log("inside startsession");
+                                 var request = app.textRequest(session.message.text, options);
+                               //  console.log(result.fulfilment.data);
+                                 request.on('response', function (response)    
+                                            {            
+                                     var intent = response.result.action; 
                                      console.log(JSON.stringify(response));
-			                         console.log(" Attachment :" + JSON.stringify(response.result.fulfillment.data.facebook.attachment.payload.buttons));
+                                     console.log(" Attachment :" + JSON.stringify(response.result.fulfillment.data.facebook.attachment.payload.buttons));
                                      session.send(response.result.fulfillment.speech); 
-                                     var msg = new builder.Message(session).sourceEvent( 
-                                         {              
-                                             facebook: response.result.fulfillment.data.facebook
-                                           // facebook: response.result.fulfillment.data.facebook.attachment.payload.buttons 
-                                        });  
-   // console.log(JSON.stringify(msg));
-                                     session.send(msg);
-                                 });                                          
-                                         }                                             
+                                     var msg = new builder.Message(session).sourceEvent(  
+                                         {                  
+                                             facebook: response.result.fulfillment.data.facebook.attachment
+                                            // facebook: response.result.fulfillment.data.facebook.attachment.payload.buttons 
+                                         });              
+                                   // console.log(JSON.stringify(msg));      
+                                     session.send(msg); 
+                                     
+                                 });                
                                  request.on('error', function (error)    
                                             {      
                                      console.log(error);         
@@ -150,5 +149,6 @@ bot.dialog('/menu',
                                  request.end();    
                              }]);
 
+               
 
 //===============
