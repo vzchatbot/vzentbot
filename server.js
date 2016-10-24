@@ -168,7 +168,7 @@ bot.dialog('/accountlink', [
                             
                             buttons:[{
                                     type: "account_link",
-                                    url: "https://www98.verizon.com/foryourhome/myaccount/ngen/upr/bots/preauth.html"
+                                    url: "https://www98.verizon.com/foryourhome/myaccount/ngen/upr/bots/preauth.aspx"
                             }],
 
                         } //Payload
