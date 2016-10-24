@@ -48,7 +48,7 @@ bot.dialog('/', function (session) {
 	}
 	    else if(Finished_Status =="IntentFinished")
 	    {
-		    var Selected_intentName=response.result.metadata.source
+		    var Selected_intentName=response.result.metadata.intentName
             switch (Selected_intentName) {
                 case "welcome":
                     var welcome = require('./modules/welcome.js').Welcome;
