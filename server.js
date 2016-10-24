@@ -5,7 +5,7 @@ var nconf = require('nconf');
 var uuid = require('node-uuid');
 
 nconf.file('./config/config.json');
-var app = apiai("apiai:clientid");
+var app = apiai(nconf.get('apiai:clientid'));
 
 //=========================================================
 // Bot Setup
