@@ -128,28 +128,28 @@ bot.dialog('/menu',
                                      var intent = response.result.action;
                                      var text1= response.result.fulfillment.data.facebook.attachment.payload.text;
                                      console.log(" TEXT1 :" + JSON.stringify(response.result.fulfillment.data.facebook.attachment.payload.text));
-                                     console.log(" Attachment value :" + JSON.stringify(response.result.fulfillment.data));
-                                     console.log(" text value :" + JSON.stringify(response.result.fulfillment.data.facebook.attachment.payload.text));
-                                     console.log(" speech value :" + JSON.stringify(response.result.fulfillment.speech));
-                                     
+                                     console.log(" Attachment value :" + JSON.stringify(response.result.fulfillment.data)); 
                                      var text1= response.result.fulfillment.data.facebook.attachment.payload.text;
-                                 
                                      if (text1 == "" || text1 == undefined)
                                      {
                                      session.send(response.result.fulfillment.speech);
+                                     console.log("Text values is empty and the speech value is :" + JSON.stringify(response.result.fulfillment.speech));
                                      var msg1 = new builder.Message(session).sourceEvent(
                                          {
-                                     facebook: response.result.fulfillment.data.facebook.attachment.payload 
+                                          facebook: response.result.fulfillment.data.facebook.attachment.payload 
                                          });  
                                      session.send(msg1); 
                                      }
                                      else
                                      session.send(response.result.fulfillment.text);
+                                     {
+                                     console.log(" text value :" + JSON.stringify(response.result.fulfillment.data.facebook.attachment.payload.text));
                                      var msg = new builder.Message(session).sourceEvent(  
                                          {                  
                                               facebook: response.result.fulfillment.data.facebook // for Text                                        
                                          });              
                                      session.send(msg); 
+                                     }
                                  });                
                                  request.on('error', function (error)    
                                             {      
