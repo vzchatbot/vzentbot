@@ -2,6 +2,8 @@ var restify = require('restify');
 var builder = require('botbuilder');
 var apiai = require('apiai');
 var app = apiai("901c05fa26b7415196db699acdc5d193");
+var express = require('express');
+var app = express();
 
 //=========================================================
 // Bot Setup
@@ -18,10 +20,11 @@ var connector = new builder.ChatConnector({
     appId: 'd5637416-8da0-442e-99a9-8c3867ffd9bf',
     appPassword: 'ZVfk1mP1bBLn4h2R5WLMjyP'
 });
+
 var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
 
-var app = express();
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 var router = express.Router(); 
