@@ -1,4 +1,4 @@
-﻿var restify = require('restify');
+var restify = require('restify');
 var builder = require('botbuilder');
 var apiai = require('apiai');
 var nconf = require('nconf');
@@ -34,34 +34,76 @@ server.post('/api/messages', connector.listen());
 //=========================================================
 
 bot.dialog('/', function (session) {
-    var options = {
-        sessionId: uuid.v1()
-				}
+    var options = {sessionId: uuid.v1()}
 
     var request = app.textRequest(session.message.text, options);
-
-
     request.on('response', function (response) {
-
         var intent = response.result.action;
         console.log(JSON.stringify(response));
-
-
-        session.send(response.result.fulfillment.speech);
-       // session.send(response.result.fulfillment.data);
-      //  session.send(response.result.fulfillment.data.facebook);
-      // session.send(response.result.fulfillment.data.facebook.attachment);
-
-		var msg = new builder.Message(session).attachment(response.result.fulfillment.data.facebook.attachment
-		);
-
-        console.log(JSON.stringify(msg));
-        session.send(msg);
-
-
-
+	var Finished_Status=response.result.metadata.intentId
+	
+	if(Finished_Status !=="Finished")
+	{
+        	session.send(response.result.fulfillment.speech);
+	}
+	    else if(Finished_Status =="Finished")
+	    {
+		    var Selected_intentName=response.result.metadata.intentName
+		    switch (Selected_intentName) {
+       				 case "welcome":
+				      	var welcome = require('./modules/welcome.js').Welcome;
+           			 break;
+      				 case "getStarted":
+					var getstarted = require('./modules/getStarted.js').getStarted;
+					break;
+				case "LinkOptions":
+				    var linkOptions = require('./modules/LinkOptions.js').LinkOptions;
+				    break;
+				case "MoreOptions":
+				    var moreOptions = require('./modules/MoreOptions.js').MoreOptions;
+				    break;
+				case "Billing":
+				    var billing = require('./modules/MoreOptions.js').Billing;				    				   
+				    break;
+				case "stblist":
+				    
+				    break;
+				case "upsell":
+				    
+				    break;
+				case "upgradeDVR":
+				    
+				    break;
+				case "stgexternalcall":
+				    
+				    break;
+				case "Trending":
+				    
+				    break;
+				case "recommendation":
+				    
+				    break;
+				case "channelsearch":
+				    
+				    break;
+				case "programSearchdummy":
+				    
+				    break;
+				case "programSearch":
+				    
+				    break;
+				case "recordnew":
+				    
+				    record.doRecord(req, res);
+				default:
+				    
+			   	 }
+				    }
+				var msg = new builder.Message(session).attachment(response.result.fulfillment.data.facebook.attachment
+					);
+				console.log(JSON.stringify(msg));
+				session.send(msg);
     });
-
     request.on('error', function (error) {
         console.log(error);
     });
