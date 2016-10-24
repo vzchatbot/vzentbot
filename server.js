@@ -137,22 +137,22 @@ bot.dialog('/menu',
                                      console.log(" Text value :" + JSON.stringify(response.result.fulfillment.data.facebook.attachment.payload.text));
                                      var msg1 = new builder.Message(session).sourceEvent(  
                                          {                  
-                                              facebook: response.result.fulfillment.data.facebook // if text is empty than speech will be displayed                                        
+                                              facebook: response.result.fulfillment.data.facebook 
                                          });              
                                      session.send(msg1);
                                      }
                                      else if ((speech1 !== "" || speech1 !== undefined)&&(text1 == "" || text1 == undefined))                                  
                                      {
-                                     session.send(response.result.fulfillment.speech);
+                                     session.send(response.result.fulfillment.speech); //For speech
                                      console.log("Text values is empty and the speech value is :" + JSON.stringify(response.result.fulfillment.speech));
                                      console.log("Speech Value :" + JSON.stringify(response.result.fulfillment.speech));
                                      var msg = new builder.Message(session).sourceEvent(
                                          {                                      
-                                          facebook: response.result.fulfillment.data.facebook.attachment.payload //for speech response
+                                          facebook: response.result.fulfillment.data.facebook.attachment.payload 
                                          });
                                      session.send(msg);                                   
                                      }
-                                     else if ((speech1 == "" || speech1 == undefined)&&(text1 == "" || text1 == undefined))
+                                     else if ((speech1 == "" || speech1 == undefined)&&(text1 == "" || text1 == undefined)) // text and speech empty
                                      {
                                           var card1 = new builder.HeroCard(session)            
                                          .title("Verizon Bot ")            
