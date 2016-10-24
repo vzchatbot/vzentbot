@@ -7,10 +7,23 @@ getStarted.prototype.dogetStarted = function (session, response, builder) {
                                          session.send(response.result.fulfillment.displayText);
                                          var msg = new builder.Message(session).sourceEvent(
                                              {
-                                                 facebook: response.result.fulfillment.data.facebook
-                                             
-                                                 // facebook: response.result.fulfillment.data.facebook.attachment.payload.buttons 
+                                               "facebook": {
+                                                "attachment": {
+                                                    "type": "template",
+                                                    "payload": {
+                                                        "template_type": "button",
+                                                        "text": "Hey , welcome to Verizon! Want to know what’s on tonight?  I can answer almost anything, so try me! Also, if you want personalized alerts through Messenger link me to your Verizon account! ",
+                                                        "buttons": [
+                                                            {
+                                                                "type": "postback",
+                                                                "title": "Link Account",
+                                                                "payload": "Link Account"
+                                                            }
+                                                        ]
+                                                    }
+                                                }
+                                            }
                                              });  
-session.send(msg);
+                                    session.send(msg);
 }
 exports.getStarted = new getStarted();
