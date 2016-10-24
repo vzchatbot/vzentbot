@@ -36,9 +36,10 @@ bot.endConversationAction('goodbye', 'Goodbye :)', { matches: /^goodbye/i });
 //=========================================================
 
 bot.dialog('/', [
-    function (session) {
+    function (session,req,res) {
         
         console.log("=== DIALOG: New Session Started ====");
+        console.log("Session Info " + session);
         
         if( !session.userData.firstRun ) {
             // Store the returned user page-scoped id (USER_ID) and page id
@@ -49,7 +50,7 @@ bot.dialog('/', [
             // Move to the /getprofile dialog
             //session.beginDialog('/getprofile');
             session.beginDialog('/startsession');
-            
+            messageEvents(req,res);
         } else {
             // The firstname has been stored so the user has completed the /getstarted dialog
             // Stop this dialog and Welcome them back
@@ -183,3 +184,71 @@ bot.dialog('/accountlink', [
            } // end of function declaration
 ]); // End of dialoag function account link
         
+function messageEvents(req, res){
+     console.log("MessegeEvent Function");
+   var data = req.body;
+  // Make sure this is a page subscription
+  
+  if (data.object == 'page') {
+  
+    // Iterate over each entry
+    // There may be multiple if batched
+
+    data.entry.forEach(function(pageEntry) {
+      var pageID = pageEntry.id;
+      var timeOfEvent = pageEntry.time;
+
+      // Iterate over each messaging event
+
+      pageEntry.messaging.forEach(function(messagingEvent) {
+
+        if (messagingEvent.optin) {
+          receivedAuthentication(messagingEvent);
+	      console.log("Webhook received following messagingEvent optin");
+        } else if (messagingEvent.message) {
+          //receivedMessage(messagingEvent);
+	      console.log("Webhook received following messagingEvent message");
+        } else if (messagingEvent.delivery) {
+          //receivedDeliveryConfirmation(messagingEvent);
+	       console.log("Webhook received following messagingEvent delivery");
+        } else if (messagingEvent.postback) {
+          //receivedPostback(messagingEvent);
+	      console.log("Webhook received following messagingEvent postback");
+        } else {
+          console.log("Webhook received unknown messagingEvent: ", messagingEvent);
+        }
+
+      });
+    });
+
+    // Assume all went well.
+    //
+    // You must send back a 200, within 20 seconds, to let us know you've 
+    // successfully received the callback. Otherwise, the request will time out.
+
+    res.sendStatus(200);
+
+  } // if loop
+} //close of function
+
+
+function receivedAuthentication(event) {
+  var senderID = event.sender.id;
+  var recipientID = event.recipient.id;
+  var timeOfAuth = event.timestamp;
+
+  // The 'ref' field is set in the 'Send to Messenger' plugin, in the 'data-ref'
+  // The developer can set this to an arbitrary value to associate the 
+  // authentication callback with the 'Send to Messenger' click event. This is
+  // a way to do account linking when the user clicks the 'Send to Messenger' 
+  // plugin.
+  var passThroughParam = event.optin.ref;
+
+  console.log("Received authentication for user %d and page %d with pass " +
+    "through param '%s' at %d", senderID, recipientID, passThroughParam, 
+    timeOfAuth);
+
+  // When an authentication is received, we'll send a message back to the sender
+  // to let them know it was successful.
+  console.log("FB and Verizon Link successful");
+}
