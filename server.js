@@ -121,6 +121,7 @@ bot.dialog('/menu',
                 bot.dialog('/startsession', [    
                 function (session)  
                              {
+                                 var text1= response.result.fulfillment.data.facebook.attachment.payload.text;
                                  var options =   
                                      {
                                          sessionId: '94642ab5-31b3-4eac-aa1f-d4ef57284007'
@@ -128,29 +129,42 @@ bot.dialog('/menu',
                                  console.log("inside startsession");
                                  var request = app.textRequest(session.message.text, options);
                                //  console.log(result.fulfilment.data);
-                                 request.on('response', function (response)    
+                                 
+                                      if (text1 == "" || text1 == undefined) {
+                                           request.on('response', function (response)    
                                             {            
                                      var intent = response.result.action; 
                                      console.log(JSON.stringify(response));
+                                     console.log("In SPEECH "));
                                      console.log(" Attachment value :" + JSON.stringify(response.result.fulfillment.data));
                                      console.log(" text value :" + JSON.stringify(response.result.fulfillment.data.facebook.attachment.payload.text));
                                      console.log(" speech value :" + JSON.stringify(response.result.fulfillment.speech));
-                                     var text1= response.result.fulfillment.data.facebook.attachment.payload.text;
+                                   
                                      console.log('Text1 value'+ JSON.stringify(text1));
                                      //session.send(response.result.fulfillment.speech); 
-                                     
-                                      if (text1 == "" || text1 == undefined) {
-                                      var msg = new builder.Message(session).sourceEvent(
-                                         facebook: response.result.fulfillment.data.facebook.attachment.payload );  //for speech                                         
-                                         else 
-                                         var msg = new builder.Message(session).sourceEvent(  
-                                           // facebook: response.result.fulfillment.data.facebook                                                                                      
-                                              facebook: response.result.fulfillment.data.facebook ); // for text 
-                                         }
+                                        var msg = new builder.Message(session).sourceEvent(
+                                         facebook: response.result.fulfillment.data.facebook.attachment.payload );  //for speech      
                                    // console.log(JSON.stringify(msg));      
                                      session.send(msg); 
-                                     
-                                 });                
+                                 });                                  
+                                         else 
+                                              request.on('response', function (response)    
+                                            {            
+                                     var intent = response.result.action; 
+                                     console.log(JSON.stringify(response));
+                                     console.log("In TEXT "));
+                                     console.log(" Attachment value :" + JSON.stringify(response.result.fulfillment.data));
+                                     console.log(" text value :" + JSON.stringify(response.result.fulfillment.data.facebook.attachment.payload.text));
+                                     console.log(" speech value :" + JSON.stringify(response.result.fulfillment.speech));
+                                   
+                                     console.log('Text1 value'+ JSON.stringify(text1));
+                                     //session.send(response.result.fulfillment.speech); 
+                                      var msg = new builder.Message(session).sourceEvent(                                                                                                                                
+                                      facebook: response.result.fulfillment.data.facebook ); // for text 
+                                   // console.log(JSON.stringify(msg));      
+                                     session.send(msg); 
+                                 });                                          
+                                         }                                             
                                  request.on('error', function (error)    
                                             {      
                                      console.log(error);         
