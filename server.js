@@ -135,16 +135,10 @@ bot.dialog('/menu',
                                             {            
                                      var intent = response.result.action; 
                                      console.log(JSON.stringify(response));
-                                     console.log("In SPEECH ");
-                                     console.log(" Attachment value :" + JSON.stringify(response.result.fulfillment.data));
-                                     console.log(" text value :" + JSON.stringify(response.result.fulfillment.data.facebook.attachment.payload.text));
-                                     console.log(" speech value :" + JSON.stringify(response.result.fulfillment.speech));
-                                   
+                                     console.log("In SPEECH ");  
                                      console.log('Text1 value'+ JSON.stringify(text1));
-                                     //session.send(response.result.fulfillment.speech); 
                                         var msg = new builder.Message(session).sourceEvent(
-                                         facebook: response.result.fulfillment.data.facebook.attachment.payload );  //for speech      
-                                   // console.log(JSON.stringify(msg));      
+                                         facebook: response.result.fulfillment.data.facebook.attachment.payload );  //for speech
                                      session.send(msg); 
                                  });                                  
                                          else 
@@ -153,15 +147,9 @@ bot.dialog('/menu',
                                      var intent = response.result.action; 
                                      console.log(JSON.stringify(response));
                                      console.log("In TEXT ");
-                                     console.log(" Attachment value :" + JSON.stringify(response.result.fulfillment.data));
-                                     console.log(" text value :" + JSON.stringify(response.result.fulfillment.data.facebook.attachment.payload.text));
-                                     console.log(" speech value :" + JSON.stringify(response.result.fulfillment.speech));
-                                   
                                      console.log('Text1 value'+ JSON.stringify(text1));
-                                     //session.send(response.result.fulfillment.speech); 
                                       var msg = new builder.Message(session).sourceEvent(                                                                                                                                
                                       facebook: response.result.fulfillment.data.facebook ); // for text 
-                                   // console.log(JSON.stringify(msg));      
                                      session.send(msg); 
                                  });                                          
                                          }                                             
