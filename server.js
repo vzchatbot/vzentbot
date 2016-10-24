@@ -121,14 +121,14 @@ bot.dialog('/menu',
                 bot.dialog('/startsession', [    
                 function (session)  
                              {
-                                 var text1= response.result.fulfillment.data.facebook.attachment.payload.text;
+                               
                                  var options =   
                                      {
                                          sessionId: '94642ab5-31b3-4eac-aa1f-d4ef57284007'
                                      }  
                                  console.log("inside startsession");
                                  var request = app.textRequest(session.message.text, options);
-                               //  console.log(result.fulfilment.data);
+                                 var text1= response.result.fulfillment.data.facebook.attachment.payload.text;
                                  
                                       if (text1 == "" || text1 == undefined) {
                                            request.on('response', function (response)    
