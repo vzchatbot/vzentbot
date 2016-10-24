@@ -131,10 +131,11 @@ bot.dialog('/menu',
                                      console.log(" Attachment value :" + JSON.stringify(response.result.fulfillment.data));
                                      console.log(" text value :" + JSON.stringify(response.result.fulfillment.data.facebook.attachment.payload.text));
                                      console.log(" speech value :" + JSON.stringify(response.result.fulfillment.speech));
-                                     session.send(response.result.fulfillment.text);
+                                     
                                      var text1= response.result.fulfillment.data.facebook.attachment.payload.text;
                                  
                                      if (text1 == "" || text1 == undefined) {
+                                         session.send(response.result.fulfillment.text);
                                     /* var msg = new builder.Message(session).sourceEvent(
                                      facebook: response.result.fulfillment.data.facebook.attachment.payload );  //for speech
                                      session.send(msg); */
