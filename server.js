@@ -133,7 +133,7 @@ bot.dialog('/menu',
                                      session.send(response.result.fulfillment.text); 
                                      var msg = new builder.Message(session).sourceEvent(  
                                          {                  
-                                              facebook: response.result.fulfillment.data.facebook // for Text
+                                              facebook: response.result.fulfillment.data // for Text
                                             // facebook: response.result.fulfillment.data.facebook.attachment.payload );  //for speech
                                             // facebook: response.result.fulfillment.data.facebook ); // for text 
                                          });              
