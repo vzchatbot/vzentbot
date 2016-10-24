@@ -137,6 +137,7 @@ bot.dialog('/menu',
                                      console.log(JSON.stringify(response));
                                      console.log("In SPEECH ");  
                                      console.log('Text1 value'+ JSON.stringify(text1));
+                                     session.send(response.result.fulfillment.speech); 
                                         var msg = new builder.Message(session).sourceEvent(
                                          facebook: response.result.fulfillment.data.facebook.attachment.payload );  //for speech
                                      session.send(msg); 
@@ -148,6 +149,7 @@ bot.dialog('/menu',
                                      console.log(JSON.stringify(response));
                                      console.log("In TEXT ");
                                      console.log('Text1 value'+ JSON.stringify(text1));
+                                     session.send(response.result.fulfillment.data.facebook.attachment); 
                                       var msg = new builder.Message(session).sourceEvent(                                                                                                                                
                                       facebook: response.result.fulfillment.data.facebook ); // for text 
                                      session.send(msg); 
