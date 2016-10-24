@@ -130,19 +130,21 @@ bot.dialog('/menu',
                                      console.log(" TEXT1 :" + JSON.stringify(response.result.fulfillment.data.facebook.attachment.payload.text));
                                      console.log(" Attachment value :" + JSON.stringify(response.result.fulfillment.data)); 
                                      var text1= response.result.fulfillment.data.facebook.attachment.payload.text;
-                                     if (text1 == "" || text1 == undefined)
+                                     var speech1=response.result.fulfillment.speech
+                                     if (text1 == "" || text1 == undefined) //if text is empty speech will be displayed
                                      {
                                      session.send(response.result.fulfillment.speech);
                                      console.log("Text values is empty and the speech value is :" + JSON.stringify(response.result.fulfillment.speech));
                                      var msg1 = new builder.Message(session).sourceEvent(
                                          {
+                                           console.log(" Speech value :" + JSON.stringify(response.result.fulfillment.speech));
                                           facebook: response.result.fulfillment.data.facebook.attachment.payload 
                                          });  
                                      session.send(msg1); 
                                      }
-                                     else
-                                     session.send(response.result.fulfillment.text);
+                                     else                                    
                                      {
+                                     session.send(response.result.fulfillment.text);
                                      console.log(" text value :" + JSON.stringify(response.result.fulfillment.data.facebook.attachment.payload.text));
                                      var msg = new builder.Message(session).sourceEvent(  
                                          {                  
