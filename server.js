@@ -55,7 +55,7 @@ bot.dialog('/', function (session) {
                     break;
                 // case "getStarted":
                 case "Program Search":
-                    var getstarted = require('./modules/getStarted.js').getStarted();
+                    var getstarted = require('./modules/getStarted.js').getStarted;
                     getstarted.dogetStarted(session, response, builder);
 					break;
 				case "LinkOptions":
