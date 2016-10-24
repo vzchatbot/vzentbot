@@ -131,32 +131,32 @@ bot.dialog('/menu',
                                      console.log(" Attachment value :" + JSON.stringify(response.result.fulfillment.data)); 
                                      var text1= response.result.fulfillment.data.facebook.attachment.payload.text;
                                      var speech1=response.result.fulfillment.speech
-                                     if (text1 == "" || text1 == undefined) //if text is empty speech will be displayed
+                                     if ((text1 !== "" || text1 !== undefined)) //for Text
+                                     {
+                                     session.send(response.result.fulfillment.text);
+                                     console.log(" Text value :" + JSON.stringify(response.result.fulfillment.data.facebook.attachment.payload.text));
+                                     var msg1 = new builder.Message(session).sourceEvent(  
+                                         {                  
+                                              facebook: response.result.fulfillment.data.facebook // if text is empty than speech will be displayed                                        
+                                         });              
+                                     session.send(msg1);
+                                     }
+                                     else if ((speech1 !== "" || speech1 !== undefined)&&(text1 == "" || text1 == undefined))                                  
                                      {
                                      session.send(response.result.fulfillment.speech);
                                      console.log("Text values is empty and the speech value is :" + JSON.stringify(response.result.fulfillment.speech));
                                      console.log("Speech Value :" + JSON.stringify(response.result.fulfillment.speech));
                                      var msg = new builder.Message(session).sourceEvent(
                                          {                                      
-                                          facebook: response.result.fulfillment.data.facebook.attachment.payload 
+                                          facebook: response.result.fulfillment.data.facebook.attachment.payload //for speech response
                                          });
-                                     session.send(msg); 
+                                     session.send(msg);                                   
                                      }
-                                     else if (text1 !== "" || text1 !== undefined)                                  
-                                     {
-                                     session.send(response.result.fulfillment.text);
-                                     console.log(" text value :" + JSON.stringify(response.result.fulfillment.data.facebook.attachment.payload.text));
-                                     var msg1 = new builder.Message(session).sourceEvent(  
-                                         {                  
-                                              facebook: response.result.fulfillment.data.facebook // for Text                                        
-                                         });              
-                                     session.send(msg1); 
-                                     }
-                                     else 
+                                     else if ((speech1 == "" || speech1 == undefined)&&(text1 == "" || text1 == undefined))
                                      {
                                           var card1 = new builder.HeroCard(session)            
                                          .title("Verizon Bot ")            
-                                         .text("Sorry ...we are unable to help you in this .")            
+                                         .text("Sorry...I think I may have misunderstood your last statement.")            
                                          .images([                
                                           builder.CardImage.create(session, "http://www.verizon.com/cs/groups/public/documents/adacct/vzlogo_lg.png")         
                                           ]);  
