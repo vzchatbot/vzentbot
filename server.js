@@ -49,13 +49,13 @@ bot.dialog('/', function (session) {
 	    else if(Finished_Status =="IntentFinished")
 	    {
 		    var Selected_intentName=response.result.metadata.source
-		    switch (Selected_intentName) {
-       				 case "welcome":
-				      	var welcome = require('./modules/welcome.js').Welcome;
-           			 break;
-      				// case "getStarted":
-			    case "Program Search":
-					var getstarted = require('./modules/getStarted.js').getStarted;
+            switch (Selected_intentName) {
+                case "welcome":
+                    var welcome = require('./modules/welcome.js').Welcome;
+                    break;
+                // case "getStarted":
+                case "Program Search":
+                    var getstarted = require('./modules/getStarted.js').getStarted(session, response, builder);
 					break;
 				case "LinkOptions":
 				    var linkOptions = require('./modules/LinkOptions.js').LinkOptions;
