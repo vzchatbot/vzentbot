@@ -68,10 +68,10 @@ bot.dialog('/', [    function (session)
                       //console.log("Strat chat");
                      // Send a greeting and show help.  
                      var card = new builder.HeroCard(session)            
-                     .title("Verizon Bot ")            
+                     .title("Ask Verizon")            
                      .text("Your bots - wherever your users are talking.")            
                      .images([                
-                     builder.CardImage.create(session, "http://www.verizon.com//cs/groups/public/documents/adacct/vzlogo_lg.png")         
+                     builder.CardImage.create(session, "http://www.verizon.com/cs/groups/public/documents/adacct/vzlogo_lg.png")         
                      ]);  
                      var msg = new builder.Message(session).attachments([card]); 
                      session.send(msg);     
@@ -142,7 +142,7 @@ bot.dialog('/menu',
                                          });
                                      session.send(msg1); 
                                      }
-                                     else                                    
+                                     else  (text1 !== "" || text1 !== undefined)                                  
                                      {
                                      session.send(response.result.fulfillment.text);
                                      console.log(" text value :" + JSON.stringify(response.result.fulfillment.data.facebook.attachment.payload.text));
@@ -151,6 +151,17 @@ bot.dialog('/menu',
                                               facebook: response.result.fulfillment.data.facebook // for Text                                        
                                          });              
                                      session.send(msg); 
+                                     }
+                                     else ((text1 !== "" || text1 !== undefined)&&(speech1 !== "" || speech1 !== undefined))
+                                     {
+                                          var card1 = new builder.HeroCard(session)            
+                                         .title("Verizon Bot ")            
+                                         .text("Sorry ...we are unable to help you in this .")            
+                                         .images([                
+                                          builder.CardImage.create(session, "http://www.verizon.com/cs/groups/public/documents/adacct/vzlogo_lg.png")         
+                                          ]);  
+                                         var msg2 = new builder.Message(session).attachments([card1]); 
+                                         session.send(msg2);
                                      }
                                  });                
                                  request.on('error', function (error)    
