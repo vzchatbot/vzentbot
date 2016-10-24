@@ -21,6 +21,9 @@ var connector = new builder.ChatConnector({
 var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
 
+var app = express();
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 var router = express.Router(); 
 var headersInfo = { "Content-Type": "application/json" };
 var Client = require('node-rest-client').Client;
