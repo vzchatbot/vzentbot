@@ -148,6 +148,37 @@ bot.dialog('/startsession', [
 bot.dialog('/accountlink', [
     function (session) {
         console.log("Account Linking function");
+        
+        var msg = new builder.Message(session)
+
+            .sourceEvent({
+
+                facebook: {
+
+                    attachment: {
+
+                        type: "template",
+
+                        payload: {
+
+                            template_type: "button",
+
+                            text: "Welcome, Link your Verizon Account",
+                            
+                            buttons:[{
+                                    type: "account_link",
+                                    url: "https://www98.verizon.com/foryourhome/myaccount/ngen/upr/bots/preauth.html"
+                            }],
+
+                        } //Payload
+
+                    } // attachment
+
+                } // facebook
+
+            }); // sourcevent
+
+        session.send(msg);
         session.endDialog();
            } // end of function declaration
 ]); // End of dialoag function account link
