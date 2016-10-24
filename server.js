@@ -123,12 +123,10 @@ bot.dialog('/menu',
                                  var options =   {sessionId: '94642ab5-31b3-4eac-aa1f-d4ef57284007'}  
                                                           
                                  var request = app.textRequest(session.message.text, options);
-                                    
+                                 console.log("inside startsession");
                                  request.on('response', function (response)    
-                                            {    
-                                          
+                                            { 
                                      var intent = response.result.action;
-                                    
                                      var text1= response.result.fulfillment.data.facebook.attachment.payload.text;
                                      console.log(" TEXT1 :" + JSON.stringify(response.result.fulfillment.data.facebook.attachment.payload.text));
                                      console.log(" Attachment value :" + JSON.stringify(response.result.fulfillment.data)); 
@@ -136,7 +134,7 @@ bot.dialog('/menu',
                                      var speech1=response.result.fulfillment.speech
                                      if (text1 !== "" || text1 !== undefined) //for Text
                                      {
-                                    console.log("inside startsession");
+                                   
                                      session.send(response.result.fulfillment.text);
                                      console.log(" Text value :" + JSON.stringify(response.result.fulfillment.data.facebook.attachment.payload.text));
                                      var msg = new builder.Message(session).sourceEvent(  
@@ -167,21 +165,8 @@ bot.dialog('/menu',
                                          });
                                      session.send(msg2);                                   
                                      }
-                                    // else if ((speech1 == "" || speech1 == undefined)&&(text1 == "" || text1 == undefined)) // text and speech empty
-                                     else if(response.fulfillment.action =="input.unknown" || response.fulfillment.webhookUsed == "false")
-                                     {
-                                          var card1 = new builder.HeroCard(session)            
-                                         .title("Verizon Bot")            
-                                         .text("Sorry...I think I may have misunderstood your last statement.")            
-                                         .images([                
-                                          builder.CardImage.create(session, "http://www.verizon.com/cs/groups/public/documents/adacct/vzlogo_lg.png")         
-                                          ]);  
-                                         var msg3 = new builder.Message(session).attachments([card1]); 
-                                         session.send(msg3);
-                                     }
                                      else
-                                     {
-                                       
+                                     {                                       
                                          var card2 = new builder.HeroCard(session)            
                                          .title("Verizon Bot")            
                                          .text("Sorry...I think I may have misunderstood your last statement.")            
