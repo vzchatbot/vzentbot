@@ -29,7 +29,7 @@ bot.endConversationAction('goodbye', 'Goodbye ,Have a greatday ', { matches: /^g
 //=========================================================
 // Bots Dialogs
 //=========================================================
-bot.dialog('/', [    function (session)
+bot.dialog('/CallHook', [    function (session)
                  {   
                   //  console.log( "sender ID : " + session.message.sourceEvent.sender.id);
                   //   console.log( "recipient ID : " + session.message.sourceEvent.recipient.id);
@@ -61,7 +61,7 @@ bot.dialog('/', [    function (session)
                  session.send("Ok... See you later!");    }
                 ]);
 
-bot.dialog('/menu',
+/*bot.dialog('/menu',
            [    function (session) 
             {       
                 builder.Prompts.choice(session, "What would you like to run?", "picture|cards|actions|(quit)");
@@ -85,17 +85,17 @@ bot.dialog('/menu',
                 // The menu runs a loop until the user chooses to (quit).  
                 session.replaceDialog('/menu'); 
             }]).reloadAction('reloadMenu', null, { matches: /^menu|show menu/i });
+	    */
 //================================
 
-router.post('/webhook', function (req, res) {
+router.post('/', function (req, res) {
 
 res.header("Access-Control-Allow-Origin", "*");
 res.header("Access-Control-Allow-Headers", "X-Requested-With");  
 
-  var action = req.body.result.action;
+//  var action = req.body.result.action;
+	var action ="getStarted";
   var mysource = req.body.result.source;
-  
-  
 	
     switch (action) {
         case "welcome":
