@@ -140,7 +140,7 @@ bot.dialog('/startsession', [
                 }); */
 
                 session.replaceDialog('/accountlink');
-                request.end();
+               // request.end();
            
            } // end of function declaration
 ]); // End of dialoag function
