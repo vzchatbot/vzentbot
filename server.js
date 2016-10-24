@@ -21,71 +21,13 @@ var connector = new builder.ChatConnector({
 var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
 
-//=========================================================
-// Bots Global Actions
-//=========================================================
-bot.endConversationAction('goodbye', 'Goodbye ,Have a greatday ', { matches: /^goodbye|bye|close/i });
-
-//=========================================================
-// Bots Dialogs
-//=========================================================
-bot.dialog('/CallHook', [    function (session)
-                 {   
-                  //  console.log( "sender ID : " + session.message.sourceEvent.sender.id);
-                  //   console.log( "recipient ID : " + session.message.sourceEvent.recipient.id);
-                  //  console.log("Page ID" + session.message.sourceEvent.recipient.id);
-                
-                      //console.log("Strat chat");
-                     // Send a greeting and show help.  
-                     var card = new builder.HeroCard(session)            
-                     .title("Ask Verizon")            
-                     .text("Your bots - wherever your users are talking.")            
-                     .images([                
-                     builder.CardImage.create(session, "http://www.verizon.com/cs/groups/public/documents/adacct/vzlogo_lg.png")         
-                     ]);  
-                     var msg = new builder.Message(session).attachments([card]); 
-                     session.send(msg);     
-                     console.log("hi"); 
-                    // console.log("msg :" + JSON.stringify(msg));
-                     session.beginDialog('/startsession'); 
-                    // session.beginDialog('/menu');
-                 }
-                ,    function (session, results)
-                 {       
-                 // Display menu        
-                 session.beginDialog('/menu');                       
-                 },   
-                 function (session, results) 
-                 {      
-                 // Always say goodbye      
-                 session.send("Ok... See you later!");    }
-                ]);
-
-/*bot.dialog('/menu',
-           [    function (session) 
-            {       
-                builder.Prompts.choice(session, "What would you like to run?", "picture|cards|actions|(quit)");
-                console.log( "in menu"+ result.response.entity)
-            },  
-            function (session, results) 
-            {       
-                if (results.response && results.response.entity != '(quit)') 
-                {  
-                    session.beginDialog('/' + results.response.entity);  
-                    console.log( "in quit"+ result.response.entity)
-                } 
-                else
-                {      
-                    // Exit the menu     
-                    session.endDialog(); 
-                }  
-            },  
-            function (session, results)
-            {     
-                // The menu runs a loop until the user chooses to (quit).  
-                session.replaceDialog('/menu'); 
-            }]).reloadAction('reloadMenu', null, { matches: /^menu|show menu/i });
-	    */
+var router = express.Router(); 
+var headersInfo = { "Content-Type": "application/json" };
+var Client = require('node-rest-client').Client;
+var client = new Client();
+var args = {
+    "headers": headersInfo
+};
 //================================
 
 router.post('/', function (req, res) {
@@ -260,8 +202,7 @@ res.header("Access-Control-Allow-Headers", "X-Requested-With");
     }
 });
 function welcomeMsg()
-{
-    
+{  
     return (
         {
         speech: "Want to know what’s on tonight? When your favorite sports team is playing? What time your favorite show is coming on? I can answer almost anything, so try me! Before we get started—let’s take a few minutes to get me linked to your Verizon account, this way I can send you personalized recommendations, alerts and notifications through messenger whenever you want. OR if you’re in a hurry send me your zip code/ VZID so that I can send you TV recommendations right away. Don’t worry – your personal information will not be shared with Facebook!",
@@ -296,6 +237,71 @@ function welcomeMsg()
       );	
 	
 }
+//=========================================================
+// Bots Global Actions
+//=========================================================
+bot.endConversationAction('goodbye', 'Goodbye ,Have a greatday ', { matches: /^goodbye|bye|close/i });
+
+//=========================================================
+// Bots Dialogs
+//=========================================================
+bot.dialog('/CallHook', [    function (session)
+                 {   
+                  //  console.log( "sender ID : " + session.message.sourceEvent.sender.id);
+                  //   console.log( "recipient ID : " + session.message.sourceEvent.recipient.id);
+                  //  console.log("Page ID" + session.message.sourceEvent.recipient.id);
+                
+                      //console.log("Strat chat");
+                     // Send a greeting and show help.  
+                     var card = new builder.HeroCard(session)            
+                     .title("Ask Verizon")            
+                     .text("Your bots - wherever your users are talking.")            
+                     .images([                
+                     builder.CardImage.create(session, "http://www.verizon.com/cs/groups/public/documents/adacct/vzlogo_lg.png")         
+                     ]);  
+                     var msg = new builder.Message(session).attachments([card]); 
+                     session.send(msg);     
+                     console.log("hi"); 
+                    // console.log("msg :" + JSON.stringify(msg));
+                     session.beginDialog('/startsession'); 
+                    // session.beginDialog('/menu');
+                 }
+                ,    function (session, results)
+                 {       
+                 // Display menu        
+                 session.beginDialog('/menu');                       
+                 },   
+                 function (session, results) 
+                 {      
+                 // Always say goodbye      
+                 session.send("Ok... See you later!");    }
+                ]);
+
+/*bot.dialog('/menu',
+           [    function (session) 
+            {       
+                builder.Prompts.choice(session, "What would you like to run?", "picture|cards|actions|(quit)");
+                console.log( "in menu"+ result.response.entity)
+            },  
+            function (session, results) 
+            {       
+                if (results.response && results.response.entity != '(quit)') 
+                {  
+                    session.beginDialog('/' + results.response.entity);  
+                    console.log( "in quit"+ result.response.entity)
+                } 
+                else
+                {      
+                    // Exit the menu     
+                    session.endDialog(); 
+                }  
+            },  
+            function (session, results)
+            {     
+                // The menu runs a loop until the user chooses to (quit).  
+                session.replaceDialog('/menu'); 
+            }]).reloadAction('reloadMenu', null, { matches: /^menu|show menu/i });
+	    */
 //================================
  bot.dialog('/startsession', [    
                 function (session)  
