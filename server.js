@@ -1,9 +1,7 @@
-var restify = require('restify');
+
 var builder = require('botbuilder');
 var apiai = require('apiai');
 var app = apiai("901c05fa26b7415196db699acdc5d193");
-var express = require('express');
-var app = express();
 
 //=========================================================
 // Bot Setup
@@ -25,25 +23,49 @@ var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
 
 
-app.use(bodyParser.urlencoded({ extended: true }));
+/*app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 var router = express.Router(); 
+
 var headersInfo = { "Content-Type": "application/json" };
 var Client = require('node-rest-client').Client;
 var client = new Client();
 var args = {
     "headers": headersInfo
-};
+};*/
+
+//===============================
+/*bot.dialog('/menu',
+           [    function (session) 
+            {       
+                builder.Prompts.choice(session, "What would you like to run?", "picture|cards|actions|(quit)");
+                console.log( "in menu"+ result.response.entity)
+            },  
+            function (session, results) 
+            {       
+                if (results.response && results.response.entity != '(quit)') 
+                {  
+                    session.beginDialog('/' + results.response.entity);  
+                    console.log( "in quit"+ result.response.entity)
+                } 
+                else
+                {      
+                    // Exit the menu     
+                    session.endDialog(); 
+                }  
+            },  
+            function (session, results)
+            {     
+                // The menu runs a loop until the user chooses to (quit).  
+                session.replaceDialog('/menu'); 
+            }]).reloadAction('reloadMenu', null, { matches: /^menu|show menu/i });
+	    */
 //================================
 
-router.post('/', function (req, res) {
-
-res.header("Access-Control-Allow-Origin", "*");
-res.header("Access-Control-Allow-Headers", "X-Requested-With");  
-
+router.post('/', function (session) {
 //  var action = req.body.result.action;
 	var action ="getStarted";
-  var mysource = req.body.result.source;
+  
 	
     switch (action) {
         case "welcome":
@@ -283,31 +305,7 @@ bot.dialog('/CallHook', [    function (session)
                  session.send("Ok... See you later!");    }
                 ]);
 
-/*bot.dialog('/menu',
-           [    function (session) 
-            {       
-                builder.Prompts.choice(session, "What would you like to run?", "picture|cards|actions|(quit)");
-                console.log( "in menu"+ result.response.entity)
-            },  
-            function (session, results) 
-            {       
-                if (results.response && results.response.entity != '(quit)') 
-                {  
-                    session.beginDialog('/' + results.response.entity);  
-                    console.log( "in quit"+ result.response.entity)
-                } 
-                else
-                {      
-                    // Exit the menu     
-                    session.endDialog(); 
-                }  
-            },  
-            function (session, results)
-            {     
-                // The menu runs a loop until the user chooses to (quit).  
-                session.replaceDialog('/menu'); 
-            }]).reloadAction('reloadMenu', null, { matches: /^menu|show menu/i });
-	    */
+
 //================================
  bot.dialog('/startsession', [    
                 function (session)  
