@@ -136,6 +136,7 @@ bot.dialog('/menu',
                                      var speech1=response.result.fulfillment.speech
                                      if (text1 !== "" || text1 !== undefined) //for Text
                                      {
+                                    console.log("inside startsession");
                                      session.send(response.result.fulfillment.text);
                                      console.log(" Text value :" + JSON.stringify(response.result.fulfillment.data.facebook.attachment.payload.text));
                                      var msg = new builder.Message(session).sourceEvent(  
@@ -180,7 +181,7 @@ bot.dialog('/menu',
                                      }
                                      else
                                      {
-                                         console.log("inside startsession");
+                                       
                                          var card2 = new builder.HeroCard(session)            
                                          .title("Verizon Bot")            
                                          .text("Sorry...I think I may have misunderstood your last statement.")            
