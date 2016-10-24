@@ -126,8 +126,9 @@ bot.dialog('/menu',
                                     
                                  request.on('response', function (response)    
                                             {    
-                                       console.log("inside startsession");   
+                                          
                                      var intent = response.result.action;
+                                     console.log("inside startsession");
                                      var text1= response.result.fulfillment.data.facebook.attachment.payload.text;
                                      console.log(" TEXT1 :" + JSON.stringify(response.result.fulfillment.data.facebook.attachment.payload.text));
                                      console.log(" Attachment value :" + JSON.stringify(response.result.fulfillment.data)); 
