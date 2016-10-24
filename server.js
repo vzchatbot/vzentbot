@@ -135,9 +135,9 @@ bot.dialog('/menu',
                                      var text1= response.result.fulfillment.data.facebook.attachment.payload.text;
                                  
                                      if (text1 == "" || text1 == undefined) {
-                                     var msg = new builder.Message(session).sourceEvent(
+                                    /* var msg = new builder.Message(session).sourceEvent(
                                      facebook: response.result.fulfillment.data.facebook.attachment.payload );  //for speech
-                                     session.send(msg); 
+                                     session.send(msg); */
                                       }
                                      else
                                      var msg = new builder.Message(session).sourceEvent(  
