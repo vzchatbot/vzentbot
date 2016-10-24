@@ -137,7 +137,9 @@ bot.dialog('/menu',
                                      console.log("Text values is empty and the speech value is :" + JSON.stringify(response.result.fulfillment.speech));
                                      var msg1 = new builder.Message(session).sourceEvent(
                                          {
-                                           console.log(" Speech value :" + JSON.stringify(response.result.fulfillment.speech));
+                                        //   console.log(" Speech value :" + JSON.stringify(response.result.fulfillment.speech));
+                                             
+                                             console.log("Speech Value :" + JSON.stringify(response.result.fulfillment.speech));
                                           facebook: response.result.fulfillment.data.facebook.attachment.payload 
                                          });  
                                      session.send(msg1); 
