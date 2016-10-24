@@ -36,10 +36,10 @@ bot.endConversationAction('goodbye', 'Goodbye :)', { matches: /^goodbye/i });
 //=========================================================
 
 bot.dialog('/', [
-    function (session,req,res) {
+    function (session) {
         
         console.log("=== DIALOG: New Session Started ====");
-        console.log("Session Info " + session);
+        console.log("Session Info " + JSON.stringify(session));
         
         if( !session.userData.firstRun ) {
             // Store the returned user page-scoped id (USER_ID) and page id
@@ -50,7 +50,7 @@ bot.dialog('/', [
             // Move to the /getprofile dialog
             //session.beginDialog('/getprofile');
             session.beginDialog('/startsession');
-            messageEvents(req,res);
+            //messageEvents(req,res);
         } else {
             // The firstname has been stored so the user has completed the /getstarted dialog
             // Stop this dialog and Welcome them back
