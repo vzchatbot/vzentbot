@@ -2,10 +2,11 @@
 var Record = function () { };
 
 Record.prototype.doRecord = function (session, response, builder) {    
-                             
-                                     console.log("inside startsession");                                   
-                                         session.send(response.result.fulfillment.displayText);
-                                         var msg = new builder.Message(session).sourceEvent(
+                                         console.log("----------record.js:SELECTED INTENT IS recordnew----------");
+                                         console.log("inside startsession");                                   
+                                         session.send(response.result.fulfillment.source);
+                                         console.log(response.result);
+                                         /*var msg = new builder.Message(session).sourceEvent(
                                              {
                                                "facebook": {
                                                 "attachment": {
@@ -25,5 +26,6 @@ Record.prototype.doRecord = function (session, response, builder) {
                                             }
                                              });  
                                     session.send(msg);
+                                    */
 }
 exports.Record = new Record();
