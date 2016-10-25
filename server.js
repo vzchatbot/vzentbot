@@ -120,7 +120,7 @@ bot.dialog('/startsession', [
                 } 
                 console.log("Start getting information from API.AI after profile call");
                 console.log("Message Text "+ session.message.text);
-               /* var request = app.textRequest(session.message.text, options);   
+                var request = app.textRequest(session.message.text, options);   
                
                 request.on('response', function (response) 
                 {        
@@ -138,10 +138,10 @@ bot.dialog('/startsession', [
                 request.on('error', function (error)
                 {
                     console.log(error);  
-                }); */
+                }); 
 
-                session.replaceDialog('/accountlink');
-               // request.end();
+               // session.replaceDialog('/accountlink');
+                request.end();
            
            } // end of function declaration
 ]); // End of dialoag function
