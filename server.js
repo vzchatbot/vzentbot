@@ -34,7 +34,7 @@ server.post('/api/messages', connector.listen());
 //=========================================================
 
 bot.dialog('/', function (session) {
-    var options = {sessionId: uuid.v1()}
+    var options = {sessionId: '9dbb0570-9a8b-11e6-a1e7-afc8eaec72d6'}
 
     var request = app.textRequest(session.message.text, options);
     request.on('response', function (response) {
