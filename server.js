@@ -135,7 +135,7 @@ bot.dialog('/startsession', [
                         facebook: response.result.fulfillment.data.facebook
                     });
 		   
-		   session.send(msg);	
+		   response.send(msg);	
 			
                 });  
                 request.on('error', function (error)
