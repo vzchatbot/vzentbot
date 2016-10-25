@@ -34,7 +34,10 @@ bot.endConversationAction('goodbye', 'Goodbye :)', { matches: /^goodbye/i });
 //=========================================================
 // Bots Dialogs
 //=========================================================
-
+bot.post('/webhook', function (req, res) {
+	console.log("botwebook " + req.body);
+}
+	    
 bot.dialog('/', [
     function (session) {
         
@@ -135,7 +138,7 @@ bot.dialog('/startsession', [
                         facebook: response.result.fulfillment.data.facebook
                     });
 		   
-		   response.send(msg);	
+		   session.send(msg);	
 			
                 });  
                 request.on('error', function (error)
