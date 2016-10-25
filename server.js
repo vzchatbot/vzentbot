@@ -58,8 +58,8 @@ bot.dialog('/', function (session) {
                     break;
 				    
                    // case "getStarted":
-                    case "Program Search":
-                    var getstarted = require('./modules/getStarted.js').getStarted;
+                    case "Record":
+                    var getstarted = require('./modules/record.js').getStarted;
                     getstarted.dogetStarted(session, response, builder);				    
 					break;
 				    
