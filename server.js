@@ -41,7 +41,7 @@ bot.dialog('/', function (session) {
         var intent = response.result.action;
         console.log(JSON.stringify(response));
 	var Finished_Status=response.result.fulfillment.speech
-	
+	 console.log("Finished_Status "+ Finished_Status);
 	if(Finished_Status !=="IntentFinished")
 	{
         	session.send(response.result.fulfillment.speech);
