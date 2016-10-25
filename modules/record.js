@@ -14,5 +14,5 @@ Record.prototype.doRecord = function (session, response, builder) {
 console.log("SelectedSTB : " + SelectedSTB + " channel : " + channel + " dateofrecord :" + dateofrecord + " time :" + time);
 */
   
-                                    
+}                                
 exports.Record = new Record();
