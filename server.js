@@ -48,7 +48,7 @@ bot.dialog('/', function (session) {
 	}
 	    else if(Finished_Status =="IntentFinished")
 	    {
-		    var Selected_intentName=response.result.metadata.intentName
+		    var Selected_intentName=response.result.metadata.source
 		    console.log("Selected_intentName : "+ Selected_intentName);
 		    
            	    switch (Selected_intentName) {
@@ -56,9 +56,8 @@ bot.dialog('/', function (session) {
                     case "welcome":
                     var welcome = require('./modules/welcome.js').Welcome;
                     break;
-				    
-				   // case "getStarted":
-				    case "Record":
+				 
+				    case "recordnew":
 				    var Record = require('./modules/record.js').Record;
 				    Record.doRecord(session, response, builder);				    
 				    break;
@@ -99,9 +98,9 @@ bot.dialog('/', function (session) {
 				case "programSearch":
 				    
 				    break;
-				case "recordnew":
+				case "getStarted":
 				    
-				    record.doRecord(req, res);
+				    getStarted.dogetStarted(req, res);
 				default:
 				    
 			   	 }
