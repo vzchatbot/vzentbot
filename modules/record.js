@@ -5,7 +5,7 @@ Record.prototype.doRecord = function (session, response, builder) {
                                          console.log("----------record.js:SELECTED INTENT IS recordnew----------");
                                          console.log("inside startsession");                                   
                                          session.send(response.result.fulfillment.source);
-                                         console.log(response.result);
+                                         console.log(response.result.contexts.name);
                                          /*var msg = new builder.Message(session).sourceEvent(
                                              {
                                                "facebook": {
