@@ -123,6 +123,8 @@ bot.dialog('/startsession', [
                 } 
 		console.log("Full Session ", session);
 		console.log("Account Linking " + session.message.sourceEvent.account_linking);
+		console.log("Account Linking: %j" + session.message.sourceEvent.account_linking); 
+		console.log("Account Linking convert: " + JSON.stringify(session.message.sourceEvent.account_linking,null,2)); 
                 console.log("Start getting information from API.AI after profile call");
                 console.log("Message Text "+ session.message.text);
                 var request = app.textRequest(session.message.text, options);   
