@@ -5,7 +5,8 @@ Record.prototype.doRecord = function (req, res) {
 
     return (
         {
-            console.log("inside startsession");                                   
+            console.log("inside startsession");    
+            console.log("Speech response : - "+response.result.fulfillment.speech);
             session.send(response.result.fulfillment.speech);
           
         }
