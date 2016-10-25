@@ -126,19 +126,16 @@ bot.dialog('/startsession', [
                 {        
                     var intent = response.result.action;
                     console.log("Action " + intent);     
-                    //session.send(response.result.fulfillment.speech);  
-                    console.log(response.result.fulfillment.data);
-                    var msg = new builder.Message(session).sourceEvent(
-                    {
-                        facebook: response.result.fulfillment.data
-                    });
-			session.send(msg);	
-		   var msg1 = new builder.Message(session).sourceEvent(
+                    session.send(response.result.fulfillment.speech);  
+                    console.log(" TEXT1 :" + JSON.stringify(response.result.fulfillment.data.facebook.attachment.payload.text));
+	            console.log(" Attachment value :" + JSON.stringify(response.result.fulfillment.data)); 
+                   
+		    var msg = new builder.Message(session).sourceEvent(
                     {
                         facebook: response.result.fulfillment.data.facebook
                     });
-			session.send(msg1);
-                    
+		   
+		   session.send(msg);	
                 });  
                 request.on('error', function (error)
                 {
