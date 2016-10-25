@@ -11,7 +11,7 @@ Record.prototype.doRecord = function (session, response, builder) {
                                          var time = (response.result.parameters.timeofpgm);
                                          var dateofrecord = (response.result.parameters.date);
                                          var SelectedSTB = (response.result.parameters.SelectedSTB);
-console.log("SelectedSTB : " + SelectedSTB + " channel : " + channel + " dateofrecord :" + dateofrecord + " time :" + time);
+console.log("SelectedSTB : " + SelectedSTB + " channel : " + channel + "program : " + program + " dateofrecord :" + dateofrecord + " time :" + time);
 
   
 }                                
