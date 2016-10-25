@@ -48,6 +48,7 @@ bot.dialog('/', function (session) {
 	}
 	    else if(Finished_Status =="IntentFinished")
 	    {
+		    console.log("-----------INTENT SELECTION-----------");
 		    var Selected_intentName=response.result.fulfillment.source
 		    console.log("Selected_intentName : "+ Selected_intentName);
 		    
