@@ -36,7 +36,7 @@ bot.endConversationAction('goodbye', 'Goodbye :)', { matches: /^goodbye/i });
 //=========================================================
 bot.post('/webhook', function (req, res) {
 	console.log("botwebook " + req.body);
-}
+});
 	    
 bot.dialog('/', [
     function (session) {
