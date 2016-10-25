@@ -58,8 +58,8 @@ bot.dialog('/', function (session) {
                     var welcome = require('./modules/welcome.js').Welcome;
                     break;
 				    case "recordnew":
-				    var getstarted = require('./modules/getStarted.js').getStarted;
-				    getstarted.dogetStarted(session, response, builder);
+				    var Record = require('./modules/record.js').Record;
+				    Record.doRecord(session, response, builder);
 				    
 				  /*  case "recordnew":
 				    var Record = require('./modules/record.js').Record;
