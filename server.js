@@ -91,7 +91,7 @@ bot.dialog('/', function (session) {
 
                     break;
                 case "Trending":
-                    recommendTVNew('Trending',function (str) recommendTVNew1(str, session));
+                    recommendTVNew_1(session);
                     break;
                 case "recommendation":
 
@@ -128,7 +128,10 @@ bot.dialog('/', function (session) {
 
 });
 	
-
+function recommendTVNew_1(user_session)
+{
+	recommendTVNew('Trending',function (str) recommendTVNew1(str, session));
+}
 function recommendTVNew(pgmtype,callback) { 
        	console.log('inside external call ');
 	console.log("Program Type " + pgmtype);
