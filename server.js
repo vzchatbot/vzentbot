@@ -81,7 +81,7 @@ bot.dialog('/', function (session) {
 			     testmethod(session);
 			    break;
 			case "stblist":
-
+ 			    STBList(response,function (str){ STBListCallBack(str,session)}); 
 			    break;
 			case "upsell":
 
@@ -192,10 +192,6 @@ function CategoryList(apireq,usersession) {
 	
 } 
 
-
-
-
-
 function PgmSearch(apireq,callback) { 
          var strProgram =  apireq.result.parameters.Programs;
 	 var strGenre =  apireq.result.parameters.Genre;
@@ -241,15 +237,6 @@ function PgmSearchCallback(apiresp,usersession) {
 	 console.log("subflow " + JSON.stringify(subflow));
 	var msg = new builder.Message(usersession).sourceEvent(subflow);              
         usersession.send(msg);
-	
-/*
-    return ({
-        speech: "Here is the program details you are looking for" ,
-        displayText: "Here is the program details you are looking for" ,
-        data: subflow,
-        source: "Verizon.js"
-    });
-*/
 } 
 
 function ChnlSearch(apireq,callback) { 
@@ -288,14 +275,6 @@ function ChnlSearchCallback(apiresp,usersession) {
 	
 	console.log("chposition :" + chposition)
 	usersession.send ("You can watch it on channel # " + chposition);
-	/*
-    return ({
-        speech: "You can watch it on channel # " + chposition  ,
-        displayText: "You can watch it on channel # " + chposition  ,
-       // data: subflow,
-        source: "Verizon.js"
-    });*/
-
 } 
 
 function recommendTVNew(pgmtype,callback) { 
@@ -310,8 +289,7 @@ function recommendTVNew(pgmtype,callback) {
 			}
 		}
 	};
-//https://www.verizon.com/fiostv/myservices/admin/testwhatshot.ashx 
-	//https://www.verizon.com/foryourhome/vzrepair/flowengine/restapi.ashx
+
     request.post("https://www.verizon.com/foryourhome/vzrepair/flowengine/restapi.ashx", args,
         function (error, response, body) {
             if (!error && response.statusCode == 200) {
@@ -329,19 +307,11 @@ function recommendTVNew1(apiresp,usersession) {
     var objToJson = {};
     objToJson = apiresp;
 	var subflow = objToJson[0].Inputs.newTemp.Section.Inputs.Response;
-	//var subflow = objToJson;
+	
 	 console.log("subflow " + JSON.stringify(subflow));
 	
 	var msg = new builder.Message(usersession).sourceEvent(subflow);              
         usersession.send(msg);
-	
- /*   return ({
-        speech: "Here are some recommendations for tonight",
-        displayText: "TV recommendations",
-        data: subflow,
-        source: "Zero Service - app_zero.js"
-    });*/
-
 } 
 
 function LinkOptionsNew(apireq,usersession)
@@ -376,7 +346,52 @@ function LinkOptionsNew(apireq,usersession)
     usersession.send(msg);
 }
 
+function STBList(apireq,callback) { 
+       	console.log('inside external call '+ apireq.body.contexts);
+	var struserid = ''; 
+	for (var i = 0, len = apireq.body.result.contexts.length; i < len; i++) {
+		if (apireq.body.result.contexts[i].name == "sessionuserid") {
 
+			 struserid = apireq.body.result.contexts[i].parameters.Userid;
+			console.log("original userid " + ": " + struserid);
+		}
+	} 
+	
+	if (struserid == '' || struserid == undefined) struserid='lt6sth2'; //hardcoding if its empty
+	
+		console.log('struserid '+ struserid);
+        var headersInfo = { "Content-Type": "application/json" };
+	var args = {
+		"headers": headersInfo,
+		"json": {Flow: 'TroubleShooting Flows\\Test\\APIChatBot.xml',
+			 Request: {ThisValue: 'STBList',Userid:struserid} 
+			}
+		
+	};
+
+    request.post("https://www.verizon.com/foryourhome/vzrepair/flowengine/restapi.ashx", args,
+        function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+             
+                 console.log("body " + body);
+                callback(body);
+            }
+            else
+            	console.log('error: ' + error + ' body: ' + body);
+        }
+    );
+ } 
+  
+function STBListCallBack(apiresp,usersession) {
+    var objToJson = {};
+    objToJson = apiresp;
+	var subflow = objToJson[0].Inputs.newTemp.Section.Inputs.Response;
+   	var msg = new builder.Message(usersession).sourceEvent(subflow);              
+    	usersession.send(msg);
+	
+	//callback(subflow);
+
+} 
 
 
 function testmethod(usersession)
