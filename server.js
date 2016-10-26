@@ -91,13 +91,15 @@ bot.dialog('/', function (session) {
 
                     break;
                 case "Trending":
-                    recommendTVNew('Trending',function (str) {res.json(recommendTVNew1(session));  }); 
+                    recommendTVNew('Trending',function (str) recommendTVNew1(str, session));
                     break;
                 case "recommendation":
 
                     break;
                 case "channelsearch":
                       // ChnlSearch(req,function (str) {res.json(ChnlSearchCallback(str));  }); 
+			    channelSearch(response,session);
+			    
                     break;
                 case "programSearchdummy":
 
@@ -125,9 +127,11 @@ bot.dialog('/', function (session) {
 
 
 });
+	
 
 function recommendTVNew(pgmtype,callback) { 
        	console.log('inside external call ');
+	console.log("Program Type " + pgmtype);
         var headersInfo = { "Content-Type": "application/json" };
 	var args = {
 		"headers": headersInfo,
@@ -138,6 +142,8 @@ function recommendTVNew(pgmtype,callback) {
 			}
 		}
 	};
+	
+	console.log("Arguments Value " + String(args));
 //https://www.verizon.com/fiostv/myservices/admin/testwhatshot.ashx 
 	//https://www.verizon.com/foryourhome/vzrepair/flowengine/restapi.ashx
     request.post("https://www.verizon.com/foryourhome/vzrepair/flowengine/restapi.ashx", args,
