@@ -44,45 +44,38 @@ bot.dialog('/', function (session) {
 	var Finished_Status=response.result.actionIncomplete;
 	 console.log("Finished_Status "+ Finished_Status);
 	
-	if(Finished_Status == true)
+	if(Finished_Status == true) // see if the intent is not finished play the prompt of API.ai
 	{
-        	session.send(response.result.fulfillment.speech);
+            session.send(response.result.fulfillment.speech);
 	}
-	else //if(Finished_Status =="false")
+	else //if the intent is complete do action
 	{
 		    console.log("-----------INTENT SELECTION-----------");
 		    var straction =response.result.action;
 		    console.log("Selected_intentName : "+ straction);
-		    
-           	    switch (straction) {
-				    
+		   // Methods to be called based on action 
+           	    switch (straction) 
+		    {
 			 case "getStarted":
-			    welcomeMsg(session);
+			   welcomeMsg(session);  
 			   break;
-			case "CategoryList":
-			      CategoryList(response,session);
-			      break;
 			case "LinkOptions":
-			    LinkOptionsNew(response,session);
-			     break;
+			    LinkOptions(response,session);
+			    break;
 			case "MoreOptions":
-			   session.send(response.result.fulfillment.speech);
+			    session.send(response.result.fulfillment.speech);
 			    break;
 			case "MainMenu":
 			    MainMenu(session);
 			    break;
 			case "recordnew":
-			      RecordScenario (response,session); 
-			      break;  
-		
-			case "Billing":
-			     testmethod(session);
-			    break;
-			case "stblist":
- 			    STBList(response,function (str){ STBListCallBack(str,session)}); 
-			    break;
+			     RecordScenario (response,session); 
+			     break;  
+			case "CategoryList":
+			     CategoryList(response,session);
+			     break;
 			case "recommendation":
- 			    recommendTVNew('whatshot',function (str) {recommendTVNew1(str,session)}); 
+ 			    recommendations('whatshot',function (str) {recommendationsCallback(str,session)}); 
 			    break;
 			case "channelsearch":
 		   	   ChnlSearch(response,function (str){ ChnlSearchCallback(str,session)}); 
@@ -90,11 +83,11 @@ bot.dialog('/', function (session) {
 			case "programSearch":
   			    PgmSearch(response,function (str){ PgmSearchCallback(str,session)});
 			    break;
-			case "getStarted":
-			    getStarted.dogetStarted(req, res);
-		
+			case "Billing":
+			     testmethod(session);
+			    break;
 			default:
-
+			     MainMenu(session);
 			 }
     }
 
@@ -249,7 +242,7 @@ function ChnlSearchCallback(apiresp,usersession) {
 	usersession.send ("You can watch it on channel # " + chposition);
 } 
 
-function recommendTVNew(pgmtype,callback) { 
+function recommendations(pgmtype,callback) { 
        	console.log('inside external call ');
         var headersInfo = { "Content-Type": "application/json" };
 	var args = {
@@ -275,7 +268,7 @@ function recommendTVNew(pgmtype,callback) {
     );
  } 
   
-function recommendTVNew1(apiresp,usersession) {
+function recommendationsCallback(apiresp,usersession) {
     var objToJson = {};
     objToJson = apiresp;
 	var subflow = objToJson[0].Inputs.newTemp.Section.Inputs.Response;
@@ -286,7 +279,7 @@ function recommendTVNew1(apiresp,usersession) {
         usersession.send(msg);
 } 
 
-function LinkOptionsNew(apireq,usersession)
+function LinkOptions(apireq,usersession)
 {
     console.log('Calling from  link options:') ;
 	
@@ -328,24 +321,24 @@ function RecordScenario (apiresp,usersession)
 	var SelectedSTB = apiresp.result.parameters.SelectedSTB;
 	console.log("SelectedSTB : " + SelectedSTB + " channel : " + channel + " dateofrecord :" + dateofrecord + " time :" + time);
 		
-		if (time == "") 
+		if (time == "") //if time is empty show schedule
 			{ PgmSearch(apiresp,function (str){ PgmSearchCallback(str,usersession)});}
 		else if (SelectedSTB == "" || SelectedSTB == undefined) 
 			{ STBList(apiresp,function (str){ STBListCallBack(str,usersession)}); }
-		else if (channel == 'HBO') //not subscribed case
+		else if (channel == 'HBO') //not subscribed scenario - call to be made
 			{
 			  var respobj = {"facebook":{"attachment":{"type":"template","payload":{"template_type":"button","text":" Sorry you are not subscribed to " + channel +". Would you like to subscribe " + channel + " ?","buttons":[{"type":"postback","title":"Subscribe","payload":"Subscribe"},{"type":"postback","title":"No, I'll do it later ","payload":"Main Menu"}]}}}};	
 			  var msg = new builder.Message(usersession).sourceEvent(respobj);              
 			  usersession.send(msg);
 			}
-		else if (channel == 'CBS')  //DVR full case
+		else if (channel == 'CBS')  //DVR full scenario - call to be made
 			{
 			   var respobj= {"facebook":{"attachment":{"type":"template","payload":{"template_type":"button","text":" Sorry your DVR storage is full.  Would you like to upgrade your DVR ?","buttons":[{"type":"postback","title":"Upgrade my DVR","payload":"Upgrade my DVR"},{"type":"postback","title":"No, I'll do it later ","payload":"Main Menu"}]}}}};
 			   var msg = new builder.Message(usersession).sourceEvent(respobj);              
 			   usersession.send(msg);
 			}
 		else 
-			{
+			{  //Schedule Recording
 			   console.log(" Channel: " + apiresp.result.parameters.Channel +" Programs: " + apiresp.result.parameters.Programs +" SelectedSTB: " + apiresp.result.parameters.SelectedSTB +" Duration: " + apiresp.result.parameters.Duration +" FiosId: " + apiresp.result.parameters.FiosId +" RegionId: " + apiresp.result.parameters.RegionId +" STBModel: " + apiresp.result.parameters.STBModel +" StationId: " + apiresp.result.parameters.StationId +" date: " + apiresp.result.parameters.date +" timeofpgm: " + apiresp.result.parameters.timeofpgm );
 			   DVRRecord(apiresp,function (str){ DVRRecordCallback(str,usersession)});
 			}  
