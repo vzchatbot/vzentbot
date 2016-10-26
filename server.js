@@ -152,7 +152,7 @@ function welcomeMsg(usersession)
     }
   }
 };
-	 console.log(JSON.stringy(respobj)); 
+	 console.log(JSON.stringify(respobj)); 
 	var msg = new builder.Message(usersession).sourceEvent(respobj);              
           usersession.send(msg);
 }
