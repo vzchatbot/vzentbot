@@ -527,7 +527,7 @@ function DVRRecordCallback(apiresp)
 	{
 		console.log( "Error occured in recording: " + err);
 		var msg = "Sorry!, There is a problem occured in Scheduling. Try some other.";
-		usersession.send(ms
+		usersession.send(msg);
 	}
 }
 
