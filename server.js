@@ -59,14 +59,6 @@ bot.dialog('/', function (session) {
 			 case "getStarted":
 			    welcomeMsg(session);
 			   break;
-			 /* case "recordnew":
-			    var Record = require('./modules/record.js').Record;
-			    Record.doRecord(session, response, builder);
-
-			   case "recordnew":
-			    var Record = require('./modules/record.js').Record;
-			    Record.doRecord(session, response, builder);				    
-			    break; */
 			case "CategoryList":
 			      CategoryList(response,session);
 			      break;
@@ -76,27 +68,18 @@ bot.dialog('/', function (session) {
 			case "MoreOptions":
 			   session.send(response.result.fulfillment.speech);
 			    break;
+			case "MainMenu":
+			    MainMenu(session);
+			    break;
 			case "recordnew":
 			      RecordScenario (response,session); 
-			      break;    
+			      break;  
+		
 			case "Billing":
-			  //  var billing = require('./modules/MoreOptions.js').Billing;				    				   
 			     testmethod(session);
 			    break;
 			case "stblist":
  			    STBList(response,function (str){ STBListCallBack(str,session)}); 
-			    break;
-			case "upsell":
-
-			    break;
-			case "upgradeDVR":
-
-			    break;
-			case "stgexternalcall":
-
-			    break;
-			case "Trending":
-
 			    break;
 			case "recommendation":
  			    recommendTVNew('whatshot',function (str) {recommendTVNew1(str,session)}); 
@@ -108,8 +91,8 @@ bot.dialog('/', function (session) {
   			    PgmSearch(response,function (str){ PgmSearchCallback(str,session)});
 			    break;
 			case "getStarted":
-
 			    getStarted.dogetStarted(req, res);
+		
 			default:
 
 			 }
@@ -129,34 +112,20 @@ bot.dialog('/', function (session) {
 
 function welcomeMsg(usersession)
 {
-    console.log("inside welcomeMsg");
-    var respobj= {
-  "facebook": {
-    "attachment": {
-      "type": "template",
-      "payload": {
-        "template_type": "button",
-        "text": "Want to know what’s on tonight? When your favorite sports team is playing? What time your favorite show is coming on? I can answer almost anything, so try me! Before we get started—let’s take a few minutes to get me linked to your Verizon account, this way I can send you personalized recommendations, alerts.",
-        "buttons": [
-          {
-            "type": "postback",
-            "title": "Link Account",
-            "payload": "Link Account"
-          },
-          {
-            "type": "postback",
-            "title": "Maybe later",
-            "payload": "Main Menu"
-          }
-        ]
-      }
-    }
-  }
-};
+     console.log("inside welcomeMsg");
+       var respobj= {"facebook":{"attachment":{"type":"template","payload":{"template_type":"button","text":"Want to know what’s on tonight? When your favorite sports team is playing? What time your favorite show is coming on? I can answer almost anything, so try me! Before we get started—let’s take a few minutes to get me linked to your Verizon account, this way I can send you personalized recommendations, alerts.","buttons":[{"type":"postback","title":"Link Account","payload":"Link Account"},{"type":"postback","title":"Maybe later","payload":"Main Menu"}]}}}};
 	 console.log(JSON.stringify(respobj)); 
 	var msg = new builder.Message(usersession).sourceEvent(respobj);              
           usersession.send(msg);
 }
+
+function MainMenu(usersession)
+{
+     var respobj = {"facebook":{"attachment":{"type":"template","payload":{"template_type":"button","text":"Are you looking for something to watch, or do you want to see more options? Type or tap below.","buttons":[{"type":"postback","title":"What's on tonight?","payload":"On Later"},{"type":"postback","title":"More Options","payload":"More Options"}]}}}};
+     var msg = new builder.Message(usersession).sourceEvent(respobj);              
+     usersession.send(msg);
+}
+
 
 function CategoryList(apireq,usersession) {
 	
