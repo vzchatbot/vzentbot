@@ -59,7 +59,7 @@ bot.dialog('/', function (session) {
 			 case "getStarted":
 			    welcomeMsg(session);
 			   break;
-			    case "recordnew":
+			 case "recordnew":
 			    var Record = require('./modules/record.js').Record;
 			    Record.doRecord(session, response, builder);
 
@@ -67,7 +67,9 @@ bot.dialog('/', function (session) {
 			    var Record = require('./modules/record.js').Record;
 			    Record.doRecord(session, response, builder);				    
 			    break; */
-
+			case "CategoryList":
+			      CategoryList(response,session));
+			      break;
 			case "LinkOptions":
 			    LinkOptionsNew(response,session);
 			     break;
@@ -152,6 +154,46 @@ function welcomeMsg(usersession)
 	var msg = new builder.Message(usersession).sourceEvent(respobj);              
           usersession.send(msg);
 }
+
+function CategoryList(apireq,usersession) {
+	
+	var pgNo = apireq.result.parameters.PageNo;
+	var categlist={}
+	
+	switch(pgNo)
+	{
+		case '1':
+			categlist={"facebook":
+			{ "text":"Pick a category", 
+			 "quick_replies":[ 
+			//    "content_type":"text", "title":"Red", "payload":"red"
+			    { "content_type": "text", "title":"Children & Family", "payload":"show Kids movies" }, 
+			    { "content_type": "text", "title":"Action & Adventure", "payload":"show Action movies" }, 
+			    { "content_type": "text", "title":"Documentary", "payload":"show Documentary movies" }, 
+			    { "content_type": "text", "title":"Mystery", "payload":"show Mystery movies" },
+			    { "content_type": "text", "title":"More Categories ", "payload":"show categories list pageno: 2" }
+			 ] }};
+			break;
+		default :
+		categlist={"facebook":
+			{ "text":"I can also sort my recommendations for you by genre. Type or tap below", 
+			 "quick_replies":[ 
+			    { "content_type": "text", "payload":"Comedy", "title":"Show Comedy movies" }, 
+			    { "content_type": "text", "payload":"Drama", "title":"Show Drama movies" }, 
+			    { "content_type": "text", "payload":"Sports" , "title":"Show Sports program"}, 
+			    { "content_type": "text", "payload":"show Sci-Fi movies" , "title":"Show Sci-Fi movies"},
+			    { "content_type": "text", "payload":"show categories list pageno: 1" , "title":"More Categories "}
+			 ] }};
+			break;
+		}
+	
+	var msg = new builder.Message(usersession).sourceEvent(categlist);              
+        usersession.send(msg);
+	
+} 
+
+
+
 
 
 function PgmSearch(apireq,callback) { 
