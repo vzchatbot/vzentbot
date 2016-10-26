@@ -74,7 +74,8 @@ bot.dialog('/', function (session) {
 				    var moreOptions = require('./modules/MoreOptions.js').MoreOptions;
 				    break;
 				case "Billing":
-				    var billing = require('./modules/MoreOptions.js').Billing;				    				   
+				  //  var billing = require('./modules/MoreOptions.js').Billing;				    				   
+				     testmethod(session);
 				    break;
 				case "stblist":
 				    
