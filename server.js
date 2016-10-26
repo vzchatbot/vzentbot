@@ -496,7 +496,7 @@ function DVRRecord(apireq,callback) {
     );
  } 
 
-function DVRRecordCallback(apiresp) 
+function DVRRecordCallback(apiresp,usersession) 
 {
      var objToJson = {};
      objToJson = apiresp;
