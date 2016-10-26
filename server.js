@@ -67,7 +67,8 @@ bot.dialog('/', function (session) {
 				    break; */
 				    
 				case "LinkOptions":
-				    var linkOptions = require('./modules/LinkOptions.js').LinkOptions;
+				   testmethod(session);
+				    
 				    break;
 				case "MoreOptions":
 				    var moreOptions = require('./modules/MoreOptions.js').MoreOptions;
@@ -122,3 +123,38 @@ bot.dialog('/', function (session) {
 
 
 });
+
+function testmethod(usersession)
+{
+usersession.send( {
+	speech: "Are you looking for something to watch, or do you want to see more options? Type or tap below.",
+	displayText: "Link Account",
+	data: {
+		"facebook": {
+			"attachment": {
+				"type": "template",
+				"payload": {
+					"template_type": "button",
+					"text": "Are you looking for something to watch, or do you want to see more options? Type or tap below.",
+					"buttons": [
+						{
+							"type": "postback",
+							"title": "What's on tonight?",
+							"payload": "On Later"
+						},
+						{
+							"type": "postback",
+							"title": "More Options",
+							"payload": "More Options"
+						}
+					]
+				}
+			}
+		}
+	},
+	source: "Verizon.js"
+       }
+	);	
+
+
+}
