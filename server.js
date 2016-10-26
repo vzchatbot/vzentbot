@@ -67,7 +67,7 @@ bot.dialog('/', function (session) {
                       var Record = require('./modules/record.js').Record;
                       Record.doRecord(session, response, builder);				    
                       break; */
-
+                    break;
                 case "LinkOptions":
 
 
