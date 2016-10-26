@@ -158,11 +158,6 @@ function welcomeMsg(usersession)
 }
 
 
-function channelSearch (apireq,usersession)
-{ console.log("channelSearch called " );
-	
-
-
 function ChnlSearch(apireq,callback) { 
 	console.log("ChnlSearch called " );
 	
