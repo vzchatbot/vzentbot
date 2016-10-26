@@ -265,7 +265,7 @@ function recommendTVNew(pgmtype,callback) {
 		"json": {
 			Flow: 'TroubleShooting Flows\\Test\\APIChatBot.xml',
 			Request: {
-				ThisValue: pgmtype, BotstrVCN:'3452'
+				ThisValue: pgmtype, BotstrVCN:''
 			}
 		}
 	};
