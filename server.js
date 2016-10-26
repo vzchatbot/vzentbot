@@ -98,8 +98,8 @@ bot.dialog('/', function (session) {
 
 			    break;
 			case "channelsearch":
-			    channelSearch(response,session);
-			    break;
+		   	   ChnlSearch(response,function (str){ ChnlSearchCallback(str,session)}); 
+			   break;
 			case "programSearchdummy":
 
 			    break;
@@ -160,8 +160,7 @@ function welcomeMsg(usersession)
 
 function channelSearch (apireq,usersession)
 { console.log("channelSearch called " );
-	ChnlSearch(apireq,function (str){ ChnlSearchCallback(str,usersession)}); 
-}
+	
 
 
 function ChnlSearch(apireq,callback) { 
