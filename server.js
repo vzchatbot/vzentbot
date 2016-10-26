@@ -156,9 +156,10 @@ function welcomeMsg(usersession)
           usersession.send(msg);
 }
 
+
 function channelSearch (apireq,usersession)
 {
-	ChnlSearch(apireq,function (str) ChnlSearchCallback(str,usersession)); 
+	ChnlSearch(apireq,function (str){ ChnlSearchCallback(str,usersession)}); 
 }
 
 
