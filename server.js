@@ -130,7 +130,8 @@ bot.dialog('/', function (session) {
 	
 function recommendTVNew_1(user_session)
 {
-	recommendTVNew('Trending',function (str) recommendTVNew1(str, session));
+	recommendTVNew('Trending', function (str) recommendTVNew1(session));
+	//ChnlSearch(apireq,function (str) ChnlSearchCallback(str,usersession)); 
 }
 function recommendTVNew(pgmtype,callback) { 
        	console.log('inside external call ');
