@@ -128,7 +128,8 @@ bot.dialog('/', function (session) {
 
 function testmethod(usersession)
 {
-
+ console.log("inside test method");
+	
 usersession.send ( 
 		{	"facebook": {
 			"attachment": {
@@ -150,7 +151,7 @@ usersession.send (
 					]
 				}
 			
-}}}
+		}}}
 	);	
 
 
