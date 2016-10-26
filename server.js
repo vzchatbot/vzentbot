@@ -129,11 +129,8 @@ bot.dialog('/', function (session) {
 function testmethod(usersession)
 {
 
-usersession.send ( {
-	speech: "Are you looking for something to watch, or do you want to see more options? Type or tap below.",
-	displayText: "Link Account",
-	data: {
-		"facebook": {
+usersession.send ( 
+		{	"facebook": {
 			"attachment": {
 				"type": "template",
 				"payload": {
@@ -152,12 +149,9 @@ usersession.send ( {
 						}
 					]
 				}
-			}
-		}
-	},
-	source: "Verizon.js"
-       }
-);	
+			
+}}}
+	);	
 
 
 }
