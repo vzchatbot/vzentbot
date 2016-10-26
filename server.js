@@ -289,7 +289,8 @@ function recommendTVNew1(apiresp,usersession) {
     objToJson = apiresp;
 	var subflow = objToJson[0].Inputs.newTemp.Section.Inputs.Response;
 	//var subflow = objToJson;
-	console.log("subflow :" + subflow)
+	 console.log("subflow " + JSON.stringify(subflow));
+	
 	var msg = new builder.Message(usersession).sourceEvent(subflow);              
         usersession.send(msg);
 	
