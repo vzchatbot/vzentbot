@@ -42,7 +42,7 @@ bot.dialog('/', function (session) {
         console.log(JSON.stringify(response));
 	var Finished_Status=response.result.actionIncomplete;
 	 console.log("Finished_Status "+ Finished_Status);
-	if(Finished_Status !=="true")
+	if(Finished_Status =="true")
 	{
         	session.send(response.result.fulfillment.speech);
 	}
