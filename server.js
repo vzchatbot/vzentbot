@@ -158,7 +158,7 @@ function welcomeMsg(usersession)
 
 function channelSearch (apireq,usersession)
 {
-	ChnlSearch(req,function (str) (ChnlSearchCallback(str,usersession))); 
+	ChnlSearch(apireq,function (str) ChnlSearchCallback(str,usersession)); 
 }
 
 
