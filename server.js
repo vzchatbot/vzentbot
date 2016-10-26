@@ -197,6 +197,7 @@ function PgmSearchCallback(apiresp,usersession) {
     var objToJson = {};
     objToJson = apiresp;
 	var subflow = objToJson[0].Inputs.newTemp.Section.Inputs.Response;
+	 console.log("subflow " + JSON.stringify(subflow));
 	usersession.send (subflow);
 /*
     return ({
@@ -207,11 +208,6 @@ function PgmSearchCallback(apiresp,usersession) {
     });
 */
 } 
-
-
-
-
-
 
 function ChnlSearch(apireq,callback) { 
 	console.log("ChnlSearch called " );
@@ -258,10 +254,6 @@ function ChnlSearchCallback(apiresp,usersession) {
     });*/
 
 } 
-
-
-
-
 
 
 function testmethod(usersession)
