@@ -158,13 +158,15 @@ function welcomeMsg(usersession)
 
 
 function channelSearch (apireq,usersession)
-{
+{ console.log("channelSearch called " );
 	ChnlSearch(apireq,function (str){ ChnlSearchCallback(str,usersession)}); 
 }
 
 
 function ChnlSearch(apireq,callback) { 
-      var strChannelName =  apireq.body.result.parameters.Channel.toUpperCase();
+	console.log("ChnlSearch called " );
+	
+      var strChannelName =  apireq.result.parameters.Channel.toUpperCase();
 	
 	  console.log("strChannelName " + strChannelName);
         var headersInfo = { "Content-Type": "application/json" };
