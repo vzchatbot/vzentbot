@@ -76,6 +76,9 @@ bot.dialog('/', function (session) {
 			case "MoreOptions":
 			   session.send(response.result.fulfillment.speech);
 			    break;
+			case "recordnew":
+			      RecordScenario (response,session); 
+			      break;    
 			case "Billing":
 			  //  var billing = require('./modules/MoreOptions.js').Billing;				    				   
 			     testmethod(session);
@@ -345,6 +348,39 @@ function LinkOptionsNew(apireq,usersession)
     var msg = new builder.Message(usersession).sourceEvent(respobj);              
     usersession.send(msg);
 }
+
+function RecordScenario (apiresp,usersession)
+{
+	var channel = apiresp.result.parameters.Channel.toUpperCase();
+	var program = apiresp.result.parameters.Programs.toUpperCase();
+	var time = apiresp.result.parameters.timeofpgm;
+	var dateofrecord = apiresp.result.parameters.date;
+	var SelectedSTB = apiresp.result.parameters.SelectedSTB;
+	console.log("SelectedSTB : " + SelectedSTB + " channel : " + channel + " dateofrecord :" + dateofrecord + " time :" + time);
+		
+		if (time == "") 
+			{ PgmSearch(apiresp,function (str){ PgmSearchCallback(str,usersession)});}
+		else if (SelectedSTB == "" || SelectedSTB == undefined) 
+			{ STBList(apiresp,function (str){ STBListCallBack(str,usersession)}); }
+		else if (channel == 'HBO') //not subscribed case
+			{
+			 var respobj = {"facebook":{"attachment":{"type":"template","payload":{"template_type":"button","text":" Sorry you are not subscribed to " + channel +". Would you like to subscribe " + channel + " ?","buttons":[{"type":"postback","title":"Subscribe","payload":"Subscribe"},{"type":"postback","title":"No, I'll do it later ","payload":"Main Menu"}]}}}};	
+			 var msg = new builder.Message(usersession).sourceEvent(respobj);              
+			  usersession.send(msg);
+			}
+		else if (channel == 'CBS')  //DVR full case
+			{
+			   var respobj= {"facebook":{"attachment":{"type":"template","payload":{"template_type":"button","text":" Sorry your DVR storage is full.  Would you like to upgrade your DVR ?","buttons":[{"type":"postback","title":"Upgrade my DVR","payload":"Upgrade my DVR"},{"type":"postback","title":"No, I'll do it later ","payload":"Main Menu"}]}}}};
+			   var msg = new builder.Message(usersession).sourceEvent(respobj);              
+			   usersession.send(msg);
+			}
+		else 
+			{
+				console.log(" Channel: " + apiresp.result.parameters.Channel +" Programs: " + apiresp.result.parameters.Programs +" SelectedSTB: " + apiresp.result.parameters.SelectedSTB +" Duration: " + apiresp.result.parameters.Duration +" FiosId: " + apiresp.result.parameters.FiosId +" RegionId: " + apiresp.result.parameters.RegionId +" STBModel: " + apiresp.result.parameters.STBModel +" StationId: " + apiresp.result.parameters.StationId +" date: " + apiresp.result.parameters.date +" timeofpgm: " + apiresp.result.parameters.timeofpgm );
+				DVRRecord(apiresp,function (str){ DVRRecordCallback(str,usersession)});
+			}  
+}
+
 
 function STBList(apireq,callback) { 
        	console.log('inside external call '+ apireq.contexts);
