@@ -330,7 +330,7 @@ function LinkOptionsNew(apireq,usersession)
 		respobj= {"facebook":{"attachment":{"type":"template","payload":{"template_type":"button","text":"Congrats, we got your details. Tap Continue to proceed.","buttons":[{"type":"postback","title":"Continue","payload":"Userid : " + struserid + "   Regionid : 92377"}]}}}};
 	}
 
-    var msg = new builder.Message(usersession).sourceEvent(subflow);              
+    var msg = new builder.Message(usersession).sourceEvent(respobj);              
     usersession.send(msg);
 }
 
