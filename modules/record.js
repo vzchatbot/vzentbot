@@ -22,7 +22,7 @@ Record.prototype.doRecord = function (session, response, builder) {
     this.dateofrecord = (response.result.parameters.date);
     this.SelectedSTB = (response.result.parameters.SelectedSTB);
 
-    console.log("SelectedSTB : " + this.SelectedSTB + " channel : " + this.channel + "program : " + this.program + " dateofrecord :" + this.dateofrecord + " time :" + this.time);
+    console.log("SelectedSTB : " + this.SelectedSTB + " , channel : " + this.channel + ", program : " + this.program + " , dateofrecord :" + this.dateofrecord + " , time :" + this.time);
 
     if (this.time == "")
     {
