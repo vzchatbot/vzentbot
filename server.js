@@ -351,6 +351,7 @@ function LinkOptionsNew(apireq,usersession)
 
 function RecordScenario (apiresp,usersession)
 {
+	console.log("inside RecordScenario");
 	var channel = apiresp.result.parameters.Channel.toUpperCase();
 	var program = apiresp.result.parameters.Programs.toUpperCase();
 	var time = apiresp.result.parameters.timeofpgm;
@@ -364,8 +365,8 @@ function RecordScenario (apiresp,usersession)
 			{ STBList(apiresp,function (str){ STBListCallBack(str,usersession)}); }
 		else if (channel == 'HBO') //not subscribed case
 			{
-			 var respobj = {"facebook":{"attachment":{"type":"template","payload":{"template_type":"button","text":" Sorry you are not subscribed to " + channel +". Would you like to subscribe " + channel + " ?","buttons":[{"type":"postback","title":"Subscribe","payload":"Subscribe"},{"type":"postback","title":"No, I'll do it later ","payload":"Main Menu"}]}}}};	
-			 var msg = new builder.Message(usersession).sourceEvent(respobj);              
+			  var respobj = {"facebook":{"attachment":{"type":"template","payload":{"template_type":"button","text":" Sorry you are not subscribed to " + channel +". Would you like to subscribe " + channel + " ?","buttons":[{"type":"postback","title":"Subscribe","payload":"Subscribe"},{"type":"postback","title":"No, I'll do it later ","payload":"Main Menu"}]}}}};	
+			  var msg = new builder.Message(usersession).sourceEvent(respobj);              
 			  usersession.send(msg);
 			}
 		else if (channel == 'CBS')  //DVR full case
@@ -376,8 +377,8 @@ function RecordScenario (apiresp,usersession)
 			}
 		else 
 			{
-				console.log(" Channel: " + apiresp.result.parameters.Channel +" Programs: " + apiresp.result.parameters.Programs +" SelectedSTB: " + apiresp.result.parameters.SelectedSTB +" Duration: " + apiresp.result.parameters.Duration +" FiosId: " + apiresp.result.parameters.FiosId +" RegionId: " + apiresp.result.parameters.RegionId +" STBModel: " + apiresp.result.parameters.STBModel +" StationId: " + apiresp.result.parameters.StationId +" date: " + apiresp.result.parameters.date +" timeofpgm: " + apiresp.result.parameters.timeofpgm );
-				DVRRecord(apiresp,function (str){ DVRRecordCallback(str,usersession)});
+			   console.log(" Channel: " + apiresp.result.parameters.Channel +" Programs: " + apiresp.result.parameters.Programs +" SelectedSTB: " + apiresp.result.parameters.SelectedSTB +" Duration: " + apiresp.result.parameters.Duration +" FiosId: " + apiresp.result.parameters.FiosId +" RegionId: " + apiresp.result.parameters.RegionId +" STBModel: " + apiresp.result.parameters.STBModel +" StationId: " + apiresp.result.parameters.StationId +" date: " + apiresp.result.parameters.date +" timeofpgm: " + apiresp.result.parameters.timeofpgm );
+			   DVRRecord(apiresp,function (str){ DVRRecordCallback(str,usersession)});
 			}  
 }
 
