@@ -16,10 +16,10 @@ var app = apiai("db847b425ad44ca38e2d696d8b0750cd"); // Mine
 // Setup Restify Server
 var server = restify.createServer();
 server.listen(process.env.port || process.env.PORT || 3978, function () {
-    console.log('%s listening to %s', server.name, server.url);
-    console.log('NODE_ENV: ' + nconf.get('NODE_ENV'));
-    console.log('Microsoft_AppID: ' + nconf.get('msbot:Microsoft_AppID'));
-    console.log('apiai: ' + nconf.get('apiai:clientid'));
+    //console.log('%s listening to %s', server.name, server.url);
+    //console.log('NODE_ENV: ' + nconf.get('NODE_ENV'));
+    //console.log('Microsoft_AppID: ' + nconf.get('msbot:Microsoft_AppID'));
+    //console.log('apiai: ' + nconf.get('apiai:clientid'));
 });
 
 // Create chat bot
