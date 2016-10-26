@@ -46,8 +46,8 @@ bot.dialog('/', function (session) {
 	{
         	session.send(response.result.fulfillment.speech);
 	}
-	    else if(Finished_Status =="false")
-	    {
+	else //if(Finished_Status =="false")
+	{
 		    console.log("-----------INTENT SELECTION-----------");
 		    var straction =response.result.action;
 		    console.log("Selected_intentName : "+ straction);
