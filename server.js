@@ -68,7 +68,7 @@ bot.dialog('/', function (session) {
 			    Record.doRecord(session, response, builder);				    
 			    break; */
 			case "CategoryList":
-			      CategoryList(response,session));
+			      CategoryList(response,session);
 			      break;
 			case "LinkOptions":
 			    LinkOptionsNew(response,session);
