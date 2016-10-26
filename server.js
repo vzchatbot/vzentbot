@@ -40,19 +40,19 @@ bot.dialog('/', function (session) {
     request.on('response', function (response) {
         var intent = response.result.action;
         console.log(JSON.stringify(response));
-	var Finished_Status=response.result.fulfillment.speech
+	var Finished_Status=response.result.actionIncomplete;
 	 console.log("Finished_Status "+ Finished_Status);
-	if(Finished_Status !=="IntentFinished")
+	if(Finished_Status !=="true")
 	{
         	session.send(response.result.fulfillment.speech);
 	}
-	    else if(Finished_Status =="IntentFinished")
+	    else if(Finished_Status =="false")
 	    {
 		    console.log("-----------INTENT SELECTION-----------");
-		    var Selected_intentName=response.result.fulfillment.source
-		    console.log("Selected_intentName : "+ Selected_intentName);
+		    var straction =response.result.action;
+		    console.log("Selected_intentName : "+ straction);
 		    
-           	    switch (Selected_intentName) {
+           	    switch (straction) {
 				    
 			 case "welcome":
 			    welcomeMsg(session);
