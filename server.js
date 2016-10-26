@@ -95,7 +95,7 @@ bot.dialog('/', function (session) {
 
 			    break;
 			case "recommendation":
- 			    recommendTVNew('Trending',function (str) {recommendTVNew1(str,session)}); 
+ 			    recommendTVNew('whatshot',function (str) {recommendTVNew1(str,session)}); 
 			    break;
 			case "channelsearch":
 		   	   ChnlSearch(response,function (str){ ChnlSearchCallback(str,session)}); 
