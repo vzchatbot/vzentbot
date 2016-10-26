@@ -13,7 +13,7 @@ var Record = function () {
 Record.prototype.doRecord = function (session, response, builder) {
     console.log("----------record.js:SELECTED INTENT IS recordnew----------");
     console.log("inside startsession");
-    session.send("Recoding Started....");
+    session.send("Recording Started....");
     console.log(response.result.parameters);
 
     this.channel = (response.result.parameters.Channel.toUpperCase());
