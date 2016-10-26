@@ -178,10 +178,10 @@ function CategoryList(apireq,usersession) {
 		categlist={"facebook":
 			{ "text":"I can also sort my recommendations for you by genre. Type or tap below", 
 			 "quick_replies":[ 
-			    { "content_type": "text", "payload":"Comedy", "title":"Show Comedy movies" }, 
-			    { "content_type": "text", "payload":"Drama", "title":"Show Drama movies" }, 
-			    { "content_type": "text", "payload":"Sports" , "title":"Show Sports program"}, 
-			    { "content_type": "text", "payload":"show Sci-Fi movies" , "title":"Show Sci-Fi movies"},
+			    { "content_type": "text", "payload":"Show Comedy movies", "title":"Comedy" }, 
+			    { "content_type": "text", "payload":"Show Drama movies", "title":"Drama" }, 
+			    { "content_type": "text", "payload":"Show Sports program" , "title":"Sports"}, 
+			    { "content_type": "text", "payload":"show Sci-Fi movies" , "title":"Sci-Fi"},
 			    { "content_type": "text", "payload":"show categories list pageno: 1" , "title":"More Categories "}
 			 ] }};
 			break;
@@ -349,10 +349,10 @@ function LinkOptionsNew(apireq,usersession)
 function STBList(apireq,callback) { 
        	console.log('inside external call '+ apireq.body.contexts);
 	var struserid = ''; 
-	for (var i = 0, len = apireq.body.result.contexts.length; i < len; i++) {
+	for (var i = 0, len = apireq.result.contexts.length; i < len; i++) {
 		if (apireq.body.result.contexts[i].name == "sessionuserid") {
 
-			 struserid = apireq.body.result.contexts[i].parameters.Userid;
+			 struserid = apireq.result.contexts[i].parameters.Userid;
 			console.log("original userid " + ": " + struserid);
 		}
 	} 
