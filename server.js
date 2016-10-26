@@ -129,7 +129,8 @@ bot.dialog('/', function (session) {
 function testmethod(usersession)
 {
  console.log("inside test method");
-	var myobj= {"attachment": {
+	var myobj= {	"facebook": {
+			"attachment": {
 				"type": "template",
 				"payload": {
 					"template_type": "button",
@@ -148,11 +149,33 @@ function testmethod(usersession)
 					]
 				}
 			
-		}};
+		}}};
 	
-	var msg = new builder.Message(usersession).attachment(myobj);
-	console.log(JSON.stringify(msg));
-	usersession.send(msg);
+	  var msg = new builder.Message(usersession).sourceEvent(  
+                                         {                  
+						  "facebook": {
+						"attachment": {
+							"type": "template",
+							"payload": {
+								"template_type": "button",
+								"text": "Are you looking for something to watch, or do you want to see more options? Type or tap below.",
+								"buttons": [
+									{
+										"type": "postback",
+										"title": "What's on tonight?",
+										"payload": "On Later"
+									},
+									{
+										"type": "postback",
+										"title": "More Options",
+										"payload": "More Options"
+									}
+								]
+							}
+						}}});              
+                                     usersession.send(msg);
+	
+	
 	/*
 usersession.send ( 
 		{	"facebook": {
