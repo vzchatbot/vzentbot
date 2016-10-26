@@ -91,13 +91,13 @@ bot.dialog('/', function (session) {
 
                     break;
                 case "Trending":
-
+                    recommendTVNew('Trending',function (str) {res.json(recommendTVNew1(session));  }); 
                     break;
                 case "recommendation":
 
                     break;
                 case "channelsearch":
-
+                      // ChnlSearch(req,function (str) {res.json(ChnlSearchCallback(str));  }); 
                     break;
                 case "programSearchdummy":
 
@@ -125,3 +125,45 @@ bot.dialog('/', function (session) {
 
 
 });
+
+function recommendTVNew(pgmtype,callback) { 
+       	console.log('inside external call ');
+        var headersInfo = { "Content-Type": "application/json" };
+	var args = {
+		"headers": headersInfo,
+		"json": {
+			Flow: 'TroubleShooting Flows\\Test\\APIChatBot.xml',
+			Request: {
+				ThisValue: pgmtype, BotstrVCN:'3452'
+			}
+		}
+	};
+//https://www.verizon.com/fiostv/myservices/admin/testwhatshot.ashx 
+	//https://www.verizon.com/foryourhome/vzrepair/flowengine/restapi.ashx
+    request.post("https://www.verizon.com/foryourhome/vzrepair/flowengine/restapi.ashx", args,
+        function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+             
+                 console.log("body " + body);
+                callback(body);
+            }
+            else
+            	console.log('error: ' + error + ' body: ' + body);
+        }
+    );
+ } 
+  
+function recommendTVNew1(apiresp) {
+    var objToJson = {};
+    objToJson = apiresp;
+	var subflow = objToJson[0].Inputs.newTemp.Section.Inputs.Response;
+	//var subflow = objToJson;
+	console.log("subflow :" + subflow)
+    return ({
+        speech: "Here are some recommendations for tonight",
+        displayText: "TV recommendations",
+        data: subflow,
+        source: "Zero Service - app_zero.js"
+    });
+
+}
