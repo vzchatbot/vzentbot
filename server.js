@@ -69,9 +69,8 @@ bot.dialog('/', function (session) {
 			    break; */
 
 			case "LinkOptions":
-
-			      var linkOptions = require('./modules/LinkOptions.js').LinkOptions;
-			    break;
+			    LinkOptionsNew(response,session);
+			     break;
 			case "MoreOptions":
 			    var moreOptions = require('./modules/MoreOptions.js').MoreOptions;
 			    break;
@@ -302,6 +301,42 @@ function recommendTVNew1(apiresp,usersession) {
     });*/
 
 } 
+
+function LinkOptionsNew(apireq,usersession)
+{
+    console.log('Calling from  link options:') ;
+	
+    var strRegionId =  apireq.result.parameters.RegionId;
+    console.log('strRegionId:' + strRegionId) ;
+	var respobj={};
+	if (strRegionId != undefined  && strRegionId !='')
+	{
+		respobj= {"facebook":{"attachment":{"type":"template","payload":{"template_type":"button","text":"Are you looking for something to watch, or do you want to see more options? Type or tap below.","buttons":[{"type":"postback","title":"What's on tonight?","payload":"On Later"},{"type":"postback","title":"More Options","payload":"More Options"}]}}}};
+	}
+	else
+	{
+		var struserid = ''; 
+		for (var i = 0, len = apireq.result.contexts.length; i < len; i++) 
+		{
+				if (apireq.result.contexts[i].name == "sessionuserid")
+				{
+					 struserid = apireq.result.contexts[i].parameters.Userid;
+					console.log("original userid " + ": " + struserid);
+				}
+		} 
+
+		if (struserid == '' || struserid == undefined) struserid='lt6sth2'; //hardcoding if its empty	
+
+		respobj= {"facebook":{"attachment":{"type":"template","payload":{"template_type":"button","text":"Congrats, we got your details. Tap Continue to proceed.","buttons":[{"type":"postback","title":"Continue","payload":"Userid : " + struserid + "   Regionid : 92377"}]}}}};
+	}
+
+    var msg = new builder.Message(usersession).sourceEvent(subflow);              
+    usersession.send(msg);
+}
+
+
+
+
 function testmethod(usersession)
 {
  console.log("inside test method");
