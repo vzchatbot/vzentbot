@@ -198,7 +198,9 @@ function PgmSearchCallback(apiresp,usersession) {
     objToJson = apiresp;
 	var subflow = objToJson[0].Inputs.newTemp.Section.Inputs.Response;
 	 console.log("subflow " + JSON.stringify(subflow));
-	usersession.send (subflow);
+	var msg = new builder.Message(usersession).sourceEvent(subflow);              
+        usersession.send(msg);
+	
 /*
     return ({
         speech: "Here is the program details you are looking for" ,
