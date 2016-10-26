@@ -1,11 +1,12 @@
 var restify = require('restify');
 var builder = require('botbuilder');
 var apiai = require('apiai');
-var nconf = require('nconf');
-var uuid = require('node-uuid');
+var app = apiai("db847b425ad44ca38e2d696d8b0750cd"); // Mine
+//var nconf = require('nconf');
+//var uuid = require('node-uuid');
 
-nconf.file('./config.json');
-var app = apiai(nconf.get('apiai:clientid'));
+//nconf.file('./config.json');
+//var app = apiai(nconf.get('apiai:clientid'));
 
 //=========================================================
 // Bot Setup
@@ -23,8 +24,10 @@ server.listen(process.env.port || process.env.PORT || 3978, function () {
 
 // Create chat bot
 var connector = new builder.ChatConnector({
-    appId: nconf.get('msbot:Microsoft_AppID'),
-    appPassword: nconf.get('msbot:Microsoft_AppPassword')
+    //appId: nconf.get('msbot:Microsoft_AppID'),
+    //appPassword: nconf.get('msbot:Microsoft_AppPassword')
+     appId: '4f5df286-2591-477d-af7d-547dd13a0156',
+    appPassword: 'oTwfDnKyx1gCwiQoP53k2oC'
 });
 var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
