@@ -97,13 +97,13 @@ bot.dialog('/', function (session) {
 
 			    break;
 			case "channelsearch":
-
+			    channelSearch(response,session);
 			    break;
 			case "programSearchdummy":
 
 			    break;
 			case "programSearch":
-
+ 			   
 			    break;
 			case "getStarted":
 
@@ -155,6 +155,60 @@ function welcomeMsg(usersession)
 	var msg = new builder.Message(usersession).sourceEvent(respobj);              
           usersession.send(msg);
 }
+
+function channelSearch (apireq,usersession)
+{
+	ChnlSearch(req,function (str) (ChnlSearchCallback(str,usersession))); 
+}
+
+
+function ChnlSearch(apireq,callback) { 
+      var strChannelName =  apireq.body.result.parameters.Channel.toUpperCase();
+	
+	  console.log("strChannelName " + strChannelName);
+        var headersInfo = { "Content-Type": "application/json" };
+	var args = {
+		"headers": headersInfo,
+		"json": {Flow: 'TroubleShooting Flows\\Test\\APIChatBot.xml',
+			 Request: {ThisValue: 'ChannelSearch',BotstrStationCallSign:strChannelName} 
+			}
+		
+	};
+  console.log("json " + String(args));
+	
+    request.post("https://www.verizon.com/foryourhome/vzrepair/flowengine/restapi.ashx", args,
+        function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+             
+                 console.log("body " + body);
+                callback(body);
+            }
+            else
+            	console.log('error: ' + error + ' body: ' + body);
+        }
+    );
+ } 
+  
+function ChnlSearchCallback(apiresp,usersession) {
+    var objToJson = {};
+    objToJson = apiresp;
+	var chposition = objToJson[0].Inputs.newTemp.Section.Inputs.Response;
+	
+	console.log("chposition :" + chposition)
+	usersession.send ("You can watch it on channel # " + chposition);
+	/*
+    return ({
+        speech: "You can watch it on channel # " + chposition  ,
+        displayText: "You can watch it on channel # " + chposition  ,
+       // data: subflow,
+        source: "Verizon.js"
+    });*/
+
+} 
+
+
+
+
 
 
 function testmethod(usersession)
