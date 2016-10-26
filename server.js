@@ -130,7 +130,7 @@ bot.dialog('/', function (session) {
 	
 function recommendTVNew_1(user_session)
 {
-	recommendTVNew('Trending', function (str) recommendTVNew1(user_session));
+	recommendTVNew('Trending', function (str) recommendTVNew1(str));
 	//ChnlSearch(apireq,function (str) ChnlSearchCallback(str,usersession)); 
 }
 function recommendTVNew(pgmtype,callback) { 
@@ -162,7 +162,7 @@ function recommendTVNew(pgmtype,callback) {
         }
     );
  } 
-  
+  	 
 function recommendTVNew1(apiresp) {
     var objToJson = {};
     objToJson = apiresp;
