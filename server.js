@@ -152,7 +152,7 @@ function testmethod(usersession)
 						}}};
 	
 	  var msg = new builder.Message(usersession).sourceEvent(  
-                                         {   myobj               
+                                            myobj               
 						);              
                                      usersession.send(msg);
 	
