@@ -45,6 +45,7 @@ bot.dialog('/', function (session) {
 	if(Finished_Status !=="IntentFinished")
 	{
         	session.send(response.result.fulfillment.speech);
+		console.log("-----------INTENT NOT YET FINISHED-----------");
 	}
 	    else if(Finished_Status =="IntentFinished")
 	    {
