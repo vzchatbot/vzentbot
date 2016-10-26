@@ -72,7 +72,7 @@ bot.dialog('/', function (session) {
 			    LinkOptionsNew(response,session);
 			     break;
 			case "MoreOptions":
-			    var moreOptions = require('./modules/MoreOptions.js').MoreOptions;
+			   session.send(response.result.fulfillment.speech);
 			    break;
 			case "Billing":
 			  //  var billing = require('./modules/MoreOptions.js').Billing;				    				   
