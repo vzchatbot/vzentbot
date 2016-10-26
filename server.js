@@ -100,11 +100,8 @@ bot.dialog('/', function (session) {
 			case "channelsearch":
 		   	   ChnlSearch(response,function (str){ ChnlSearchCallback(str,session)}); 
 			   break;
-			case "programSearchdummy":
-
-			    break;
 			case "programSearch":
- 			   
+  			    PgmSearch(response,function (str){ PgmSearchCallback(str,session)});
 			    break;
 			case "getStarted":
 
@@ -156,6 +153,64 @@ function welcomeMsg(usersession)
 	var msg = new builder.Message(usersession).sourceEvent(respobj);              
           usersession.send(msg);
 }
+
+
+function PgmSearch(apireq,callback) { 
+         var strProgram =  apireq.result.parameters.Programs;
+	 var strGenre =  apireq.result.parameters.Genre;
+	 var strdate =  apireq.result.parameters.date;
+	 var strChannelName =  apireq.result.parameters.Channel;
+	 var strRegionId = "92377";
+	 console.log("strProgram " + strProgram + "strGenre " + strGenre + "strdate " +strdate);
+	
+        var headersInfo = { "Content-Type": "application/json" };
+	
+	var args = {
+		"headers": headersInfo,
+		"json": {Flow: 'TroubleShooting Flows\\Test\\APIChatBot.xml',
+			 Request: {ThisValue: 'AdvProgramSearch', 
+				   BotstrTitleValue:strProgram, 
+				   BotdtAirStartDateTime : strdate,
+				   BotstrGenreRootId : strGenre,
+				   BotstrStationCallSign:strChannelName,
+				   BotstrFIOSRegionID : strRegionId
+				  } 
+			}
+		};
+	
+	 console.log("args " + args);
+	
+    request.post("https://www.verizon.com/foryourhome/vzrepair/flowengine/restapi.ashx", args,
+        function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+             
+                 console.log("body " + body);
+                callback(body);
+            }
+            else
+            	console.log('error: ' + error + ' body: ' + body);
+        }
+    );
+ } 
+  
+function PgmSearchCallback(apiresp,usersession) {
+    var objToJson = {};
+    objToJson = apiresp;
+	var subflow = objToJson[0].Inputs.newTemp.Section.Inputs.Response;
+	usersession.send (subflow);
+/*
+    return ({
+        speech: "Here is the program details you are looking for" ,
+        displayText: "Here is the program details you are looking for" ,
+        data: subflow,
+        source: "Verizon.js"
+    });
+*/
+} 
+
+
+
+
 
 
 function ChnlSearch(apireq,callback) { 
