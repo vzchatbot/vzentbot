@@ -347,10 +347,10 @@ function LinkOptionsNew(apireq,usersession)
 }
 
 function STBList(apireq,callback) { 
-       	console.log('inside external call '+ apireq.body.contexts);
+       	console.log('inside external call '+ apireq.contexts);
 	var struserid = ''; 
 	for (var i = 0, len = apireq.result.contexts.length; i < len; i++) {
-		if (apireq.body.result.contexts[i].name == "sessionuserid") {
+		if (apireq.result.contexts[i].name == "sessionuserid") {
 
 			 struserid = apireq.result.contexts[i].parameters.Userid;
 			console.log("original userid " + ": " + struserid);
