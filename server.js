@@ -54,62 +54,62 @@ bot.dialog('/', function (session) {
 		    
            	    switch (Selected_intentName) {
 				    
-                    case "welcome":
-                    var welcome = require('./modules/welcome.js').Welcome;
-                    break;
-				    case "recordnew":
-				    var Record = require('./modules/record.js').Record;
-				    Record.doRecord(session, response, builder);
-				    
-				  /*  case "recordnew":
-				    var Record = require('./modules/record.js').Record;
-				    Record.doRecord(session, response, builder);				    
-				    break; */
-				    
-				case "LinkOptions":
-				 
-				      var linkOptions = require('./modules/LinkOptions.js').LinkOptions;
-				    break;
-				case "MoreOptions":
-				    var moreOptions = require('./modules/MoreOptions.js').MoreOptions;
-				    break;
-				case "Billing":
-				  //  var billing = require('./modules/MoreOptions.js').Billing;				    				   
-				     testmethod(session);
-				    break;
-				case "stblist":
-				    
-				    break;
-				case "upsell":
-				    
-				    break;
-				case "upgradeDVR":
-				    
-				    break;
-				case "stgexternalcall":
-				    
-				    break;
-				case "Trending":
-				    
-				    break;
-				case "recommendation":
-				    
-				    break;
-				case "channelsearch":
-				    
-				    break;
-				case "programSearchdummy":
-				    
-				    break;
-				case "programSearch":
-				    
-				    break;
-				case "getStarted":
-				    
-				    getStarted.dogetStarted(req, res);
-				default:
-				    
-			   	 }
+			 case "welcome":
+			    welcomeMsg(session);
+			   break;
+			    case "recordnew":
+			    var Record = require('./modules/record.js').Record;
+			    Record.doRecord(session, response, builder);
+
+			  /*  case "recordnew":
+			    var Record = require('./modules/record.js').Record;
+			    Record.doRecord(session, response, builder);				    
+			    break; */
+
+			case "LinkOptions":
+
+			      var linkOptions = require('./modules/LinkOptions.js').LinkOptions;
+			    break;
+			case "MoreOptions":
+			    var moreOptions = require('./modules/MoreOptions.js').MoreOptions;
+			    break;
+			case "Billing":
+			  //  var billing = require('./modules/MoreOptions.js').Billing;				    				   
+			     testmethod(session);
+			    break;
+			case "stblist":
+
+			    break;
+			case "upsell":
+
+			    break;
+			case "upgradeDVR":
+
+			    break;
+			case "stgexternalcall":
+
+			    break;
+			case "Trending":
+
+			    break;
+			case "recommendation":
+
+			    break;
+			case "channelsearch":
+
+			    break;
+			case "programSearchdummy":
+
+			    break;
+			case "programSearch":
+
+			    break;
+			case "getStarted":
+
+			    getStarted.dogetStarted(req, res);
+			default:
+
+			 }
     }
 
 				//var msg = new builder.Message(session).attachment(response.result.fulfillment.data.facebook.attachment);
@@ -124,6 +124,42 @@ bot.dialog('/', function (session) {
 
 
 });
+
+
+function welcomeMsg(usersession)
+{
+    
+    var respobj= {
+            "facebook": {
+                "attachment": {
+                    "type": "template",
+                    "payload": {
+                        "template_type": "button",
+                        //"text": "Hey , welcome to Verizon! Want to know what’s on tonight?  I can answer almost anything, so try me! Also, if you want personalized alerts through Messenger link me to your Verizon account! ",
+                      //  "text" : "Want to know what’s on tonight? When your favorite sports team is playing? What time your favorite show is coming on? I can answer almost anything, so try me! Before we get started—let’s take a few minutes to get me linked to your Verizon account, this way I can send you personalized recommendations, alerts and notifications through messenger whenever you want. OR if you’re in a hurry send me your zip code/ VZID so that I can send you TV recommendations right away. Don’t worry – your personal information will not be shared with Facebook!",
+			"text" :"Want to know what’s on tonight? When your favorite sports team is playing? What time your favorite show is coming on? I can answer almost anything, so try me! Before we get started—let’s take a few minutes to get me linked to your Verizon account, this way I can send you personalized recommendations, alerts.",
+			    "buttons": [
+                            {
+                                "type": "postback",
+                                "title": "Link Account",
+                                "payload": "Link Account"
+                            },
+			   {
+                                "type": "postback",
+                                "title": "Maybe later",
+                                "payload": "Main Menu"
+                            }
+                        ]
+                    }
+                }
+            }
+        };
+      
+	
+	  var msg = new builder.Message(usersession).sourceEvent(respobj);              
+          usersession.send(msg);
+	
+}
 
 
 function testmethod(usersession)
