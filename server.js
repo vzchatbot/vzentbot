@@ -59,11 +59,11 @@ bot.dialog('/', function (session) {
 			 case "getStarted":
 			    welcomeMsg(session);
 			   break;
-			 case "recordnew":
+			 /* case "recordnew":
 			    var Record = require('./modules/record.js').Record;
 			    Record.doRecord(session, response, builder);
 
-			  /*  case "recordnew":
+			   case "recordnew":
 			    var Record = require('./modules/record.js').Record;
 			    Record.doRecord(session, response, builder);				    
 			    break; */
