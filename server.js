@@ -54,7 +54,7 @@ bot.dialog('/', function (session) {
 		    
            	    switch (straction) {
 				    
-			 case "welcome":
+			 case "getStarted":
 			    welcomeMsg(session);
 			   break;
 			    case "recordnew":
