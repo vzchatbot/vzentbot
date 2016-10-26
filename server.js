@@ -388,10 +388,112 @@ function STBListCallBack(apiresp,usersession) {
 	var subflow = objToJson[0].Inputs.newTemp.Section.Inputs.Response;
    	var msg = new builder.Message(usersession).sourceEvent(subflow);              
     	usersession.send(msg);
-	
-	//callback(subflow);
-
 } 
+
+function DVRRecord(apireq,callback) { 
+	
+	var strUserid = ''; 
+	for (var i = 0, len = apireq.result.contexts.length; i < len; i++) {
+		if (apireq.result.contexts[i].name == "sessionuserid") {
+
+			 strUserid = apireq.result.contexts[i].parameters.Userid;
+			console.log("original userid " + ": " + strUserid);
+		}
+	} 
+	if (strUserid == '' || strUserid == undefined) strUserid='lt6sth2'; //hardcoding if its empty
+		
+         var strProgram =  apireq.result.parameters.Programs;
+	 var strChannelName =  apireq.result.parameters.Channel;
+	 var strGenre =  apireq.result.parameters.Genre;
+
+	var strFiosId = apireq.result.parameters.FiosId;
+	var strStationId =apireq.result.parameters.StationId  ;
+	
+	var strAirDate =apireq.result.parameters.date  ;
+	var strAirTime =apireq.result.parameters.timeofpgm  ;
+	var strDuration =apireq.result.parameters.Duration  ;
+	
+	var strRegionId =apireq.result.parameters.RegionId;
+	var strSTBModel =apireq.result.parameters.STBModel  ;
+	var strSTBId =apireq.result.parameters.SelectedSTB  ;
+	
+	var strVhoId =apireq.result.parameters.VhoId  ;
+	var strProviderId =apireq.result.parameters.ProviderId  ;
+	
+	
+	 console.log(" strUserid " + strUserid + "Recording strProgram " + strProgram + " strGenre " + strGenre + " strdate " +strAirDate + " strFiosId " +strFiosId + " strStationId " +strStationId  +" strAirDate " + strAirDate + " strAirTime " + strAirTime+ " strSTBId " +strSTBId + " strSTBModel " +strSTBModel+" strRegionId " +strRegionId+ " strDuration " +strDuration );
+	
+        var headersInfo = { "Content-Type": "application/json" };
+	
+	var args = {
+		"headers": headersInfo,
+		"json": {Flow: 'TroubleShooting Flows\\Test\\APIChatBot.xml',
+			 Request: {ThisValue: 'DVRSchedule', 
+				   Userid : strUserid,
+				   BotStbId:strSTBId, 
+				   BotDeviceModel : strSTBModel,
+				   BotstrFIOSRegionID : '91629',
+				   BotstrFIOSServiceId : strFiosId,
+				   BotStationId : strStationId,
+				   BotAirDate : strAirDate,
+				   BotAirTime : strAirTime,
+				   BotDuration : strDuration,
+				   BotVhoId : strVhoId,
+				   BotProviderId : strProviderId
+				   } 
+			}
+		};
+	
+	 console.log("args " + JSON.stringify(args));
+	
+    request.post("https://www.verizon.com/foryourhome/vzrepair/flowengine/restapi.ashx", args,
+        function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+             
+                 console.log("body " + JSON.stringify(body));
+                callback(body);
+            }
+            else
+            	console.log('error: ' + error + ' body: ' + body);
+        }
+    );
+ } 
+
+function DVRRecordCallback(apiresp) 
+{
+     var objToJson = {};
+     objToJson = apiresp;
+	try{
+		var subflow = objToJson[0].Inputs.newTemp.Section.Inputs.Response;
+		console.log(JSON.stringify(subflow));
+		var respobj={};
+		if (subflow !=null )
+		{
+			if (subflow.facebook.result.msg =="success" )
+			{
+				respobj = {"facebook":{"attachment":{"type":"template","payload":{"template_type":"button","text":"Your recording has been scheduled. Would you like to see some other TV Recommendations for tonight?","buttons":[{"type":"postback","title":"Show Recommendations","payload":"Show Recommendations"},{"type":"postback","title":"More Options","payload":"More Options"}]}}}};
+				var msg = new builder.Message(usersession).sourceEvent(respobj);              
+				usersession.send(msg);
+			}
+			else
+			{
+				var msg = "Sorry!, There is a problem occured in Scheduling( "+ subflow.facebook.result.msg + " ). Try some other.";
+				usersession.send(msg);
+			}
+		}
+		else
+		{
+			var msg = "Sorry!, There is a problem occured in Scheduling. Try some other.";
+			usersession.send(msg);
+		}
+	}
+	catch (err) 
+	{
+		console.log( "Error occured in recording: " + err);
+		var msg = "Sorry!, There is a problem occured in Scheduling. Try some other.";
+		usersession.send(ms
+	}
+}
 
 
 function testmethod(usersession)
