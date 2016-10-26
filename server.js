@@ -68,7 +68,7 @@ bot.dialog('/', function (session) {
 				    
 				case "LinkOptions":
 				 
-				    testmethod(session);
+				      var linkOptions = require('./modules/LinkOptions.js').LinkOptions;
 				    break;
 				case "MoreOptions":
 				    var moreOptions = require('./modules/MoreOptions.js').MoreOptions;
