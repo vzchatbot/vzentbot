@@ -69,7 +69,7 @@ bot.dialog('/', function (session) {
 			case "MainMenu":
 			    MainMenu(session);
 			    break;
-			case "recordnew":
+			case "record":
 			     RecordScenario (response,session); 
 			     break;  
 			case "CategoryList":
