@@ -37,8 +37,8 @@ server.post('/api/messages', connector.listen());
 bot.dialog('/', function (session) {
    
 	var options = {};
-	 console.log("session data : "+ session);
-	 console.log("starting.. Sessionid:" +session.message.id );
+	 console.log("session id : "+ session.userData.sessionId);
+
 	if (session.userData.sessionId == undefined)
 	{  
 		var guid = uuid.v1();
