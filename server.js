@@ -87,7 +87,7 @@ bot.dialog('/', function (session) {
 			     testmethod(session);
 			    break;
 			default:
-			     MainMenu(session);
+			     session.send(response.result.fulfillment.speech);
 			 }
     }
 
