@@ -37,7 +37,7 @@ server.post('/api/messages', connector.listen());
 bot.dialog('/', function (session) {
    
 	var options = {};
-	 console.log("session data"+ JSON.stringify(session));
+	 //console.log("session data"+ JSON.stringify(session));
 	 console.log("starting.. Sessionid:" +session.sessionId );
 	/*if (session.sessionId ==null)
 	{  
