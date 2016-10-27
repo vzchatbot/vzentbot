@@ -58,6 +58,7 @@ bot.dialog('/', function (session) {
            	    switch (straction) 
 		    {
 			 case "getStarted":
+			   getprofile (session) ;
 			   welcomeMsg(session);  
 			   break;
 			case "LinkOptions":
@@ -106,10 +107,9 @@ bot.dialog('/', function (session) {
 
 });
 
-/*
 // Get facebook users profile
-bot.dialog('/getprofile', [
-    function (session) {
+ function getprofile (session) 
+ {
         console.log("=== DIALOG: GETPROFILE | STEP: 1/1 ====");
         //console.log(session);
         // Store the returned user page-scoped id (USER_ID) and page id
@@ -152,10 +152,7 @@ bot.dialog('/getprofile', [
             }
         }
 		);
-}]);
-
-*/
-
+}
 
 
 // function calls
