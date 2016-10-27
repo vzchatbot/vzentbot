@@ -35,7 +35,18 @@ server.post('/api/messages', connector.listen());
 //=========================================================
 
 bot.dialog('/', function (session) {
-    var options = {sessionId: '9dbb0570-9a8b-11e6-a1e7-afc8eaec72d6'}
+   
+	var options = {};
+	 console.log("starting.. Sessionid:" +session.sessionId );
+	if (session.sessionId ==null)
+	{  
+		var guid = getSessionId();
+		options = {sessionId:guid };
+		console.log("New id.. Sessionid:" + guid );	   
+	}
+	else
+	{ options = {sessionId: session.sessionId}}
+	
    // session.beginDialog('/getprofile');
 	
     var request = app.textRequest(session.message.text, options);
@@ -107,6 +118,10 @@ bot.dialog('/', function (session) {
 
 });
 
+
+function getSessionId() {
+    return (((1+Math.random())*0x10000)|0).toString(16).substring(1); 
+}
 // Get facebook users profile
  function getprofile (session) 
  {
