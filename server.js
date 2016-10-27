@@ -86,7 +86,7 @@ bot.dialog('/', function (session) {
 			case "Billing":
 			     testmethod(session);
 			    break;
-		        case "demowhatshot"
+			case "demowhatshot":
 			    demowhatshot(session);
 			    break;
 			default:
