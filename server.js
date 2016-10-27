@@ -36,20 +36,20 @@ server.post('/api/messages', connector.listen());
 
 bot.dialog('/', function (session) {
    
-	//var options = {};
+	var options = {};
 	 console.log("session data : "+ session);
-	 console.log("starting.. Sessionid:" +session.sessionId );
-	/*if (session.sessionId ==null)
+	 console.log("starting.. Sessionid:" +session.id );
+	if (session.id == undefined)
 	{  
 		var guid = getSessionId();
 		options = {sessionId:guid };
 		console.log("New id.. Sessionid:" + guid );	   
 	}
 	else
-	{ options = {sessionId: session.sessionId}}
-	*/
+	{ options = {sessionId: session.id}}
+	
    
-	var options = {sessionId: session.sessionId};
+	//var options = {sessionId: session.sessionId};
 	
     var request = app.textRequest(session.message.text, options);
     request.on('response', function (response) {
