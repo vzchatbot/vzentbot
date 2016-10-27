@@ -37,8 +37,9 @@ server.post('/api/messages', connector.listen());
 bot.dialog('/', function (session) {
    
 	var options = {};
+	 console.log("session data"+ JSON.stringify(session));
 	 console.log("starting.. Sessionid:" +session.sessionId );
-	if (session.sessionId ==null)
+	/*if (session.sessionId ==null)
 	{  
 		var guid = getSessionId();
 		options = {sessionId:guid };
@@ -46,8 +47,9 @@ bot.dialog('/', function (session) {
 	}
 	else
 	{ options = {sessionId: session.sessionId}}
-	
-   // session.beginDialog('/getprofile');
+	*/
+   
+	options = {sessionId: session.sessionId};
 	
     var request = app.textRequest(session.message.text, options);
     request.on('response', function (response) {
