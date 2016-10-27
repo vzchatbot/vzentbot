@@ -38,7 +38,8 @@ bot.dialog('/', function (session) {
    
 	var options = {};
 	 console.log("session id : "+ session.userData.sessionId);
-
+	
+	//check session id exists, if not create one.
 	if (session.userData.sessionId == undefined)
 	{  
 		var guid = uuid.v1();
@@ -50,14 +51,15 @@ bot.dialog('/', function (session) {
 	{ options = {sessionId: session.userData.sessionId}}
 	
    
-	//var options = {sessionId: session.sessionId};
+	//send request to api.ai
+    	var request = app.textRequest(session.message.text, options);
 	
-    var request = app.textRequest(session.message.text, options);
-    request.on('response', function (response) {
-        var intent = response.result.metadata.intentName;
-        console.log(JSON.stringify(response));
-	var Finished_Status=response.result.actionIncomplete;
-	 console.log("Finished_Status "+ Finished_Status);
+    	request.on('response', function (response) 
+	{
+		var intent = response.result.metadata.intentName;
+		console.log(JSON.stringify(response));
+		var Finished_Status=response.result.actionIncomplete;
+		 console.log("Finished_Status "+ Finished_Status);
 	
 	if(Finished_Status == true || intent=="Default Fallback Intent" ) // see if the intent is not finished play the prompt of API.ai
 	{
@@ -122,9 +124,6 @@ bot.dialog('/', function (session) {
 });
 
 
-function getSessionId() {
-    return (((1+Math.random())*0x10000)|0).toString(16).substring(1); 
-}
 // Get facebook users profile
  function getprofile (session) 
  {
