@@ -36,7 +36,8 @@ server.post('/api/messages', connector.listen());
 
 bot.dialog('/', function (session) {
     var options = {sessionId: '9dbb0570-9a8b-11e6-a1e7-afc8eaec72d6'}
-
+    session.beginDialog('/getprofile');
+	
     var request = app.textRequest(session.message.text, options);
     request.on('response', function (response) {
         var intent = response.result.metadata.intentName;
@@ -104,6 +105,57 @@ bot.dialog('/', function (session) {
 
 
 });
+
+
+// Get facebook users profile
+bot.dialog('/getprofile', [
+    function (session) {
+        console.log("=== DIALOG: GETPROFILE | STEP: 1/1 ====");
+        //console.log(session);
+        // Store the returned user page-scoped id (USER_ID) and page id
+        session.userData.userid = session.message.sourceEvent.sender.id;
+        session.userData.pageid = session.message.sourceEvent.recipient.id;
+
+        console.log("FB User ID " + session.userData.userid);
+        console.log("FB Page ID " + session.userData.pageid);
+
+        // Let the user know we are 'working'
+        //session.sendTyping();
+        // Get the users profile information from FB
+        request({
+            url: 'https://graph.facebook.com/v2.8/' + session.userData.userid + '?fields=first_name,last_name,profile_pic,locale,timezone,gender',
+            qs: { access_token: 'EAAZA7BXIxv6IBAF0ce1LuQUZBqepPjBbTnFYcQ9jBITFpFEtoGi3H2kAcBAvT1eTV3BNERepLnpQzexlyIFEmvMrZCBOaROeJgBIlkcGCxwkVtDF92o5ZAvMbBm09ObPxO5opABmcZAZCdD3sp4WwUzh08JU5ZApiQXVBUQWoQhqQZDZD' },
+            method: 'GET'
+        }, function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+                // Parse the JSON returned from FB
+                body = JSON.parse(body);
+                // Save profile to userData
+                session.dialogData.firstname = body.first_name;
+                session.dialogData.lastname = body.last_name;
+                session.dialogData.profilepic = body.profile_pic;
+                session.dialogData.locale = body.locale;
+                session.dialogData.timezone = body.timezone;
+                session.dialogData.gender = body.gender;
+
+                console.log("Last Name " + body.last_name);
+                console.log("First Name " + body.first_name);
+                console.log("Gender " + body.gender);
+                console.log("Locale " + body.locale);
+
+                // Return to /startSession
+                session.endDialogWithResult({ response: session.dialogData });
+            } else {
+                // TODO: Handle errors
+                console.log(error);
+                console.log("Get user profile failed");
+            }
+        }
+		);
+}]);
+
+
+
 
 
 // function calls
