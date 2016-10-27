@@ -39,12 +39,12 @@ bot.dialog('/', function (session) {
 
     var request = app.textRequest(session.message.text, options);
     request.on('response', function (response) {
-        var intent = response.result.action;
+        var intent = response.result.metadata.intentName;
         console.log(JSON.stringify(response));
 	var Finished_Status=response.result.actionIncomplete;
 	 console.log("Finished_Status "+ Finished_Status);
 	
-	if(Finished_Status == true) // see if the intent is not finished play the prompt of API.ai
+	if(Finished_Status == true || intent=="Default Fallback Intent" ) // see if the intent is not finished play the prompt of API.ai
 	{
             session.send(response.result.fulfillment.speech);
 	}
