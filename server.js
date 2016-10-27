@@ -61,7 +61,7 @@ bot.dialog('/', function (session) {
             console.log("Account Linking convert: " + JSON.stringify(session.message.sourceEvent.account_linking.status, null, 2));
 
         }
-	
+	// Log the conversation of the user
 	console.log("Conversation: session id : "+ session.userData.sessionId + " User Typed:" + session.message.text  );
 	//send request to api.ai
     	var request = app.textRequest(session.message.text, options);
