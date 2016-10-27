@@ -106,7 +106,7 @@ bot.dialog('/', function (session) {
 
 });
 
-
+/*
 // Get facebook users profile
 bot.dialog('/getprofile', [
     function (session) {
@@ -154,7 +154,7 @@ bot.dialog('/getprofile', [
 		);
 }]);
 
-
+*/
 
 
 
