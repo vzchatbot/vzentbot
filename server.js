@@ -39,14 +39,15 @@ bot.dialog('/', function (session) {
 	var options = {};
 	 console.log("session data : "+ session);
 	 console.log("starting.. Sessionid:" +session.message.id );
-	if (session.message.id == undefined)
+	if (session.userData.sessionId == undefined)
 	{  
-		var guid = getSessionId();
+		var guid = uuid.v1();
 		options = {sessionId:guid };
-		console.log("New id.. Sessionid:" + guid );	   
+		console.log("New id.. Sessionid:" + guid );
+		session.userData.sessionId = guid;
 	}
 	else
-	{ options = {sessionId: session.message.id}}
+	{ options = {sessionId: session.userData.sessionId}}
 	
    
 	//var options = {sessionId: session.sessionId};
