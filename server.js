@@ -58,7 +58,7 @@ bot.dialog('/', function (session) {
            	    switch (straction) 
 		    {
 			 case "getStarted":
-			   getprofile (session) ;
+			   //getprofile (session) ;
 			   welcomeMsg(session);  
 			   break;
 			case "LinkOptions":
