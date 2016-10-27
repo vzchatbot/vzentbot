@@ -71,8 +71,8 @@ bot.dialog('/', function (session) {
 		console.log(JSON.stringify(response));
 		var Finished_Status=response.result.actionIncomplete;
 		 console.log("Finished_Status "+ Finished_Status);
-	
-	if(Finished_Status == true || intent=="Default Fallback Intent" ) // see if the intent is not finished play the prompt of API.ai
+	// see if the intent is not finished play the prompt of API.ai or fall back messages
+	if(Finished_Status == true || intent=="Default Fallback Intent" ) 
 	{
             session.send(response.result.fulfillment.speech);
 	}
@@ -80,7 +80,7 @@ bot.dialog('/', function (session) {
 	{
 		    console.log("-----------INTENT SELECTION-----------");
 		    var straction =response.result.action;
-		    console.log("Selected_intentName : "+ straction);
+		    console.log("Selected_action : "+ straction);
 		   // Methods to be called based on action 
            	    switch (straction) 
 		    {
@@ -90,7 +90,7 @@ bot.dialog('/', function (session) {
 			   break;
 			case "LinkOptions":
 			    //LinkOptions(response,session);
-			    acclinking(response,session);
+			    accountlinking(response,session);
 			    break;
 			case "MoreOptions":
 			    session.send(response.result.fulfillment.speech);
@@ -183,7 +183,7 @@ bot.dialog('/', function (session) {
 		);
 }
 
-function acclinking(apireq,usersession)
+function accountlinking(apireq,usersession)
 {
 	console.log('Account Linking Button') ;
 	var respobj ={"facebook":{"attachment":{"type":"template","payload":{"template_type":"generic","elements":[{"title":"Login to Verizon","image_url":"https://www.verizon.com/cs/groups/public/documents/adacct/vzlogo_lg.png","buttons":[{"type":"account_link","url":"https://www98.verizon.com/foryourhome/myaccount/ngen/upr/bots/preauth.aspx"}]}]}}}};
