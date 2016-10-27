@@ -50,7 +50,18 @@ bot.dialog('/', function (session) {
 	else
 	{ options = {sessionId: session.userData.sessionId}}
 	
-   
+   //account linking check
+        if (session.message.sourceEvent.account_linking == undefined) 
+	{
+            console.log("Account Linking null");
+        }
+        else {
+            console.log("Account Linking convert: " + JSON.stringify(session.message.sourceEvent.account_linking, null, 2));
+            console.log("Account Linking convert: " + JSON.stringify(session.message.sourceEvent.account_linking.authorization_code, null, 2));
+            console.log("Account Linking convert: " + JSON.stringify(session.message.sourceEvent.account_linking.status, null, 2));
+
+        }
+
 	//send request to api.ai
     	var request = app.textRequest(session.message.text, options);
 	
@@ -78,7 +89,8 @@ bot.dialog('/', function (session) {
 			   welcomeMsg(session);  
 			   break;
 			case "LinkOptions":
-			    LinkOptions(response,session);
+			    //LinkOptions(response,session);
+			    acclinking(response,session);
 			    break;
 			case "MoreOptions":
 			    session.send(response.result.fulfillment.speech);
@@ -171,6 +183,13 @@ bot.dialog('/', function (session) {
 		);
 }
 
+function acclinking(apireq,usersession)
+{
+	console.log('Account Linking Button') ;
+	var respobj ={"facebook":{"attachment":{"type":"template","payload":{"template_type":"generic","elements":[{"title":"Login to Verizon","image_url":"https://www.verizon.com/cs/groups/public/documents/adacct/vzlogo_lg.png","buttons":[{"type":"account_link","url":"https://www98.verizon.com/foryourhome/myaccount/ngen/upr/bots/preauth.aspx"}]}]}}}};
+	var msg = new builder.Message(usersession).sourceEvent(respobj);              
+         usersession.send(msg);
+}
 
 // function calls
 function welcomeMsg(usersession)
