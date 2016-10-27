@@ -291,7 +291,8 @@ function PgmSearchCallback(apiresp,usersession) {
     objToJson = apiresp;
 	var subflow = objToJson[0].Inputs.newTemp.Section.Inputs.Response;
 	 console.log("subflow " + JSON.stringify(subflow));
-	usersession.send("I found several related programs");
+	
+	//usersession.send("I found several related programs");
 	var msg = new builder.Message(usersession).sourceEvent(subflow);              
         usersession.send(msg);
 } 
