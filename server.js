@@ -36,8 +36,8 @@ server.post('/api/messages', connector.listen());
 
 bot.dialog('/', function (session) {
    
-	var options = {};
-	 //console.log("session data"+ JSON.stringify(session));
+	//var options = {};
+	 console.log("session data : "+ session);
 	 console.log("starting.. Sessionid:" +session.sessionId );
 	/*if (session.sessionId ==null)
 	{  
@@ -49,7 +49,7 @@ bot.dialog('/', function (session) {
 	{ options = {sessionId: session.sessionId}}
 	*/
    
-	options = {sessionId: session.sessionId};
+	var options = {sessionId: session.sessionId};
 	
     var request = app.textRequest(session.message.text, options);
     request.on('response', function (response) {
