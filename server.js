@@ -19,7 +19,7 @@ users.findAll(function (err, user) {
 //=================== Logging In text file ====================================
 var fs = require('fs');
 var util = require('util');
-var logFile = fs.createWriteStream('C:\PRABU\V_OFFICE\Chatbotlog\log.txt', { flags: 'a' });
+var logFile = fs.createWriteStream('./userlog.txt', { flags: 'a' });
   // Or 'w' to truncate the file every time the process starts.
 var logStdout = process.stdout;
 
