@@ -8,6 +8,12 @@ var uuid = require('node-uuid');
 nconf.file('./config/config.json');
 var app = apiai(nconf.get('apiai:clientid'));
 
+//=======================================================
+var Users = require("./users").Users;
+var users = new Users("localhost", 27017);
+
+//=======================================================
+
 //=========================================================
 // Bot Setup
 //=========================================================
@@ -212,8 +218,8 @@ function MainMenu(usersession)
      usersession.send(msg);
 }
 
-
-function CategoryList(apireq,usersession) {
+users.findAll(function (err, user) {
+ function CategoryList(apireq,usersession) {
 	
 	var pgNo = apireq.result.parameters.PageNo;
 	var categlist={}
@@ -248,7 +254,8 @@ function CategoryList(apireq,usersession) {
 	var msg = new builder.Message(usersession).sourceEvent(categlist);              
         usersession.send(msg);
 	
-} 
+}
+});
 
 function PgmSearch(apireq,callback) { 
          var strProgram =  apireq.result.parameters.Programs;
