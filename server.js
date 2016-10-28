@@ -17,7 +17,7 @@ users.findAll(function (err, user) {
 	});
 */
 //=================== Logging In text file ====================================
-var fs = require('fs');
+/*var fs = require('fs');
 var util = require('util');
 var logFile = fs.createWriteStream('./userlog.txt', { flags: 'a' });
   // Or 'w' to truncate the file every time the process starts.
@@ -28,6 +28,8 @@ console.log = function () {
   logStdout.write(util.format.apply(null, arguments) + '\n');
 }
 console.error = console.log;
+*/
+var logger = require('./log');
 //=========================================================
 // Bot Setup
 //=========================================================
@@ -65,6 +67,8 @@ bot.dialog('/', function (session) {
 		var guid = uuid.v1();
 		options = {sessionId:guid };
 		console.log("New id.. Sessionid:" + guid );
+		logger.info('log to file');
+		logger.info("New id.. Sessionid:" + guid );
 		session.userData.sessionId = guid;
 	}
 	else
@@ -95,15 +99,16 @@ bot.dialog('/', function (session) {
 	// see if the intent is not finished play the prompt of API.ai or fall back messages
 	if(Finished_Status == true || intent=="Default Fallback Intent" ) 
 	{
-		console.log("-----------INTENT YET TO BE FINISH-----------");
-            session.send(response.result.fulfillment.speech);
+		console.log("-----------INTENT collection In-Progress-----------");
+		 logger.info("-----------INTENT collection In-Progress-----------");
+                session.send(response.result.fulfillment.speech);
 	}
 	else //if the intent is complete do action
 	{
 		    console.log("-----------INTENT SELECTION-----------");
 		    var straction =response.result.action;
 		    console.log("Selected_action : "+ straction);
-		    console.error = console.log;
+		    logger.info("Selected_action : "+ straction);
 		   // Methods to be called based on action 
            	    switch (straction) 
 		    {
