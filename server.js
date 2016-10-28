@@ -8,7 +8,7 @@ var uuid = require('node-uuid');
 nconf.file('./config/config.json');
 var app = apiai(nconf.get('apiai:clientid'));
 
-//=======================================================
+//=============== Logging in MongoDB ========================================
 var Users = require("./users").Users;
 var users = new Users("localhost", 27017);
 
@@ -16,8 +16,18 @@ users.findAll(function (err, user) {
 	//do something
 	});
 
-//=======================================================
+//=================== Logging In text file ====================================
+var fs = require('fs');
+var util = require('util');
+var logFile = fs.createWriteStream('log.txt', { flags: 'a' });
+  // Or 'w' to truncate the file every time the process starts.
+var logStdout = process.stdout;
 
+console.log = function () {
+  logFile.write(util.format.apply(null, arguments) + '\n');
+  logStdout.write(util.format.apply(null, arguments) + '\n');
+}
+console.error = console.log;
 //=========================================================
 // Bot Setup
 //=========================================================
