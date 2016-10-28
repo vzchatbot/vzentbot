@@ -9,13 +9,13 @@ nconf.file('./config/config.json');
 var app = apiai(nconf.get('apiai:clientid'));
 
 //=============== Logging in MongoDB ========================================
-var Users = require("./users").Users;
+/*var Users = require("./users").Users;
 var users = new Users("localhost", 27017);
 
 users.findAll(function (err, user) {
 	//do something
 	});
-
+*/
 //=================== Logging In text file ====================================
 var fs = require('fs');
 var util = require('util');
