@@ -58,7 +58,7 @@ bot.dialog('/', function (session) {
    
 	var options = {};
 	 console.log("session id : "+ session.userData.sessionId);
-	
+	 console.error = console.log;
 	//check session id exists, if not create one.
 	if (session.userData.sessionId == undefined)
 	{  
@@ -103,6 +103,7 @@ bot.dialog('/', function (session) {
 		    console.log("-----------INTENT SELECTION-----------");
 		    var straction =response.result.action;
 		    console.log("Selected_action : "+ straction);
+		    console.error = console.log;
 		   // Methods to be called based on action 
            	    switch (straction) 
 		    {
