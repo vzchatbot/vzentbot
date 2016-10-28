@@ -155,7 +155,7 @@ bot.dialog('/', function (session) {
         // Get the users profile information from FB
         request({
             url: 'https://graph.facebook.com/v2.8/' + session.userData.userid + '?fields=first_name,last_name,profile_pic,locale,timezone,gender',
-            qs: { access_token: 'EAAZA7BXIxv6IBAF0ce1LuQUZBqepPjBbTnFYcQ9jBITFpFEtoGi3H2kAcBAvT1eTV3BNERepLnpQzexlyIFEmvMrZCBOaROeJgBIlkcGCxwkVtDF92o5ZAvMbBm09ObPxO5opABmcZAZCdD3sp4WwUzh08JU5ZApiQXVBUQWoQhqQZDZD' },
+            qs: { access_token: 'EAAYeV8WAScYBAN9UT9yRYZAg4M7jP9zzlnCRVJVfoJ20LAmxR3XgvTo7km6tNBU1HihQn8Bhkhpzh4uT4URydgthctJSfC1nbd0QOHsPtu8YbRdQcQGecZAdVAQ1zkPNrzRQHkP31LBNewmaSx1sAn4NNtnAAWqSWnk1HzvwZDZD' },
             method: 'GET'
         }, function (error, response, body) {
             if (!error && response.statusCode == 200) {
