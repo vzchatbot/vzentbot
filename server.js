@@ -333,12 +333,15 @@ function packageChannelSearch(apireq,callback) {
  } 
   
 function packageChannelSearchCallback(apiresp,usersession) {
+	console.log("packageChannelSearchCallback called");
     var objToJson = {};
     objToJson = apiresp;
 	var chposition = objToJson[0].Inputs.newTemp.Section.Inputs.Response;
 	
 	console.log("chposition :" + chposition)
 	usersession.send ("YES YOU ARE SUBSCRIBED");
+	
+	
 } 
 
 function ChnlSearch(apireq,callback) { 
