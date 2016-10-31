@@ -117,6 +117,12 @@ bot.dialog('/', function (session) {
 			case "support":
 			     support(session);
 			    break;
+			case "upgradeDVR":
+			     upgradeDVR(response,session);
+			     break;
+			case "upsell":
+			     upsell(response,session);
+			     break;
 			case "Billing":
 			     testmethod(session);
 			    break;
@@ -596,6 +602,27 @@ function support(usersession)
 	var respobj={"facebook":{"attachment":{"type":"template","payload":{"template_type":"button","text":"You may need some additional help. Tap one below.","buttons":[{"type":"web_url","url":"https://m.me/fios","title":"Chat with Agent "},{"type":"phone_number","title":"Talk to an agent","payload":"+918554804789"}]}}}};	
  	var msg = new builder.Message(usersession).sourceEvent(respobj);              
     	usersession.send(msg);
+}
+
+function upsell(apiresp,usersession) 
+{
+	var respstr ='Congrats, Now you are subscribed for ' + apiresp.result.parameters.Channel +" Channel.  Now  I can help you with  TV Recommendations or Recording a program. What would you like to do?" ;
+	var respobj={"facebook":{"attachment":{"type":"template","payload":{"template_type":"button","text": respstr,"buttons":[{"type":"postback","title":"TV Recommendations","payload":"Yes"},{"type":"postback","title":"Record","payload":"I want to record"}]}}}};
+	var msg = new builder.Message(usersession).sourceEvent(respobj);              
+    	usersession.send(msg);
+}
+
+function upgradeDVR(apireq)
+{
+   var purchasepin =  apireq.result.parameters.purchasepin;
+   if (purchasepin !="" || purchasepin !=undefined )
+    	var respstr ="Congrats, Your DVR is upgraded.  Now  I can help you with  TV Recommendations or Recording a program. What would you like to do?" ;
+   else
+    	var respstr ="Ok, we are not upgratding the DVR now.  Now  I can help you with  TV Recommendations or Recording a program. What would you like to do?" ;
+
+    var respobj={"facebook":{"attachment":{"type":"template","payload":{"template_type":"button","text": respstr ,"buttons":[{"type":"postback","title":"TV Recommendations","payload":"Yes"},{"type":"postback","title":"Record","payload":"I want to record"}]}}}}
+    var msg = new builder.Message(usersession).sourceEvent(respobj);              
+    usersession.send(msg);
 }
 
 function demowhatshot(usersession) 
