@@ -93,6 +93,10 @@ bot.dialog('/', function (session) {
 			    //LinkOptions(response,session);
 			    accountlinking(response,session);
 			    break;
+			case "pkgSearch":
+			    //LinkOptions(response,session);
+			    packageChannelSearch(response,session);
+			    break;
 			case "MoreOptions":
 			    session.send(response.result.fulfillment.speech);
 			    break;
@@ -296,6 +300,45 @@ function PgmSearchCallback(apiresp,usersession) {
 	//usersession.send("I found several related programs");
 	var msg = new builder.Message(usersession).sourceEvent(subflow);              
         usersession.send(msg);
+} 
+
+var strChannelName_pkg;
+function packageChannelSearch(apireq,callback) { 
+	console.log("Package Channel Search Called" );
+	
+      var strChannelName =  apireq.result.parameters.Channel.toUpperCase();
+      strChannelName_pkg = strChannelName;
+	  console.log("Channel Name " + strChannelName);
+        var headersInfo = { "Content-Type": "application/json" };
+	var args = {
+		"headers": headersInfo,
+		"json": {Flow: 'TroubleShooting Flows\\Test\\APIChatBot.xml',
+			 Request: {ThisValue: 'ChannelSearch',BotstrStationCallSign:strChannelName} 
+			}
+		
+	};
+  console.log("json " + String(args));
+	
+    request.post("https://www.verizon.com/foryourhome/vzrepair/flowengine/restapi.ashx", args,
+        function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+             
+                 console.log("body " + body);
+                callback(body);
+            }
+            else
+            	console.log('error: ' + error + ' body: ' + body);
+        }
+    );
+ } 
+  
+function packageChannelSearchCallback(apiresp,usersession) {
+    var objToJson = {};
+    objToJson = apiresp;
+	var chposition = objToJson[0].Inputs.newTemp.Section.Inputs.Response;
+	
+	console.log("chposition :" + chposition)
+	usersession.send ("YES YOU ARE SUBSCRIBED");
 } 
 
 function ChnlSearch(apireq,callback) { 
