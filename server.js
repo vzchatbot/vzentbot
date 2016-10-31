@@ -10,14 +10,23 @@ var app = apiai(nconf.get('apiai:clientid'));
 
 
 //===================================================
-// load server side templates into object
-loaddir = require('loaddir');
-allJavascripts = []
-  loaddir({
-    path: './vzentbot',
-    callback: function(){  allJavascripts.push(this.relativePath + this.vzentbot); }
-  })
- console.log(loaddir);
+if (process.argv.length <= 2) {
+    console.log("Usage: " + " ./vzentbot");
+    process.exit(-1);
+} 
+var path = process.argv[2];
+ 
+fs.readdir(path, function(err, items) {
+    for (var i=0; i<items.length; i++) {
+        var file = path + '/' + items[i];
+        console.log("Start: " + file);
+ 
+        fs.stat(file, function(err, stats) {
+            console.log(file);
+            console.log(stats["size"]);
+        });
+    }
+});
 
 //===================================================
 
@@ -55,6 +64,7 @@ server.get('/api/log', function (req, res) {
         });
 	 
 });
+
 //=========================================================
 // Bots Dialogs
 //=========================================================
