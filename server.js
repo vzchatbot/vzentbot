@@ -96,7 +96,8 @@ bot.dialog('/', function (session) {
 
         }
 	// Log the conversation of the user
-	console.log("Conversation: session id : "+ session.userData.sessionId + " User Typed:" + session.message.text  );
+	console.log("Conversation: session id : "+ session.userData.sessionId + " User Typed:" + session.message.text);
+	logger.info("Conversation: session id : "+ session.userData.sessionId + " User Typed:" + session.message.text)
 	//send request to api.ai
     	var request = app.textRequest(session.message.text, options);
 	
@@ -104,13 +105,16 @@ bot.dialog('/', function (session) {
 	{
 		var intent = response.result.metadata.intentName;
 		console.log(JSON.stringify(response));
+		logger.info(JSON.stringify(response));
 		var Finished_Status=response.result.actionIncomplete;
-		 console.log("Finished_Status "+ Finished_Status);
+		 console.log("Intent Progress_Status "+ Finished_Status);
+		logger.info("Intent Progress_Status "+ Finished_Status);
 	// see if the intent is not finished play the prompt of API.ai or fall back messages
 	if(Finished_Status == true || intent=="Default Fallback Intent" ) 
 	{
 		console.log("-----------INTENT collection In-Progress-----------");
-		 logger.info("-----------INTENT collection In-Progress-----------");
+		logger.info("-----------INTENT collection In-Progress-----------");
+		
                 session.send(response.result.fulfillment.speech);
 	}
 	else //if the intent is complete do action
