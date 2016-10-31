@@ -8,7 +8,37 @@ var fs = require('fs');
 nconf.file('./config/config.json');
 var app = apiai(nconf.get('apiai:clientid'));
 
-//=============== Logging in MongoDB ========================================
+// load server side templates into object for use: template.index() 
+loaddir = require('loaddir');
+jade = require('jade');
+loaddir({
+ 
+  // outputs directories as subObjects, names are filenames 
+  asObject: true,
+ 
+  path: __dirname + '/templates',
+ 
+  // Runs 1st 
+  compile: function() {
+    this.fileContents = jade.compile(fileContents);
+  },
+  // Runs 2nd 
+  callback: function(){
+    console.log('Something loaded!', this.filePath);
+  },
+ 
+}).then(function(templates) {
+ 
+  var outputSTR = templates.myFileName();
+  
+  // since we did `asObject`, directories are sub objects 
+  var otherSTR = templates.myDirectory.subFile()
+  
+  // not using `asObject`  would look like this 
+  // var otherSTR = templates['myDirectory/subFile']() 
+});
+//===================================================
+//=============== Logging in MongoDB =========================
 /*var Users = require("./users").Users;
 var users = new Users("localhost", 27017);
 
@@ -16,19 +46,7 @@ users.findAll(function (err, user) {
 	//do something
 	});
 */
-//=================== Logging In text file ====================================
-/*var fs = require('fs');
-var util = require('util');
-var logFile = fs.createWriteStream('./userlog.txt', { flags: 'a' });
-  // Or 'w' to truncate the file every time the process starts.
-var logStdout = process.stdout;
-
-console.log = function () {
-  logFile.write(util.format.apply(null, arguments) + '\n');
-  logStdout.write(util.format.apply(null, arguments) + '\n');
-}
-console.error = console.log;
-*/
+//=================== Logging In text file ===================
 var logger = require('./log');
 //=========================================================
 // Bot Setup
