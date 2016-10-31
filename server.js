@@ -95,7 +95,7 @@ bot.dialog('/', function (session) {
 			    break;
 			case "pkgSearch":
 			    //LinkOptions(response,session);
-			    packageChannelSearch(response,session);
+			    packageChannelSearch(response,function (str){ packageChannelSearchCallback(str,session)}); 
 			    break;
 			case "MoreOptions":
 			    session.send(response.result.fulfillment.speech);
