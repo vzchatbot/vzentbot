@@ -11,7 +11,7 @@ var app = apiai(nconf.get('apiai:clientid'));
 
 //===================================================
 if (process.argv.length <= 2) {
-    console.log("Usage: path/to/directory");
+  //  console.log("Usage: path/to/directory");
     process.exit(-1);
 } 
 var path = process.argv[2]; 
