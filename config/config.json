@@ -1,11 +1,11 @@
 ﻿{
   "NODE_ENV": "development",
   "msbot": {
-    "Microsoft_AppID": "31c8d108-cdc4-4474-8e08-c2f6a3b54364",
-    "Microsoft_AppPassword": "m5JLXWcRfymrNfHTta454Qj"
+    "Microsoft_AppID": "4f5df286-2591-477d-af7d-547dd13a0156",
+    "Microsoft_AppPassword": "oTwfDnKyx1gCwiQoP53k2oC"
 
   },
   "apiai": {
-    "clientid": "c8021e1a2dac4f85aee8f805a5a920b2"
+    "clientid": "db847b425ad44ca38e2d696d8b0750cd"
   }
 }
