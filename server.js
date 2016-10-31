@@ -612,9 +612,9 @@ function upsell(apiresp,usersession)
     	usersession.send(msg);
 }
 
-function upgradeDVR(apireq)
+function upgradeDVR(apiresp,usersession) 
 {
-   var purchasepin =  apireq.result.parameters.purchasepin;
+   var purchasepin =  apiresp.result.parameters.purchasepin;
    if (purchasepin !="" || purchasepin !=undefined )
     	var respstr ="Congrats, Your DVR is upgraded.  Now  I can help you with  TV Recommendations or Recording a program. What would you like to do?" ;
    else
