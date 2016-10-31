@@ -8,44 +8,36 @@ var fs = require('fs');
 nconf.file('./config/config.json');
 var app = apiai(nconf.get('apiai:clientid'));
 
-// load server side templates into object for use: template.index() 
-loaddir = require('loaddir');
-jade = require('jade');
-loaddir({
- 
-  // outputs directories as subObjects, names are filenames 
-  asObject: true,
- 
-  path: __dirname + '/templates',
- 
-  // Runs 1st 
-  compile: function() {
-    this.fileContents = jade.compile(fileContents);
-  },
-  // Runs 2nd 
-  callback: function(){
-    console.log('Something loaded!', this.filePath);
-  },
- 
-}).then(function(templates) {
- 
-  var outputSTR = templates.myFileName();
-  
-  // since we did `asObject`, directories are sub objects 
-  var otherSTR = templates.myDirectory.subFile()
-  
-  // not using `asObject`  would look like this 
-  // var otherSTR = templates['myDirectory/subFile']() 
+
+//===================================================
+// load server side templates into object
+/*loaddir = require('loaddir');
+allJavascripts = []
+  loaddir({
+    path: './vzentbot',
+    callback: function(){  allJavascripts.push(this.relativePath + this.vzentbot); }
+  })
+  */
+function getDirectoryFiles(directory, callback) {
+  fs.readdir(directory, function(err, files) {
+    files.forEach(function(file){
+      fs.stat('./vzentbot', function(err, stats) {
+        if(stats.isFile()) {
+          callback('./vzentbot');
+        }
+        if(stats.isDirectory()) {
+          getDirectoryFiles('./vzentbot', callback);
+        }
+      });
+    });
+  });
+}
+
+getDirectoryFiles('.', function(file_with_path) {
+  console.log(file_with_path);
 });
 //===================================================
-//=============== Logging in MongoDB =========================
-/*var Users = require("./users").Users;
-var users = new Users("localhost", 27017);
 
-users.findAll(function (err, user) {
-	//do something
-	});
-*/
 //=================== Logging In text file ===================
 var logger = require('./log');
 //=========================================================
@@ -88,14 +80,15 @@ bot.dialog('/', function (session) {
    
 	var options = {};
 	 console.log("session id : "+ session.userData.sessionId);
+	 logger.info("session id : "+ session.userData.sessionId);
+	 getDirectoryFiles(response,session)
 	 console.error = console.log;
 	//check session id exists, if not create one.
 	if (session.userData.sessionId == undefined)
 	{  
 		var guid = uuid.v1();
 		options = {sessionId:guid };
-		console.log("New id.. Sessionid:" + guid );
-		logger.info('log to file');
+		console.log("New id.. Sessionid:" + guid );		
 		logger.info("New id.. Sessionid:" + guid );
 		session.userData.sessionId = guid;
 	}
@@ -131,8 +124,7 @@ bot.dialog('/', function (session) {
 	if(Finished_Status == true || intent=="Default Fallback Intent" ) 
 	{
 		console.log("-----------INTENT collection In-Progress-----------");
-		logger.info("-----------INTENT collection In-Progress-----------");
-		
+		logger.info("-----------INTENT collection In-Progress-----------");		
                 session.send(response.result.fulfillment.speech);
 	}
 	else //if the intent is complete do action
