@@ -11,31 +11,14 @@ var app = apiai(nconf.get('apiai:clientid'));
 
 //===================================================
 // load server side templates into object
-/*loaddir = require('loaddir');
+loaddir = require('loaddir');
 allJavascripts = []
   loaddir({
     path: './vzentbot',
     callback: function(){  allJavascripts.push(this.relativePath + this.vzentbot); }
   })
-  */
-function getDirectoryFiles(directory, callback) {
-  fs.readdir(directory, function(err, files) {
-    files.forEach(function(file){
-      fs.stat('./vzentbot', function(err, stats) {
-        if(stats.isFile()) {
-          callback('./vzentbot');
-        }
-        if(stats.isDirectory()) {
-          getDirectoryFiles('./vzentbot', callback);
-        }
-      });
-    });
-  });
-}
+ console.log(loaddir);
 
-getDirectoryFiles('.', function(file_with_path) {
-  console.log(file_with_path);
-});
 //===================================================
 
 //=================== Logging In text file ===================
@@ -80,8 +63,7 @@ bot.dialog('/', function (session) {
    
 	var options = {};
 	 console.log("session id : "+ session.userData.sessionId);
-	 logger.info("session id : "+ session.userData.sessionId);
-	 getDirectoryFiles(response,session)
+	 logger.info("session id : "+ session.userData.sessionId);	
 	 console.error = console.log;
 	//check session id exists, if not create one.
 	if (session.userData.sessionId == undefined)
@@ -119,7 +101,7 @@ bot.dialog('/', function (session) {
 		logger.info(JSON.stringify(response));
 		var Finished_Status=response.result.actionIncomplete;
 		 console.log("Intent Progress_Status "+ Finished_Status);
-		logger.info("Intent Progress_Status "+ Finished_Status);
+		 logger.info("Intent Progress_Status "+ Finished_Status);
 	// see if the intent is not finished play the prompt of API.ai or fall back messages
 	if(Finished_Status == true || intent=="Default Fallback Intent" ) 
 	{
