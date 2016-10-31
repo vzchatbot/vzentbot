@@ -35,7 +35,7 @@ server.post('/api/messages', connector.listen());
 //=========================================================
 
 bot.dialog('/', function (session) {
-   
+   	console.log("Sarvesh Connector");
 	var options = {};
 	 console.log("session id : "+ session.userData.sessionId);
 	
