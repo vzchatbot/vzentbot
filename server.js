@@ -197,7 +197,7 @@ function accountlinking(apireq,usersession)
 		 	{"type":"template","payload":
 			 	{"template_type":"generic","elements":
 				 	[{
-					   "title":"Login to Verizon","image_url":"https://www.verizon.com/foryourhome/vzrepair/siwizard/img/VzLogo.png",
+					   "title":"Login to Verizon","image_url":"https://www98.verizon.com/foryourhome/vzrepair/siwizard/img/verizon-logo-50.png",
 					  "buttons":
 						[{"type":"account_link","url":"https://www98.verizon.com/foryourhome/myaccount/ngen/upr/bots/preauth.aspx"}]}]}}}};
 	var msg = new builder.Message(usersession).sourceEvent(respobj);              
