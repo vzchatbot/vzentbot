@@ -191,7 +191,15 @@ bot.dialog('/', function (session) {
 function accountlinking(apireq,usersession)
 {
 	console.log('Account Linking Button') ;
-	var respobj ={"facebook":{"attachment":{"type":"template","payload":{"template_type":"generic","elements":[{"title":"Login to Verizon","image_url":"https://www.verizon.com/cs/groups/public/documents/adacct/vzlogo_lg.png","buttons":[{"type":"account_link","url":"https://www98.verizon.com/foryourhome/myaccount/ngen/upr/bots/preauth.aspx"}]}]}}}};
+	var respobj =
+	    {"facebook":
+	     	{"attachment":
+		 	{"type":"template","payload":
+			 	{"template_type":"generic","elements":
+				 	[{
+					   "title":"Login to Verizon","image_url":"https://www.verizon.com/foryourhome/vzrepair/siwizard/img/VzLogo.png",
+					  "buttons":
+						[{"type":"account_link","url":"https://www98.verizon.com/foryourhome/myaccount/ngen/upr/bots/preauth.aspx"}]}]}}}};
 	var msg = new builder.Message(usersession).sourceEvent(respobj);              
          usersession.send(msg);
 }
