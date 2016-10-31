@@ -4,7 +4,7 @@ var request = require('request');
 var apiai = require('apiai');
 var nconf = require('nconf');
 var uuid = require('node-uuid');
-
+var fs = require('fs');
 nconf.file('./config/config.json');
 var app = apiai(nconf.get('apiai:clientid'));
 
@@ -53,7 +53,14 @@ var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
 
 server.get('/api/log', function (req, res) {
-	 res.end('Hello World\n');
+	
+	fs.readFile('./debug.log', 'utf8', function(err, contents) {
+          res.end(contents);
+        });
+	fs.readFile('./exceptions.log', 'utf8', function(err, contents) {
+          res.end(contents);
+        });
+	 
 });
 //=========================================================
 // Bots Dialogs
