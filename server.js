@@ -59,7 +59,7 @@ bot.dialog('/', function (session) {
             console.log("Account Linking convert: " + JSON.stringify(session.message.sourceEvent.account_linking, null, 2));
             console.log("Account Linking convert: " + JSON.stringify(session.message.sourceEvent.account_linking.authorization_code, null, 2));
             console.log("Account Linking convert: " + JSON.stringify(session.message.sourceEvent.account_linking.status, null, 2));
-
+  	    MainMenu(session);
         }
 	// Log the conversation of the user
 	console.log("Conversation: session id : "+ session.userData.sessionId + " User Typed:" + session.message.text  );
