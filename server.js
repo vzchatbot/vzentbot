@@ -342,13 +342,52 @@ function packageChannelSearch(apireq,callback) {
   
 function packageChannelSearchCallback(apiresp,usersession) {
 	console.log("packageChannelSearchCallback called");
-    var objToJson = {};
+    /*var objToJson = {};
     objToJson = apiresp;
 	var chposition = objToJson[0].Inputs.newTemp.Section.Inputs.Response;
 	
-	console.log("chposition :" + chposition)
-	usersession.send ("YES YOU ARE SUBSCRIBED");
-	
+	console.log("chposition :" + chposition) */
+	usersession.send ("That's right you have subscribed to this channel and details are here");
+	var chnlist = {
+			  "facebook": {
+			    "attachment": {
+			      "type": "template",
+			      "payload": {
+				"template_type": "generic",
+				"elements": [
+				  {
+				    "title": "NHL Network",
+				    "subtitle": "Channel No# 87 | Fios TV Ultimate HD | SPORTS",
+				    "image_url": "http://www.verizon.com/resources/clu/cluimages/5420_1.jpg",
+				    "buttons": 
+				    [
+				      {
+					"type": "web_url",
+					"url": "http://www.verizon.com/msvsearch/whatshotimage/thumbnails/default.jpg",
+					"title": "Watch Video"
+				      }
+				    ]
+				  },
+				  {
+				    "title": "NHL Network HD",
+				    "subtitle": "Channel No# 587 | Fios TV Ultimate HD | SPORTS",
+				    "image_url": "http://www.verizon.com/resources/clu/cluimages/5420_1.jpg",
+				    "buttons": 
+				    [
+				      {
+					"type": "web_url",
+					"url": "http://www.verizon.com/msvsearch/whatshotimage/thumbnails/default.jpg",
+					"title": "Watch Video"
+				      }
+				    ]
+				  }
+				]
+			      }
+			    }
+			  }
+			}
+	var msg = new builder.Message(usersession).sourceEvent(chnlist);              
+        usersession.send(msg);
 	
 } 
 
