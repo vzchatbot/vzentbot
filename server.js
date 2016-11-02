@@ -347,45 +347,56 @@ function packageChannelSearchCallback(apiresp,usersession) {
 	var chposition = objToJson[0].Inputs.newTemp.Section.Inputs.Response;
 	
 	console.log("chposition :" + chposition) */
-	usersession.send ("That's right you have subscribed to this channel and details are here");
+	usersession.send ("That's right you have subscribed to this channel and channel details are below");
 	var chnlist = {
-			  "facebook": {
-			    "attachment": {
-			      "type": "template",
-			      "payload": {
-				"template_type": "generic",
-				"elements": [
-				  {
-				    "title": "NHL Network",
-				    "subtitle": "Channel No# 87 | Fios TV Ultimate HD | SPORTS",
-				    "image_url": "http://www.verizon.com/resources/clu/cluimages/5420_1.jpg",
-				    "buttons": 
-				    [
-				      {
-					"type": "web_url",
-					"url": "http://www.verizon.com/resources/clu/cluimages/5420_1.jpg",
-					"title": "Watch Video"
-				      }
-				    ]
-				  },
-				  {
-				    "title": "NHL Network HD",
-				    "subtitle": "Channel No# 587 | Fios TV Ultimate HD | SPORTS",
-				    "image_url": "http://www.verizon.com/resources/clu/cluimages/5420_1.jpg",
-				    "buttons": 
-				    [
-				      {
-					"type": "web_url",
-					"url": "http://www.verizon.com/resources/clu/cluimages/5420_1.jpg",
-					"title": "Watch Video"
-				      }
-				    ]
-				  }
-				]
-			      }
-			    }
-			  }
-			}
+			  {
+  "facebook": {
+    "attachment": {
+      "type": "template",
+      "payload": {
+        "template_type": "generic",
+        "elements": [
+          {
+            "title": "NHL Network",
+            "subtitle": "Channel No# 87 | Fios TV Ultimate HD | SPORTS",
+            "image_url": "http://www.verizon.com/msvsearch/whatshotimage/thumbnails/default.jpg",
+            "buttons": 
+            [
+              {
+                "type": "web_url",
+                "url": "http://www.verizon.com/msvsearch/whatshotimage/thumbnails/default.jpg",
+                "title": "Watch Video"
+              },
+              {
+                "type": "postback",
+                "title": "Get Listings",
+                "payload": "Get Program info of Channel: NHL Network"
+              }
+            ]
+          },
+          {
+            "title": "NHL Network HD",
+            "subtitle": "Channel No# 587 | Fios TV Ultimate HD | SPORTS",
+            "image_url": "http://www.verizon.com/msvsearch/whatshotimage/thumbnails/default.jpg",
+            "buttons": 
+            [
+              {
+                "type": "web_url",
+                "url": "http://www.verizon.com/msvsearch/whatshotimage/thumbnails/default.jpg",
+                "title": "Watch Video"
+              },
+              {
+                "type": "postback",
+                "title": "Get Listings",
+                "payload": "Get Program info of Channel: NHL Network HD"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
 	var msg = new builder.Message(usersession).sourceEvent(chnlist);              
         usersession.send(msg);
 	
