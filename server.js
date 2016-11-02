@@ -363,7 +363,7 @@ function packageChannelSearchCallback(apiresp,usersession) {
 				    [
 				      {
 					"type": "web_url",
-					"url": "http://www.verizon.com/msvsearch/whatshotimage/thumbnails/default.jpg",
+					"url": "http://www.verizon.com/resources/clu/cluimages/5420_1.jpg",
 					"title": "Watch Video"
 				      }
 				    ]
@@ -376,7 +376,7 @@ function packageChannelSearchCallback(apiresp,usersession) {
 				    [
 				      {
 					"type": "web_url",
-					"url": "http://www.verizon.com/msvsearch/whatshotimage/thumbnails/default.jpg",
+					"url": "http://www.verizon.com/resources/clu/cluimages/5420_1.jpg",
 					"title": "Watch Video"
 				      }
 				    ]
