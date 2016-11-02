@@ -349,7 +349,6 @@ function packageChannelSearchCallback(apiresp,usersession) {
 	console.log("chposition :" + chposition) */
 	usersession.send ("That's right you have subscribed to this channel and channel details are below");
 	var chnlist = {
-			  {
   "facebook": {
     "attachment": {
       "type": "template",
