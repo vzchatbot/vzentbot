@@ -188,6 +188,8 @@ bot.dialog('/', function (session) {
 		);
 }
 
+
+
 function accountlinking(apireq,usersession)
 {
 	console.log('Account Linking Button') ;
@@ -261,6 +263,50 @@ function CategoryList(apireq,usersession) {
 	
 } 
 
+function getVzProfile(apireq,callback) { 
+       	console.log('Inside Verizon Profile');
+	
+	var struserid = ''; 
+	for (var i = 0, len = apireq.result.contexts.length; i < len; i++) {
+		if (apireq.result.contexts[i].name == "sessionuserid") {
+
+			 struserid = apireq.result.contexts[i].parameters.Userid;
+			console.log("original userid " + ": " + struserid);
+		}
+	} 
+	
+	if (struserid == '' || struserid == undefined) struserid='lt6sth2'; //hardcoding if its empty
+	console.log('struserid '+ struserid);
+        
+	var headersInfo = { "Content-Type": "application/json" };
+	var args = {
+		"headers": headersInfo,
+		"json": {Flow: 'TroubleShooting Flows\\Test\\APIChatBot.xml',
+			 Request: {ThisValue: 'GetProfile',Userid:struserid} 
+			}
+		
+	};
+
+    request.post("https://www.verizon.com/foryourhome/vzrepair/flowengine/restapi.ashx", args,
+        function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+             
+                 console.log("body " + body);
+                 callback(body);
+            }
+            else
+            	console.log('error: ' + error + ' body: ' + body);
+        }
+    );
+ } 
+  
+function getVzProfileCallBack(apiresp,usersession) {
+    var objToJson = {};
+    objToJson = apiresp;
+	var profileDetails = objToJson[0].Inputs.newTemp.Section.Inputs.Response;
+   	console.log('Profile Details ' + JSON.stringify(profileDetails));
+} 
+
 function PgmSearch(apireq,callback) { 
          var strProgram =  apireq.result.parameters.Programs;
 	 var strGenre =  apireq.result.parameters.Genre;
@@ -310,25 +356,29 @@ function PgmSearchCallback(apiresp,usersession) {
         usersession.send(msg);
 } 
 
-var strChannelName_pkg;
 function packageChannelSearch(apireq,callback) { 
-	console.log("Package Channel Search Called" );
 	
-      var strChannelName =  apireq.result.parameters.Channel.toUpperCase();
-      strChannelName_pkg = strChannelName;
-	  console.log("Channel Name " + strChannelName);
-        var headersInfo = { "Content-Type": "application/json" };
+	console.log("Package Channel Search Called");
+        
+	var strChannelName =  apireq.result.parameters.Channel.toUpperCase();
+        console.log("Channel Name " + strChannelName);
+        
+	var headersInfo = { "Content-Type": "application/json" };
+	
 	var args = {
 		"headers": headersInfo,
 		"json": {Flow: 'TroubleShooting Flows\\Test\\APIChatBot.xml',
-			 Request: {ThisValue: 'ChannelSearch',BotstrStationCallSign:strChannelName} 
+			 Request: {ThisValue: 'PKGSearch',
+				   BotstrStationCallSign:strChannelName,
+				  } 
 			}
 		
 	};
-  console.log("json " + String(args));
+  	console.log("json " + String(args));
 	
-    request.post("https://www.verizon.com/foryourhome/vzrepair/flowengine/restapi.ashx", args,
-        function (error, response, body) {
+    	request.post("https://www.verizon.com/foryourhome/vzrepair/flowengine/restapi.ashx", args,
+        
+	function (error, response, body) {
             if (!error && response.statusCode == 200) {
              
                  console.log("body " + body);
@@ -351,57 +401,6 @@ function packageChannelSearchCallback(apiresp,usersession) {
 	 
 	var msg = new builder.Message(usersession).sourceEvent(chnlist);              
          usersession.send(msg);
-	
-	/*var chnlist = {
-  "facebook": {
-    "attachment": {
-      "type": "template",
-      "payload": {
-        "template_type": "generic",
-        "elements": [
-          {
-            "title": "NHL Network",
-            "subtitle": "Channel No# 87 | Fios TV Ultimate HD | SPORTS",
-            "image_url": "http://www.verizon.com/msvsearch/whatshotimage/thumbnails/default.jpg",
-            "buttons": 
-            [
-              {
-                "type": "web_url",
-                "url": "http://www.verizon.com/msvsearch/whatshotimage/thumbnails/default.jpg",
-                "title": "Watch Video"
-              },
-              {
-                "type": "postback",
-                "title": "Get Listings",
-                "payload": "Get Program info of Channel: NHL Network"
-              }
-            ]
-          },
-          {
-            "title": "NHL Network HD",
-            "subtitle": "Channel No# 587 | Fios TV Ultimate HD | SPORTS",
-            "image_url": "http://www.verizon.com/msvsearch/whatshotimage/thumbnails/default.jpg",
-            "buttons": 
-            [
-              {
-                "type": "web_url",
-                "url": "http://www.verizon.com/msvsearch/whatshotimage/thumbnails/default.jpg",
-                "title": "Watch Video"
-              },
-              {
-                "type": "postback",
-                "title": "Get Listings",
-                "payload": "Get Program info of Channel: NHL Network HD"
-              }
-            ]
-          }
-        ]
-      }
-    }
-  }
-}*/
-	
-	
 } 
 
 function ChnlSearch(apireq,callback) { 
