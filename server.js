@@ -342,13 +342,17 @@ function packageChannelSearch(apireq,callback) {
   
 function packageChannelSearchCallback(apiresp,usersession) {
 	console.log("packageChannelSearchCallback called");
-    /*var objToJson = {};
+    var objToJson = {};
     objToJson = apiresp;
-	var chposition = objToJson[0].Inputs.newTemp.Section.Inputs.Response;
+	usersession.send ("That's right you have subscribed to this channel and channel detail(s) are below");
 	
-	console.log("chposition :" + chposition) */
-	usersession.send ("That's right you have subscribed to this channel and channel details are below");
-	var chnlist = {
+	 var chnlist = objToJson[0].Inputs.newTemp.Section.Inputs.Response;
+	 console.log("Channel List " + JSON.stringify(chnlist));
+	 
+	var msg = new builder.Message(usersession).sourceEvent(chnlist);              
+         usersession.send(msg);
+	
+	/*var chnlist = {
   "facebook": {
     "attachment": {
       "type": "template",
@@ -395,9 +399,8 @@ function packageChannelSearchCallback(apiresp,usersession) {
       }
     }
   }
-}
-	var msg = new builder.Message(usersession).sourceEvent(chnlist);              
-        usersession.send(msg);
+}*/
+	
 	
 } 
 
