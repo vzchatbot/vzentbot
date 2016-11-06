@@ -104,10 +104,17 @@ bot.dialog('/', function (session) {
 				{
 					console.log("some of the mandatory fields are not available, get profile details");
 					{ getVzProfile(response,function (str){ getVzProfileCallBack(str,session)}); }
+					
+					console.log("Retrieved the vz Profile fields, Now do the Package Search");
+					packageChannelSearch(response,function (str){ packageChannelSearchCallback(str,session)}); 
 
 				}
-		            console.log("Have mandatory fields");
-			    packageChannelSearch(response,function (str){ packageChannelSearchCallback(str,session)}); 
+				else
+				{
+					console.log("Have mandatory fields for package search");
+					packageChannelSearch(response,function (str){ packageChannelSearchCallback(str,session)}); 
+				}
+		            
 			    break;
 			case "MoreOptions":
 			    session.send(response.result.fulfillment.speech);
