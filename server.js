@@ -88,8 +88,10 @@ bot.dialog('/', function (session) {
 	
 	console.log("profile detailsss : "+ JSON.stringify(profileDetails1));
 	console.log("profile detailsss_1 : "+ JSON.stringify(profileDetails1[0].Inputs.newTemp.Section.Inputs.Response));
-	console.log("Vision: " + JSON.stringify(profileDetails1[0].Inputs.newTemp.Section.Inputs.Response.VisionCustId, null, 2));
+	console.log("Vision: " + JSON.stringify(profileDetails1[0].Inputs.newTemp.Section.Inputs.Response.ProfileResponse.VisionCustId, null, 2));
 	var profileDetails = profileDetails1[0].Inputs.newTemp.Section.Inputs.Response;
+	console.log("CKTID: " + JSON.stringify(profileDetails.ProfileResponse.CKTID, null, 2));
+	
 
 	var options = {};
 	 console.log("session id : "+ session.userData.sessionId);
