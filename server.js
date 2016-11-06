@@ -36,6 +36,61 @@ server.post('/api/messages', connector.listen());
 
 bot.dialog('/', function (session) {
    	console.log("Sarvesh Connector");
+	
+	var profileDetails1 = 
+				  [{
+				    "Inputs": {
+				      "Caption": "APIChatBot",
+				      "Description": "Step 2",
+				      "newTemp": {
+					"Section": {
+					  "DisplayLocation": "Middle",
+					  "TargetLocation": "ufdLocation0",
+					  "TemplateFileName": "UFDTemplate",
+					  "TemplateName": "UFDTemplate",
+					  "UFDID": "44683e12-58a2-4fa4-98fc-b2f7a611ccfc",
+					  "TemplateID": "UFDTemplate",
+					  "Inputs": {
+					    "SessionID": "0e4cc28c-6643-4685-a3ee-782dc330b173568e1f04-c590",
+					    "user-response-type": "carousel",
+					    "luis-call": "profiledetails",
+					    "Response": {
+					      "ProfileResponse": {
+						"CKTID": "82/KQXA/350270/   /VZNY",
+						"regionId": "91081",
+						"vhoId": "VHOVENDOR",
+						"Can": null,
+						"VisionCustId": "150013002",
+						"VisionAcctId": "0001"
+					      }
+					    }
+					  }
+					}
+				      },
+				      "Flow": {
+					"DisplayName": "APIChatBot"
+				      },
+				      "Step": {
+					"Description": "Step 2",
+					"TimerTime": "5"
+				      },
+				      "Possible_Paths": null
+				    },
+				    "CurrentStep": "6d2c04f1-50e4-4e82-9fa5-f251593bccaf",
+				    "TemplateID": "PANES",
+				    "SubFlow": "TroubleShooting Flows\\Test\\APIChatBot.xml",
+				    "CallStack": "84623941-bedc-4bd6-bcc6-5eceea8e734d",
+				    "Redirect": "False",
+				    "TID": "568e1f04-c594-48c7-890a-3d18ae7f6d55",
+				    "Level": "0",
+				    "ServerIP": "10.77.23.203"
+				  }]
+	
+	console.log("profile detailsss : "+ JSON.stringify(profileDetails1));
+	console.log("profile detailsss_1 : "+ JSON.stringify(profileDetails1[0].Inputs.newTemp.Section.Inputs.Response));
+	console.log("Vision: " + JSON.stringify(profileDetails1[0].Inputs.newTemp.Section.Inputs.Response.VisionCustId, null, 2));
+	var profileDetails = profileDetails1[0].Inputs.newTemp.Section.Inputs.Response;
+
 	var options = {};
 	 console.log("session id : "+ session.userData.sessionId);
 	
@@ -49,6 +104,8 @@ bot.dialog('/', function (session) {
 	}
 	else
 	{ options = {sessionId: session.userData.sessionId}}
+	
+	
 	
    //account linking check
         if (session.message.sourceEvent.account_linking == undefined) 
