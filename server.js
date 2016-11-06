@@ -37,72 +37,6 @@ server.post('/api/messages', connector.listen());
 bot.dialog('/', function (session) {
    	console.log("Sarvesh Connector");
 	
-	var profileDetails1 = 
-				  [{
-				    "Inputs": {
-				      "Caption": "APIChatBot",
-				      "Description": "Step 2",
-				      "newTemp": {
-					"Section": {
-					  "DisplayLocation": "Middle",
-					  "TargetLocation": "ufdLocation0",
-					  "TemplateFileName": "UFDTemplate",
-					  "TemplateName": "UFDTemplate",
-					  "UFDID": "44683e12-58a2-4fa4-98fc-b2f7a611ccfc",
-					  "TemplateID": "UFDTemplate",
-					  "Inputs": {
-					    "SessionID": "0e4cc28c-6643-4685-a3ee-782dc330b173568e1f04-c590",
-					    "user-response-type": "carousel",
-					    "luis-call": "profiledetails",
-					    "Response": {
-					      "ProfileResponse": {
-						"CKTID": "82/KQXA/350270/   /VZNY",
-						"regionId": "91081",
-						"vhoId": "VHOVENDOR",
-						"Can": null,
-						"VisionCustId": "150013002",
-						"VisionAcctId": "0001"
-					      }
-					    }
-					  }
-					}
-				      },
-				      "Flow": {
-					"DisplayName": "APIChatBot"
-				      },
-				      "Step": {
-					"Description": "Step 2",
-					"TimerTime": "5"
-				      },
-				      "Possible_Paths": null
-				    },
-				    "CurrentStep": "6d2c04f1-50e4-4e82-9fa5-f251593bccaf",
-				    "TemplateID": "PANES",
-				    "SubFlow": "TroubleShooting Flows\\Test\\APIChatBot.xml",
-				    "CallStack": "84623941-bedc-4bd6-bcc6-5eceea8e734d",
-				    "Redirect": "False",
-				    "TID": "568e1f04-c594-48c7-890a-3d18ae7f6d55",
-				    "Level": "0",
-				    "ServerIP": "10.77.23.203"
-				  }]
-	
-	console.log("profile detailsss : "+ JSON.stringify(profileDetails1));
-	console.log("profile detailsss_1 : "+ JSON.stringify(profileDetails1[0].Inputs.newTemp.Section.Inputs.Response));
-	console.log("Vision: " + JSON.stringify(profileDetails1[0].Inputs.newTemp.Section.Inputs.Response.ProfileResponse.VisionCustId, null, 2));
-	var profileDetails = profileDetails1[0].Inputs.newTemp.Section.Inputs.Response;
-	console.log("CKTID: " + JSON.stringify(profileDetails.ProfileResponse.CKTID, null, 2));
-	var CKTID = JSON.stringify(profileDetails.ProfileResponse.CKTID, null, 2)
-	if (session.userData.CKTID == undefined)
-	{
-		console.log("No CKT ID" );
-		session.userData.CKTID = CKTID;
-	}
-	else
-	{
-		console.log("Session in CKT ID " + session.userData.CKTID);
-	}
-	
-
 	var options = {};
 	 console.log("session id : "+ session.userData.sessionId);
 	
@@ -117,9 +51,7 @@ bot.dialog('/', function (session) {
 	else
 	{ options = {sessionId: session.userData.sessionId}}
 	
-	
-	
-   //account linking check
+   	//account linking check
         if (session.message.sourceEvent.account_linking == undefined) 
 	{
             console.log("Account Linking null");
@@ -130,8 +62,10 @@ bot.dialog('/', function (session) {
             console.log("Account Linking convert: " + JSON.stringify(session.message.sourceEvent.account_linking.status, null, 2));
 
         }
+	
 	// Log the conversation of the user
 	console.log("Conversation: session id : "+ session.userData.sessionId + " User Typed:" + session.message.text  );
+	
 	//send request to api.ai
     	var request = app.textRequest(session.message.text, options);
 	
@@ -372,8 +306,48 @@ function getVzProfile(apireq,callback) {
 function getVzProfileCallBack(apiresp,usersession) {
     var objToJson = {};
     objToJson = apiresp;
+	
 	var profileDetails = objToJson[0].Inputs.newTemp.Section.Inputs.Response;
    	console.log('Profile Details ' + JSON.stringify(profileDetails));
+	
+	var CKTID = JSON.stringify(profileDetails.ProfileResponse.CKTID, null, 2)
+	var regionId = JSON.stringify(profileDetails.ProfileResponse.regionId, null, 2)
+	var vhoId = JSON.stringify(profileDetails.ProfileResponse.vhoId, null, 2)
+	var CanNo = JSON.stringify(profileDetails.ProfileResponse.Can, null, 2)
+	var VisionCustId = JSON.stringify(profileDetails.ProfileResponse.VisionCustId, null, 2)
+	var VisionAcctId = JSON.stringify(profileDetails.ProfileResponse.VisionAcctId, null, 2)
+	
+	if (session.userData.CKTID == undefined)
+	{
+		console.log("No CKT ID  in Session Userdata" );
+		session.userData.CKTID = CKTID;
+	}
+	if (session.userData.regionId == undefined)
+	{
+		console.log("No Region ID  in Session Userdata" );
+		session.userData.regionId = regionId;
+	}
+	if (session.userData.vhoId == undefined)
+	{
+		console.log("No VHO ID  in Session Userdata" );
+		session.userData.vhoId = vhoId;
+	}
+	if (session.userData.Can == undefined)
+	{
+		console.log("No CAN in  in Session Userdata" );
+		session.userData.Can = CanNo;
+	}
+	if (session.userData.VisionCustId == undefined)
+	{
+		console.log("No Vision Customer ID  in Session Userdata" );
+		session.userData.VisionCustId = VisionCustId;
+	}
+	if (session.userData.VisionAcctId == undefined)
+	{
+		console.log("No Vision Account ID in Session Userdata" );
+		session.userData.VisionAcctId = VisionAcctId;
+	}
+	
 } 
 
 function PgmSearch(apireq,callback) { 
