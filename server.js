@@ -91,6 +91,16 @@ bot.dialog('/', function (session) {
 	console.log("Vision: " + JSON.stringify(profileDetails1[0].Inputs.newTemp.Section.Inputs.Response.ProfileResponse.VisionCustId, null, 2));
 	var profileDetails = profileDetails1[0].Inputs.newTemp.Section.Inputs.Response;
 	console.log("CKTID: " + JSON.stringify(profileDetails.ProfileResponse.CKTID, null, 2));
+	var CKTID = JSON.stringify(profileDetails.ProfileResponse.CKTID, null, 2)
+	if (session.userData.CKTID == undefined)
+	{
+		console.log("No CKT ID" );
+		session.userData.CKTID = CKTID;
+	}
+	else
+	{
+		console.log("Session in CKT ID " + session.userData.CKTID);
+	}
 	
 
 	var options = {};
