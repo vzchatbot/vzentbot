@@ -8,6 +8,9 @@ var uuid = require('node-uuid');
 nconf.file('./config/config.json');
 var app = apiai(nconf.get('apiai:clientid'));
 
+    // my api.ai account - a3b8c4dd47cf47ada732ad63c6295b97 
+    // prabu account - 901c05fa26b7415196db699acdc5d193
+
 //=========================================================
 // Bot Setup
 //=========================================================
