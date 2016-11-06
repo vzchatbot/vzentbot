@@ -98,6 +98,15 @@ bot.dialog('/', function (session) {
 			    break;
 			case "pkgSearch":
 			    //LinkOptions(response,session);
+				if (session.userData.CKTID == "" || session.userData.CKTID == undefined || 
+					session.userData.regionId == "" || session.userData.regionId == undefined || 
+					    session.userData.vhoId == "" || session.userData.vhoId == undefined)
+				{
+					console.log("some of the mandatory fields are not available, get profile details");
+					{ getVzProfile(response,function (str){ getVzProfileCallBack(str,session)}); }
+
+				}
+		            console.log("Have mandatory fields");
 			    packageChannelSearch(response,function (str){ packageChannelSearchCallback(str,session)}); 
 			    break;
 			case "MoreOptions":
@@ -404,20 +413,36 @@ function packageChannelSearch(apireq,callback) {
 	console.log("Package Channel Search Called");
         
 	var strChannelName =  apireq.result.parameters.Channel.toUpperCase();
-        console.log("Channel Name " + strChannelName);
-        
-	var headersInfo = { "Content-Type": "application/json" };
+	console.log("strChannelName " + strChannelName);
+
+	// Get the rest of the profile details from Session.
+	var CKTID = session.userData.CKTID;
+	console.log("CKT ID  in Session Userdata" + CKTID);
 	
+	var regionId=session.userData.regionId;
+	console.log("Region ID  in Session Userdata "+ regionId );
+	
+	var vhoId = session.userData.vhoId;
+	console.log("VHO ID  in Session Userdata " + vhoId);
+	
+	var headersInfo = { "Content-Type": "application/json" };
 	var args = {
 		"headers": headersInfo,
-		"json": {Flow: 'TroubleShooting Flows\\Test\\APIChatBot.xml',
-			 Request: {ThisValue: 'PKGSearch',
-				   BotstrStationCallSign:strChannelName,
-				  } 
+		"json": {
+			  Flow: 'TroubleShooting Flows\\Test\\APIChatBot.xml',
+			  Request:{
+				  'ThisValue':'PKGSearch',
+				  'BotCircuitID':CKTID,
+				  'BotstrStationCallSign':strChannelName,
+			          'BotChannelNo':'',
+			          'BotVhoId':vhoId,
+			          'BotstrFIOSRegionID':regionId
+			  	  }
 			}
 		
 	};
-  	console.log("json " + String(args));
+  	
+	console.log("json " + String(args));
 	
     	request.post("https://www.verizon.com/foryourhome/vzrepair/flowengine/restapi.ashx", args,
         
