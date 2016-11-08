@@ -303,35 +303,7 @@ function PgmSearch(apireq,callback) {
     );
  } 
 
-//deeplink
-//var app = express();
 
-app.use(bodyParser.text({ type: 'application/json' }));
-
-app.get('/deeplink', function (apireq,usersession) {
-    var redirectURL;
-    var userAgent = apireq.headers['user-agent'].toLowerCase();
-
-    console.log("Deeplink - Start");
-
-    if (userAgent.match(/(iphone|ipod|ipad)/)) {
-        console.log("iOS");
-        redirectURL = 'vz-carbon://app/' + decodeURI(apireq.query.param);
-    }
-    else if (userAgent.match(/(android)/)) {
-        console.log("Android");
-        redirectURL = 'app://com.verizon.fiosmobile.mm/' + decodeURI(apireq.query.param);
-    }
-    else {
-        console.log("default");
-        redirectURL = 'http://tv.verizon.com/';
-    }
-
-    console.log(redirectURL);
-    console.log("Deeplink - Stop");
-
-    usersession.send("<html><head><script type='text/javascript' charset='utf-8'> window.location='" + redirectURL + "'; </script></head></html>");
-});
 
 function PgmSearchCallback(apiresp,usersession) {
     var objToJson = {};
