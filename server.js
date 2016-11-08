@@ -118,53 +118,131 @@ bot.dialog('/', function (session) {
 					console.log("Have mandatory fields for package search");
 					packageChannelSearch(response,function (str){ packageChannelSearchCallback(str,session)}); 
 				}*/
-				    var msglist = {
+				    var msglist = 
+						  {
   "facebook": {
-    "attachment": {
-      "type": "template",
-      "payload": {
-        "template_type": "generic",
-         "elements": [
-			    {
-			      "title": "AMC",
-			      "subtitle": "Channel No# 231 | Fios TV Preferred HD 2015| | MOVIES",
-			      "image_url": "http://www.verizon.com/resources/clu/cluimages/5334_1.jpg",
-			      "buttons": [
-				{
-				  "type": "web_url",
-				  "url": "http://www.verizon.com/resources/clu/cluimages/5334_1.jpg",
-				  "title": "Watch Video"
-				},
-				{
-				  "type": "postback",
-				  "title": "Get Listings",
-				  "payload": "Get Program info of Channel: AMC"
-				}
-			      ]
-			    },
-			    {
-			      "title": "Encore Classic West",
-			      "subtitle": "Channel No# 353 | Starz! 2015| | MOVIES",
-			      "image_url": "http://www.verizon.com/resources/clu/cluimages/5447_1.jpg",
-			      "buttons": [
-				{
-				  "type": "web_url",
-				  "url": "http://www.verizon.com/resources/clu/cluimages/5447_1.jpg",
-				  "title": "Watch Video"
-				},
-				{
-				  "type": "postback",
-				  "title": "Get Listings",
-				  "payload": "Get Program info of Channel: Encore Classic West"
-				}
-			      ]
-			    }  
-          		]
+    "attachment": [
+      {
+        "type": "template",
+        "payload": {
+          "template_type": "generic",
+          "elements": [
+            {
+              "title": "Family Guy",
+              "subtitle": "WBIN : Comedy",
+              "image_url": "http://www.verizon.com",
+              "buttons": [
+                {
+                  "type": "web_url",
+                  "url": "http://www.verizon.com/msvsearch/whatshotimage/thumbnails/default.jpg",
+                  "title": "Watch Video"
+                },
+                {
+                  "type": "postback",
+                  "title": "RecordNow",
+                  "payload": "Get Program info of Program: Family Guy Channel: WBIN"
+                }
+              ]
+            },
+            {
+              "title": "NCIS",
+              "subtitle": "USA : Action &amp; Adventure,Drama",
+              "image_url": "http://www.verizon.com",
+              "buttons": [
+                {
+                  "type": "web_url",
+                  "url": "http://www.verizon.com/msvsearch/whatshotimage/thumbnails/default.jpg",
+                  "title": "Watch Video"
+                },
+                {
+                  "type": "postback",
+                  "title": "RecordNow",
+                  "payload": "Get Program info of Program: NCIS Channel: USA"
+                }
+              ]
+            },
+            {
+              "title": "Shark Tank",
+              "subtitle": "CNBC : Action &amp; Adventure,Drama",
+              "image_url": "http://www.verizon.com",
+              "buttons": [
+                {
+                  "type": "web_url",
+                  "url": "http://www.verizon.com/msvsearch/whatshotimage/thumbnails/default.jpg",
+                  "title": "Watch Video"
+                },
+                {
+                  "type": "postback",
+                  "title": "RecordNow",
+                  "payload": "Get Program info of Program: Shark Tank Channel: CNBC"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "type": "template",
+        "payload": {
+          "template_type": "generic",
+          "elements": [
+            {
+              "title": "Notorious",
+              "subtitle": "ABC WCVB : Action &amp; Adventure,Drama",
+              "image_url": "http://www.verizon.com",
+              "buttons": [
+                {
+                  "type": "web_url",
+                  "url": "http://www.verizon.com/msvsearch/whatshotimage/thumbnails/default.jpg",
+                  "title": "Watch Video"
+                },
+                {
+                  "type": "postback",
+                  "title": "RecordNow",
+                  "payload": "Get Program info of Program: Notorious Channel: ABC WCVB"
+                }
+              ]
+            },
+            {
+              "title": "Chicago Med",
+              "subtitle": "NBC WHDH : Action &amp; Adventure,Drama",
+              "image_url": "http://www.verizon.com",
+              "buttons": [
+                {
+                  "type": "web_url",
+                  "url": "http://www.verizon.com/msvsearch/whatshotimage/thumbnails/default.jpg",
+                  "title": "Watch Video"
+                },
+                {
+                  "type": "postback",
+                  "title": "RecordNow",
+                  "payload": "Get Program info of Program: Chicago Med Channel: NBC WHDH"
+                }
+              ]
+            },
+            {
+              "title": "Modern Family",
+              "subtitle": "CW WLVI : Action &amp; Adventure,Drama",
+              "image_url": "http://www.verizon.com",
+              "buttons": [
+                {
+                  "type": "web_url",
+                  "url": "http://www.verizon.com/msvsearch/whatshotimage/thumbnails/default.jpg",
+                  "title": "Watch Video"
+                },
+                {
+                  "type": "postback",
+                  "title": "RecordNow",
+                  "payload": "Get Program info of Program: Modern Family Channel: CW WLVI"
+                }
+              ]
+            }
+          ]
+        }
       }
-    }
+    ]
   }
 }
-	
 				    var msg = new builder.Message(session).sourceEvent(msglist);              
          			    session.send(msg);
 			    break;
