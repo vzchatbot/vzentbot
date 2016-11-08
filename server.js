@@ -124,8 +124,7 @@ bot.dialog('/', function (session) {
       "type": "template",
       "payload": {
         "template_type": "generic",
-        "elements": {
-          "elements": [
+         "elements": [
 			    {
 			      "title": "AMC",
 			      "subtitle": "Channel No# 231 | Fios TV Preferred HD 2015| | MOVIES",
@@ -161,7 +160,6 @@ bot.dialog('/', function (session) {
 			      ]
 			    }  
           		]
-        }
       }
     }
   }
