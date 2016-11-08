@@ -20,6 +20,7 @@ server.listen(process.env.port || process.env.PORT || 3978, function () {
     console.log('NODE_ENV: ' + nconf.get('NODE_ENV'));
     console.log('Microsoft_AppID: ' + nconf.get('msbot:Microsoft_AppID'));
     console.log('apiai: ' + nconf.get('apiai:clientid'));
+	console.log('Ram connector deployed');
 });
 
 // Create chat bot
