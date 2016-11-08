@@ -110,7 +110,7 @@ bot.dialog('/', function (session) {
 			     CategoryList(response,session);
 			     break;
 			case "recommendation":
- 			    recommendations('whatshot',function (str) {recommendationsCallback(str,session)}); 
+ 			    recommendations('MyDashBoard',function (str) {recommendationsCallback(str,session)}); 
 			    break;
 			case "channelsearch":
 		   	   ChnlSearch(response,function (str){ ChnlSearchCallback(str,session)}); 
@@ -362,7 +362,9 @@ function recommendations(pgmtype,callback) {
 		"json": {
 			Flow: 'TroubleShooting Flows\\Test\\APIChatBot.xml',
 			Request: {
-				ThisValue: pgmtype, BotstrVCN:''
+				ThisValue:  'HydraTrending', 
+				BotPgmType :pgmtype,
+				BotstrVCN:''
 			}
 		}
 	};
