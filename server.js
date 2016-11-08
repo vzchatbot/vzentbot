@@ -283,7 +283,7 @@ function accountlinking(apireq,usersession)
 				 	[{
 					   "title":"Login to Verizon","image_url":"https://www98.verizon.com/foryourhome/vzrepair/siwizard/img/verizon-logo-200.png",
 					  "buttons":
-						[{"type":"account_link","url":"https://www98.verizon.com/foryourhome/myaccount/ngen/upr/bots/preauthv2.aspx"}]}]}}}};
+						[{"type":"account_link","url":"https://www98.verizon.com/vzssobot/keepalive/upr/preauth"}]}]}}}};
 	var msg = new builder.Message(usersession).sourceEvent(respobj);              
          usersession.send(msg);
 }
