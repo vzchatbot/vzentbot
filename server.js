@@ -4,6 +4,7 @@ var request = require('request');
 var apiai = require('apiai');
 var nconf = require('nconf');
 var uuid = require('node-uuid');
+var express = require('express');
 
 nconf.file('./config/config.json');
 var app = apiai(nconf.get('apiai:clientid'));
@@ -303,11 +304,11 @@ function PgmSearch(apireq,callback) {
  } 
 
 //deeplink
-var app1 = express();
+//var app = express();
 
-app1.use(bodyParser.text({ type: 'application/json' }));
+app.use(bodyParser.text({ type: 'application/json' }));
 
-app1.get('/deeplink', function (apireq,usersession) {
+app.get('/deeplink', function (apireq,usersession) {
     var redirectURL;
     var userAgent = apireq.headers['user-agent'].toLowerCase();
 
@@ -315,11 +316,11 @@ app1.get('/deeplink', function (apireq,usersession) {
 
     if (userAgent.match(/(iphone|ipod|ipad)/)) {
         console.log("iOS");
-        redirectURL = 'vz-carbon://app1/' + decodeURI(apireq.query.param);
+        redirectURL = 'vz-carbon://app/' + decodeURI(apireq.query.param);
     }
     else if (userAgent.match(/(android)/)) {
         console.log("Android");
-        redirectURL = 'app1://com.verizon.fiosmobile.mm/' + decodeURI(apireq.query.param);
+        redirectURL = 'app://com.verizon.fiosmobile.mm/' + decodeURI(apireq.query.param);
     }
     else {
         console.log("default");
