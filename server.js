@@ -36,7 +36,7 @@ server.post('/api/messages', connector.listen());
 //=========================================================
 
 bot.dialog('/', function (session) {
-   
+     console.log('coming from ramconnector');
 	var options = {};
 	 console.log("session id : "+ session.userData.sessionId);
 	
