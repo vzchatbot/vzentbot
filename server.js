@@ -143,40 +143,6 @@ bot.dialog('/', function (session) {
                   "payload": "Get Program info of Program: Family Guy Channel: WBIN"
                 }
               ]
-            },
-            {
-              "title": "NCIS",
-              "subtitle": "USA : Action &amp; Adventure,Drama",
-              "image_url": "http://www.verizon.com",
-              "buttons": [
-                {
-                  "type": "web_url",
-                  "url": "http://www.verizon.com/msvsearch/whatshotimage/thumbnails/default.jpg",
-                  "title": "Watch Video"
-                },
-                {
-                  "type": "postback",
-                  "title": "RecordNow",
-                  "payload": "Get Program info of Program: NCIS Channel: USA"
-                }
-              ]
-            },
-            {
-              "title": "Shark Tank",
-              "subtitle": "CNBC : Action &amp; Adventure,Drama",
-              "image_url": "http://www.verizon.com",
-              "buttons": [
-                {
-                  "type": "web_url",
-                  "url": "http://www.verizon.com/msvsearch/whatshotimage/thumbnails/default.jpg",
-                  "title": "Watch Video"
-                },
-                {
-                  "type": "postback",
-                  "title": "RecordNow",
-                  "payload": "Get Program info of Program: Shark Tank Channel: CNBC"
-                }
-              ]
             }
           ]
         }
@@ -202,40 +168,6 @@ bot.dialog('/', function (session) {
                   "payload": "Get Program info of Program: Notorious Channel: ABC WCVB"
                 }
               ]
-            },
-            {
-              "title": "Chicago Med",
-              "subtitle": "NBC WHDH : Action &amp; Adventure,Drama",
-              "image_url": "http://www.verizon.com",
-              "buttons": [
-                {
-                  "type": "web_url",
-                  "url": "http://www.verizon.com/msvsearch/whatshotimage/thumbnails/default.jpg",
-                  "title": "Watch Video"
-                },
-                {
-                  "type": "postback",
-                  "title": "RecordNow",
-                  "payload": "Get Program info of Program: Chicago Med Channel: NBC WHDH"
-                }
-              ]
-            },
-            {
-              "title": "Modern Family",
-              "subtitle": "CW WLVI : Action &amp; Adventure,Drama",
-              "image_url": "http://www.verizon.com",
-              "buttons": [
-                {
-                  "type": "web_url",
-                  "url": "http://www.verizon.com/msvsearch/whatshotimage/thumbnails/default.jpg",
-                  "title": "Watch Video"
-                },
-                {
-                  "type": "postback",
-                  "title": "RecordNow",
-                  "payload": "Get Program info of Program: Modern Family Channel: CW WLVI"
-                }
-              ]
             }
           ]
         }
@@ -243,6 +175,7 @@ bot.dialog('/', function (session) {
     ]
   }
 }
+  
 				    var msg = new builder.Message(session).sourceEvent(msglist);              
          			    session.send(msg);
 			    break;
