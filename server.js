@@ -101,7 +101,7 @@ bot.dialog('/', function (session) {
 			    break;
 			case "pkgSearch":
 			    //LinkOptions(response,session);
-				if (session.userData.CKTID == "" || session.userData.CKTID == undefined || 
+				/*if (session.userData.CKTID == "" || session.userData.CKTID == undefined || 
 					session.userData.regionId == "" || session.userData.regionId == undefined || 
 					    session.userData.vhoId == "" || session.userData.vhoId == undefined)
 				{
@@ -116,8 +116,517 @@ bot.dialog('/', function (session) {
 				{
 					console.log("Have mandatory fields for package search");
 					packageChannelSearch(response,function (str){ packageChannelSearchCallback(str,session)}); 
-				}
-		            
+				}*/
+				    var msglist = {
+  "facebook": {
+    "attachment": {
+      "type": "template",
+      "payload": {
+        "template_type": "generic",
+        "elements": {
+          "elements": [
+            {
+              "title": "AMC",
+              "subtitle": "Channel No# 231 | Fios TV Preferred HD 2015| | MOVIES",
+              "image_url": "http://www.verizon.com/resources/clu/cluimages/5334_1.jpg",
+              "buttons": [
+                {
+                  "type": "web_url",
+                  "url": "http://www.verizon.com/resources/clu/cluimages/5334_1.jpg",
+                  "title": "Watch Video"
+                },
+                {
+                  "type": "postback",
+                  "title": "Get Listings",
+                  "payload": "Get Program info of Channel: AMC"
+                }
+              ]
+            },
+            {
+              "title": "Encore",
+              "subtitle": "Channel No# 350 | Starz! 2015| | MOVIES",
+              "image_url": "http://www.verizon.com/resources/clu/cluimages/5444_1.jpg",
+              "buttons": [
+                {
+                  "type": "web_url",
+                  "url": "http://www.verizon.com/resources/clu/cluimages/5444_1.jpg",
+                  "title": "Watch Video"
+                },
+                {
+                  "type": "postback",
+                  "title": "Get Listings",
+                  "payload": "Get Program info of Channel: Encore"
+                }
+              ]
+            },
+            {
+              "title": "Encore Action",
+              "subtitle": "Channel No# 360 | Starz! 2015| | MOVIES",
+              "image_url": "http://www.verizon.com/resources/clu/cluimages/5462_1.jpg",
+              "buttons": [
+                {
+                  "type": "web_url",
+                  "url": "http://www.verizon.com/resources/clu/cluimages/5462_1.jpg",
+                  "title": "Watch Video"
+                },
+                {
+                  "type": "postback",
+                  "title": "Get Listings",
+                  "payload": "Get Program info of Channel: Encore Action"
+                }
+              ]
+            },
+            {
+              "title": "Encore Action West",
+              "subtitle": "Channel No# 361 | Starz! 2015| | MOVIES",
+              "image_url": "http://www.verizon.com/resources/clu/cluimages/5463_1.jpg",
+              "buttons": [
+                {
+                  "type": "web_url",
+                  "url": "http://www.verizon.com/resources/clu/cluimages/5463_1.jpg",
+                  "title": "Watch Video"
+                },
+                {
+                  "type": "postback",
+                  "title": "Get Listings",
+                  "payload": "Get Program info of Channel: Encore Action West"
+                }
+              ]
+            },
+            {
+              "title": "Encore Black",
+              "subtitle": "Channel No# 358 | Starz! 2015| | MOVIES",
+              "image_url": "http://www.verizon.com/resources/clu/cluimages/5457_1.jpg",
+              "buttons": [
+                {
+                  "type": "web_url",
+                  "url": "http://www.verizon.com/resources/clu/cluimages/5457_1.jpg",
+                  "title": "Watch Video"
+                },
+                {
+                  "type": "postback",
+                  "title": "Get Listings",
+                  "payload": "Get Program info of Channel: Encore Black"
+                }
+              ]
+            },
+            {
+              "title": "Encore Black West",
+              "subtitle": "Channel No# 359 | Starz! 2015| | MOVIES",
+              "image_url": "http://www.verizon.com/resources/clu/cluimages/5461_1.jpg",
+              "buttons": [
+                {
+                  "type": "web_url",
+                  "url": "http://www.verizon.com/resources/clu/cluimages/5461_1.jpg",
+                  "title": "Watch Video"
+                },
+                {
+                  "type": "postback",
+                  "title": "Get Listings",
+                  "payload": "Get Program info of Channel: Encore Black West"
+                }
+              ]
+            },
+            {
+              "title": "Encore Classic",
+              "subtitle": "Channel No# 352 | Starz! 2015| | MOVIES",
+              "image_url": "http://www.verizon.com/resources/clu/cluimages/5446_1.jpg",
+              "buttons": [
+                {
+                  "type": "web_url",
+                  "url": "http://www.verizon.com/resources/clu/cluimages/5446_1.jpg",
+                  "title": "Watch Video"
+                },
+                {
+                  "type": "postback",
+                  "title": "Get Listings",
+                  "payload": "Get Program info of Channel: Encore Classic"
+                }
+              ]
+            },
+            {
+              "title": "Encore Classic West",
+              "subtitle": "Channel No# 353 | Starz! 2015| | MOVIES",
+              "image_url": "http://www.verizon.com/resources/clu/cluimages/5447_1.jpg",
+              "buttons": [
+                {
+                  "type": "web_url",
+                  "url": "http://www.verizon.com/resources/clu/cluimages/5447_1.jpg",
+                  "title": "Watch Video"
+                },
+                {
+                  "type": "postback",
+                  "title": "Get Listings",
+                  "payload": "Get Program info of Channel: Encore Classic West"
+                }
+              ]
+            },
+            {
+              "title": "Encore Espa±ol",
+              "subtitle": "Channel No# 363 | Starz! 2015| | MOVIES",
+              "image_url": "http://www.verizon.com/resources/clu/cluimages/9877_1.jpg",
+              "buttons": [
+                {
+                  "type": "web_url",
+                  "url": "http://www.verizon.com/resources/clu/cluimages/9877_1.jpg",
+                  "title": "Watch Video"
+                },
+                {
+                  "type": "postback",
+                  "title": "Get Listings",
+                  "payload": "Get Program info of Channel: Encore Espa±ol"
+                }
+              ]
+            },
+            {
+              "title": "Encore Family",
+              "subtitle": "Channel No# 362 | Starz! 2015| | MOVIES",
+              "image_url": "http://www.verizon.com/resources/clu/cluimages/5464_1.jpg",
+              "buttons": [
+                {
+                  "type": "web_url",
+                  "url": "http://www.verizon.com/resources/clu/cluimages/5464_1.jpg",
+                  "title": "Watch Video"
+                },
+                {
+                  "type": "postback",
+                  "title": "Get Listings",
+                  "payload": "Get Program info of Channel: Encore Family"
+                }
+              ]
+            },
+            {
+              "title": "Encore Suspense",
+              "subtitle": "Channel No# 356 | Starz! 2015| | MOVIES",
+              "image_url": "http://www.verizon.com/resources/clu/cluimages/5450_1.jpg",
+              "buttons": [
+                {
+                  "type": "web_url",
+                  "url": "http://www.verizon.com/resources/clu/cluimages/5450_1.jpg",
+                  "title": "Watch Video"
+                },
+                {
+                  "type": "postback",
+                  "title": "Get Listings",
+                  "payload": "Get Program info of Channel: Encore Suspense"
+                }
+              ]
+            },
+            {
+              "title": "Encore Suspense West",
+              "subtitle": "Channel No# 357 | Starz! 2015| | MOVIES",
+              "image_url": "http://www.verizon.com/resources/clu/cluimages/7067_1.jpg",
+              "buttons": [
+                {
+                  "type": "web_url",
+                  "url": "http://www.verizon.com/resources/clu/cluimages/7067_1.jpg",
+                  "title": "Watch Video"
+                },
+                {
+                  "type": "postback",
+                  "title": "Get Listings",
+                  "payload": "Get Program info of Channel: Encore Suspense West"
+                }
+              ]
+            },
+            {
+              "title": "Encore West",
+              "subtitle": "Channel No# 351 | Starz! 2015| | MOVIES",
+              "image_url": "http://www.verizon.com/resources/clu/cluimages/5445_1.jpg",
+              "buttons": [
+                {
+                  "type": "web_url",
+                  "url": "http://www.verizon.com/resources/clu/cluimages/5445_1.jpg",
+                  "title": "Watch Video"
+                },
+                {
+                  "type": "postback",
+                  "title": "Get Listings",
+                  "payload": "Get Program info of Channel: Encore West"
+                }
+              ]
+            },
+            {
+              "title": "Encore Westerns",
+              "subtitle": "Channel No# 354 | Starz! 2015| | MOVIES",
+              "image_url": "http://www.verizon.com/resources/clu/cluimages/5448_1.jpg",
+              "buttons": [
+                {
+                  "type": "web_url",
+                  "url": "http://www.verizon.com/resources/clu/cluimages/5448_1.jpg",
+                  "title": "Watch Video"
+                },
+                {
+                  "type": "postback",
+                  "title": "Get Listings",
+                  "payload": "Get Program info of Channel: Encore Westerns"
+                }
+              ]
+            },
+            {
+              "title": "Encore Westerns West",
+              "subtitle": "Channel No# 355 | Starz! 2015| | MOVIES",
+              "image_url": "http://www.verizon.com/resources/clu/cluimages/5449_1.jpg",
+              "buttons": [
+                {
+                  "type": "web_url",
+                  "url": "http://www.verizon.com/resources/clu/cluimages/5449_1.jpg",
+                  "title": "Watch Video"
+                },
+                {
+                  "type": "postback",
+                  "title": "Get Listings",
+                  "payload": "Get Program info of Channel: Encore Westerns West"
+                }
+              ]
+            },
+            {
+              "title": "IFC",
+              "subtitle": "Channel No# 234 | Fios TV Preferred HD 2015| | MOVIES",
+              "image_url": "http://www.verizon.com/resources/clu/cluimages/10009_1.jpg",
+              "buttons": [
+                {
+                  "type": "web_url",
+                  "url": "http://www.verizon.com/resources/clu/cluimages/10009_1.jpg",
+                  "title": "Watch Video"
+                },
+                {
+                  "type": "postback",
+                  "title": "Get Listings",
+                  "payload": "Get Program info of Channel: IFC"
+                }
+              ]
+            },
+            {
+              "title": "IndiePlex",
+              "subtitle": "Channel No# 348 | Starz! 2015| | MOVIES",
+              "image_url": "http://www.verizon.com/resources/clu/cluimages/5442_1.jpg",
+              "buttons": [
+                {
+                  "type": "web_url",
+                  "url": "http://www.verizon.com/resources/clu/cluimages/5442_1.jpg",
+                  "title": "Watch Video"
+                },
+                {
+                  "type": "postback",
+                  "title": "Get Listings",
+                  "payload": "Get Program info of Channel: IndiePlex"
+                }
+              ]
+            },
+            {
+              "title": "ReelzChannel",
+              "subtitle": "Channel No# 233 | Fios TV Preferred HD 2015| | MOVIES",
+              "image_url": "http://www.verizon.com/resources/clu/cluimages/5336_1.jpg",
+              "buttons": [
+                {
+                  "type": "web_url",
+                  "url": "http://www.verizon.com/resources/clu/cluimages/5336_1.jpg",
+                  "title": "Watch Video"
+                },
+                {
+                  "type": "postback",
+                  "title": "Get Listings",
+                  "payload": "Get Program info of Channel: ReelzChannel"
+                }
+              ]
+            },
+            {
+              "title": "RetroPlex",
+              "subtitle": "Channel No# 349 | Starz! 2015| | MOVIES",
+              "image_url": "http://www.verizon.com/resources/clu/cluimages/5443_1.jpg",
+              "buttons": [
+                {
+                  "type": "web_url",
+                  "url": "http://www.verizon.com/resources/clu/cluimages/5443_1.jpg",
+                  "title": "Watch Video"
+                },
+                {
+                  "type": "postback",
+                  "title": "Get Listings",
+                  "payload": "Get Program info of Channel: RetroPlex"
+                }
+              ]
+            },
+            {
+              "title": "Starz",
+              "subtitle": "Channel No# 340 | Starz! 2015| | MOVIES",
+              "image_url": "http://www.verizon.com/resources/clu/cluimages/5434_1.jpg",
+              "buttons": [
+                {
+                  "type": "web_url",
+                  "url": "http://www.verizon.com/resources/clu/cluimages/5434_1.jpg",
+                  "title": "Watch Video"
+                },
+                {
+                  "type": "postback",
+                  "title": "Get Listings",
+                  "payload": "Get Program info of Channel: Starz"
+                }
+              ]
+            },
+            {
+              "title": "Starz Cinema",
+              "subtitle": "Channel No# 346 | Starz! 2015| | MOVIES",
+              "image_url": "http://www.verizon.com/resources/clu/cluimages/5440_1.jpg",
+              "buttons": [
+                {
+                  "type": "web_url",
+                  "url": "http://www.verizon.com/resources/clu/cluimages/5440_1.jpg",
+                  "title": "Watch Video"
+                },
+                {
+                  "type": "postback",
+                  "title": "Get Listings",
+                  "payload": "Get Program info of Channel: Starz Cinema"
+                }
+              ]
+            },
+            {
+              "title": "Starz Comedy",
+              "subtitle": "Channel No# 347 | Starz! 2015| | MOVIES",
+              "image_url": "http://www.verizon.com/resources/clu/cluimages/5441_1.jpg",
+              "buttons": [
+                {
+                  "type": "web_url",
+                  "url": "http://www.verizon.com/resources/clu/cluimages/5441_1.jpg",
+                  "title": "Watch Video"
+                },
+                {
+                  "type": "postback",
+                  "title": "Get Listings",
+                  "payload": "Get Program info of Channel: Starz Comedy"
+                }
+              ]
+            },
+            {
+              "title": "Starz Edge",
+              "subtitle": "Channel No# 342 | Starz! 2015| | MOVIES",
+              "image_url": "http://www.verizon.com/resources/clu/cluimages/5436_1.jpg",
+              "buttons": [
+                {
+                  "type": "web_url",
+                  "url": "http://www.verizon.com/resources/clu/cluimages/5436_1.jpg",
+                  "title": "Watch Video"
+                },
+                {
+                  "type": "postback",
+                  "title": "Get Listings",
+                  "payload": "Get Program info of Channel: Starz Edge"
+                }
+              ]
+            },
+            {
+              "title": "Starz Edge West",
+              "subtitle": "Channel No# 343 | Starz! 2015| | MOVIES",
+              "image_url": "http://www.verizon.com/resources/clu/cluimages/5437_1.jpg",
+              "buttons": [
+                {
+                  "type": "web_url",
+                  "url": "http://www.verizon.com/resources/clu/cluimages/5437_1.jpg",
+                  "title": "Watch Video"
+                },
+                {
+                  "type": "postback",
+                  "title": "Get Listings",
+                  "payload": "Get Program info of Channel: Starz Edge West"
+                }
+              ]
+            },
+            {
+              "title": "Starz in Black",
+              "subtitle": "Channel No# 344 | Starz! 2015| | MOVIES",
+              "image_url": "http://www.verizon.com/resources/clu/cluimages/5438_1.jpg",
+              "buttons": [
+                {
+                  "type": "web_url",
+                  "url": "http://www.verizon.com/resources/clu/cluimages/5438_1.jpg",
+                  "title": "Watch Video"
+                },
+                {
+                  "type": "postback",
+                  "title": "Get Listings",
+                  "payload": "Get Program info of Channel: Starz in Black"
+                }
+              ]
+            },
+            {
+              "title": "Starz Kids &amp; Family",
+              "subtitle": "Channel No# 345 | Starz! 2015| | MOVIES",
+              "image_url": "http://www.verizon.com/resources/clu/cluimages/5439_1.jpg",
+              "buttons": [
+                {
+                  "type": "web_url",
+                  "url": "http://www.verizon.com/resources/clu/cluimages/5439_1.jpg",
+                  "title": "Watch Video"
+                },
+                {
+                  "type": "postback",
+                  "title": "Get Listings",
+                  "payload": "Get Program info of Channel: Starz Kids &amp; Family"
+                }
+              ]
+            },
+            {
+              "title": "Starz West",
+              "subtitle": "Channel No# 341 | Starz! 2015| | MOVIES",
+              "image_url": "http://www.verizon.com/resources/clu/cluimages/5435_1.jpg",
+              "buttons": [
+                {
+                  "type": "web_url",
+                  "url": "http://www.verizon.com/resources/clu/cluimages/5435_1.jpg",
+                  "title": "Watch Video"
+                },
+                {
+                  "type": "postback",
+                  "title": "Get Listings",
+                  "payload": "Get Program info of Channel: Starz West"
+                }
+              ]
+            },
+            {
+              "title": "SundanceTV",
+              "subtitle": "Channel No# 235 |  | MOVIES",
+              "image_url": "http://www.verizon.com/resources/clu/cluimages/5490_1.jpg",
+              "buttons": [
+                {
+                  "type": "web_url",
+                  "url": "http://www.verizon.com/resources/clu/cluimages/5490_1.jpg",
+                  "title": "Watch Video"
+                },
+                {
+                  "type": "postback",
+                  "title": "Get Listings",
+                  "payload": "Get Program info of Channel: SundanceTV"
+                }
+              ]
+            },
+            {
+              "title": "Turner Classic Movies",
+              "subtitle": "Channel No# 230 |  | MOVIES",
+              "image_url": "http://www.verizon.com/resources/clu/cluimages/5332_1.jpg",
+              "buttons": [
+                {
+                  "type": "web_url",
+                  "url": "http://www.verizon.com/resources/clu/cluimages/5332_1.jpg",
+                  "title": "Watch Video"
+                },
+                {
+                  "type": "postback",
+                  "title": "Get Listings",
+                  "payload": "Get Program info of Channel: Turner Classic Movies"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+	
+				    var msg = new builder.Message(session).sourceEvent(msglist);              
+         			    session.send(msg);
 			    break;
 			case "MoreOptions":
 			    session.send(response.result.fulfillment.speech);
@@ -420,6 +929,8 @@ function PgmSearchCallback(apiresp,usersession) {
 
 function packageChannelSearch(apireq,callback) { 
 	
+	
+	
 	console.log("Package Channel Search Called");
         
 	var strChannelName =  apireq.result.parameters.Channel.toUpperCase();
@@ -476,7 +987,7 @@ function packageChannelSearchCallback(apiresp,usersession) {
 	
 	 var chnlist = objToJson[0].Inputs.newTemp.Section.Inputs.Response;
 	 console.log("Channel List " + JSON.stringify(chnlist));
-	 
+	 //var chnlist = 
 	var msg = new builder.Message(usersession).sourceEvent(chnlist);              
          usersession.send(msg);
 } 
