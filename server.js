@@ -21,7 +21,7 @@ server.listen(process.env.port || process.env.PORT || 3978, function () {
     console.log('Microsoft_AppID: ' + nconf.get('msbot:Microsoft_AppID'));
     console.log('apiai: ' + nconf.get('apiai:clientid'));
 	console.log('Ram connector deployed');
-	console.log('==================================coming from ramconnector 2222222');
+	console.log('=========coming from ramconnector ');
 });
 
 // Create chat bot
@@ -37,7 +37,7 @@ server.post('/api/messages', connector.listen());
 //=========================================================
 
 bot.dialog('/', function (session) {
-     console.log('==================================coming from ramconnector');
+     console.log('=============== coming from ramconnector ===================');
 	var options = {};
 	 console.log("session id : "+ session.userData.sessionId);
 	
