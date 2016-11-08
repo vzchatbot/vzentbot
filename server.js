@@ -303,23 +303,23 @@ function PgmSearch(apireq,callback) {
  } 
 
 //deeplink
-var app = express();
+var app1 = express();
 
-app.use(bodyParser.text({ type: 'application/json' }));
+app1.use(bodyParser.text({ type: 'application/json' }));
 
-app.get('/deeplink', function (req, res) {
+app1.get('/deeplink', function (apireq,usersession) {
     var redirectURL;
-    var userAgent = req.headers['user-agent'].toLowerCase();
+    var userAgent = apireq.headers['user-agent'].toLowerCase();
 
     console.log("Deeplink - Start");
 
     if (userAgent.match(/(iphone|ipod|ipad)/)) {
         console.log("iOS");
-        redirectURL = 'vz-carbon://app/' + decodeURI(req.query.param);
+        redirectURL = 'vz-carbon://app1/' + decodeURI(apireq.query.param);
     }
     else if (userAgent.match(/(android)/)) {
         console.log("Android");
-        redirectURL = 'app://com.verizon.fiosmobile.mm/' + decodeURI(req.query.param);
+        redirectURL = 'app1://com.verizon.fiosmobile.mm/' + decodeURI(apireq.query.param);
     }
     else {
         console.log("default");
@@ -329,7 +329,7 @@ app.get('/deeplink', function (req, res) {
     console.log(redirectURL);
     console.log("Deeplink - Stop");
 
-    res.send("<html><head><script type='text/javascript' charset='utf-8'> window.location='" + redirectURL + "'; </script></head></html>");
+    usersession.send("<html><head><script type='text/javascript' charset='utf-8'> window.location='" + redirectURL + "'; </script></head></html>");
 });
 
 function PgmSearchCallback(apiresp,usersession) {
