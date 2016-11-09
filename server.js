@@ -592,7 +592,7 @@ function DVRRecordCallback(apiresp,usersession)
 				var msg = new builder.Message(usersession).sourceEvent(respobj);              
 				usersession.send(msg);
 			}
-			else if (subflow.facebook.result.code = "9507")
+			else if (subflow.facebook.result.code == "9507")
 			{
 				var msg = "This Program has already been scheduled";
 				usersession.send(msg);
