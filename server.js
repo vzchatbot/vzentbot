@@ -584,26 +584,32 @@ function DVRRecordCallback(apiresp,usersession)
 		{
 			if (subflow.facebook.result.msg =="success" )
 			{
-				respobj = {"facebook":{"attachment":{"type":"template","payload":{"template_type":"button","text":"Your recording has been scheduled. Would you like to see some other TV Recommendations for tonight?","buttons":[{"type":"postback","title":"Show Recommendations","payload":"Show Recommendations"},{"type":"postback","title":"More Options","payload":"More Options"}]}}}};
+				respobj = {"facebook":{"attachment":{"type":"template","payload":{"template_type":"button","text":"Good news, you have successfully scheduled this recording. Would you like to see some other TV Recommendations for tonight?","buttons":[{"type":"postback","title":"Show Recommendations","payload":"Show Recommendations"},{"type":"postback","title":"More Options","payload":"More Options"}]}}}};
 				var msg = new builder.Message(usersession).sourceEvent(respobj);              
+				usersession.send(msg);
+			}
+			else if (subflow.facebook.result.code = "9507")
+			{
+				var msg = "This Program has already been scheduled";
 				usersession.send(msg);
 			}
 			else
 			{
-				var msg = "Sorry!, There is a problem occured in Scheduling( "+ subflow.facebook.result.msg + " ). Try some other.";
+				console.log( "Error occured in recording: " + subflow.facebook.result.msg);
+				var msg =  "I'm unable to schedule this Program now. Can you please try this later";;
 				usersession.send(msg);
 			}
 		}
 		else
 		{
-			var msg = "Sorry!, There is a problem occured in Scheduling. Try some other.";
+			var msg = "I'm unable to schedule this Program now. Can you please try this later";
 			usersession.send(msg);
 		}
 	}
 	catch (err) 
 	{
 		console.log( "Error occured in recording: " + err);
-		var msg = "Sorry!, There is a problem occured in Scheduling. Try some other.";
+		var msg = "I'm unable to schedule this Program now. Can you please try this later";
 		usersession.send(msg);
 	}
 }
