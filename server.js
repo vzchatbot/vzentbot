@@ -270,6 +270,8 @@ function PgmSearch(apireq,callback) {
 	 var strGenre =  apireq.result.parameters.Genre;
 	 var strdate =  apireq.result.parameters.date;
 	 var strChannelName =  apireq.result.parameters.Channel;
+	 var strFiosId =  apireq.result.parameters.FiosId;
+	 var strStationId =  apireq.result.parameters.StationId;
 	 var strRegionId = "92377";
 	 console.log("strProgram " + strProgram + "strGenre " + strGenre + "strdate " +strdate);
 	
@@ -283,7 +285,9 @@ function PgmSearch(apireq,callback) {
 				   BotdtAirStartDateTime : strdate,
 				   BotstrGenreRootId : strGenre,
 				   BotstrStationCallSign:strChannelName,
-				   BotstrFIOSRegionID : strRegionId
+				   BotstrFIOSRegionID : strRegionId,
+				   BotstrFIOSID : strFiosId,
+				   BotstrFIOSServiceId : strStationId		   
 				  } 
 			}
 		};
