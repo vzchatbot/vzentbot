@@ -496,7 +496,7 @@ function STBList(apireq,callback) {
 		}
 	} 
 	
-	if (struserid == '' || struserid == undefined) struserid='lt6sth3'; //hardcoding if its empty
+	if (struserid == '' || struserid == undefined) struserid='lt6sth4'; //hardcoding if its empty
 	
 		console.log('struserid '+ struserid);
         var headersInfo = { "Content-Type": "application/json" };
