@@ -330,8 +330,8 @@ function PgmSearchCallback(apiresp,usersession) {
 					subflow.facebook.attachment.payload.buttons.push(pgms);
 					console.log("ProgramSearchCallBack=After=" + JSON.stringify(subflow));
 				}
-			 }
-        } catch (err) { console.log(err); }
+			 }catch (err) { console.log(err); }
+        } 
     
 	
 	
