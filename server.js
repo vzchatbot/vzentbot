@@ -100,9 +100,9 @@ bot.dialog('/', function (session) {
 			    accountlinking(response,session);
 			    break;
 			case "pkgSearch":
-				    console.log("inside here");
+				 console.log("inside here");
 			    //LinkOptions(response,session);
-				/*if (session.userData.CKTID == "" || session.userData.CKTID == undefined || 
+				if (session.userData.CKTID == "" || session.userData.CKTID == undefined || 
 					session.userData.regionId == "" || session.userData.regionId == undefined || 
 					    session.userData.vhoId == "" || session.userData.vhoId == undefined)
 				{
@@ -117,67 +117,7 @@ bot.dialog('/', function (session) {
 				{
 					console.log("Have mandatory fields for package search");
 					packageChannelSearch(response,function (str){ packageChannelSearchCallback(str,session)}); 
-				}*/
-				    var msglist = 
-						  {
-  "facebook": {
-    "attachment": [
-      {
-        "type": "template",
-        "payload": {
-          "template_type": "generic",
-          "elements": [
-            {
-              "title": "Family Guy",
-              "subtitle": "WBIN : Comedy",
-              "image_url": "http://www.verizon.com",
-              "buttons": [
-                {
-                  "type": "web_url",
-                  "url": "http://www.verizon.com/msvsearch/whatshotimage/thumbnails/default.jpg",
-                  "title": "Watch Video"
-                },
-                {
-                  "type": "postback",
-                  "title": "RecordNow",
-                  "payload": "Get Program info of Program: Family Guy Channel: WBIN"
-                }
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "type": "template",
-        "payload": {
-          "template_type": "generic",
-          "elements": [
-            {
-              "title": "Notorious",
-              "subtitle": "ABC WCVB : Action &amp; Adventure,Drama",
-              "image_url": "http://www.verizon.com",
-              "buttons": [
-                {
-                  "type": "web_url",
-                  "url": "http://www.verizon.com/msvsearch/whatshotimage/thumbnails/default.jpg",
-                  "title": "Watch Video"
-                },
-                {
-                  "type": "postback",
-                  "title": "RecordNow",
-                  "payload": "Get Program info of Program: Notorious Channel: ABC WCVB"
-                }
-              ]
-            }
-          ]
-        }
-      }
-    ]
-  }
-}
-  
-				    var msg = new builder.Message(session).sourceEvent(msglist);              
-         			    session.send(msg);
+				}
 			    break;
 			case "MoreOptions":
 			    session.send(response.result.fulfillment.speech);
