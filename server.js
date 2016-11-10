@@ -315,6 +315,25 @@ function PgmSearchCallback(apiresp,usersession) {
 	var subflow = objToJson[0].Inputs.newTemp.Section.Inputs.Response;
 	 console.log("subflow " + JSON.stringify(subflow));
 	
+	//fix to single element array 
+	if (subflow != null 
+        && subflow.facebook != null 
+        && subflow.facebook.attachment != null 
+        && subflow.facebook.attachment.payload != null 
+        && subflow.facebook.attachment.payload.buttons != null) {
+        try {
+				var pgms = subflow.facebook.attachment.payload.buttons;
+				if (!util.isArray(pgms))
+				{
+					subflow.facebook.attachment.payload.buttons = [];
+					subflow.facebook.attachment.payload.buttons.push(pgms);
+					console.log("ProgramSearchCallBack=After=" + JSON.stringify(subflow));
+				}
+			 }
+        } catch (err) { console.log(err); }
+    
+	
+	
 	//usersession.send("I found several related programs");
 	var msg = new builder.Message(usersession).sourceEvent(subflow);              
         usersession.send(msg);
