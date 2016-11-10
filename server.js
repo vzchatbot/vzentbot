@@ -5,6 +5,8 @@ var apiai = require('apiai');
 var nconf = require('nconf');
 var uuid = require('node-uuid');
 var express = require('express');
+var util = require('util');
+
 
 nconf.file('./config/config.json');
 var app = apiai(nconf.get('apiai:clientid'));
