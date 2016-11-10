@@ -496,7 +496,7 @@ function STBList(apireq,callback) {
 		}
 	} 
 	
-	if (struserid == '' || struserid == undefined) struserid='lt6sth4'; //hardcoding if its empty
+	if (struserid == '' || struserid == undefined) struserid='lt6sth2'; //hardcoding if its empty
 	
 		console.log('struserid '+ struserid);
         var headersInfo = { "Content-Type": "application/json" };
@@ -525,9 +525,9 @@ function STBListCallBack(apiresp,usersession) {
     var objToJson = {};
     objToJson = apiresp;
 	var subflow = objToJson[0].Inputs.newTemp.Section.Inputs.Response;
-	console.log("STBListCallBack=After=" + JSON.stringify(subflow));
+	console.log("STBListCallBack=before=" + JSON.stringify(subflow));
 	//fix to single element array 
-	if (subflow != null 
+	/*if (subflow != null 
         && subflow.facebook != null 
         && subflow.facebook.attachment != null 
         && subflow.facebook.attachment.payload != null 
@@ -543,7 +543,7 @@ function STBListCallBack(apiresp,usersession) {
 				}
 			 }catch (err) { console.log(err); }
         } 
-	
+	*/
    	var msg = new builder.Message(usersession).sourceEvent(subflow);              
     	usersession.send(msg);
 } 
