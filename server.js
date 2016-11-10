@@ -525,7 +525,7 @@ function STBListCallBack(apiresp,usersession) {
     var objToJson = {};
     objToJson = apiresp;
 	var subflow = objToJson[0].Inputs.newTemp.Section.Inputs.Response;
-	
+	console.log("STBListCallBack=After=" + JSON.stringify(subflow));
 	//fix to single element array 
 	if (subflow != null 
         && subflow.facebook != null 
