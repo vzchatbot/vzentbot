@@ -101,6 +101,9 @@ bot.dialog('/', function (session) {
 			    break;
 			case "pkgSearch":
 				 console.log("inside here");
+				    var CKTID;
+				    var regionID;
+			            var vhoid;
 			    //LinkOptions(response,session);
 				if (session.userData.CKTID == "" || session.userData.CKTID == undefined || 
 					session.userData.regionId == "" || session.userData.regionId == undefined || 
@@ -109,14 +112,23 @@ bot.dialog('/', function (session) {
 					console.log("some of the mandatory fields are not available, get profile details");
 					{ getVzProfile(response,function (str){ getVzProfileCallBack(str,session)}); }
 					
+					CKTID = session.userData.CKTID;
+					regionID=session.userData.regionId;
+					vhoid = session.userData.vhoId;	
+					
 					console.log("Retrieved the vz Profile fields, Now do the Package Search");
-					packageChannelSearch(response,function (str){ packageChannelSearchCallback(str,session)}); 
+					//packageChannelSearch(response,function (str){ packageChannelSearchCallback(str,session)}); 
+					packageChannelSearch(response,function (str){ packageChannelSearchCallback(str,session)},CKTID,regionID,vhoid); 
 
 				}
 				else
 				{
+					CKTID = session.userData.CKTID;
+					regionID=session.userData.regionId;
+					vhoid = session.userData.vhoId;	
+					
 					console.log("Have mandatory fields for package search");
-					packageChannelSearch(response,function (str){ packageChannelSearchCallback(str,session)}); 
+					packageChannelSearch(response,function (str){ packageChannelSearchCallback(str,session)},CKTID,regionID,vhoid); 
 				}
 			    break;
 			case "MoreOptions":
@@ -418,11 +430,22 @@ function PgmSearchCallback(apiresp,usersession) {
         usersession.send(msg);
 } 
 
-function packageChannelSearch(apireq,callback) { 
+function packageChannelSearch(apireq,callback,CKTID,regionId,vhoId) { 
 	
 	
 	
 	console.log("Package Channel Search Called");
+	
+	if (CKTID == "" || CKTID == undefined || 
+					regionId == "" || regionId == undefined || 
+					    vhoId == "" || vhoId == undefined)
+				{
+					console.log("none of the values are available");
+				}
+	else
+	{
+		console.log("values are available");
+	}
         
 	var strChannelName =  apireq.result.parameters.Channel.toUpperCase();
 	console.log("strChannelName " + strChannelName);
