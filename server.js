@@ -316,7 +316,7 @@ function PgmSearchCallback(apiresp,usersession) {
 	 console.log("subflow " + JSON.stringify(subflow));
 	
 	//fix to single element array 
-	/*if (subflow != null 
+	if (subflow != null 
         && subflow.facebook != null 
         && subflow.facebook.attachment != null 
         && subflow.facebook.attachment.payload != null 
@@ -331,7 +331,7 @@ function PgmSearchCallback(apiresp,usersession) {
 					console.log("ProgramSearchCallBack=After=" + JSON.stringify(subflow));
 				}
 			 }
-        } catch (err) { console.log(err); }*/
+        } catch (err) { console.log(err); }
     
 	
 	
