@@ -551,6 +551,7 @@ function STBListCallBack(apiresp,usersession) {
 function DVRRecord(apireq,callback) { 
 	
 	var strUserid = ''; 
+	var args ={};
 	for (var i = 0, len = apireq.result.contexts.length; i < len; i++) {
 		if (apireq.result.contexts[i].name == "sessionuserid") {
 
@@ -584,10 +585,10 @@ function DVRRecord(apireq,callback) {
 	
         var headersInfo = { "Content-Type": "application/json" };
 	
-	if (strSeriesId!='')
+	if (strSeriesId !='' )
 	{
 		console.log ("Record Series");
-	var args = {
+	 args = {
 		"headers": headersInfo,
 		"json": {Flow: 'TroubleShooting Flows\\Test\\APIChatBot.xml',
 			 Request: {ThisValue: 'DVRSchedule',  //DVRSeriesSchedule
@@ -610,7 +611,7 @@ function DVRRecord(apireq,callback) {
 	else
 	{
 		console.log ("Record Episode");
-	var args = {
+	 args = {
 		"headers": headersInfo,
 		"json": {Flow: 'TroubleShooting Flows\\Test\\APIChatBot.xml',
 			 Request: {ThisValue: 'DVRSchedule', 
