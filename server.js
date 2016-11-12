@@ -585,7 +585,7 @@ function DVRRecord(apireq,callback) {
 	
         var headersInfo = { "Content-Type": "application/json" };
 	
-	if (strSeriesId !='' )
+	if (strSeriesId !='' && strSeriesId != undefined  )
 	{
 		console.log ("Record Series");
 	 args = {
