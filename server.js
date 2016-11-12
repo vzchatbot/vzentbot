@@ -607,6 +607,7 @@ function DVRRecord(apireq,callback) {
 				   } 
 			}
 	
+		};
 	}
 	else
 	{
