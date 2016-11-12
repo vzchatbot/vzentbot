@@ -565,6 +565,7 @@ function DVRRecord(apireq,callback) {
 	 var strGenre =  apireq.result.parameters.Genre;
 
 	var strFiosId = apireq.result.parameters.FiosId;
+	var strSeriesId = apireq.result.parameters.SeriesId;
 	var strStationId =apireq.result.parameters.StationId  ;
 	
 	var strAirDate =apireq.result.parameters.date  ;
@@ -579,10 +580,36 @@ function DVRRecord(apireq,callback) {
 	var strProviderId =apireq.result.parameters.ProviderId  ;
 	
 	
-	 console.log(" strUserid " + strUserid + "Recording strProgram " + strProgram + " strGenre " + strGenre + " strdate " +strAirDate + " strFiosId " +strFiosId + " strStationId " +strStationId  +" strAirDate " + strAirDate + " strAirTime " + strAirTime+ " strSTBId " +strSTBId + " strSTBModel " +strSTBModel+" strRegionId " +strRegionId+ " strDuration " +strDuration );
+	 console.log(" strUserid " + strUserid + "Recording strProgram " + strProgram + " strGenre " + strGenre + " strdate " +strAirDate + " strFiosId " +strFiosId +" strSeriesId "+ strSeriesId +" strStationId " +strStationId  +" strAirDate " + strAirDate + " strAirTime " + strAirTime+ " strSTBId " +strSTBId + " strSTBModel " +strSTBModel+" strRegionId " +strRegionId+ " strDuration " +strDuration );
 	
         var headersInfo = { "Content-Type": "application/json" };
 	
+	if (strSeriesId!='')
+	{
+		console.log ("Record Series");
+	var args = {
+		"headers": headersInfo,
+		"json": {Flow: 'TroubleShooting Flows\\Test\\APIChatBot.xml',
+			 Request: {ThisValue: 'DVRSchedule',  //DVRSeriesSchedule
+				   Userid : strUserid,
+				   BotStbId:strSTBId, 
+				   BotDeviceModel : strSTBModel,
+				   BotstrFIOSRegionID : '91629',
+				   BotstrFIOSServiceId : strFiosId,
+				   BotstrSeriesId : strSeriesId,
+				   BotStationId : strStationId,
+				   BotAirDate : strAirDate,
+				   BotAirTime : strAirTime,
+				   BotDuration : strDuration,
+				   BotVhoId : strVhoId,
+				   BotProviderId : strProviderId
+				   } 
+			}
+	
+	}
+	else
+	{
+		console.log ("Record Episode");
 	var args = {
 		"headers": headersInfo,
 		"json": {Flow: 'TroubleShooting Flows\\Test\\APIChatBot.xml',
@@ -601,8 +628,9 @@ function DVRRecord(apireq,callback) {
 				   } 
 			}
 		};
+	}
 	
-	 console.log("args " + JSON.stringify(args));
+	console.log("args " + JSON.stringify(args));
 	
     request.post("https://www.verizon.com/foryourhome/vzrepair/flowengine/restapi.ashx", args,
         function (error, response, body) {
