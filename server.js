@@ -223,57 +223,12 @@ function getVzProfileCallBack(apiresp,usersession) {
 	usersession.userData.VisionCustId = VisionCustId;
 	usersession.userData.VisionAcctId = VisionAcctId;
 	
-	console.log("In UD Session CKT ID  " + usersession.userData.CKTID_1 );
-	console.log("In UD Session regionId  " + usersession.userData.regionId );
-	console.log("In UD Session vhoId  " + usersession.userData.vhoId );
-	console.log("In UD Session CanNo  " + usersession.userData.Can );
-	console.log("In UD Session VisionCustId  " + usersession.userData.VisionCustId );
-	console.log("In UD Session VisionAcctId  " + usersession.userData.VisionAcctId );
-	
-	usersession.CKTID_1 = CKTID_1;
-	usersession.regionId = regionId;
-	usersession.vhoId = vhoId;
-	usersession.Can = CanNo;
-	usersession.VisionCustId = VisionCustId;
-	usersession.VisionAcctId = VisionAcctId;
-	
-	console.log("In Session CKT ID  " + usersession.CKTID_1 );
-	console.log("In Session regionId  " + usersession.regionId );
-	console.log("In Session vhoId  " + usersession.vhoId );
-	console.log("In Session CanNo  " + usersession.Can );
-	console.log("In Session VisionCustId  " + usersession.VisionCustId );
-	console.log("In Session VisionAcctId  " + usersession.VisionAcctId );
-	
-	/*if ((session.userData.CKTID == undefined) || (session.userData.CKTID = ""))
-	{
-		console.log("with No CKT ID  in Session Userdata" );
-		session.userData.CKTID = CKTID;
-	}
-	if ((session.userData.regionId == undefined) || (session.userData.regionId = ""))
-	{
-		console.log("No Region ID  in Session Userdata" );
-		session.userData.regionId = regionId;
-	}
-	if ((session.userData.vhoId == undefined) || (session.userData.vhoId = ""))
-	{
-		console.log("No VHO ID  in Session Userdata" );
-		session.userData.vhoId = vhoId;
-	}
-	if ((session.userData.Can == undefined) || (session.userData.Can = ""))
-	{
-		console.log("No CAN in  in Session Userdata" );
-		session.userData.Can = CanNo;
-	}
-	if ((session.userData.VisionCustId == undefined) || (session.userData.VisionCustId = ""))
-	{
-		console.log("No Vision Customer ID  in Session Userdata" );
-		session.userData.VisionCustId = VisionCustId;
-	}
-	if ((session.userData.VisionAcctId == undefined) || (session.userData.VisionAcctId = ""))
-	{
-		console.log("No Vision Account ID in Session Userdata" );
-		session.userData.VisionAcctId = VisionAcctId;
-	}*/
+	console.log("In userData Session CKT ID  " + usersession.userData.CKTID_1 );
+	console.log("In userData Session regionId  " + usersession.userData.regionId );
+	console.log("In userData Session vhoId  " + usersession.userData.vhoId );
+	console.log("In userData Session CanNo  " + usersession.userData.Can );
+	console.log("In userData Session VisionCustId  " + usersession.userData.VisionCustId );
+	console.log("In userData Session VisionAcctId  " + usersession.userData.VisionAcctId );
 }
 
 // Get facebook users profile
