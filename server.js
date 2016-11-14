@@ -114,6 +114,9 @@ bot.dialog('/', function (session) {
 			     CategoryList(response,session);
 			     break;
 			case "recommendation":
+ 			    recommendations(response,'OnLater',function (str) {recommendationsCallback(str,session)}); 
+			    break;
+			case "OnNowrecommendation":
  			    recommendations(response,'OnNow',function (str) {recommendationsCallback(str,session)}); 
 			    break;
 			case "channelsearch":
