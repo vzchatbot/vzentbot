@@ -338,13 +338,13 @@ function getVzProfile(callback) {
  } 
   
 function getVzProfileCallBack(apiresp,usersession) {
+	console.log('Inside Verizon Profile Call back');
     var objToJson = {};
     objToJson = apiresp;
 	
 	var profileDetails = objToJson[0].Inputs.newTemp.Section.Inputs.Response;
    	console.log('Profile Details ' + JSON.stringify(profileDetails));
-	var WithoutCKTID;
-	var WithCKTID;
+	
 	var CKTID = JSON.stringify(profileDetails.ProfileResponse.CKTID, null, 2)
 	var regionId = JSON.stringify(profileDetails.ProfileResponse.regionId, null, 2)
 	var vhoId = JSON.stringify(profileDetails.ProfileResponse.vhoId, null, 2)
@@ -359,59 +359,37 @@ function getVzProfileCallBack(apiresp,usersession) {
 	console.log("VisionCustId  " + VisionCustId );
 	console.log("VisionAcctId  " + VisionAcctId );
 	
-	if ((session.CKTID == undefined) || (session.CKTID = ""))
-	{
-		console.log("without No CKT ID  in Session Userdata" );
-		session.CKTID = CKTID;
-	}
-	else
-	{
-		console.log("without CKT ID  in Session Userdata" );
-		session.CKTID = CKTID;
-	}
 	if ((session.userData.CKTID == undefined) || (session.userData.CKTID = ""))
 	{
 		console.log("with No CKT ID  in Session Userdata" );
 		session.userData.CKTID = CKTID;
 	}
-	else
-	{
-		console.log("with CKT ID  in Session Userdata" );
-		session.userData.CKTID = CKTID;
-	}
-	WithCKTID = session.userData.CKTID;
-	WithoutCKTID = session.CKTID;
-	
-	console.log("With CKT ID  in Session Userdata" + WithCKTID );
-	console.log("Without CKT ID  in Session Userdata" +  WithoutCKTID);
-	
-	/*if (session.userData.regionId == undefined)
+	if ((session.userData.regionId == undefined) || (session.userData.regionId = ""))
 	{
 		console.log("No Region ID  in Session Userdata" );
 		session.userData.regionId = regionId;
 	}
-	if (session.userData.vhoId == undefined)
+	if ((session.userData.vhoId == undefined) || (session.userData.vhoId = ""))
 	{
 		console.log("No VHO ID  in Session Userdata" );
 		session.userData.vhoId = vhoId;
 	}
-	if (session.userData.Can == undefined)
+	if ((session.userData.Can == undefined) || (session.userData.Can = ""))
 	{
 		console.log("No CAN in  in Session Userdata" );
 		session.userData.Can = CanNo;
 	}
-	if (session.userData.VisionCustId == undefined)
+	if ((session.userData.VisionCustId == undefined) || (session.userData.VisionCustId = ""))
 	{
 		console.log("No Vision Customer ID  in Session Userdata" );
 		session.userData.VisionCustId = VisionCustId;
 	}
-	if (session.userData.VisionAcctId == undefined)
+	if ((session.userData.VisionAcctId == undefined) || (session.userData.VisionAcctId = ""))
 	{
 		console.log("No Vision Account ID in Session Userdata" );
 		session.userData.VisionAcctId = VisionAcctId;
-	}*/
-	
-} 
+	}
+}
 
 function PgmSearch(apireq,usersession,callback) { 
          var strProgram =  apireq.result.parameters.Programs;
