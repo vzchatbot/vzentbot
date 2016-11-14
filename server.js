@@ -152,7 +152,8 @@ bot.dialog('/', function (session) {
 		   	   ChnlSearch(response,function (str){ ChnlSearchCallback(str,session)}); 
 			   break;
 			case "programSearch":
-  			    PgmSearch(response,function (str){ PgmSearchCallback(str,session)});
+  			    //PgmSearch(response,function (str){ PgmSearchCallback(str,session)});
+				PgmSearch(response,session,function (str){ PgmSearchCallback(str,session)});
 			    break;
 			case "Billing":
 			     testmethod(session);
@@ -412,12 +413,14 @@ function getVzProfileCallBack(apiresp,usersession) {
 	
 } 
 
-function PgmSearch(apireq,callback) { 
+function PgmSearch(apireq,usersession,callback) { 
          var strProgram =  apireq.result.parameters.Programs;
 	 var strGenre =  apireq.result.parameters.Genre;
 	 var strdate =  apireq.result.parameters.date;
 	 var strChannelName =  apireq.result.parameters.Channel;
-	 var strRegionId = "92377";
+	 //var strRegionId = "92377";
+	var strRegionId = usersession.userData.regionId ;
+	console.log("strRegionId:"+strRegionId);
 	 console.log("strProgram " + strProgram + "strGenre " + strGenre + "strdate " +strdate);
 	
         var headersInfo = { "Content-Type": "application/json" };
