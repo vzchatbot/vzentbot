@@ -202,33 +202,33 @@ function getVzProfileCallBack(apiresp,usersession) {
 	var profileDetails = objToJson[0].Inputs.newTemp.Section.Inputs.Response;
    	console.log('Profile Details ' + JSON.stringify(profileDetails));
 	
-	var CKTID = JSON.stringify(profileDetails.ProfileResponse.CKTID, null, 2)
+	var CKTID_1 = JSON.stringify(profileDetails.ProfileResponse.CKTID, null, 2)
 	var regionId = JSON.stringify(profileDetails.ProfileResponse.regionId, null, 2)
 	var vhoId = JSON.stringify(profileDetails.ProfileResponse.vhoId, null, 2)
 	var CanNo = JSON.stringify(profileDetails.ProfileResponse.Can, null, 2)
 	var VisionCustId = JSON.stringify(profileDetails.ProfileResponse.VisionCustId, null, 2)
 	var VisionAcctId = JSON.stringify(profileDetails.ProfileResponse.VisionAcctId, null, 2)
 	
-	console.log("CKT ID  " + CKTID );
+	console.log("CKT ID  " + CKTID_1 );
 	console.log("regionId  " + regionId );
 	console.log("vhoId  " + vhoId );
 	console.log("CanNo  " + CanNo );
 	console.log("VisionCustId  " + VisionCustId );
 	console.log("VisionAcctId  " + VisionAcctId );
 	
-	session.userData.CKTID = CKTID;
-	session.userData.regionId = regionId;
-	session.userData.vhoId = vhoId;
-	session.userData.Can = CanNo;
-	session.userData.VisionCustId = VisionCustId;
-	session.userData.VisionAcctId = VisionAcctId;
+	session.CKTID_1 = CKTID_1;
+	session.regionId = regionId;
+	session.vhoId = vhoId;
+	session.Can = CanNo;
+	session.VisionCustId = VisionCustId;
+	session.VisionAcctId = VisionAcctId;
 	
-	console.log("In Session CKT ID  " + session.userData.CKTID );
-	console.log("In Session regionId  " + session.userData.regionId );
-	console.log("In Session vhoId  " + session.userData.vhoId );
-	console.log("In Session CanNo  " + session.userData.Can );
-	console.log("In Session VisionCustId  " + session.userData.VisionCustId );
-	console.log("In Session VisionAcctId  " + session.userData.VisionAcctId );
+	console.log("In Session CKT ID  " + session.CKTID_1 );
+	console.log("In Session regionId  " + session.regionId );
+	console.log("In Session vhoId  " + session.vhoId );
+	console.log("In Session CanNo  " + session.Can );
+	console.log("In Session VisionCustId  " + session.VisionCustId );
+	console.log("In Session VisionAcctId  " + session.VisionAcctId );
 	
 	/*if ((session.userData.CKTID == undefined) || (session.userData.CKTID = ""))
 	{
