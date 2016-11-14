@@ -348,6 +348,14 @@ function getVzProfileCallBack(apiresp,usersession) {
 	var VisionCustId = JSON.stringify(profileDetails.ProfileResponse.VisionCustId, null, 2)
 	var VisionAcctId = JSON.stringify(profileDetails.ProfileResponse.VisionAcctId, null, 2)
 	
+	console.log("CKT ID  " + CKTID );
+	console.log("regionId  " + regionId );
+	console.log("vhoId  " + vhoId );
+	console.log("CanNo  " + CanNo );
+	console.log("VisionCustId  " + VisionCustId );
+	console.log("VisionAcctId  " + VisionAcctId );
+	
+	
 	if (session.userData.CKTID == undefined)
 	{
 		console.log("No CKT ID  in Session Userdata" );
