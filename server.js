@@ -114,7 +114,7 @@ bot.dialog('/', function (session) {
 			     CategoryList(response,session);
 			     break;
 			case "recommendation":
- 			    recommendations('MyDashBoard',function (str) {recommendationsCallback(str,session)}); 
+ 			    recommendations(response,'OnNow',function (str) {recommendationsCallback(str,session)}); 
 			    break;
 			case "channelsearch":
 		   	   ChnlSearch(response,function (str){ ChnlSearchCallback(str,session)}); 
@@ -474,21 +474,51 @@ function ChnlSearchCallback(apiresp,usersession) {
 	usersession.send ("You can watch it on channel # " + chposition);
 } 
 
-function recommendations(pgmtype,callback) { 
-       	console.log('inside external call ');
-        var headersInfo = { "Content-Type": "application/json" };
-	var args = {
-		"headers": headersInfo,
-		"json": {
-			Flow: 'TroubleShooting Flows\\Test\\APIChatBot.xml',
-			Request: {
-				ThisValue:  'HydraTrending', 
-				BotPgmType :pgmtype,
-				BotstrVCN:''
-			}
-		}
-	};
+function recommendations(apireq,pgmtype,callback) { 
+       	console.log('inside recommendations ');
+	
+	var struserid = ''; 
+	for (var i = 0, len = apireq.result.contexts.length; i < len; i++) {
+		if (apireq.result.contexts[i].name == "sessionuserid") {
 
+			 struserid = apireq.result.contexts[i].parameters.Userid;
+			console.log("original userid " + ": " + struserid);
+		}
+	} 
+	
+	if (struserid == '' || struserid == undefined) struserid='lt6sth2'; //hardcoding if its empty
+	
+        var headersInfo = { "Content-Type": "application/json" };
+	var args={};
+	if(pgmtype='OnNow')
+	{
+		args = {
+			"headers": headersInfo,
+			"json": {
+				Flow: 'TroubleShooting Flows\\Test\\APIChatBot.xml',
+				Request: {
+					ThisValue:  'HydraTrending', 
+					BotPgmType :"MyDashBoard",
+					BotstrVCN:''
+				}
+			}
+		};
+	}
+	else
+	{
+		args = {
+			"headers": headersInfo,
+			"json": {
+				Flow: 'TroubleShooting Flows\\Test\\APIChatBot.xml',
+				Request: {
+					ThisValue:  'HydraOnLater', 
+					Userid :struserid,
+					BotVhoId:'VHO1'
+				}
+			}
+		};
+	
+	}
     request.post("https://www.verizon.com/foryourhome/vzrepair/flowengine/restapi.ashx", args,
         function (error, response, body) {
             if (!error && response.statusCode == 200) {
