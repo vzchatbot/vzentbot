@@ -609,7 +609,7 @@ function STBList(apireq,callback) {
 		}
 	} 
 	
-	if (struserid == '' || struserid == undefined) struserid='lt6sth4'; //hardcoding if its empty
+	if (struserid == '' || struserid == undefined) struserid='lt6sth2'; //hardcoding if its empty
 	
 		console.log('struserid '+ struserid);
         var headersInfo = { "Content-Type": "application/json" };
@@ -620,7 +620,7 @@ function STBList(apireq,callback) {
 			}
 		
 	};
-
+	console.log("args=" + JSON.stringify(args));
     request.post("https://www.verizon.com/foryourhome/vzrepair/flowengine/restapi.ashx", args,
         function (error, response, body) {
             if (!error && response.statusCode == 200) {
