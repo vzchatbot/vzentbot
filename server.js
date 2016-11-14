@@ -216,19 +216,33 @@ function getVzProfileCallBack(apiresp,usersession) {
 	console.log("VisionCustId  " + VisionCustId );
 	console.log("VisionAcctId  " + VisionAcctId );
 	
-	session.CKTID_1 = CKTID_1;
-	session.regionId = regionId;
-	session.vhoId = vhoId;
-	session.Can = CanNo;
-	session.VisionCustId = VisionCustId;
-	session.VisionAcctId = VisionAcctId;
+	usersession.userData.CKTID_1 = CKTID_1;
+	usersession.userData.regionId = regionId;
+	usersession.userData.vhoId = vhoId;
+	usersession.userData.Can = CanNo;
+	usersession.userData.VisionCustId = VisionCustId;
+	usersession.userData.VisionAcctId = VisionAcctId;
 	
-	console.log("In Session CKT ID  " + session.CKTID_1 );
-	console.log("In Session regionId  " + session.regionId );
-	console.log("In Session vhoId  " + session.vhoId );
-	console.log("In Session CanNo  " + session.Can );
-	console.log("In Session VisionCustId  " + session.VisionCustId );
-	console.log("In Session VisionAcctId  " + session.VisionAcctId );
+	console.log("In UD Session CKT ID  " + usersession.userData.CKTID_1 );
+	console.log("In UD Session regionId  " + usersession.userData.regionId );
+	console.log("In UD Session vhoId  " + usersession.userData.vhoId );
+	console.log("In UD Session CanNo  " + usersession.userData.Can );
+	console.log("In UD Session VisionCustId  " + usersession.userData.VisionCustId );
+	console.log("In UD Session VisionAcctId  " + usersession.userData.VisionAcctId );
+	
+	usersession.CKTID_1 = CKTID_1;
+	usersession.regionId = regionId;
+	usersession.vhoId = vhoId;
+	usersession.Can = CanNo;
+	usersession.VisionCustId = VisionCustId;
+	usersession.VisionAcctId = VisionAcctId;
+	
+	console.log("In Session CKT ID  " + usersession.CKTID_1 );
+	console.log("In Session regionId  " + usersession.regionId );
+	console.log("In Session vhoId  " + usersession.vhoId );
+	console.log("In Session CanNo  " + usersession.Can );
+	console.log("In Session VisionCustId  " + usersession.VisionCustId );
+	console.log("In Session VisionAcctId  " + usersession.VisionAcctId );
 	
 	/*if ((session.userData.CKTID == undefined) || (session.userData.CKTID = ""))
 	{
