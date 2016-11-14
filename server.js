@@ -216,7 +216,21 @@ function getVzProfileCallBack(apiresp,usersession) {
 	console.log("VisionCustId  " + VisionCustId );
 	console.log("VisionAcctId  " + VisionAcctId );
 	
-	if ((session.userData.CKTID == undefined) || (session.userData.CKTID = ""))
+	session.userData.CKTID = CKTID;
+	session.userData.regionId = regionId;
+	session.userData.vhoId = vhoId;
+	session.userData.Can = CanNo;
+	session.userData.VisionCustId = VisionCustId;
+	session.userData.VisionAcctId = VisionAcctId;
+	
+	console.log("In Session CKT ID  " + session.userData.CKTID );
+	console.log("In Session regionId  " + session.userData.regionId );
+	console.log("In Session vhoId  " + session.userData.vhoId );
+	console.log("In Session CanNo  " + session.userData.Can );
+	console.log("In Session VisionCustId  " + session.userData.VisionCustId );
+	console.log("In Session VisionAcctId  " + session.userData.VisionAcctId );
+	
+	/*if ((session.userData.CKTID == undefined) || (session.userData.CKTID = ""))
 	{
 		console.log("with No CKT ID  in Session Userdata" );
 		session.userData.CKTID = CKTID;
@@ -245,7 +259,7 @@ function getVzProfileCallBack(apiresp,usersession) {
 	{
 		console.log("No Vision Account ID in Session Userdata" );
 		session.userData.VisionAcctId = VisionAcctId;
-	}
+	}*/
 }
 
 // Get facebook users profile
