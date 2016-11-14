@@ -112,10 +112,10 @@ bot.dialog('/', function (session) {
 					console.log("some of the mandatory fields are not available, get profile details");
 					{ getVzProfile(response,function (str){ getVzProfileCallBack(str,session)}); }
 					
-					CKTID = session.userData.CKTID;
+					CKTID = session.CKTID;
 					regionID=session.userData.regionId;
 					vhoid = session.userData.vhoId;	
-					
+					console.log("Retrieved CKT ID " + CKTID);
 					console.log("Retrieved the vz Profile fields, Now do the Package Search");
 					//packageChannelSearch(response,function (str){ packageChannelSearchCallback(str,session)}); 
 					packageChannelSearch(response,function (str){ packageChannelSearchCallback(str,session)},CKTID,regionID,vhoid); 
@@ -356,10 +356,15 @@ function getVzProfileCallBack(apiresp,usersession) {
 	console.log("VisionAcctId  " + VisionAcctId );
 	
 	
-	if ((session.userData.CKTID == undefined) || (session.userData.CKTID = ''))
+	if ((session.CKTID == undefined) || (session.CKTID = ''))
 	{
 		console.log("No CKT ID  in Session Userdata" );
 		session.userData.CKTID = CKTID;
+	}
+	else
+	{
+		console.log("CKT ID  in Session Userdata" );
+		session.CKTID = CKTID;
 	}
 	if (session.userData.regionId == undefined)
 	{
