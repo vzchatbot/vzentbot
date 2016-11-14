@@ -65,7 +65,9 @@ bot.dialog('/', function (session) {
             console.log("Account Linking convert: " + JSON.stringify(session.message.sourceEvent.account_linking.authorization_code, null, 2));
             console.log("Account Linking convert: " + JSON.stringify(session.message.sourceEvent.account_linking.status, null, 2));
   	    session.send("Your account is linked now.");
-	    MainMenu(session);
+		getVzProfile(response,function (str){ getVzProfileCallback(str,session)}); 
+		MainMenu(session);
+	
         }
 	// Log the conversation of the user
 	console.log("Conversation: session id : "+ session.userData.sessionId + " User Typed:" + session.message.text  );
@@ -364,7 +366,9 @@ function PgmSearch(apireq,callback) {
 	 var strChannelName =  apireq.result.parameters.Channel;
 	 var strFiosId =  apireq.result.parameters.FiosId;
 	 var strStationId =  apireq.result.parameters.StationId;
-	 var strRegionId = "92377";
+	 //var strRegionId = "92377";
+	var strRegionId = session.userData.regionId ;
+	console.log("strRegionId:"+strRegionId);
 	 console.log("strProgram " + strProgram + "strGenre " + strGenre + "strdate " +strdate);
 	
         var headersInfo = { "Content-Type": "application/json" };
