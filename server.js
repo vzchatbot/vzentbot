@@ -59,6 +59,7 @@ bot.dialog('/', function (session) {
         if (session.message.sourceEvent.account_linking == undefined) 
 	{
             console.log("Account Linking null");
+	    testhook();
 		
 	    getVzProfile(function (str) { getVzProfileCallback(str,session)}); 
         }
@@ -225,7 +226,28 @@ bot.dialog('/', function (session) {
 		);
 }
 
+function testhook()
+{
+	console.log("test hook");
+	
+	var headersInfo = { "Content-Type": "application/json" };
+	var args = {
+		"headers": headersInfo,
+		"json": {"object": "page","entry": [  { "id": "1151171811626231", "time": 1479093310041, "messaging": [{  "sender": { "id": "1297780166930562"  },  "recipient": { "id": "1151171811626231"  },  " timestamp": 1479093310017,  "message": { "mid": "mid.1479093310017:b443357308", "seq": 66, "text": "What Channel is HBO on"  }} ]  }] }
+		
+	};
 
+    request.post("https://www98.verizon.com/vzbot/vzbotproxy/webhook", args,
+        function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+             
+                 console.log("body " + body);
+            }
+            else
+            	console.log('error: ' + error + ' body: ' + body);
+        }
+    );
+}
 
 function accountlinking(apireq,usersession)
 {
