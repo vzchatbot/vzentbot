@@ -136,7 +136,7 @@ bot.dialog('/', function (session) {
 			     break;
 			case "Billing":
 			    // testmethod(session);
-				getVzProfile(function (str){ getVzProfileCallback(str,session)});     
+				getVzProfile(response,function (str){ getVzProfileCallBack(str,session)});     
 			    break;
 			case "demowhatshot":
 			    demowhatshot(session);
@@ -157,7 +157,7 @@ bot.dialog('/', function (session) {
 
 });
 
-function getVzProfile(callback) { 
+function getVzProfile(apireq,callback) { 
        	console.log('Inside Verizon Profile');
 	
 	var struserid = ''; 
