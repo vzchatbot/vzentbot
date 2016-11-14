@@ -120,7 +120,7 @@ bot.dialog('/', function (session) {
 		   	   ChnlSearch(response,function (str){ ChnlSearchCallback(str,session)}); 
 			   break;
 			case "programSearch":
-  			    PgmSearch(response,function (str){ PgmSearchCallback(str,session)});
+  			    PgmSearch(response,session,function (str){ PgmSearchCallback(str,session)});
 			    break;
 			case "support":
 			     support(session);
@@ -359,7 +359,7 @@ function CategoryList(apireq,usersession) {
 	
 } 
 
-function PgmSearch(apireq,callback) { 
+function PgmSearch(apireq,usersession,callback) { 
          var strProgram =  apireq.result.parameters.Programs;
 	 var strGenre =  apireq.result.parameters.Genre;
 	 var strdate =  apireq.result.parameters.date;
@@ -367,7 +367,7 @@ function PgmSearch(apireq,callback) {
 	 var strFiosId =  apireq.result.parameters.FiosId;
 	 var strStationId =  apireq.result.parameters.StationId;
 	 //var strRegionId = "92377";
-	var strRegionId = session.userData.regionId ;
+	var strRegionId = usersession.userData.regionId ;
 	console.log("strRegionId:"+strRegionId);
 	 console.log("strProgram " + strProgram + "strGenre " + strGenre + "strdate " +strdate);
 	
