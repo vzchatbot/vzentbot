@@ -104,8 +104,29 @@ bot.dialog('/', function (session) {
 				    var CKTID;
 				    var regionID;
 			            var vhoid;
+				    if (session.CKTID == "" || session.CKTID == undefined)
+				    {
+				         console.log("without some of the mandatory fields are not available, get profile details");
+					 getVzProfile(response,function (str){ getVzProfileCallBack(str,session)}); 
+				    }
+				    else
+				    {
+					    CKTID = session.CKTID;
+					     console.log("without user data ckt id " + CKTID)
+				    }
+				    
+				    if (session.userData.CKTID == "" || session.userData.CKTID == undefined)
+				    {
+				         console.log("with some of the mandatory fields are not available, get profile details");
+					 getVzProfile(response,function (str){ getVzProfileCallBack(str,session)}); 
+				    }
+				    else
+				    {
+					    CKTID = session.userData.CKTID;
+					     console.log("user data ckt id " + CKTID)
+				    }
 			    //LinkOptions(response,session);
-				if (session.userData.CKTID == "" || session.userData.CKTID == undefined || 
+				/*if (session.userData.CKTID == "" || session.userData.CKTID == undefined || 
 					session.userData.regionId == "" || session.userData.regionId == undefined || 
 					    session.userData.vhoId == "" || session.userData.vhoId == undefined)
 				{
@@ -118,7 +139,7 @@ bot.dialog('/', function (session) {
 					console.log("Retrieved CKT ID " + CKTID);
 					console.log("Retrieved the vz Profile fields, Now do the Package Search");
 					//packageChannelSearch(response,function (str){ packageChannelSearchCallback(str,session)}); 
-					packageChannelSearch(response,function (str){ packageChannelSearchCallback(str,session)},CKTID,regionID,vhoid); 
+					packageChannelSearch(response,function (str){ packageChannelSearchCallback(str,session)},CKTID,regionID,vhoid);
 
 				}
 				else
@@ -129,7 +150,7 @@ bot.dialog('/', function (session) {
 					
 					console.log("Have mandatory fields for package search");
 					packageChannelSearch(response,function (str){ packageChannelSearchCallback(str,session)},CKTID,regionID,vhoid); 
-				}
+				} */
 			    break;
 			case "MoreOptions":
 			    session.send(response.result.fulfillment.speech);
@@ -340,7 +361,8 @@ function getVzProfileCallBack(apiresp,usersession) {
 	
 	var profileDetails = objToJson[0].Inputs.newTemp.Section.Inputs.Response;
    	console.log('Profile Details ' + JSON.stringify(profileDetails));
-	
+	var WithoutCKTID;
+	var WithCKTID;
 	var CKTID = JSON.stringify(profileDetails.ProfileResponse.CKTID, null, 2)
 	var regionId = JSON.stringify(profileDetails.ProfileResponse.regionId, null, 2)
 	var vhoId = JSON.stringify(profileDetails.ProfileResponse.vhoId, null, 2)
@@ -355,18 +377,33 @@ function getVzProfileCallBack(apiresp,usersession) {
 	console.log("VisionCustId  " + VisionCustId );
 	console.log("VisionAcctId  " + VisionAcctId );
 	
-	
-	if ((session.CKTID == undefined) || (session.CKTID = ''))
+	if ((session.CKTID == undefined) || (session.CKTID = ""))
 	{
-		console.log("No CKT ID  in Session Userdata" );
+		console.log("without No CKT ID  in Session Userdata" );
+		session.CKTID = CKTID;
+	}
+	else
+	{
+		console.log("without CKT ID  in Session Userdata" );
+		session.CKTID = CKTID;
+	}
+	if ((session.userData.CKTID == undefined) || (session.userData.CKTID = ""))
+	{
+		console.log("with No CKT ID  in Session Userdata" );
 		session.userData.CKTID = CKTID;
 	}
 	else
 	{
-		console.log("CKT ID  in Session Userdata" );
-		session.CKTID = CKTID;
+		console.log("with CKT ID  in Session Userdata" );
+		session.userData.CKTID = CKTID;
 	}
-	if (session.userData.regionId == undefined)
+	WithCKTID = session.userData.CKTID;
+	WithoutCKTID = session.CKTID;
+	
+	console.log("With CKT ID  in Session Userdata" + WithCKTID );
+	console.log("Without CKT ID  in Session Userdata" +  WithoutCKTID);
+	
+	/*if (session.userData.regionId == undefined)
 	{
 		console.log("No Region ID  in Session Userdata" );
 		session.userData.regionId = regionId;
@@ -390,7 +427,7 @@ function getVzProfileCallBack(apiresp,usersession) {
 	{
 		console.log("No Vision Account ID in Session Userdata" );
 		session.userData.VisionAcctId = VisionAcctId;
-	}
+	}*/
 	
 } 
 
