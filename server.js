@@ -797,6 +797,12 @@ function DVRRecordCallback(apiresp,usersession)
 				var msg = "This Program has already been scheduled";
 				usersession.send(msg);
 			}
+			else if (subflow.facebook.result.code == "9117") //not subscribed
+			{
+				var respobj = {"facebook":{"attachment":{"type":"template","payload":{"template_type":"button","text":" Sorry you are not subscribed to this channel. Would you like to subscribe ?","buttons":[{"type":"postback","title":"Subscribe","payload":"Subscribe"},{"type":"postback","title":"No, I'll do it later ","payload":"Main Menu"}]}}}};	
+			  	var msg = new builder.Message(usersession).sourceEvent(respobj);              
+			  	usersession.send(msg);
+			}
 			else
 			{var msg ="";
 				console.log( "Error occured in recording: " + subflow.facebook.result.msg);
