@@ -98,7 +98,7 @@ bot.dialog('/', function (session) {
 		    {
 			 case "getStarted":
 			   //getprofile (session) ;
-			   welcomeMsg(session);  
+			   //welcomeMsg(session);  
 			   break;
 			case "LinkOptions":
 			    //LinkOptions(response,session);
