@@ -493,7 +493,7 @@ function recommendations(apireq,pgmtype,callback) {
 	
         var headersInfo = { "Content-Type": "application/json" };
 	var args={};
-	if(pgmtype='OnNow')
+	if(pgmtype == "OnNow")
 	{
 		args = {
 			"headers": headersInfo,
