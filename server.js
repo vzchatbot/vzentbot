@@ -800,7 +800,7 @@ function DVRRecordCallback(apiresp,usersession)
 			else
 			{
 				console.log( "Error occured in recording: " + subflow.facebook.result.msg);
-				var msg =  "I'm unable to schedule this Program now. Can you please try this later";;
+				var msg =  "I'm unable to schedule this Program now. Can you please try this later (" + subflow.facebook.result.msg +")"  ;
 				usersession.send(msg);
 			}
 		}
@@ -813,7 +813,7 @@ function DVRRecordCallback(apiresp,usersession)
 	catch (err) 
 	{
 		console.log( "Error occured in recording: " + err);
-		var msg = "I'm unable to schedule this Program now. Can you please try this later";
+		var msg = "I'm unable to schedule this Program now. Can you please try this later (" + err + ")";
 		usersession.send(msg);
 	}
 }
