@@ -151,6 +151,96 @@ bot.dialog('/', function (session) {
 
 });
 
+function getVzProfile(apireq,callback) { 
+       	console.log('Inside Verizon Profile');
+	
+	var struserid = ''; 
+	for (var i = 0, len = apireq.result.contexts.length; i < len; i++) {
+		if (apireq.result.contexts[i].name == "sessionuserid") {
+
+			 struserid = apireq.result.contexts[i].parameters.Userid;
+			console.log("original userid " + ": " + struserid);
+		}
+	} 
+	
+	if (struserid == '' || struserid == undefined) struserid='lt6sth2'; //hardcoding if its empty
+	console.log('struserid '+ struserid);
+        
+	var headersInfo = { "Content-Type": "application/json" };
+	var args = {
+		"headers": headersInfo,
+		"json": {Flow: 'TroubleShooting Flows\\Test\\APIChatBot.xml',
+			 Request: {ThisValue: 'GetProfile',Userid:struserid} 
+			}
+		
+	};
+
+    request.post("https://www.verizon.com/foryourhome/vzrepair/flowengine/restapi.ashx", args,
+        function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+             
+                 console.log("body " + body);
+                 callback(body);
+            }
+            else
+            	console.log('error: ' + error + ' body: ' + body);
+        }
+    );
+ } 
+
+function getVzProfileCallBack(apiresp,usersession) {
+	console.log('Inside Verizon Profile Call back');
+    var objToJson = {};
+    objToJson = apiresp;
+	
+	var profileDetails = objToJson[0].Inputs.newTemp.Section.Inputs.Response;
+   	console.log('Profile Details ' + JSON.stringify(profileDetails));
+	
+	var CKTID = JSON.stringify(profileDetails.ProfileResponse.CKTID, null, 2)
+	var regionId = JSON.stringify(profileDetails.ProfileResponse.regionId, null, 2)
+	var vhoId = JSON.stringify(profileDetails.ProfileResponse.vhoId, null, 2)
+	var CanNo = JSON.stringify(profileDetails.ProfileResponse.Can, null, 2)
+	var VisionCustId = JSON.stringify(profileDetails.ProfileResponse.VisionCustId, null, 2)
+	var VisionAcctId = JSON.stringify(profileDetails.ProfileResponse.VisionAcctId, null, 2)
+	
+	console.log("CKT ID  " + CKTID );
+	console.log("regionId  " + regionId );
+	console.log("vhoId  " + vhoId );
+	console.log("CanNo  " + CanNo );
+	console.log("VisionCustId  " + VisionCustId );
+	console.log("VisionAcctId  " + VisionAcctId );
+	
+	if ((session.userData.CKTID == undefined) || (session.userData.CKTID = ""))
+	{
+		console.log("with No CKT ID  in Session Userdata" );
+		session.userData.CKTID = CKTID;
+	}
+	if ((session.userData.regionId == undefined) || (session.userData.regionId = ""))
+	{
+		console.log("No Region ID  in Session Userdata" );
+		session.userData.regionId = regionId;
+	}
+	if ((session.userData.vhoId == undefined) || (session.userData.vhoId = ""))
+	{
+		console.log("No VHO ID  in Session Userdata" );
+		session.userData.vhoId = vhoId;
+	}
+	if ((session.userData.Can == undefined) || (session.userData.Can = ""))
+	{
+		console.log("No CAN in  in Session Userdata" );
+		session.userData.Can = CanNo;
+	}
+	if ((session.userData.VisionCustId == undefined) || (session.userData.VisionCustId = ""))
+	{
+		console.log("No Vision Customer ID  in Session Userdata" );
+		session.userData.VisionCustId = VisionCustId;
+	}
+	if ((session.userData.VisionAcctId == undefined) || (session.userData.VisionAcctId = ""))
+	{
+		console.log("No Vision Account ID in Session Userdata" );
+		session.userData.VisionAcctId = VisionAcctId;
+	}
+}
 
 // Get facebook users profile
  function getprofile (session) 
