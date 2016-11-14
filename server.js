@@ -353,10 +353,10 @@ function PgmSearch(apireq,usersession,callback) {
 	 var strChannelName =  apireq.result.parameters.Channel;
 	 var strFiosId =  apireq.result.parameters.FiosId;
 	 var strStationId =  apireq.result.parameters.StationId;
-	 //var strRegionId = "92377";
-	var strRegionId = usersession.userData.regionId ;
-	console.log("strRegionId:"+strRegionId);
-	 console.log("strProgram " + strProgram + "strGenre " + strGenre + "strdate " +strdate);
+	 var strRegionId = "92377";
+	//var strRegionId = usersession.userData.regionId ;
+	console.log("strRegionId:"+strRegionId + "usersession.userData.regionId: "+ usersession.userData.regionId);
+	
 	
         var headersInfo = { "Content-Type": "application/json" };
 	
