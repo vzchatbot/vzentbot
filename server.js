@@ -65,7 +65,7 @@ bot.dialog('/', function (session) {
             console.log("Account Linking convert: " + JSON.stringify(session.message.sourceEvent.account_linking.authorization_code, null, 2));
             console.log("Account Linking convert: " + JSON.stringify(session.message.sourceEvent.account_linking.status, null, 2));
   	    session.send("Your account is linked now.");
-		getVzProfile(response,function (str){ getVzProfileCallback(str,session)}); 
+		getVzProfile(function (str){ getVzProfileCallback(str,session)}); 
 		MainMenu(session);
 	
         }
@@ -153,17 +153,17 @@ bot.dialog('/', function (session) {
 
 });
 
-function getVzProfile(apireq,callback) { 
+function getVzProfile(callback) { 
        	console.log('Inside Verizon Profile');
 	
 	var struserid = ''; 
-	for (var i = 0, len = apireq.result.contexts.length; i < len; i++) {
+	/*for (var i = 0, len = apireq.result.contexts.length; i < len; i++) {
 		if (apireq.result.contexts[i].name == "sessionuserid") {
 
 			 struserid = apireq.result.contexts[i].parameters.Userid;
 			console.log("original userid " + ": " + struserid);
 		}
-	} 
+	} */
 	
 	if (struserid == '' || struserid == undefined) struserid='lt6sth2'; //hardcoding if its empty
 	console.log('struserid '+ struserid);
