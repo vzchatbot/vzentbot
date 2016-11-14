@@ -135,7 +135,8 @@ bot.dialog('/', function (session) {
 			     upsell(response,session);
 			     break;
 			case "Billing":
-			     testmethod(session);
+			    // testmethod(session);
+				getVzProfile(function (str){ getVzProfileCallback(str,session)});     
 			    break;
 			case "demowhatshot":
 			    demowhatshot(session);
