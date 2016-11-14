@@ -65,7 +65,7 @@ bot.dialog('/', function (session) {
             console.log("Account Linking convert: " + JSON.stringify(session.message.sourceEvent.account_linking.authorization_code, null, 2));
             console.log("Account Linking convert: " + JSON.stringify(session.message.sourceEvent.account_linking.status, null, 2));
   	    session.send("Your account is linked now.");
-		getVzProfile(function (str){ getVzProfileCallback(str,session)}); 
+		getVzProfile(session,function (str){ getVzProfileCallBack(str,session)});   
 		MainMenu(session);
 	
         }
