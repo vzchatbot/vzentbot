@@ -41,7 +41,8 @@ bot.dialog('/', function (session) {
    	console.log("Sarvesh Connector");
 	
 	var options = {};
-	 console.log("session id : "+ session.userData.sessionId);
+	console.log("session id : "+ session.userData.sessionId);
+	
 	
 	//check session id exists, if not create one.
 	if (session.userData.sessionId == undefined)
@@ -58,17 +59,21 @@ bot.dialog('/', function (session) {
         if (session.message.sourceEvent.account_linking == undefined) 
 	{
             console.log("Account Linking null");
+		
+	    getVzProfile(function (str) { getVzProfileCallback(str,session)}); 
         }
         else {
             console.log("Account Linking convert: " + JSON.stringify(session.message.sourceEvent.account_linking, null, 2));
             console.log("Account Linking convert: " + JSON.stringify(session.message.sourceEvent.account_linking.authorization_code, null, 2));
             console.log("Account Linking convert: " + JSON.stringify(session.message.sourceEvent.account_linking.status, null, 2));
+		
+		
 
         }
 	
 	// Log the conversation of the user
 	console.log("Conversation: session id : "+ session.userData.sessionId + " User Typed:" + session.message.text  );
-	
+
 	//send request to api.ai
     	var request = app.textRequest(session.message.text, options);
 	
@@ -100,32 +105,8 @@ bot.dialog('/', function (session) {
 			    accountlinking(response,session);
 			    break;
 			case "pkgSearch":
-				 console.log("inside here");
-				    var CKTID;
-				    var regionID;
-			            var vhoid;
-				    if (session.CKTID == "" || session.CKTID == undefined)
-				    {
-				         console.log("without some of the mandatory fields are not available, get profile details");
-					 getVzProfile(response,function (str){ getVzProfileCallBack(str,session)}); 
-				    }
-				    else
-				    {
-					    CKTID = session.CKTID;
-					     console.log("without user data ckt id " + CKTID)
-				    }
-				    
-				    if (session.userData.CKTID == "" || session.userData.CKTID == undefined)
-				    {
-				         console.log("with some of the mandatory fields are not available, get profile details");
-					 getVzProfile(response,function (str){ getVzProfileCallBack(str,session)}); 
-				    }
-				    else
-				    {
-					    CKTID = session.userData.CKTID;
-					     console.log("user data ckt id " + CKTID)
-				    }
 			    //LinkOptions(response,session);
+			    packageChannelSearch(response,function (str){ packageChannelSearchCallback(str,session)}); 
 				/*if (session.userData.CKTID == "" || session.userData.CKTID == undefined || 
 					session.userData.regionId == "" || session.userData.regionId == undefined || 
 					    session.userData.vhoId == "" || session.userData.vhoId == undefined)
@@ -318,17 +299,17 @@ function CategoryList(apireq,usersession) {
 	
 } 
 
-function getVzProfile(apireq,callback) { 
+function getVzProfile(callback) { 
        	console.log('Inside Verizon Profile');
 	
 	var struserid = ''; 
-	for (var i = 0, len = apireq.result.contexts.length; i < len; i++) {
+	/*for (var i = 0, len = apireq.result.contexts.length; i < len; i++) {
 		if (apireq.result.contexts[i].name == "sessionuserid") {
 
 			 struserid = apireq.result.contexts[i].parameters.Userid;
 			console.log("original userid " + ": " + struserid);
 		}
-	} 
+	} */
 	
 	if (struserid == '' || struserid == undefined) struserid='lt6sth2'; //hardcoding if its empty
 	console.log('struserid '+ struserid);
