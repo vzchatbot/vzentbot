@@ -157,7 +157,7 @@ bot.dialog('/', function (session) {
 
 });
 
-//====================
+/*====================
 
     app.use(bodyParser.text({ type: 'application/json' }));
     app.get('/deeplink', function (req, res) {
@@ -270,7 +270,7 @@ bot.dialog('/', function (session) {
     console.log("DeepLink-Ended");
 });
 	//=================================
-
+*/
 function getVzProfile(apireq,callback) { 
        	console.log('Inside Verizon Profile');
 	
