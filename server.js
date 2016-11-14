@@ -356,7 +356,7 @@ function getVzProfileCallBack(apiresp,usersession) {
 	console.log("VisionAcctId  " + VisionAcctId );
 	
 	
-	if (session.userData.CKTID == undefined)
+	if ((session.userData.CKTID == undefined) || (session.userData.CKTID = ''))
 	{
 		console.log("No CKT ID  in Session Userdata" );
 		session.userData.CKTID = CKTID;
