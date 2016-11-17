@@ -256,7 +256,8 @@ function stationsearchCallback(apiresp,usersession) {
 	if (respobj!=null && respobj.facebook !=null && respobj.facebook.channels!=null)
 	{
 	 if (respobj.facebook.channels.channel) {
-            let entries = respobj.facebook.channels.channel;
+           // let entries = respobj.facebook.channels.channel;
+		  var entries = respobj.facebook.channels.channel;
 		 console.log("entries: "+entries);
             entries.forEach((channel) => {
 		     console.log("channel: "+channel);
