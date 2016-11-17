@@ -138,6 +138,7 @@ bot.dialog('/', function (session) {
 			    // testmethod(session);
 				//getVzProfile(response,function (str){ getVzProfileCallBack(str,session)});     
 				    stationsearch(session);
+				   // stationsearch(response,function (str){ stationsearchCallback(str,session)}); 
 			    break;
 			case "demowhatshot":
 			    demowhatshot(session);
@@ -210,6 +211,69 @@ function stationsearch(usersession)
 	
 }
 
+
+function stationsearch1(apireq,callback) { 
+	console.log("srationSearch called " );
+	
+      var strChannelName =  apireq.result.parameters.Channel.toUpperCase();
+      var strChannelNo =  apireq.result.parameters.ChannelNo;
+      var strRegionid =  91629;
+	
+	  console.log("strChannelName " + strChannelName +" strChannelNo: "+strChannelNo);
+        var headersInfo = { "Content-Type": "application/json" };
+	var args = {
+		"headers": headersInfo,
+		"json": {Flow: 'TroubleShooting Flows\\Test\\APIChatBot.xml',
+			 Request: {
+				 ThisValue: 'StationSearch',
+				 BotRegionID : strRegionid ,
+				 BotstrFIOSServiceId : strChannelNo, //channel number search
+				 BotstrStationCallSign:strChannelName
+			 	  } 
+			}
+		
+	};
+  console.log("json " + String(args));
+	
+    request.post("https://www.verizon.com/foryourhome/vzrepair/flowengine/restapi.ashx", args,
+        function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+             
+                 console.log("body " + body);
+                callback(body);
+            }
+            else
+            	console.log('error: ' + error + ' body: ' + body);
+        }
+    );
+ } 
+  
+function stationsearchCallback(apiresp,usersession) {
+    var objToJson = {};
+    objToJson = apiresp;
+	var respobj = objToJson[0].Inputs.newTemp.Section.Inputs.Response;
+	
+	if (respobj!=null && respobj.facebook !=null && respobj.facebook.channels!=null)
+	{
+	 if (respobj.facebook.channels.channel) {
+            let entries = respobj.facebook.channels.channel;
+		 console.log("entries: "+entries);
+            entries.forEach((channel) => {
+		     console.log("channel: "+channel);
+               		//sendFBMessage(usersession,  {text: channel});}
+			   )};
+	}
+	else if (respobj!=null && respobj.facebook !=null && respobj.facebook.attachment !=null)
+	{	 console.log("channel: "+channel);
+		//sendFBMessage(usersession,  respobj.facebook);
+	}
+	else
+	{
+		 console.log("Sorry i dont find channel details");
+		//sendFBMessage(usersession,  {text: "Sorry I dont find the channel details. Can you try another."});
+	}
+	
+} 
 /*====================
 
     app.use(bodyParser.text({ type: 'application/json' }));
