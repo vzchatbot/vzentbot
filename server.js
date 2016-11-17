@@ -261,7 +261,8 @@ function stationsearchCallback(apiresp,usersession) {
 		 console.log("entries: "+entries);
             entries.forEach((channel) => {
 		     console.log("channel: "+channel);
-               		//sendFBMessage(usersession,  {text: channel});}
+               		//sendFBMessage(usersession,  {text: channel});
+	    			}
 			   )};
 	}
 	else if (respobj!=null && respobj.facebook !=null && respobj.facebook.attachment !=null)
