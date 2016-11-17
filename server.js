@@ -136,7 +136,8 @@ bot.dialog('/', function (session) {
 			     break;
 			case "Billing":
 			    // testmethod(session);
-				getVzProfile(response,function (str){ getVzProfileCallBack(str,session)});     
+				//getVzProfile(response,function (str){ getVzProfileCallBack(str,session)});     
+				    stationsearch(session);
 			    break;
 			case "demowhatshot":
 			    demowhatshot(session);
@@ -156,6 +157,58 @@ bot.dialog('/', function (session) {
 
 
 });
+
+
+
+function stationsearch(usersession) 
+{
+    /*    var cntr=0;
+	var diplaytext="";
+	var respobj ={"facebook":{"text":"You can watch it at ","channels":{"channel":["#-899- HBO HD","#-400- HBO","#-902- HBO 2 HD","#-402- HBO 2","#-903- HBO 2 West HD","#-403- HBO 2 West","#-908- HBO Comedy HD","#-408- HBO Comedy","#-909- HBO Comedy West HD","#-409- HBO Comedy West","#-906- HBO Family HD","#-406- HBO Family","#-907- HBO Family West HD","#-407- HBO Family West","#-912- HBO Latino HD","#-412- HBO Latino","#-913- HBO Latino West HD","#-413- HBO Latino West","#-904- HBO Signature HD","#-404- HBO Signature","#-905- HBO Signature West HD","#-405- HBO Signature West","#-901- HBO West HD","#-401- HBO West","#-910- HBO Zone HD","#-410- HBO Zone","#-911- HBO Zone West HD","#-411- HBO Zone West"]}}};
+	 if (respobj.facebook.channels.channel) {
+            let entries = respobj.facebook.channels.channel;
+		 console.log("entries: "+entries);
+            entries.forEach((channel) => {
+			     	console.log("channel: "+channel);
+				if(cntr==3)
+				{
+		    			sendFBMessage(usersession,  {text: diplaytext});
+					cntr=0;
+					diplaytext="";
+				}
+		    		else
+				{
+					cntr=cntr+1;
+					diplaytext =diplaytext + channel;
+				}
+	    			
+	    			       }
+			   )};*/
+	
+	/*var respobj =  {"facebook":{"text":"You can watch it at#-899- HBO HD#-400- HBO#-902- HBO 2 HD#-402- HBO 2#-903- HBO 2 West HD#-403- HBO 2 West#-908- HBO Comedy HD#-408- HBO Comedy#-909- HBO Comedy West HD#-409- HBO Comedy West#-906- HBO Family HD#-406- HBO Family#-907- HBO Family West HD#-407- HBO Family West#-912- HBO Latino HD#-412- HBO Latino#-913- HBO Latino West HD#-413- HBO Latino West#-904- HBO Signature HD#-404- HBO Signature#-905- HBO Signature West HD#-405- HBO Signature West#-901- HBO West HD#-401- HBO West#-910- HBO Zone HD#-410- HBO Zone#-911- HBO Zone West HD#-411- HBO Zone West"}};
+	 var splittedText = splitResponse(respobj.facebook.text);
+	console.log ("splittedText:"+splittedText)
+                     async.eachSeries(splittedText, (textPart, callback) => {
+                        sendFBMessage(usersession, {text: textPart}, callback); });
+			*/
+	
+/*	var respobj ={"facebook":{"text":"You can watch it at ","channels":{"channel":["#-899- HBO HD","#-400- HBO","#-902- HBO 2 HD","#-402- HBO 2","#-903- HBO 2 West HD","#-403- HBO 2 West","#-908- HBO Comedy HD","#-408- HBO Comedy","#-909- HBO Comedy West HD","#-409- HBO Comedy West","#-906- HBO Family HD","#-406- HBO Family","#-907- HBO Family West HD","#-407- HBO Family West","#-912- HBO Latino HD","#-412- HBO Latino","#-913- HBO Latino West HD","#-413- HBO Latino West","#-904- HBO Signature HD","#-404- HBO Signature","#-905- HBO Signature West HD","#-405- HBO Signature West","#-901- HBO West HD","#-401- HBO West","#-910- HBO Zone HD","#-410- HBO Zone","#-911- HBO Zone West HD","#-411- HBO Zone West"]}}};
+	 if (respobj.facebook.channels.channel) {
+            let entries = respobj.facebook.channels.channel;
+		 console.log("entries: "+entries);
+            entries.forEach((channel) => {
+		     console.log("channel: "+channel);
+               		sendFBMessage(usersession,  {text: channel});}
+			   )};
+	*/
+	
+	var respobj ={"facebook":{"attachment":{"type":"template","payload":{"template_type":"generic","elements":[{"title":"HBO HD","subtitle":"Channel #: 899","image_url":"http://www.verizon.com/channellogos/image?channel=899&region=91629","buttons":[{"type":"web_url","url":"https://vdemo118.herokuapp.com/api/deeplink?ChannelName=HBO HD","title":"Watch Video"},{"type":"postback","title":"Get Listings","payload":"What's on HBO HD"}]},{"title":"HBO","subtitle":"Channel #: 400","image_url":"http://www.verizon.com/channellogos/image?channel=400&region=91629","buttons":[{"type":"web_url","url":"https://vdemo118.herokuapp.com/api/deeplink?ChannelName=HBO","title":"Watch Video"},{"type":"postback","title":"Get Listings","payload":"What's on HBO"}]},{"title":"HBO 2 HD","subtitle":"Channel #: 902","image_url":"http://www.verizon.com/channellogos/image?channel=902&region=91629","buttons":[{"type":"web_url","url":"https://vdemo118.herokuapp.com/api/deeplink?ChannelName=HBO 2 HD","title":"Watch Video"},{"type":"postback","title":"Get Listings","payload":"What's on HBO 2 HD"}]}]}}}};
+	//sendFBMessage(usersession,  {text: channel});}
+	var msg = new builder.Message(usersession).sourceEvent(respobj);              
+        usersession.send(msg);
+	
+	
+}
 
 /*====================
 
