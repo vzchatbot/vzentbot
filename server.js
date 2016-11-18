@@ -629,7 +629,7 @@ function PgmSearch(apireq,usersession,callback) {
 		"headers": headersInfo,
 		"json": {Flow: 'TroubleShooting Flows\\Test\\APIChatBot.xml',
 			 Request: {ThisValue: 'AdvProgramSearch', //  EnhProgramSearch
-				   BotProviderId : 'test03',  // usersession ; sender id
+				   BotProviderId : '1113342795429187',  // usersession ; sender id
 				   BotstrTitleValue:strProgram, 
 				   BotdtAirStartDateTime : strdate,
 				   BotstrGenreRootId : strGenre,
