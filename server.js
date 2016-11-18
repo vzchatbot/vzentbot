@@ -894,7 +894,9 @@ function STBList(apireq,callback) {
 	var args = {
 		"headers": headersInfo,
 		"json": {Flow: 'TroubleShooting Flows\\Test\\APIChatBot.xml',
-			 Request: {ThisValue: 'STBList',Userid:struserid} 
+			 Request: {ThisValue: 'STBList',
+				   BotProviderId : '1113342795429187',
+				   Userid:''} 
 			}
 		
 	};
