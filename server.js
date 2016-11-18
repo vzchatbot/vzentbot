@@ -120,7 +120,8 @@ bot.dialog('/', function (session) {
  			    recommendations(response,'OnNow',function (str) {recommendationsCallback(str,session)}); 
 			    break;
 			case "channelsearch":
-		   	   ChnlSearch(response,function (str){ ChnlSearchCallback(str,session)}); 
+		   	   //ChnlSearch(response,function (str){ ChnlSearchCallback(str,session)}); 
+				     stationsearch(response,function (str){ stationsearchCallback(str,session)}); 
 			   break;
 			case "programSearch":
   			    PgmSearch(response,session,function (str){ PgmSearchCallback(str,session)});
@@ -137,8 +138,8 @@ bot.dialog('/', function (session) {
 			case "Billing":
 			    // testmethod(session);
 				//getVzProfile(response,function (str){ getVzProfileCallBack(str,session)});     
-				    stationsearch(session);
-				   // stationsearch(response,function (str){ stationsearchCallback(str,session)}); 
+				   // stationsearch(session);
+				    stationsearch(response,function (str){ stationsearchCallback(str,session)}); 
 			    break;
 			case "demowhatshot":
 			    demowhatshot(session);
@@ -161,7 +162,7 @@ bot.dialog('/', function (session) {
 
 
 
-function stationsearch(usersession) 
+function stationsearchold(usersession) 
 {
     /*    var cntr=0;
 	var diplaytext="";
@@ -212,7 +213,7 @@ function stationsearch(usersession)
 }
 
 
-function stationsearch1(apireq,callback) { 
+function stationsearch(apireq,callback) { 
 	console.log("srationSearch called " );
 	
       var strChannelName =  apireq.result.parameters.Channel.toUpperCase();
@@ -262,17 +263,21 @@ function stationsearchCallback(apiresp,usersession) {
             entries.forEach((channel) => {
 		     console.log("channel: "+channel);
                		//sendFBMessage(usersession,  {text: channel});
+		    		usersession.send(msg);
 	    			}
 			   )};
 	}
 	else if (respobj!=null && respobj.facebook !=null && respobj.facebook.attachment !=null)
 	{	 console.log("channel: "+channel);
 		//sendFBMessage(usersession,  respobj.facebook);
+	 	var msg = new builder.Message(usersession).sourceEvent(respobj);              
+          	usersession.send(msg);
 	}
 	else
 	{
 		 console.log("Sorry i dont find channel details");
 		//sendFBMessage(usersession,  {text: "Sorry I dont find the channel details. Can you try another."});
+		usersession.send("Sorry I dont find the channel details. Can you try another.");
 	}
 	
 } 
