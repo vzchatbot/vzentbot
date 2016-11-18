@@ -219,7 +219,14 @@ function stationsearch(apireq,callback) {
       var strChannelName =  apireq.result.parameters.Channel.toUpperCase();
       var strChannelNo =  apireq.result.parameters.ChannelNo;
       var strRegionid =  91629;
-	
+	if(strChannelName=='' && strChannelNo=='')
+	   {
+	    console.log("Channel empty Sorry i dont find channel details");
+		//sendFBMessage(usersession,  {text: "Sorry I dont find the channel details. Can you try another."});
+		usersession.send("Sorry I dont find the channel details. Can you try another.");
+	   }
+	   else
+	   {
 	  console.log("strChannelName " + strChannelName +" strChannelNo: "+strChannelNo);
         var headersInfo = { "Content-Type": "application/json" };
 	var args = {
@@ -247,6 +254,7 @@ function stationsearch(apireq,callback) {
             	console.log('error: ' + error + ' body: ' + body);
         }
     );
+}
  } 
   
 function stationsearchCallback(apiresp,usersession) {
@@ -621,6 +629,7 @@ function PgmSearch(apireq,usersession,callback) {
 		"headers": headersInfo,
 		"json": {Flow: 'TroubleShooting Flows\\Test\\APIChatBot.xml',
 			 Request: {ThisValue: 'EnhProgramSearch', 
+				   BotProviderId : 'test03',  // usersession ; sender id
 				   BotstrTitleValue:strProgram, 
 				   BotdtAirStartDateTime : strdate,
 				   BotstrGenreRootId : strGenre,
