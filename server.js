@@ -268,7 +268,7 @@ function stationsearchCallback(apiresp,usersession) {
 			   )};
 	}
 	else if (respobj != null && respobj.facebook != null && respobj.facebook.attachment != null)
-	{	 console.log("channel: "+channel);
+	{	 console.log("less than 10 channels ");
 		//sendFBMessage(usersession,  respobj.facebook);
 	 	var msg = new builder.Message(usersession).sourceEvent(respobj);              
           	usersession.send(msg);
