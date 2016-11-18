@@ -682,11 +682,20 @@ function PgmSearchCallback(apiresp,usersession) {
 			 }catch (err) { console.log(err); }
         } 
     
-	
-	
+	if (subflow != null 
+        && subflow.facebook != null 
+        && subflow.facebook.text != null && subflow.facebook.text =='UserNotFound')
+	{
+		subflow ='{"facebook":{"attachment":{"type":"template","payload":{"template_type":"generic","elements":[{"title":"You have to Login to Verizon to proceed","image_url":"https://www98.verizon.com/foryourhome/vzrepair/siwizard/img/verizon-logo-200.png","buttons":{"type":"account_link","url":"https://www98.verizon.com/vzssobot/upr/preauth"}}]}}}}';
+		var msg = new builder.Message(usersession).sourceEvent(subflow);              
+        	usersession.send(msg);
+	}
+	else
+	{
 	//usersession.send("I found several related programs");
 	var msg = new builder.Message(usersession).sourceEvent(subflow);              
         usersession.send(msg);
+	}
 } 
 
 function ChnlSearch(apireq,callback) { 
