@@ -687,7 +687,9 @@ function PgmSearchCallback(apiresp,usersession) {
         && subflow.facebook.text != null && subflow.facebook.text =='UserNotFound')
 	{
 		console.log (subflow.facebook.text);
-		var respobj ='{"facebook":{"attachment":{"type":"template","payload":{"template_type":"generic","elements":[{"title":"You have to Login to Verizon to proceed","image_url":"https://www98.verizon.com/foryourhome/vzrepair/siwizard/img/verizon-logo-200.png","buttons":{"type":"account_link","url":"https://www98.verizon.com/vzssobot/upr/preauth"}}]}}}}';
+		var respobj ={"facebook":{"attachment":{"type":"template","payload":{"template_type":"generic","elements":[
+		{"title":"You have to Login to Verizon to proceed","image_url":"https://www98.verizon.com/foryourhome/vzrepair/siwizard/img/verizon-logo-200.png","buttons":[
+			{"type":"account_link","url":"https://www98.verizon.com/vzssobot/upr/preauth"}]}]}}}};
 		var msg = new builder.Message(usersession).sourceEvent(respobj);              
         	usersession.send(msg);
 	}
