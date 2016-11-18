@@ -628,7 +628,7 @@ function PgmSearch(apireq,usersession,callback) {
 	var args = {
 		"headers": headersInfo,
 		"json": {Flow: 'TroubleShooting Flows\\Test\\APIChatBot.xml',
-			 Request: {ThisValue: 'AdvProgramSearch', //  EnhProgramSearch
+			 Request: {ThisValue: 'EnhProgramSearch', //  EnhProgramSearch AdvProgramSearch
 				   BotProviderId : senderid,  // usersession ; sender id
 				   BotstrTitleValue:strProgram, 
 				   BotdtAirStartDateTime : strdate,
@@ -894,9 +894,9 @@ function STBList(apireq,callback) {
 	var args = {
 		"headers": headersInfo,
 		"json": {Flow: 'TroubleShooting Flows\\Test\\APIChatBot.xml',
-			 Request: {ThisValue: 'AuthSTBList',
+			 Request: {ThisValue: 'STBList', //AuthSTBList
 				   BotProviderId : senderid,
-				   Userid:''} 
+				   Userid:struserid} 
 			}
 		
 	};
