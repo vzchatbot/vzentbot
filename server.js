@@ -10,7 +10,7 @@ var util = require('util');
 
 nconf.file('./config/config.json');
 var app = apiai(nconf.get('apiai:clientid'));
-
+var senderid='986417428128890';
 //=========================================================
 // Bot Setup
 //=========================================================
@@ -629,7 +629,7 @@ function PgmSearch(apireq,usersession,callback) {
 		"headers": headersInfo,
 		"json": {Flow: 'TroubleShooting Flows\\Test\\APIChatBot.xml',
 			 Request: {ThisValue: 'AdvProgramSearch', //  EnhProgramSearch
-				   BotProviderId : '1113342795429187',  // usersession ; sender id
+				   BotProviderId : senderid,  // usersession ; sender id
 				   BotstrTitleValue:strProgram, 
 				   BotdtAirStartDateTime : strdate,
 				   BotstrGenreRootId : strGenre,
