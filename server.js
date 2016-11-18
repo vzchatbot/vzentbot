@@ -278,13 +278,13 @@ function stationsearchCallback(apiresp,usersession) {
 			&& respobj.facebook.attachment.payload != null 
 			&& respobj.facebook.attachment.payload.elements != null) {
 			try {
-						var pgms = subflow.facebook.attachment.payload.elements;
-				console.log ("Is array? "+ util.isArray(pgms))
-						if (!util.isArray(pgms))
+				var chanls = respobj.facebook.attachment.payload.elements;
+				console.log ("Is array? "+ util.isArray(chanls))
+						if (!util.isArray(chanls))
 						{
-							subflow.facebook.attachment.payload.elements = [];
-							subflow.facebook.attachment.payload.elements.push(pgms);
-							console.log("ProgramSearchCallBack=After=" + JSON.stringify(subflow));
+							respobj.facebook.attachment.payload.elements = [];
+							respobj.facebook.attachment.payload.elements.push(chanls);
+							console.log("ProgramSearchCallBack=After=" + JSON.stringify(respobj));
 						}
 					 }catch (err) { console.log(err); }
 			}
