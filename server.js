@@ -1001,7 +1001,7 @@ function DVRRecord(apireq,callback) {
 	 args = {
 		"headers": headersInfo,
 		"json": {Flow: 'TroubleShooting Flows\\Test\\APIChatBot.xml',
-			 Request: {ThisValue: 'DVRSchedule',  //DVRSeriesSchedule
+			 Request: {ThisValue: 'DVRSeriesSchedule',  //DVRSeriesSchedule
 				   Userid : strUserid,
 				   BotStbId:strSTBId, 
 				   BotDeviceModel : strSTBModel,
