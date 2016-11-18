@@ -1067,18 +1067,18 @@ function DVRRecordCallback(apiresp,usersession)
 		var respobj={};
 		if (subflow !=null )
 		{
-			if (subflow.facebook.result.msg =="success" )
+			if (subflow !=null && subflow.facebook !=null && subflow.facebook.result !=null && subflow.facebook.result.msg !=null && subflow.facebook.result.msg =="success" )
 			{
 				respobj = {"facebook":{"attachment":{"type":"template","payload":{"template_type":"button","text":"Good news, you have successfully scheduled this recording. Would you like to see some other TV Recommendations for tonight?","buttons":[{"type":"postback","title":"Show Recommendations","payload":"Show Recommendations"},{"type":"postback","title":"More Options","payload":"More Options"}]}}}};
 				var msg = new builder.Message(usersession).sourceEvent(respobj);              
 				usersession.send(msg);
 			}
-			else if (subflow.facebook.result.code == "9507")
+			else if (subflow !=null && subflow.facebook !=null && subflow.facebook.result !=null && subflow.facebook.result.code !=null && subflow.facebook.result.code == "9507")
 			{
 				var msg = "This Program has already been scheduled";
 				usersession.send(msg);
 			}
-			else if (subflow.facebook.result.code == "9117") //not subscribed
+			else if (subflow !=null && subflow.facebook !=null && subflow.facebook.result !=null && subflow.facebook.result.code !=null && subflow.facebook.result.code == "9117") //not subscribed
 			{
 				var respobj = {"facebook":{"attachment":{"type":"template","payload":{"template_type":"button","text":" Sorry you are not subscribed to this channel. Would you like to subscribe ?","buttons":[{"type":"postback","title":"Subscribe","payload":"Subscribe"},{"type":"postback","title":"No, I'll do it later ","payload":"Main Menu"}]}}}};	
 			  	var msg = new builder.Message(usersession).sourceEvent(respobj);              
