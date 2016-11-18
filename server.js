@@ -270,6 +270,25 @@ function stationsearchCallback(apiresp,usersession) {
 	else if (respobj != null && respobj.facebook != null && respobj.facebook.attachment != null)
 	{	 console.log("less than 10 channels ");
 		//sendFBMessage(usersession,  respobj.facebook);
+	 
+	 		//fix to single element array 
+			if (respobj != null 
+			&& respobj.facebook != null 
+			&& respobj.facebook.attachment != null 
+			&& respobj.facebook.attachment.payload != null 
+			&& respobj.facebook.attachment.payload.elements != null) {
+			try {
+						var pgms = subflow.facebook.attachment.payload.elements;
+				console.log ("Is array? "+ util.isArray(pgms))
+						if (!util.isArray(pgms))
+						{
+							subflow.facebook.attachment.payload.elements = [];
+							subflow.facebook.attachment.payload.elements.push(pgms);
+							console.log("ProgramSearchCallBack=After=" + JSON.stringify(subflow));
+						}
+					 }catch (err) { console.log(err); }
+			}
+
 	 	var msg = new builder.Message(usersession).sourceEvent(respobj);              
           	usersession.send(msg);
 	}
