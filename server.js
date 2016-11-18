@@ -121,7 +121,7 @@ bot.dialog('/', function (session) {
 			    break;
 			case "channelsearch":
 		   	   //ChnlSearch(response,function (str){ ChnlSearchCallback(str,session)}); 
-				     stationsearch(response,function (str){ stationsearchCallback(str,session)}); 
+				     stationsearch(response,session,function (str){ stationsearchCallback(str,session)}); 
 			   break;
 			case "programSearch":
   			    PgmSearch(response,session,function (str){ PgmSearchCallback(str,session)});
@@ -213,7 +213,7 @@ function stationsearchold(usersession)
 }
 
 
-function stationsearch(apireq,callback) { 
+function stationsearch(apireq,usersession,callback) { 
 	console.log("srationSearch called " );
 	
       var strChannelName =  apireq.result.parameters.Channel.toUpperCase();
