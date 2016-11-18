@@ -253,8 +253,8 @@ function stationsearchCallback(apiresp,usersession) {
     var objToJson = {};
     objToJson = apiresp;
 	var respobj = objToJson[0].Inputs.newTemp.Section.Inputs.Response;
-	
-	if (respobj!=null && respobj.facebook !=null && respobj.facebook.channels!=null)
+	 console.log(JSON.stringify(respobj));
+	if (respobj != null && respobj.facebook != null && respobj.facebook.channels != null)
 	{
 	 if (respobj.facebook.channels.channel) {
            // let entries = respobj.facebook.channels.channel;
@@ -263,11 +263,11 @@ function stationsearchCallback(apiresp,usersession) {
             entries.forEach((channel) => {
 		     console.log("channel: "+channel);
                		//sendFBMessage(usersession,  {text: channel});
-		    		usersession.send(msg);
+		    		usersession.send(channel);
 	    			}
 			   )};
 	}
-	else if (respobj!=null && respobj.facebook !=null && respobj.facebook.attachment !=null)
+	else if (respobj != null && respobj.facebook != null && respobj.facebook.attachment != null)
 	{	 console.log("channel: "+channel);
 		//sendFBMessage(usersession,  respobj.facebook);
 	 	var msg = new builder.Message(usersession).sourceEvent(respobj);              
