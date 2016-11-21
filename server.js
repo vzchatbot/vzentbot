@@ -650,14 +650,14 @@ function GetAuthProfileCallback(apiresp,usersession) {
 	
 	if (subflow != null && subflow =='UserNotFound')
 	{
-		console.log ("userid "+ subflow.facebook.text);
+		console.log ("userid "+ subflow);
 		var respobj ={"facebook":{"attachment":{"type":"template","payload":{"template_type":"generic","elements":[{"title":"You have to Login to Verizon to proceed","image_url":"https://www98.verizon.com/foryourhome/vzrepair/siwizard/img/verizon-logo-200.png","buttons":[{"type":"account_link","url":"https://www98.verizon.com/vzssobot/upr/preauth"}]}]}}}};
 		var msg = new builder.Message(usersession).sourceEvent(respobj);              
         	usersession.send(msg);
 	}
 	else
 	{
-		console.log ("userid "+subflow.facebook.text);
+		console.log ("userid "+subflow);
 		var respobj ={"facebook":{"attachment":{"type":"template","payload":{"template_type":"generic","elements":[{"title":"You have already linked your account. Click Unlink to unlink your account or continue ","image_url":"https://www98.verizon.com/foryourhome/vzrepair/siwizard/img/verizon-logo-200.png","buttons":[{"type":"postback","title":"UnLink Account","payload":"UnLink Account"},{"type":"postback","title":"Continue","payload":"Main Menu"}]}]}}}};
 		var msg = new builder.Message(usersession).sourceEvent(respobj);              
         	usersession.send(msg);
