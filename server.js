@@ -611,6 +611,64 @@ function CategoryList(apireq,usersession) {
 	
 } 
 
+
+
+//================
+function GetAuthProfile(apireq,callback) { 
+	console.log("GetAuthProfile called " );
+	
+	var senderid='';
+        var headersInfo = { "Content-Type": "application/json" };
+	var args = {
+		"headers": headersInfo,
+		"json": {Flow: 'TroubleShooting Flows\\Test\\APIChatBot.xml',
+			 Request: {ThisValue: 'GetAuthProfile',
+				   BotProviderId:senderid} 
+			}
+		
+	};
+  console.log("args " + JSON.stringify(args));
+	
+    request.post("https://www.verizon.com/foryourhome/vzrepair/flowengine/restapi.ashx", args,
+        function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+               console.log("body " + JSON.stringify(body));
+                callback(body);
+            }
+            else
+            	console.log('error: ' + error + ' body: ' + JSON.stringify(body));
+        }
+    );
+ } 
+  
+function GetAuthProfileCallback(apiresp,usersession) {
+    var objToJson = {};
+    objToJson = apiresp;
+    var subflow = objToJson[0].Inputs.newTemp.Section.Inputs.Response;
+	if (subflow != null 
+        && subflow.facebook != null 
+        && subflow.facebook.text != null && subflow.facebook.text =='UserNotFound')
+	{
+		console.log (subflow.facebook.text);
+		var respobj ={"facebook":{"attachment":{"type":"template","payload":{"template_type":"generic","elements":[{"title":"You have to Login to Verizon to proceed","image_url":"https://www98.verizon.com/foryourhome/vzrepair/siwizard/img/verizon-logo-200.png","buttons":[{"type":"account_link","url":"https://www98.verizon.com/vzssobot/upr/preauth"}]}]}}}};
+		var msg = new builder.Message(usersession).sourceEvent(respobj);              
+        	usersession.send(msg);
+	}
+	else
+	{
+		console.log (subflow.facebook.text);
+		var respobj ={"facebook":{"attachment":{"type":"template","payload":{"template_type":"generic","elements":[{"title":"You have already linked your account. Click Unlink to unlink your account or continue ","image_url":"https://www98.verizon.com/foryourhome/vzrepair/siwizard/img/verizon-logo-200.png","buttons":[{"type":"postback","title":"UnLink Account","payload":"UnLink Account"},{"type":"postback","title":"Continue","payload":"Main Menu"}]}]}}}};
+		var msg = new builder.Message(usersession).sourceEvent(respobj);              
+        	usersession.send(msg);
+	}
+	
+} 
+
+//==========================
+
+
+
+
 function PgmSearch(apireq,usersession,callback) { 
          var strProgram =  apireq.result.parameters.Programs;
 	 var strGenre =  apireq.result.parameters.Genre;
