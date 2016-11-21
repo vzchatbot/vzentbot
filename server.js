@@ -705,8 +705,7 @@ function PgmSearch(apireq,usersession,callback) {
     request.post("https://www.verizon.com/foryourhome/vzrepair/flowengine/restapi.ashx", args,
         function (error, response, body) {
             if (!error && response.statusCode == 200) {
-             
-                 console.log("body " + body);
+              console.log("body " + JSON.stringify(body));
                 callback(body);
             }
             else
