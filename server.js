@@ -911,7 +911,7 @@ function RecordScenario (apiresp,usersession)
 	console.log("SelectedSTB : " + SelectedSTB + " channel : " + channel + " dateofrecord :" + dateofrecord + " time :" + time);
 		
 		if (time == "") //if time is empty show schedule
-			{  PgmSearch(response,usersession,function (str){ PgmSearchCallback(str,usersession)});}
+			{  PgmSearch(apiresp,usersession,function (str){ PgmSearchCallback(str,usersession)});}
 		else if (SelectedSTB == "" || SelectedSTB == undefined) 
 			{ STBList(apiresp,function (str){ STBListCallBack(str,usersession)}); }
 		/*else if (channel == 'HBOSIG') //not subscribed scenario - call to be made
