@@ -620,7 +620,7 @@ function PgmSearch(apireq,usersession,callback) {
 	 var strStationId =  apireq.result.parameters.StationId;
 	 var strRegionId = "92377";
 	//var strRegionId = usersession.userData.regionId ;
-	console.log("strRegionId:"+strRegionId + "usersession.userData.regionId: "+ usersession.userData.regionId);
+	//console.log("strRegionId:"+strRegionId + "usersession.userData.regionId: "+ usersession.userData.regionId);
 	
 	
         var headersInfo = { "Content-Type": "application/json" };
