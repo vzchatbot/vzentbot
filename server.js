@@ -99,7 +99,8 @@ bot.dialog('/', function (session) {
 			   break;
 			case "LinkOptions":
 			    //LinkOptions(response,session);
-			    accountlinking(response,session);
+			    //accountlinking(response,session);
+				GetAuthProfile(response,session.userData.sessionId,function (str){ GetAuthProfileCallback(str,session)});    
 			    break;
 			case "MoreOptions":
 			    session.send(response.result.fulfillment.speech);
@@ -614,10 +615,10 @@ function CategoryList(apireq,usersession) {
 
 
 //================
-function GetAuthProfile(apireq,callback) { 
+function GetAuthProfile(apireq,senderid,callback) { 
 	console.log("GetAuthProfile called " );
 	
-	var senderid='';
+	//var senderid='';
         var headersInfo = { "Content-Type": "application/json" };
 	var args = {
 		"headers": headersInfo,
@@ -645,18 +646,20 @@ function GetAuthProfileCallback(apiresp,usersession) {
     var objToJson = {};
     objToJson = apiresp;
     var subflow = objToJson[0].Inputs.newTemp.Section.Inputs.Response;
+	console.log("subflow " + JSON.stringify(subflow));	
+	
 	if (subflow != null 
         && subflow.facebook != null 
         && subflow.facebook.text != null && subflow.facebook.text =='UserNotFound')
 	{
-		console.log (subflow.facebook.text);
+		console.log ("userid "+ subflow.facebook.text);
 		var respobj ={"facebook":{"attachment":{"type":"template","payload":{"template_type":"generic","elements":[{"title":"You have to Login to Verizon to proceed","image_url":"https://www98.verizon.com/foryourhome/vzrepair/siwizard/img/verizon-logo-200.png","buttons":[{"type":"account_link","url":"https://www98.verizon.com/vzssobot/upr/preauth"}]}]}}}};
 		var msg = new builder.Message(usersession).sourceEvent(respobj);              
         	usersession.send(msg);
 	}
 	else
 	{
-		console.log (subflow.facebook.text);
+		console.log ("userid "+subflow.facebook.text);
 		var respobj ={"facebook":{"attachment":{"type":"template","payload":{"template_type":"generic","elements":[{"title":"You have already linked your account. Click Unlink to unlink your account or continue ","image_url":"https://www98.verizon.com/foryourhome/vzrepair/siwizard/img/verizon-logo-200.png","buttons":[{"type":"postback","title":"UnLink Account","payload":"UnLink Account"},{"type":"postback","title":"Continue","payload":"Main Menu"}]}]}}}};
 		var msg = new builder.Message(usersession).sourceEvent(respobj);              
         	usersession.send(msg);
