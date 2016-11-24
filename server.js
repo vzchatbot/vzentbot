@@ -146,6 +146,7 @@ bot.dialog('/', function (session) {
 			    demowhatshot(session);
 			    break;
 			default:
+				    console.log(response.result.fulfillment.speech);
 			     session.send(response.result.fulfillment.speech);
 			 }
     }
