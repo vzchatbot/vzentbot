@@ -147,7 +147,7 @@ bot.dialog('/', function (session) {
 			    break;
 			case "test":
 				    console.log(response.result.fulfillment.speech);
-			     session.send(response.result.fulfillment.speech);
+			     session.send(response.result.fulfillment.messages);
 			default:
 				    console.log(response.result.fulfillment.speech);
 			     session.send(response.result.fulfillment.speech);
