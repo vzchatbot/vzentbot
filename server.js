@@ -145,6 +145,9 @@ bot.dialog('/', function (session) {
 			case "demowhatshot":
 			    demowhatshot(session);
 			    break;
+			case "test":
+				    console.log(response.result.fulfillment.speech);
+			     session.send(response.result.fulfillment.speech);
 			default:
 				    console.log(response.result.fulfillment.speech);
 			     session.send(response.result.fulfillment.speech);
