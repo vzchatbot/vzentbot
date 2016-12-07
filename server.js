@@ -1022,6 +1022,7 @@ function STBListCallBack(apiresp,usersession) {
 
 function DVRRecord(apireq,callback) { 
 	
+		console.log ("apireq " + JSON.stringify(apireq));
 	var strUserid = ''; 
 	var args ={};
 	for (var i = 0, len = apireq.result.contexts.length; i < len; i++) {
@@ -1041,7 +1042,7 @@ function DVRRecord(apireq,callback) {
 	var strSeriesId = apireq.result.parameters.SeriesId;
 	var strStationId =apireq.result.parameters.StationId  ;
 	
-	var strAirDate =apireq.result.parameters.date.original  ;
+	var strAirDate =apireq.result.parameters.date ;
 	var strAirTime =apireq.result.parameters.timeofpgm  ;
 	var strDuration =apireq.result.parameters.Duration  ;
 	
