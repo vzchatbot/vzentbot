@@ -1041,7 +1041,7 @@ function DVRRecord(apireq,callback) {
 	var strSeriesId = apireq.result.parameters.SeriesId;
 	var strStationId =apireq.result.parameters.StationId  ;
 	
-	var strAirDate =apireq.result.parameters.date  ;
+	var strAirDate =apireq.result.parameters.date.original  ;
 	var strAirTime =apireq.result.parameters.timeofpgm  ;
 	var strDuration =apireq.result.parameters.Duration  ;
 	
