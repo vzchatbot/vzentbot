@@ -712,7 +712,7 @@ function PgmSearch(apireq,usersession,callback) {
 	 var strRegionId = "92377";
 	 var intpageid = apireq.result.parameters.PageNo;
 	 var strTeam	=apireq.result.parameters.Teams;
-	 var strCast = =apireq.result.parameters.Cast;
+	 var strCast = apireq.result.parameters.Cast;
 	
 	//var strRegionId = usersession.userData.regionId ;
 	//console.log("strRegionId:"+strRegionId + "usersession.userData.regionId: "+ usersession.userData.regionId);
