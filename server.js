@@ -710,6 +710,10 @@ function PgmSearch(apireq,usersession,callback) {
 	 var strFiosId =  apireq.result.parameters.FiosId;
 	 var strStationId =  apireq.result.parameters.StationId;
 	 var strRegionId = "92377";
+	 var intpageid = apireq.result.parameters.PageNo;
+	 var strTeam	=apireq.result.parameters.Teams;
+	 var strCast = =apireq.result.parameters.Cast;
+	
 	//var strRegionId = usersession.userData.regionId ;
 	//console.log("strRegionId:"+strRegionId + "usersession.userData.regionId: "+ usersession.userData.regionId);
 	
@@ -727,7 +731,10 @@ function PgmSearch(apireq,usersession,callback) {
 				   BotstrStationCallSign:strChannelName,
 				   BotstrFIOSRegionID : strRegionId,
 				   BotstrFIOSID : strFiosId,
-				   BotstrFIOSServiceId : strStationId		   
+				   BotstrFIOSServiceId : strStationId,
+				   BotstrCastCreditNamesRoles : strCast,
+				   BotPaginationID : intpageid,
+				   BotstrEpisodeTitleValue : strTeam
 				  } 
 			}
 		};
