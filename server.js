@@ -95,7 +95,8 @@ bot.dialog('/', function (session) {
 		    {
 			 case "getStarted":
 			   //getprofile (session) ;
-			   welcomeMsg(session);  
+			   //welcomeMsg(session); 
+			    GetAuthProfile(response,session.userData.sessionId,function (str){ GetAuthMessageCallback(str,session)});      
 			   break;
 			case "LinkOptions":
 			    //LinkOptions(response,session);
@@ -665,6 +666,33 @@ function GetAuthProfileCallback(apiresp,usersession) {
 		var respobj ={"facebook":{"attachment":{"type":"template","payload":{"template_type":"generic","elements":[{"title":"You have already linked your account. Click Unlink to unlink your account or continue ","image_url":"https://www98.verizon.com/foryourhome/vzrepair/siwizard/img/verizon-logo-200.png","buttons":[{"type":"postback","title":"UnLink Account","payload":"UnLink Account"},{"type":"postback","title":"Continue","payload":"Main Menu"}]}]}}}};
 		var msg = new builder.Message(usersession).sourceEvent(respobj);              
         	usersession.send(msg);
+	}
+	
+} 
+
+
+function GetAuthMessageCallback(apiresp,usersession) {
+    var objToJson = {};
+    objToJson = apiresp;
+    var subflow = objToJson[0].Inputs.newTemp.Section.Inputs.Response;
+	console.log("subflow " + JSON.stringify(subflow));	
+	
+	if (subflow != null && subflow =='UserNotFound')
+	{
+		console.log ("userid "+ subflow);
+		//var respobj ={"facebook":{"attachment":{"type":"template","payload":{"template_type":"generic","elements":[{"title":"You have to Login to Verizon to proceed","image_url":"https://www98.verizon.com/foryourhome/vzrepair/siwizard/img/verizon-logo-200.png","buttons":[{"type":"account_link","url":"https://www98.verizon.com/vzssobot/upr/preauth"}]}]}}}};
+		//var msg = new builder.Message(usersession).sourceEvent(respobj);              
+        	//usersession.send(msg);
+		welcomeMsg(usersession); 
+	}
+	else
+	{
+		console.log ("userid "+subflow);
+		//var respobj ={"facebook":{"attachment":{"type":"template","payload":{"template_type":"generic","elements":[{"title":"You have already linked your account. Click Unlink to unlink your account or continue ","image_url":"https://www98.verizon.com/foryourhome/vzrepair/siwizard/img/verizon-logo-200.png","buttons":[{"type":"postback","title":"UnLink Account","payload":"UnLink Account"},{"type":"postback","title":"Continue","payload":"Main Menu"}]}]}}}};
+		//var msg = new builder.Message(usersession).sourceEvent(respobj);              
+        	//usersession.send(msg);
+		MainMenu(usersession);
+		
 	}
 	
 } 
