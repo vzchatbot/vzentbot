@@ -6,7 +6,7 @@ var nconf = require('nconf');
 var uuid = require('node-uuid');
 var express = require('express');
 var util = require('util');
-var datelib= require('x-date') ; 
+var datelib= require('xdate') ; 
 
 
 nconf.file('./config/config.json');
