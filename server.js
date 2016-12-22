@@ -700,8 +700,25 @@ function GetAuthMessageCallback(apiresp,usersession) {
 
 //==========================
 
+function dateFormat (date, fstr, utc) {
+  utc = utc ? 'getUTC' : 'get';
+  return fstr.replace (/%[YmdHMS]/g, function (m) {
+    switch (m) {
+    case '%Y': return date[utc + 'FullYear'] (); // no leading zeros required
+    case '%m': m = 1 + date[utc + 'Month'] (); break;
+    case '%d': m = date[utc + 'Date'] (); break;
+    case '%H': m = date[utc + 'Hours'] (); break;
+    case '%M': m = date[utc + 'Minutes'] (); break;
+    case '%S': m = date[utc + 'Seconds'] (); break;
+    default: return m.slice (1); // unknown code, remove %
+    }
+    // add leading zero if required
+    return ('0' + m).slice (-2);
+  });
+}
 
-
+/* dateFormat (new Date (), "%Y-%m-%d %H:%M:%S", true) returns 
+   "2012-05-18 05:37:21"  12192016*/
 
 function PgmSearch(apireq,usersession,callback) { 
          var strProgram =  apireq.result.parameters.Programs;
@@ -714,6 +731,11 @@ function PgmSearch(apireq,usersession,callback) {
 	 var intpageid = apireq.result.parameters.PageNo;
 	 var strTeam	=apireq.result.parameters.Teams;
 	 var strCast = apireq.result.parameters.Cast;
+	
+	console.log("converted Airdate "+ dateFormat(strdate,"%m%d%Y"));
+	console.log("converted AirTime "+ dateFormat(strdate,"%H%M%S"));
+	
+	
 	
 	//var strRegionId = usersession.userData.regionId ;
 	//console.log("strRegionId:"+strRegionId + "usersession.userData.regionId: "+ usersession.userData.regionId);
