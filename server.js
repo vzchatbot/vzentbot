@@ -7,6 +7,7 @@ var uuid = require('node-uuid');
 var express = require('express');
 var util = require('util');
 var datelib= require('xdate') ; 
+var dateFormat = require('dateformat');
 
 
 nconf.file('./config/config.json');
@@ -733,7 +734,7 @@ function PgmSearch(apireq,usersession,callback) {
 	 var strTeam	=apireq.result.parameters.Teams;
 	 var strCast = apireq.result.parameters.Cast;
 	
-	console.log("converted Airdate "+  new Date().format('mmddyyyy'));
+	console.log("converted Airdate "+     dateFormat(strdate, "mmddyyyy");
 	//console.log("converted AirTime "+ dateFormat(strdate,"%H%M%S",true));
 	
 	
