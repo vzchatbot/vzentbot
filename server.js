@@ -732,8 +732,8 @@ function PgmSearch(apireq,usersession,callback) {
 	 var strTeam	=apireq.result.parameters.Teams;
 	 var strCast = apireq.result.parameters.Cast;
 	
-	console.log("converted Airdate "+ dateFormat(strdate,"%m%d%Y"));
-	console.log("converted AirTime "+ dateFormat(strdate,"%H%M%S"));
+	console.log("converted Airdate "+ dateFormat(strdate,"%m%d%Y",true));
+	console.log("converted AirTime "+ dateFormat(strdate,"%H%M%S",true));
 	
 	
 	
