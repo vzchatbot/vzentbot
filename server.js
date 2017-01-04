@@ -86,6 +86,7 @@ bot.dialog('/', function (session) {
 	if(Finished_Status == true || intent=="Default Fallback Intent" ) 
 	{
             session.send(response.result.fulfillment.speech);
+	       CategoryList(response,session);
 	}
 	else //if the intent is complete do action
 	{
@@ -152,9 +153,11 @@ bot.dialog('/', function (session) {
 			case "test":
 				    console.log(response.result.fulfillment.speech);
 			     session.send(response.result.fulfillment.messages);
+				    break;
 			default:
 				    console.log(response.result.fulfillment.speech);
 			     session.send(response.result.fulfillment.speech);
+				     CategoryList(response,session);
 			 }
     }
 
