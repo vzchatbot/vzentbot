@@ -155,19 +155,6 @@ function onIntent(intentRequest, session, callback) {
 	var sender = '945495155552625';
       
    if(intentName == 'BillEnquiry') {
-      
-	  /*if(checkMandatoryValuesInSession(intentRequest,intentName)){
-		  
-	  }
-	  else{
-		console.log('No Mandatory Fields are available for Bill');
-		speechOutput = 'I\'m not sure what month of bill amount are you looking for, please say the month for which you are looking?';
-		shouldEndSession = true;
-		repromptText = null;
-		sessionAttributes = {};
-		callback(sessionAttributes, buildSSMLSpeechletResponse('Bill Enquiry', speechOutput, repromptText, shouldEndSession));
-	  } */
-	  
 	  showBillInfo(sender, function (str) { showBillInfoCallback(str, sender, callback) });
    }
    /*else if (intentName == 'OpenTicket')   {
@@ -260,16 +247,16 @@ function onIntent(intentRequest, session, callback) {
 							shouldEndSession = false;
 							callback(sessionAttributes, buildSSMLSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
 					}						
-					else if(session.attributes.BBUTBKStarted == 'YES' && session.attributes.questiontoBBUTBL == 'YES' && session.attributes.deliveryQuestion == 'YES'){
-						console.log('BBU Trobleshoot Started = Yes and Question to BBU Troubleshoot = YES and session.attributes.deliveryQuestion == "YES"');
-						speechOutput = 'Congrats! Looks like we are done and i was happy that i helped you to resolve alert <break time="1s"/>Thanks You! Good Bye!';
-						shouldEndSession = true;
-						repromptText = null;
-						sessionAttributes = {};
-						callback(sessionAttributes, buildSSMLSpeechletResponse('Congrats', speechOutput, repromptText, shouldEndSession));
+					// else if(session.attributes.BBUTBKStarted == 'YES' && session.attributes.ReplaceOrTBLQue == 'YES' && session.attributes.deliveryQuestion == 'YES'){
+						// console.log('BBU Trobleshoot Started = Yes and Question to BBU Troubleshoot = YES and session.attributes.deliveryQuestion == "YES"');
+						// speechOutput = 'Congrats! Looks like we are done and i was happy that i helped you to resolve alert <break time="1s"/>Thanks You! Good Bye!';
+						// shouldEndSession = true;
+						// repromptText = null;
+						// sessionAttributes = {};
+						// callback(sessionAttributes, buildSSMLSpeechletResponse('Congrats', speechOutput, repromptText, shouldEndSession));
 					
-					}
-					else if(session.attributes.BBUTBKStarted == 'YES' && session.attributes.questiontoBBUTBL == 'YES' && session.attributes.deliveryQuestion == 'NO'){
+					// }
+					else if(session.attributes.BBUTBKStarted == 'YES' && session.attributes.ReplaceOrTBLQue == 'YES' && session.attributes.deliveryQuestion == 'NO'){
 						console.log('BBU Trobleshoot Started = Yes and Question to BBU Troubleshoot = YES and session.attributes.deliveryQuestion == "NO"');
 						speechOutput = 'Congrats! Looks like we are done and i was happy that i helped you to resolve alert <break time="1s"/>Thanks You! Good Bye!';
 						shouldEndSession = true;
@@ -277,24 +264,24 @@ function onIntent(intentRequest, session, callback) {
 						sessionAttributes = {};
 						callback(sessionAttributes, buildSSMLSpeechletResponse('Congrats', speechOutput, repromptText, shouldEndSession));
 					}
-					else if(session.attributes.BBUTBKStarted == 'NO' && session.attributes.questiontoBBUTBL == 'NO'){
+					// else if(session.attributes.BBUTBKStarted == 'NO' && session.attributes.questiontoBBUTBL == 'NO'){
 					
-						console.log('BBU Trobleshoot Started = NO and Question to BBU Troubleshoot = NO ');
-						speechOutput = 'Okay Before going for replacement, in order to confirm whether alaram is true <break time="1s"/> can we first troubleshoot on your battery back up unit before replacement?';
-						repromptText = 'Are you there! Can we do the troubleshoot first?';
+						// console.log('BBU Trobleshoot Started = NO and Question to BBU Troubleshoot = NO ');
+						// speechOutput = 'Okay Before going for replacement, in order to confirm whether alaram is true <break time="1s"/> can we first troubleshoot on your battery back up unit before replacement?';
+						// repromptText = 'Are you there! Can we do the troubleshoot first?';
 						
-						session.attributes.questiontoBBUTBL = 'YES';
+						// session.attributes.questiontoBBUTBL = 'YES';
 						
-						session.attributes.lastspeech = speechOutput;
-						session.attributes.lastreprompt = speechOutput;
-						session.attributes.speechOutput = speechOutput;
-						session.attributes.repromptText = repromptText;	
+						// session.attributes.lastspeech = speechOutput;
+						// session.attributes.lastreprompt = speechOutput;
+						// session.attributes.speechOutput = speechOutput;
+						// session.attributes.repromptText = repromptText;	
 						
-						cardTitle = 'Do you want to troubleshoot?';
-						sessionAttributes = session.attributes;
-						shouldEndSession = false;
-						callback(sessionAttributes, buildSSMLSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
-					}
+						// cardTitle = 'Do you want to troubleshoot?';
+						// sessionAttributes = session.attributes;
+						// shouldEndSession = false;
+						// callback(sessionAttributes, buildSSMLSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
+					// }
 					// else if(session.attributes.BBUTBKStarted == 'NO' && session.attributes.questiontoBBUTBL == 'YES'){
 
 						// console.log('BBU Trobleshoot Started = NO and Question to BBU Troubleshoot = YES ')
@@ -317,6 +304,24 @@ function onIntent(intentRequest, session, callback) {
 						// shouldEndSession = false;
 						// callback(sessionAttributes, buildSSMLSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));					
 					// }
+					else if(session.attributes.deliveryQuestion == "" && session.attributes.ReplaceOrTBLQue == 'YES'){
+						
+							console.log('Customer asked for direct replace without troubleshoot')
+						
+						repromptText = "Are you there! Do you want me to place an order for Battery Back Up unit now?";
+						speechOutput = 'Okay! Let\'s replace your battery back up unit, <break time="1s"/> the cost of the unit was $39.99. <break time="1s"/> Shall i go head and place an order for Battery Back up Unit?';
+						
+						session.attributes.lastspeech = speechOutput;
+						session.attributes.lastreprompt = speechOutput;
+						session.attributes.speechOutput = speechOutput;
+						session.attributes.repromptText = repromptText;	
+						session.attributes.deliveryQuestion = "NEXT";
+						session.attributes.previousintent = session.attributes.currentintent;
+						sessionAttributes = session.attributes;
+						shouldEndSession = false;
+						cardTitle = 'Battery Back Up Unit Order';
+						callback(sessionAttributes, buildSSMLSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
+					}
 					else if(session.attributes.deliveryQuestion == "NEXT"){
 
 						console.log('BBU Delivey Options Played')
@@ -413,7 +418,7 @@ function onIntent(intentRequest, session, callback) {
 						console.log('Customer has some information, but said not to read it now - Came directly to RTCI Call'); 
 							handleSessionEndRequest(callback);
 					}
-					else if(session.attributes.BBUTBKStarted == 'NO' && session.attributes.questiontoBBUTBL == 'YES'){
+					else if(session.attributes.BBUTBKStarted == 'NO' && session.attributes.ReplaceOrTBLQue == 'YES'){
 
 						console.log('BBU Trobleshoot Started = NO and Question to BBU Troubleshoot = YES ')
 						
@@ -670,8 +675,6 @@ function getDashboardinformationCallback(apiresp,session,callback){
 				repromptText = 'Are you still there? Can you tell me whether you want to replace your <say-as interpret-as="spell-out">ONT</say-as> battery back up unit?';
 					
 				session.attributes.DashboardInfo = '';
-				
-				
 				session.attributes.previousintent = session.attributes.currentintent;
 				session.attributes.currentintent = "RTCI";
 				session.attributes.lastspeech = speechOutput;
@@ -689,27 +692,27 @@ function getDashboardinformationCallback(apiresp,session,callback){
 				repromptText = 'Are you still there? Can you tell me whether you want to replace your <say-as interpret-as="spell-out">ONT</say-as> battery back up unit?'
 				
 				sessionAttributes = 
-					{
-						"currentintent" : "RTCI",
-						"previousintent" : "",
-						"speechOutput": speechOutput,
-						"repromptText" : repromptText,
-						"SlowspeedCurrentStep":'',
-						"SlowspeedStep1": 'Ok, Let\'s start <break time="5ms"/> Reboot your router by unplugging the power cord from the electrical outlet and <break time="1s"/> wait for 10 seconds before reconnecting and test your internet speed. <break time="2s"/> Please say YES if your issue is fixed or say NO to continue next troubleshooting step.',
-						"SlowspeedStep2" :'Ok, Let\'s do next step of troubleshoot, <break time="5ms"/> To rule out possible Wi-Fi interference, <break time="1s"/> move with 10 feet of your router to test your internet speed.<break time="2s"/> Please say YES if your issue is fixed or say NO to continue next troubleshooting step.',
-						"SlowspeedStep3" :'Ok, Let\'s do next step of troubleshoot, <break time="5ms"/> Your Internet usage could be at capacity. <break time="1s"/> If you are streaming several videos simultaneously, for example, it could cause your connection to slow down. <break time="1s"/> Can you stop streaming videos and test your internet speed. <break time="2s"/> Please say YES if your issue is fixed or say NO to continue next troubleshooting step.',
-						"SlowspeedStep4" :'Ok, Let\'s do final step of troubleshoot, <break time="5ms"/>Surfing over a Virtual Private Network alias VPN can result in slower speeds. A VPN is needed to connect to your company\'s intranet. <break time="1s"/> Can you temporarily disconnect from the VPN and test your internet speed. <break time="2s"/> Please say YES if your issue is fixed or say NO to continue next troubleshooting step',
-						"SlowspeedIsTBLStarted":"NO",
-						"BBUTBKStarted":"NO",
-						"BBUReplace":"NO",
-						"DeliveryTime" : "",
-						"DashboardInfo" : "",
-						"questiontoBBUTBL" : "NO",
-						"deliveryQuestion" :"",
-						"lastspeech":speechOutput,
-						"lastreprompt":repromptText,
-						"ONTprice":""
-					}
+				{
+					"currentintent" : "RTCI",
+					"previousintent" : "",
+					"speechOutput": speechOutput,
+					"repromptText" : repromptText,
+					"SlowspeedCurrentStep":'',
+					"SlowspeedStep1": 'Ok, Let\'s start <break time="5ms"/> Reboot your router by unplugging the power cord from the electrical outlet and <break time="1s"/> wait for 10 seconds before reconnecting and test your internet speed. <break time="2s"/> Please say YES if your issue is fixed or say NO to continue next troubleshooting step.',
+					"SlowspeedStep2" :'Ok, Let\'s do next step of troubleshoot, <break time="5ms"/> To rule out possible Wi-Fi interference, <break time="1s"/> move with 10 feet of your router to test your internet speed.<break time="2s"/> Please say YES if your issue is fixed or say NO to continue next troubleshooting step.',
+					"SlowspeedStep3" :'Ok, Let\'s do next step of troubleshoot, <break time="5ms"/> Your Internet usage could be at capacity. <break time="1s"/> If you are streaming several videos simultaneously, for example, it could cause your connection to slow down. <break time="1s"/> Can you stop streaming videos and test your internet speed. <break time="2s"/> Please say YES if your issue is fixed or say NO to continue next troubleshooting step.',
+					"SlowspeedStep4" :'Ok, Let\'s do final step of troubleshoot, <break time="5ms"/>Surfing over a Virtual Private Network alias VPN can result in slower speeds. A VPN is needed to connect to your company\'s intranet. <break time="1s"/> Can you temporarily disconnect from the VPN and test your internet speed. <break time="2s"/> Please say YES if your issue is fixed or say NO to continue next troubleshooting step',
+					"SlowspeedIsTBLStarted":"NO",
+					"BBUTBKStarted":"NO",
+					"ReplaceOrTBLQue":"YES",
+					"DeliveryTime" : "",
+					"DashboardInfo" : "",
+					"questiontoBBUTBL" : "NO",
+					"deliveryQuestion" :"",
+					"lastspeech":speechOutput,
+					"lastreprompt":repromptText,
+					"ONTprice":""
+				}
 				
 				}
 					
