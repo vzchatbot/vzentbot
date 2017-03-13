@@ -95,7 +95,13 @@ function onLaunch(launchRequest, session,callback) {
     console.log('onLaunch requestId=${launchRequest.requestId}, sessionId=${session.sessionId}');
 
     // Dispatch to your skill's launch.
-    wakeupfios(callback);
+    //wakeupfios(callback);
+	var visionCustID='154190083';
+	   var BTN ='7328422487';
+	   var State = 'NJ';
+	   
+	   
+		getDashboardinformation(visionCustID, BTN, State,function (str) { getDashboardinformationCallback(str, session, callback) });
 }
 
 function wakeupfios(callback){
@@ -109,27 +115,27 @@ function wakeupfios(callback){
 	var cardTitle ="Wake up Fios";
 	
 	var sessionAttributes = 
-	{
-		"currentintent" : "onlaunch",
-		"previousintent" : "",
-		"speechOutput": speechOutput,
-		"repromptText" : repromptText,
-		"SlowspeedCurrentStep":'',
-		"SlowspeedStep1": 'Ok, Let\'s start <break time="5ms"/> Reboot your router by unplugging the power cord from the electrical outlet and <break time="1s"/> wait for 10 seconds before reconnecting and test your internet speed. <break time="2s"/> Please say YES if your issue is fixed or say NO to continue next troubleshooting step.',
-		"SlowspeedStep2" :'Ok, Let\'s do next step of troubleshoot, <break time="5ms"/> To rule out possible Wi-Fi interference, <break time="1s"/> move with 10 feet of your router to test your internet speed.<break time="2s"/> Please say YES if your issue is fixed or say NO to continue next troubleshooting step.',
-		"SlowspeedStep3" :'Ok, Let\'s do next step of troubleshoot, <break time="5ms"/> Your Internet usage could be at capacity. <break time="1s"/> If you are streaming several videos simultaneously, for example, it could cause your connection to slow down. <break time="1s"/> Can you stop streaming videos and test your internet speed. <break time="2s"/> Please say YES if your issue is fixed or say NO to continue next troubleshooting step.',
-		"SlowspeedStep4" :'Ok, Let\'s do final step of troubleshoot, <break time="5ms"/>Surfing over a Virtual Private Network alias VPN can result in slower speeds. A VPN is needed to connect to your company\'s intranet. <break time="1s"/> Can you temporarily disconnect from the VPN and test your internet speed. <break time="2s"/> Please say YES if your issue is fixed or say NO to continue next troubleshooting step',
-		"SlowspeedIsTBLStarted":"NO",
-		"BBUTBKStarted":"NO",
-		"BBUReplace":"NO",
-		"DeliveryTime" : "",
-		"DashboardInfo" : "",
-		"questiontoBBUTBL" : "NO",
-		"deliveryQuestion" :"",
-		"lastspeech":speechOutput,
-		"lastreprompt":repromptText,
-		"ONTprice":""
-	}
+		{
+			"currentintent" : "onlaunch",
+			"speechOutput": speechOutput,
+			"repromptText" : repromptText,
+			"SlowspeedCurrentStep":'',
+			"SlowspeedStep1": 'Ok, Let\'s start <break time="5ms"/> Reboot your router by unplugging the power cord from the electrical outlet and <break time="1s"/> wait for 10 seconds before reconnecting and test your internet speed. <break time="2s"/> Please say YES if your issue is fixed or say NO to continue next troubleshooting step.',
+			"SlowspeedStep2" :'Ok, Let\'s do next step of troubleshoot, <break time="5ms"/> To rule out possible Wi-Fi interference, <break time="1s"/> move with 10 feet of your router to test your internet speed.<break time="2s"/> Please say YES if your issue is fixed or say NO to continue next troubleshooting step.',
+			"SlowspeedStep3" :'Ok, Let\'s do next step of troubleshoot, <break time="5ms"/> Your Internet usage could be at capacity. <break time="1s"/> If you are streaming several videos simultaneously, for example, it could cause your connection to slow down. <break time="1s"/> Can you stop streaming videos and test your internet speed. <break time="2s"/> Please say YES if your issue is fixed or say NO to continue next troubleshooting step.',
+			"SlowspeedStep4" :'Ok, Let\'s do final step of troubleshoot, <break time="5ms"/>Surfing over a Virtual Private Network alias VPN can result in slower speeds. A VPN is needed to connect to your company\'s intranet. <break time="1s"/> Can you temporarily disconnect from the VPN and test your internet speed. <break time="2s"/> Please say YES if your issue is fixed or say NO to continue next troubleshooting step',
+			"SlowspeedIsTBLStarted":"NO",
+			"BBUTBKStarted":"NO",
+			"ReplaceOrTBLQue":"YES",
+			"deliveryQuestion" :"",
+			"DashboardInfo" : "",
+			"previousintent" : "",
+			"lastspeech":speechOutput,
+			"lastreprompt":repromptText,
+			"ONTprice":""
+		}
+	
+						
 	
 	callback(sessionAttributes, buildSSMLSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
     
@@ -155,6 +161,41 @@ function onIntent(intentRequest, session, callback) {
 	var sender = '945495155552625';
       
    if(intentName == 'BillEnquiry') {
+	   
+	   if(session.new)
+	   {
+		   console.log("Bill Enquiry New Session");
+		   sessionAttributes = 
+			{
+				"currentintent" : intentName,
+				"speechOutput": speechOutput,
+				"repromptText" : repromptText,
+				"SlowspeedCurrentStep":'',
+				"SlowspeedStep1": 'Ok, Let\'s start <break time="5ms"/> Reboot your router by unplugging the power cord from the electrical outlet and <break time="1s"/> wait for 10 seconds before reconnecting and test your internet speed. <break time="2s"/> Please say YES if your issue is fixed or say NO to continue next troubleshooting step.',
+				"SlowspeedStep2" :'Ok, Let\'s do next step of troubleshoot, <break time="5ms"/> To rule out possible Wi-Fi interference, <break time="1s"/> move with 10 feet of your router to test your internet speed.<break time="2s"/> Please say YES if your issue is fixed or say NO to continue next troubleshooting step.',
+				"SlowspeedStep3" :'Ok, Let\'s do next step of troubleshoot, <break time="5ms"/> Your Internet usage could be at capacity. <break time="1s"/> If you are streaming several videos simultaneously, for example, it could cause your connection to slow down. <break time="1s"/> Can you stop streaming videos and test your internet speed. <break time="2s"/> Please say YES if your issue is fixed or say NO to continue next troubleshooting step.',
+				"SlowspeedStep4" :'Ok, Let\'s do final step of troubleshoot, <break time="5ms"/>Surfing over a Virtual Private Network alias VPN can result in slower speeds. A VPN is needed to connect to your company\'s intranet. <break time="1s"/> Can you temporarily disconnect from the VPN and test your internet speed. <break time="2s"/> Please say YES if your issue is fixed or say NO to continue next troubleshooting step',
+				"SlowspeedIsTBLStarted":"NO",
+				"BBUTBKStarted":"NO",
+				"ReplaceOrTBLQue":"YES",
+				"deliveryQuestion" :"",
+				"DashboardInfo" : "",
+				"previousintent" : '',
+				"lastspeech":speechOutput,
+				"lastreprompt":repromptText,
+				"ONTprice":""
+			}
+	   }
+	   else
+	   {
+		   console.log("Bill Enquiry Old Session");
+		   session.attributes.previousintent = session.attributes.currentintent;
+		   session.attributes.currentintent = intentName;
+		   sessionAttributes = session.attributes;
+		   console.log("Old Session in bill enquiry " + JSON.stringify(session));
+		   
+	   }
+	   
 	  showBillInfo(sender, function (str) { showBillInfoCallback(str, sender, callback) });
    }
    /*else if (intentName == 'OpenTicket')   {
@@ -167,23 +208,27 @@ function onIntent(intentRequest, session, callback) {
 	speechOutput = 'I can offer you some troubleshooting steps which can resolve your slow internet. Just say yes to start the troubleshooting <break time="1s"/> or just say Stop.';
 	repromptText =  'Say yes to start troubleshooting of your slow internet <break time="1s"/> or just say stop';
 	
-	sessionAttributes = 
-	{
-		"currentintent" : intentName,
-		"previousintent" : "onlaunch",
-		"speechOutput": speechOutput,
-		"repromptText" : repromptText,
-		"CurrentStep":'',
-		"SlowspeedStep1": 'Ok, Let\'s start <break time="5ms"/> Reboot your router by unplugging the power cord from the electrical outlet and <break time="1s"/> wait for 10 seconds before reconnecting and test your internet speed. <break time="2s"/> Please say YES if your issue is fixed or say NO to continue next troubleshooting step.',
-		"SlowspeedStep2" :'Ok, Let\'s do next step of troubleshoot, <break time="5ms"/> To rule out possible Wi-Fi interference, <break time="1s"/> move with 10 feet of your router to test your internet speed.<break time="2s"/> Please say YES if your issue is fixed or say NO to continue next troubleshooting step.',
-		"SlowspeedStep3" :'Ok, Let\'s do next step of troubleshoot, <break time="5ms"/> Your Internet usage could be at capacity. <break time="1s"/> If you are streaming several videos simultaneously, for example, it could cause your connection to slow down. <break time="1s"/> Can you stop streaming videos and test your internet speed. <break time="2s"/> Please say YES if your issue is fixed or say NO to continue next troubleshooting step.',
-		"SlowspeedStep4" :'Ok, Let\'s do final step of troubleshoot, <break time="5ms"/>Surfing over a Virtual Private Network alias VPN can result in slower speeds. A VPN is needed to connect to your company\'s intranet. <break time="1s"/> Can you temporarily disconnect from the VPN and test your internet speed. <break time="2s"/> Please say YES if your issue is fixed or say NO to continue next troubleshooting step',
-		"SlowspeedIsTBLStarted":"NO",
-		"BBUTBKStarted":"NO",
-		"BBUReplace":"NO",
-		"lastspeech":"",
-		"lastreprompt":""
-	}
+		sessionAttributes = 
+		{
+			"currentintent" : intentName,
+			"speechOutput": speechOutput,
+			"repromptText" : repromptText,
+			"SlowspeedCurrentStep":'',
+			"SlowspeedStep1": 'Ok, Let\'s start <break time="5ms"/> Reboot your router by unplugging the power cord from the electrical outlet and <break time="1s"/> wait for 10 seconds before reconnecting and test your internet speed. <break time="2s"/> Please say YES if your issue is fixed or say NO to continue next troubleshooting step.',
+			"SlowspeedStep2" :'Ok, Let\'s do next step of troubleshoot, <break time="5ms"/> To rule out possible Wi-Fi interference, <break time="1s"/> move with 10 feet of your router to test your internet speed.<break time="2s"/> Please say YES if your issue is fixed or say NO to continue next troubleshooting step.',
+			"SlowspeedStep3" :'Ok, Let\'s do next step of troubleshoot, <break time="5ms"/> Your Internet usage could be at capacity. <break time="1s"/> If you are streaming several videos simultaneously, for example, it could cause your connection to slow down. <break time="1s"/> Can you stop streaming videos and test your internet speed. <break time="2s"/> Please say YES if your issue is fixed or say NO to continue next troubleshooting step.',
+			"SlowspeedStep4" :'Ok, Let\'s do final step of troubleshoot, <break time="5ms"/>Surfing over a Virtual Private Network alias VPN can result in slower speeds. A VPN is needed to connect to your company\'s intranet. <break time="1s"/> Can you temporarily disconnect from the VPN and test your internet speed. <break time="2s"/> Please say YES if your issue is fixed or say NO to continue next troubleshooting step',
+			"SlowspeedIsTBLStarted":"NO",
+			"BBUTBKStarted":"NO",
+			"ReplaceOrTBLQue":"YES",
+			"deliveryQuestion" :"",
+			"DashboardInfo" : "",
+			"previousintent" : session.attributes.currentintent,
+			"lastspeech":speechOutput,
+			"lastreprompt":repromptText,
+			"ONTprice":""
+		}
+	
 	
 	shouldEndSession = false;
 	cardTitle = 'Slow Speed';
@@ -211,7 +256,7 @@ function onIntent(intentRequest, session, callback) {
 			if(session.attributes.currentintent) {
 				if(session.attributes.currentintent == 'slowspeed'){
 					if(session.attributes.IsTBLStarted == 'YES'){
-						speechOutput = 'WOOHOOO ! You have sucessfully fixed the slow internet issue. please say "Start Verizon" for any further help';
+						speechOutput = 'Congrats ! You have sucessfully fixed the slow internet issue. please say "Start Verizon" for any further help';
 						shouldEndSession = true;
 						repromptText = null;
 						sessionAttributes = {};
@@ -246,7 +291,16 @@ function onIntent(intentRequest, session, callback) {
 							sessionAttributes = session.attributes;
 							shouldEndSession = false;
 							callback(sessionAttributes, buildSSMLSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
-					}						
+					}
+					else if(session.attributes.ordercomplete == "YES"){
+						console.log('Order Completed and informing the order number');
+						repromptText = "Are you there! here is your order number it says <say-as interpret-as='spell-out'>NJ20001367542</say-as>. <break time='1s'/> You will get an order confirmation mail to your registered mail address with verizon. Thank you for using fios";
+						speechOutput = "Okay! here is your order number it says <say-as interpret-as='spell-out'>NJ20001367542</say-as>. <break time='1s'/> You will get an order confirmation mail to your registered mail address with verizon. Thank you for using fios";
+						shouldEndSession = true;
+						cardTitle = 'Order Confirmation';
+						callback(sessionAttributes, buildSSMLSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
+					
+					}					
 					// else if(session.attributes.BBUTBKStarted == 'YES' && session.attributes.ReplaceOrTBLQue == 'YES' && session.attributes.deliveryQuestion == 'YES'){
 						// console.log('BBU Trobleshoot Started = Yes and Question to BBU Troubleshoot = YES and session.attributes.deliveryQuestion == "YES"');
 						// speechOutput = 'Congrats! Looks like we are done and i was happy that i helped you to resolve alert <break time="1s"/>Thanks You! Good Bye!';
@@ -308,14 +362,15 @@ function onIntent(intentRequest, session, callback) {
 						
 							console.log('Customer asked for direct replace without troubleshoot')
 						
-						repromptText = "Are you there! Do you want me to place an order for Battery Back Up unit now?";
-						speechOutput = 'Okay! Let\'s replace your battery back up unit, <break time="1s"/> the cost of the unit was $39.99. <break time="1s"/> Shall i go head and place an order for Battery Back up Unit?';
+						repromptText = "Are you there! Do you want me to place an order for F'\yos <say-as interpret-as='spell-out'>ONT</say-as> battery backup unit?";
+						speechOutput = 'Okay! Let\'s replace your F\'yos <say-as interpret-as=\'spell-out\'>ONT</say-as> battery backup unit, <break time="1s"/> the cost of the unit was $39.99. <break time="1s"/> Shall i go head and place an order for F\'yos <say-as interpret-as=\'spell-out\'>ONT</say-as> battery backup unit?';
 						
 						session.attributes.lastspeech = speechOutput;
 						session.attributes.lastreprompt = speechOutput;
 						session.attributes.speechOutput = speechOutput;
 						session.attributes.repromptText = repromptText;	
 						session.attributes.deliveryQuestion = "NEXT";
+						session.attributes.BBUTBKStarted = ''
 						session.attributes.previousintent = session.attributes.currentintent;
 						sessionAttributes = session.attributes;
 						shouldEndSession = false;
@@ -414,17 +469,26 @@ function onIntent(intentRequest, session, callback) {
 						console.log('Customer has some information, but said not to read it now - Lauch and RTCI Calls'); 
 							handleSessionEndRequest(callback);
 					}
-					else if(session.attributes.previousintent == "" && session.attributes.currentintent == 'RTCI') {
-						console.log('Customer has some information, but said not to read it now - Came directly to RTCI Call'); 
-							handleSessionEndRequest(callback);
+					// else if(session.attributes.previousintent == "" && session.attributes.currentintent == 'RTCI') {
+						// console.log('Customer has some information, but said not to read it now - Came directly to RTCI Call'); 
+							// handleSessionEndRequest(callback);
+					// }
+					else if(session.attributes.ordercomplete == "YES"){
+						console.log('Order Completed and informing the order number');
+						repromptText = "Are you there! here is your order number it says <say-as interpret-as='spell-out'>NJ20001367542</say-as>. <break time='1s'/> You will get an order confirmation mail to your registered mail address with verizon. Thank you for using fios";
+						speechOutput = "Okay! here is your order number it says <say-as interpret-as='spell-out'>NJ20001367542</say-as>. <break time='1s'/> You will get an order confirmation mail to your registered mail address with verizon. Thank you for using fios";
+						shouldEndSession = true;
+						cardTitle = 'Order Confirmation';
+						callback(sessionAttributes, buildSSMLSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
+					
 					}
 					else if(session.attributes.BBUTBKStarted == 'NO' && session.attributes.ReplaceOrTBLQue == 'YES'){
 
 						console.log('BBU Trobleshoot Started = NO and Question to BBU Troubleshoot = YES ')
 						
-						speechOutput = 'Okay let\'s troubleshoot, <break time="5ms"/> plesae make sure the battery backup unit is plugged directly into a working electrical outlet. ' + 
-									   '<break time="5ms"/> next, reboot the battery backup unit by holding down the alarm silence button for 10 seconds. <break time="5ms"/> this may sometimes clear the false alarm. ' +
-									   '<break time="1s"/> Does your beeping sound stopped?.';
+						speechOutput = 'Okay let\'s troubleshoot, <break time="1s"/> plesae make sure the F\'yos <say-as interpret-as=\'spell-out\'>ONT</say-as> battery backup unit is plugged directly into a working electrical outlet. ' + 
+									   'next, <break time="1s"/> reboot the battery backup unit by holding down the alarm silence button for 10 seconds. <break time="5ms"/> this may sometimes clear the false alarm. ' +
+									   '<break time="1s"/> Does your battery beeping sound stopped?.';
 						repromptText = "Are you there! Does your Battery Back Up Unit Beeping Unit Sound Stopped?";
 
 						session.attributes.lastspeech = speechOutput;
@@ -442,8 +506,8 @@ function onIntent(intentRequest, session, callback) {
 					}
 					else if(session.attributes.deliveryQuestion == "NO"){
 						
-						repromptText = "Are you there! Do you want me to place an order for Battery Back Up unit now?";
-						speechOutput = 'Okay! Let\'s replace your battery back up unit, <break time="1s"/> the cost of the unit was $39.99. <break time="1s"/> Shall i go head and place an order for Battery Back up Unit?';
+						repromptText = "Are you there! Do you want me to place an order for F'\yos <say-as interpret-as='spell-out'>ONT</say-as> battery backup unit?";
+						speechOutput = "Okay! Let\'s replace your F'\yos <say-as interpret-as='spell-out'>ONT</say-as> battery backup unit, <break time='1s'/> the cost of the unit is $39.99. <break time='1s'/> Shall i go head and place an order?";
 						
 						session.attributes.lastspeech = speechOutput;
 						session.attributes.lastreprompt = speechOutput;
@@ -456,6 +520,11 @@ function onIntent(intentRequest, session, callback) {
 						cardTitle = 'Battery Back Up Unit Order';
 						callback(sessionAttributes, buildSSMLSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
 					}
+					else if(session.attributes.deliveryQuestion == "NEXT"){
+						console.log('Asked the question for ORder, but told not to order');
+						handleSessionEndRequest(callback);
+					}
+					
 					else{
 						console.log('Customer not interested to order'); 
 							handleSessionEndRequest(callback);
@@ -471,16 +540,16 @@ function onIntent(intentRequest, session, callback) {
 	   
 	   console.log("Start Inside RTCI Intent");
 	   
-	   var visionCustID='554203930';
-	   var BTN ='7327588901';
-	   var State = 'MA';
+	   var visionCustID='154190083';
+	   var BTN ='7328422487';
+	   var State = 'NJ';
 	   
 	   if(intentRequest.intent.slots.BBUDelivery.value){
 	
 		var DeliveryOption = intentRequest.intent.slots.BBUDelivery.value;
 		console.log("DeliveryTime of BBU " + DeliveryOption );
 		
-		BBUOrder(DeliveryOption, visionCustID, BTN, State,function (str) { BBUOrderCallback(DeliveryOption,str, callback) });
+		BBUOrder(DeliveryOption, visionCustID, BTN, State,function (str) { BBUOrderCallback(DeliveryOption,str, callback, session) });
 		
 	   }
 	   else {
@@ -534,7 +603,7 @@ var shippingOpt="1";
             }
         };	
 		
-		console.log(" Request for BBUOrder json " + args.json);
+		console.log(" Request for BBUOrder json " + JSON.stringify(args.json));
 
         request.post({
             url: 'https://www.verizon.com/foryourhome/ordering/services/BatteryReplacemnetOrder',
@@ -545,12 +614,12 @@ var shippingOpt="1";
         },
             function (error, response, body) {
 				
-				console.log('Called the callback now response' + response)
-				console.log('Called the callback now body ' + body)		
+				//console.log('Called the callback now response' + response)
+				//console.log('Called the callback now body ' + body)		
 				
                 if (!error && response.statusCode == 200) {
 					
-					console.log('Called the callback now')	
+					console.log('Called the callback now BBU Order ' + JSON.stringify(body))	
                     callback(body);
                 }
                 else {
@@ -568,7 +637,7 @@ var shippingOpt="1";
 	console.log("BBUOrder completed");
 }
 
-function BBUOrderCallback(DeliveryTime, resp,callback){
+function BBUOrderCallback(DeliveryTime, resp,callback, session){
 	console.log("BBUOrderCallback Started");
     objToJson = resp;
 	var objToJson = {};
@@ -579,8 +648,18 @@ function BBUOrderCallback(DeliveryTime, resp,callback){
 	let title = "BBU Order Success";
 	try
 	{
-		speechOutput = 'Congrats! <break time="1s"/> We have received your order with '+DeliveryTime+' delivery option, <break time="5ms"/> Once we submit your order we will send order confirmation e-mail to your registered mail address with Verizon. <break time="1s"/> Thanks You! Good Bye!';
-		shouldEndSession = true;
+		//speechOutput = 'Congrats! <break time="1s"/> We have received your order with '+DeliveryTime+' delivery option. <break time="1s"/> Once we submit your order we will send order confirmation e-mail to your registered mail address with Verizon. <break time="1s"/> Thank You! Good Bye!';
+		shouldEndSession = false;
+
+		speechOutput = 'Congrats! <break time="1s"/> We have received your order with '+DeliveryTime+' delivery option. <break time="1s"/> Can you please note down the order number for future reference.';
+		repromptText = 'Can you please note down your order number for future reference with Verizon';
+
+		session.attributes.lastspeech = speechOutput;
+		session.attributes.lastreprompt = repromptText;
+		session.attributes.speechOutput = speechOutput;
+		session.attributes.repromptText = repromptText;
+		session.attributes.ordercomplete = "YES";
+		sessionAttributes = session.attributes;
 		callback(sessionAttributes, buildSSMLSpeechletResponse(title, speechOutput, repromptText, shouldEndSession));
 	}
 	catch(Err)
@@ -621,8 +700,10 @@ function getDashboardinformation(visionCustID, BTN, State,callback){
             json: args.json
         },
             function (error, response, body) {
+				console.log('Called the callback now ' + JSON.stringify(response));
+					console.log('Called the callback now ' + JSON.stringify(body));
                 if (!error && response.statusCode == 200) {
-					
+					console.log('Called the callback now ' + JSON.stringify(response));
 					console.log('Called the callback now ' + JSON.stringify(body));
                     callback(body);
                 }
@@ -657,62 +738,58 @@ function getDashboardinformationCallback(apiresp,session,callback){
 			
 			//var subflow = objToJson[0].Inputs.newTemp.Section.Inputs.Response;
 			var subflow = 'We have some information';
-			console.log("SessionAttributes from getDashboardinformationCallback =" + JSON.stringify(callback));
-
-			console.log("Response from getDashboardinformationCallback=" + JSON.stringify(session));
+			
+			console.log("Response from getDashboardinformationCallback=" + JSON.stringify(objToJson));
 			
 			if(subflow != null)
 			{
 				console.log('We have some information to user');
-				console.log("");
+								
+				if(!session.new) {
 				
-				//if(session.attributes) {
-					if(!session.new) {
-				
-				console.log(" Session Available");
-				
-				speechOutput = 'Okay! I see you have one alert which says your <say-as interpret-as="spell-out">ONT</say-as> battery back up Unit condition is bad condition, <break time="1s"/> also it started beeping and it needs to be replaced. <break time="1s"/> Do you want to replace it now?';
-				repromptText = 'Are you still there? Can you tell me whether you want to replace your <say-as interpret-as="spell-out">ONT</say-as> battery back up unit?';
-					
-				session.attributes.DashboardInfo = '';
-				session.attributes.previousintent = session.attributes.currentintent;
-				session.attributes.currentintent = "RTCI";
-				session.attributes.lastspeech = speechOutput;
-				session.attributes.lastreprompt = repromptText;
-				session.attributes.speechOutput = speechOutput;
-				session.attributes.repromptText = repromptText;
-				sessionAttributes = session.attributes;
+						console.log(" Session Available");
+						
+						speechOutput = "Okay! I see you have one alert which says your F'\Yos <say-as interpret-as='spell-out'>ONT</say-as> battery backup Unit condition is bad and beeping too. <break time='1s'/> It's time to replace your F'\yos <say-as interpret-as='spell-out'>ONT</say-as> Battery Backup Unit now. <break time='1s'/> Do you want to replace or troubleshoot first?";
+						repromptText = "Are you still there? Can you tell me whether you want to replace your f'\yos <say-as interpret-as='spell-out'>ONT</say-as> battery back up unit?";
+							
+						session.attributes.DashboardInfo = '';
+						session.attributes.previousintent = session.attributes.currentintent;
+						session.attributes.currentintent = "RTCI";
+						session.attributes.lastspeech = speechOutput;
+						session.attributes.lastreprompt = repromptText;
+						session.attributes.speechOutput = speechOutput;
+						session.attributes.repromptText = repromptText;
+						session.attributes.ReplaceOrTBLQue = "YES";
+						sessionAttributes = session.attributes;
 				
 				}
 				else {
 					
-				console.log(" Session Not Available");
+					console.log(" Session Not Available");
+					
+					speechOutput = "Welcome to F'\Yos, <break time='1s'/> I see you have one alert which says your F'\Yos <say-as interpret-as='spell-out'>ONT</say-as> battery backup Unit condition is bad and beeping too. <break time='1s'/> It's time to replace your F'\yos <say-as interpret-as='spell-out'>ONT</say-as> Battery Backup Unit now. <break time='1s'/> Do you want to replace or troubleshoot first?";
+					repromptText = "Are you still there? Can you tell me whether you want to replace your F'\yos <say-as interpret-as='spell-out'>ONT</say-as> battery back up unit or first troubleshoot?";
 				
-				speechOutput = "Welcome to F'\Yos, <break time='1s'/> I see you have one alert which says your <say-as interpret-as='spell-out'>ONT</say-as> battery back up Unit condition is in bad condition, <break time='1s'/> also it started beeping and it needs to be replaced. <break time='1s'/> Do you want to replace it now?";
-				repromptText = 'Are you still there? Can you tell me whether you want to replace your <say-as interpret-as="spell-out">ONT</say-as> battery back up unit?'
-				
-				sessionAttributes = 
-				{
-					"currentintent" : "RTCI",
-					"previousintent" : "",
-					"speechOutput": speechOutput,
-					"repromptText" : repromptText,
-					"SlowspeedCurrentStep":'',
-					"SlowspeedStep1": 'Ok, Let\'s start <break time="5ms"/> Reboot your router by unplugging the power cord from the electrical outlet and <break time="1s"/> wait for 10 seconds before reconnecting and test your internet speed. <break time="2s"/> Please say YES if your issue is fixed or say NO to continue next troubleshooting step.',
-					"SlowspeedStep2" :'Ok, Let\'s do next step of troubleshoot, <break time="5ms"/> To rule out possible Wi-Fi interference, <break time="1s"/> move with 10 feet of your router to test your internet speed.<break time="2s"/> Please say YES if your issue is fixed or say NO to continue next troubleshooting step.',
-					"SlowspeedStep3" :'Ok, Let\'s do next step of troubleshoot, <break time="5ms"/> Your Internet usage could be at capacity. <break time="1s"/> If you are streaming several videos simultaneously, for example, it could cause your connection to slow down. <break time="1s"/> Can you stop streaming videos and test your internet speed. <break time="2s"/> Please say YES if your issue is fixed or say NO to continue next troubleshooting step.',
-					"SlowspeedStep4" :'Ok, Let\'s do final step of troubleshoot, <break time="5ms"/>Surfing over a Virtual Private Network alias VPN can result in slower speeds. A VPN is needed to connect to your company\'s intranet. <break time="1s"/> Can you temporarily disconnect from the VPN and test your internet speed. <break time="2s"/> Please say YES if your issue is fixed or say NO to continue next troubleshooting step',
-					"SlowspeedIsTBLStarted":"NO",
-					"BBUTBKStarted":"NO",
-					"ReplaceOrTBLQue":"YES",
-					"DeliveryTime" : "",
-					"DashboardInfo" : "",
-					"questiontoBBUTBL" : "NO",
-					"deliveryQuestion" :"",
-					"lastspeech":speechOutput,
-					"lastreprompt":repromptText,
-					"ONTprice":""
-				}
+					sessionAttributes = 
+					{
+						"currentintent" : "RTCI",
+						"speechOutput": speechOutput,
+						"repromptText" : repromptText,
+						"SlowspeedCurrentStep":'',
+						"SlowspeedStep1": 'Ok, Let\'s start <break time="5ms"/> Reboot your router by unplugging the power cord from the electrical outlet and <break time="1s"/> wait for 10 seconds before reconnecting and test your internet speed. <break time="2s"/> Please say YES if your issue is fixed or say NO to continue next troubleshooting step.',
+						"SlowspeedStep2" :'Ok, Let\'s do next step of troubleshoot, <break time="5ms"/> To rule out possible Wi-Fi interference, <break time="1s"/> move with 10 feet of your router to test your internet speed.<break time="2s"/> Please say YES if your issue is fixed or say NO to continue next troubleshooting step.',
+						"SlowspeedStep3" :'Ok, Let\'s do next step of troubleshoot, <break time="5ms"/> Your Internet usage could be at capacity. <break time="1s"/> If you are streaming several videos simultaneously, for example, it could cause your connection to slow down. <break time="1s"/> Can you stop streaming videos and test your internet speed. <break time="2s"/> Please say YES if your issue is fixed or say NO to continue next troubleshooting step.',
+						"SlowspeedStep4" :'Ok, Let\'s do final step of troubleshoot, <break time="5ms"/>Surfing over a Virtual Private Network alias VPN can result in slower speeds. A VPN is needed to connect to your company\'s intranet. <break time="1s"/> Can you temporarily disconnect from the VPN and test your internet speed. <break time="2s"/> Please say YES if your issue is fixed or say NO to continue next troubleshooting step',
+						"SlowspeedIsTBLStarted":"NO",
+						"BBUTBKStarted":"NO",
+						"ReplaceOrTBLQue":"YES",
+						"deliveryQuestion" :"",
+						"DashboardInfo" : "",
+						"previousintent" : "",
+						"lastspeech":speechOutput,
+						"lastreprompt":repromptText,
+						"ordercomplete":""
+					}
 				
 				}
 					
