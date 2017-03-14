@@ -475,8 +475,8 @@ function onIntent(intentRequest, session, callback) {
 					// }
 					else if(session.attributes.ordercomplete == "YES"){
 						console.log('Order Completed and informing the order number');
-						repromptText = "Are you there! here is your order number it says <say-as interpret-as='spell-out'>NJ20001367542</say-as>. <break time='1s'/> You will get an order confirmation mail to your registered mail address with verizon. Thank you for using fios";
-						speechOutput = "Okay! here is your order number it says <say-as interpret-as='spell-out'>NJ20001367542</say-as>. <break time='1s'/> You will get an order confirmation mail to your registered mail address with verizon. Thank you for using fios";
+						repromptText = "Are you there! here is your order number it says <say-as interpret-as='spell-out'>NJ2</say-as><break time='1s'/><say-as interpret-as='spell-out'>000</say-as><break time='1s'/><say-as interpret-as='spell-out'>136</say-as><break time='1s'/><say-as interpret-as='spell-out'>7542</say-as>. <break time='1s'/> You will get an order confirmation mail to your registered mail address with verizon. Thank you for using fios";
+						speechOutput = "Okay! here is your order number it says <say-as interpret-as='spell-out'>NJ2</say-as><break time='1s'/><say-as interpret-as='spell-out'>000</say-as><break time='1s'/><say-as interpret-as='spell-out'>136</say-as><break time='1s'/><say-as interpret-as='spell-out'>7542</say-as>. <break time='1s'/> You will get an order confirmation mail to your registered mail address with verizon. Thank you for using fios";
 						shouldEndSession = true;
 						cardTitle = 'Order Confirmation';
 						callback(sessionAttributes, buildSSMLSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
