@@ -294,8 +294,8 @@ function onIntent(intentRequest, session, callback) {
 					}
 					else if(session.attributes.ordercomplete == "YES"){
 						console.log('Order Completed and informing the order number');
-						repromptText = "Are you there! here is your order number it says <say-as interpret-as='spell-out'>NJ20001367542</say-as>. <break time='1s'/> You will get an order confirmation mail to your registered mail address with verizon. Thank you for using fios";
-						speechOutput = "Okay! here is your order number it says <say-as interpret-as='spell-out'>NJ20001367542</say-as>. <break time='1s'/> You will get an order confirmation mail to your registered mail address with verizon. Thank you for using fios";
+						repromptText = "Are you there! here is your order number it says <say-as interpret-as='spell-out'>NJ2</say-as><break time='1s'/><say-as interpret-as='spell-out'>000</say-as><break time='1s'/><say-as interpret-as='spell-out'>136</say-as><break time='1s'/><say-as interpret-as='spell-out'>7542</say-as>. <break time='1s'/> You will get an order confirmation mail to your registered mail address with verizon. Thank you for using F'\yos ";
+						speechOutput = "Okay! here is your order number it says <say-as interpret-as='spell-out'>NJ2</say-as><break time='1s'/><say-as interpret-as='spell-out'>000</say-as><break time='1s'/><say-as interpret-as='spell-out'>136</say-as><break time='1s'/><say-as interpret-as='spell-out'>7542</say-as>. <break time='1s'/> You will get an order confirmation mail to your registered mail address with verizon. Thank you for using F'\yos ";
 						shouldEndSession = true;
 						cardTitle = 'Order Confirmation';
 						callback(sessionAttributes, buildSSMLSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
@@ -312,7 +312,7 @@ function onIntent(intentRequest, session, callback) {
 					// }
 					else if(session.attributes.BBUTBKStarted == 'YES' && session.attributes.ReplaceOrTBLQue == 'YES' && session.attributes.deliveryQuestion == 'NO'){
 						console.log('BBU Trobleshoot Started = Yes and Question to BBU Troubleshoot = YES and session.attributes.deliveryQuestion == "NO"');
-						speechOutput = 'Congrats! Looks like we are done and i was happy that i helped you to resolve alert <break time="1s"/>Thanks You! Good Bye!';
+						speechOutput = 'Congrats! Looks like we are done and i was happy that i helped you to resolve alert <break time="1s"/>Thanks You for using f\'yos';
 						shouldEndSession = true;
 						repromptText = null;
 						sessionAttributes = {};
@@ -382,7 +382,7 @@ function onIntent(intentRequest, session, callback) {
 						console.log('BBU Delivey Options Played')
 						
 						repromptText = 'Are you there! Can you choose your shipping option(s)? Plesae say Either Premium Shipping Or Economy Shipping or Standard Shipping?';
-						speechOutput = 'We have Premium Shipping for One day for $14.99 <break time="1s"/> Or Economy Shipping for two days for $10.99 <break time="1s"/> Or Standard Shipping for 4 to 8 days for $8.99. Can you please tell me which shipping you need?';
+						speechOutput = 'We have Premium Shipping for One day for $9.99 <break time="1s"/> Or Economy Shipping for two days for $7.99 <break time="1s"/> Or Standard Shipping for 4 to 8 days for $5.99. Can you please tell me which shipping you need?';
 
 						session.attributes.lastspeech = speechOutput;
 						session.attributes.lastreprompt = speechOutput;
@@ -475,8 +475,8 @@ function onIntent(intentRequest, session, callback) {
 					// }
 					else if(session.attributes.ordercomplete == "YES"){
 						console.log('Order Completed and informing the order number');
-						repromptText = "Are you there! here is your order number it says <say-as interpret-as='spell-out'>NJ2</say-as><break time='1s'/><say-as interpret-as='spell-out'>000</say-as><break time='1s'/><say-as interpret-as='spell-out'>136</say-as><break time='1s'/><say-as interpret-as='spell-out'>7542</say-as>. <break time='1s'/> You will get an order confirmation mail to your registered mail address with verizon. Thank you for using fios";
-						speechOutput = "Okay! here is your order number it says <say-as interpret-as='spell-out'>NJ2</say-as><break time='1s'/><say-as interpret-as='spell-out'>000</say-as><break time='1s'/><say-as interpret-as='spell-out'>136</say-as><break time='1s'/><say-as interpret-as='spell-out'>7542</say-as>. <break time='1s'/> You will get an order confirmation mail to your registered mail address with verizon. Thank you for using fios";
+						repromptText = "Are you there! here is your order number it says <say-as interpret-as='spell-out'>NJ2</say-as><break time='1s'/><say-as interpret-as='spell-out'>000</say-as><break time='1s'/><say-as interpret-as='spell-out'>136</say-as><break time='1s'/><say-as interpret-as='spell-out'>7542</say-as>. <break time='1s'/> You will get an order confirmation mail to your registered mail address with verizon. Thank you for using F'\yos ";
+						speechOutput = "Okay! here is your order number it says <say-as interpret-as='spell-out'>NJ2</say-as><break time='1s'/><say-as interpret-as='spell-out'>000</say-as><break time='1s'/><say-as interpret-as='spell-out'>136</say-as><break time='1s'/><say-as interpret-as='spell-out'>7542</say-as>. <break time='1s'/> You will get an order confirmation mail to your registered mail address with verizon. Thank you for using F'\yos ";
 						shouldEndSession = true;
 						cardTitle = 'Order Confirmation';
 						callback(sessionAttributes, buildSSMLSpeechletResponse(cardTitle, speechOutput, repromptText, shouldEndSession));
@@ -540,9 +540,9 @@ function onIntent(intentRequest, session, callback) {
 	   
 	   console.log("Start Inside RTCI Intent");
 	   
-	   var visionCustID='154190083';
-	   var BTN ='7328422487';
-	   var State = 'NJ';
+	   var visionCustID='152006398';
+	   var BTN ='';
+	   var State = 'MA';
 	   
 	   if(intentRequest.intent.slots.BBUDelivery.value){
 	
@@ -648,11 +648,11 @@ function BBUOrderCallback(DeliveryTime, resp,callback, session){
 	let title = "BBU Order Success";
 	try
 	{
-		//speechOutput = 'Congrats! <break time="1s"/> We have received your order with '+DeliveryTime+' delivery option. <break time="1s"/> Once we submit your order we will send order confirmation e-mail to your registered mail address with Verizon. <break time="1s"/> Thank You! Good Bye!';
-		shouldEndSession = false;
+		speechOutput = 'Congrats! <break time="1s"/> We have received your order with '+DeliveryTime+' delivery option. <break time="1s"/> Once we submit your order we will send order confirmation e-mail to your registered mail address with Verizon. <break time="1s"/> Thank You for using F\'yos';
+		shouldEndSession = true;
 
-		speechOutput = 'Congrats! <break time="1s"/> We have received your order with '+DeliveryTime+' delivery option. <break time="1s"/> Can you please note down the order number for future reference.';
-		repromptText = 'Can you please note down your order number for future reference with Verizon';
+		//speechOutput = 'Congrats! <break time="1s"/> We have received your order with '+DeliveryTime+' delivery option. <break time="1s"/> Can you please note down the order number for future reference.';
+		//repromptText = 'Can you please note down your order number for future reference with Verizon';
 
 		session.attributes.lastspeech = speechOutput;
 		session.attributes.lastreprompt = repromptText;
@@ -835,7 +835,7 @@ function slowspeed(callback) {
 	var repromptText = ""; 
 	var sessionAttributes = {}; 
 	var shouldEndSession = false; 
-	var speechOutput = "I have been designed specifically to help Fios customers. However, i can still offer you some troubleshooting steps which can resolve slow internet. Just say yes to start the troubleshooting else no.";
+	var speechOutput = "I have been designed specifically to help F'\yos customers. However, i can still offer you some troubleshooting steps which can resolve slow internet. Just say yes to start the troubleshooting else no.";
 	callback(sessionAttributes, buildSpeechletResponseWithoutCard(speechOutput, repromptText, shouldEndSession));
 	console.log("slowspeed completed");
 }
