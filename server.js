@@ -1,3 +1,5 @@
+https://www.googleapis.com/language/translate/v2?q=hello&target=es&key=AIzaSyCMF0ffQP7z7n2-ue_u-PQOT3nKlihNeaw
+
 var restify = require('restify');
 var builder = require('botbuilder');
 var apiai = require('apiai');
