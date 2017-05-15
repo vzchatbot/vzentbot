@@ -1,5 +1,7 @@
 https://www.googleapis.com/language/translate/v2?q=hello&target=es&key=AIzaSyCMF0ffQP7z7n2-ue_u-PQOT3nKlihNeaw
 
+How do we access our mail since you cut it off without any closing date, just saying it would happen soon?
+
 var restify = require('restify');
 var builder = require('botbuilder');
 var apiai = require('apiai');
