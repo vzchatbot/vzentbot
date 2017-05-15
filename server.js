@@ -1,3 +1,6 @@
+Client access token : fcfd14219ad04c5badfc9d9c6a18fe2f
+Developer access token :bca954acea424a43bfbf6b6776b1e0b1
+
 https://www.googleapis.com/language/translate/v2?q=hello&target=es&key=AIzaSyCMF0ffQP7z7n2-ue_u-PQOT3nKlihNeaw
 
 How do we access our mail since you cut it off without any closing date, just saying it would happen soon?
