@@ -1,4 +1,16 @@
 
+Actual English Text:
+How do we access our mail since you cut it off without any closing date, just saying it would happen soon?
+
+English to Spanish Translation via API
+
+[2017-05-12 07:42:14.643] [DEBUG] botws - Response from {"statusCode":200,"body":{"data":{"translations":[{"translatedText":"¿Cómo podemos acceder a nuestro correo desde que lo cortó sin ninguna fecha de cierre, sólo diciendo que iba a suceder pronto?","detectedSourceLanguage":"en"}]}},"headers":{"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 12 May 2017 11:42:14 GMT","server":"ESF","cache-control":"private","x-xss-protection":"1; mode=block","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"quic=\":443\"; ma=2592000; v=\"37,36,35\"","accept-ranges":"none","connection":"close"},"request":{"uri":{"protocol":"https:","slashes":true,"auth":null,"host":"translation.googleapis.com","port":443,"hostname":"translation.googleapis.com","hash":null,"search":"?key=AIzaSyA2LVs-YDs-Z8_1sak4NmUrK0gLnsE7xLw","query":"key=AIzaSyA2LVs-YDs-Z8_1sak4NmUrK0gLnsE7xLw","pathname":"/language/translate/v2","path":"/language/translate/v2?key=AIzaSyA2LVs-YDs-Z8_1sak4NmUrK0gLnsE7xLw","href":"https://translation.googleapis.com/language/translate/v2?key=AIzaSyA2LVs-YDs-Z8_1sak4NmUrK0gLnsE7xLw"},"method":"POST","headers":{"Content-Type":"application/json","accept":"application/json","content-length":128}}}
+
+Spanish to English translation via API
+
+[2017-05-12 07:44:27.663] [DEBUG] botws - Response from {"statusCode":200,"body":{"data":{"translations":[{"translatedText":"How can we access our mail as soon as we cut it without a closing date, just saying it was going to happen soon?","detectedSourceLanguage":"es"}]}},"headers":{"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 12 May 2017 11:44:27 GMT","server":"ESF","cache-control":"private","x-xss-protection":"1; mode=block","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"quic=\":443\"; ma=2592000; v=\"37,36,35\"","accept-ranges":"none","connection":"close"},"request":{"uri":{"protocol":"https:","slashes":true,"auth":null,"host":"translation.googleapis.com","port":443,"hostname":"translation.googleapis.com","hash":null,"search":"?key=AIzaSyA2LVs-YDs-Z8_1sak4NmUrK0gLnsE7xLw","query":"key=AIzaSyA2LVs-YDs-Z8_1sak4NmUrK0gLnsE7xLw","pathname":"/language/translate/v2","path":"/language/translate/v2?key=AIzaSyA2LVs-YDs-Z8_1sak4NmUrK0gLnsE7xLw","href":"https://translation.googleapis.com/language/translate/v2?key=AIzaSyA2LVs-YDs-Z8_1sak4NmUrK0gLnsE7xLw"},"method":"POST","headers":{"Content-Type":"application/json","accept":"application/json","content-length":156}}}
+
+
 var args = {
             json: {
                 'q': '¿Cómo podemos acceder a nuestro correo desde que lo cortó sin ninguna fecha de cierre, sólo diciendo que iba a suceder pronto?',
