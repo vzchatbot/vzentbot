@@ -1,3 +1,28 @@
+
+var args = {
+            json: {
+                'q': '¿Cómo podemos acceder a nuestro correo desde que lo cortó sin ninguna fecha de cierre, sólo diciendo que iba a suceder pronto?',
+				'target': 'en'
+                }
+            };
+        
+
+request({
+            url: 'https://translation.googleapis.com/language/translate/v2?key=AIzaSyA2LVs-YDs-Z8_1sak4NmUrK0gLnsE7xLw',
+            proxy: config.vz_proxy,
+            headers: config.headersInfo,
+            method: 'POST',
+            json: args.json
+        }, function (error, response, body) {
+            if (!error && response.statusCode == 200) {
+                logger.debug("Response from " + JSON.stringify(response));
+            }
+            else {
+                logger.debug('error on sending request to translate: ' + error + ' body: ' + JSON.stringify(body));
+                //commonError(userCoversationArr, 'ufdreq');
+            }
+        });
+
 Client access token : fcfd14219ad04c5badfc9d9c6a18fe2f
 Developer access token :bca954acea424a43bfbf6b6776b1e0b1
 
