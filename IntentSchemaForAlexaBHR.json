@@ -1,0 +1,681 @@
+{
+  "intents": [
+    {
+      "intent": "Billpay"
+    },
+    {
+      "intent": "Fiosqualify"
+    },
+    {
+      "intent": "SmalltalkPersonHappy"
+    },
+    {
+      "intent": "SmalltalkPersonVerifyisbotchating"
+    },
+    {
+      "intent": "Showoutage"
+    },
+    {
+      "intent": "NoOnRecordEnd"
+    },
+    {
+      "intent": "Troubleshootrouter",
+      "slots": [
+        {
+          "name": "equipmenttypeslot",
+          "type": "EQUIPMENTTYPE"
+        }
+      ]
+    },
+    {
+      "intent": "SmalltalkPersonImabot"
+    },
+    {
+      "intent": "SmalltalkPersonBored"
+    },
+    {
+      "intent": "SmalltalkPersonVerifyispersonchating"
+    },
+    {
+      "intent": "SmalltalkPersonReal"
+    },
+    {
+      "intent": "Chatwithbot"
+    },
+    {
+      "intent": "SmalltalkPersonFriend"
+    },
+    {
+      "intent": "Packagesearch",
+      "slots": [
+        {
+          "name": "programgroupslot",
+          "type": "PROGRAMGROUP"
+        }
+      ]
+    },
+    {
+      "intent": "SmalltalkRelationshipsLove"
+    },
+    {
+      "intent": "SmalltalkLanguage"
+    },
+    {
+      "intent": "Initiate"
+    },
+    {
+      "intent": "SmalltalkPersonName"
+    },
+    {
+      "intent": "SmalltalkPersonSleepTime"
+    },
+    {
+      "intent": "MainMenu"
+    },
+    {
+      "intent": "SmalltalkHelloMorning"
+    },
+    {
+      "intent": "SmalltalkHelp"
+    },
+    {
+      "intent": "Openticket",
+      "slots": [
+        {
+          "name": "programsslot",
+          "type": "PROGRAMS"
+        }
+      ]
+    },
+    {
+      "intent": "SmalltalkHelloHello"
+    },
+    {
+      "intent": "Upsellchannel"
+    },
+    {
+      "intent": "MoreOptions",
+      "slots": [
+        {
+          "name": "timeslot",
+          "type": "AMAZON.TIME"
+        }
+      ]
+    },
+    {
+      "intent": "Linkaccount"
+    },
+    {
+      "intent": "SmalltalkGreetingsFunny"
+    },
+    {
+      "intent": "Vodpurchase",
+      "slots": [
+        {
+          "name": "numberslot",
+          "type": "AMAZON.NUMBER"
+        }
+      ]
+    },
+    {
+      "intent": "SmalltalkGreetingsGood"
+    },
+    {
+      "intent": "SmalltalkRelationshipsKiss"
+    },
+    {
+      "intent": "SmalltalkPersonBusy"
+    },
+    {
+      "intent": "Vodpricelist"
+    },
+    {
+      "intent": "SmalltalkEmotionsWow"
+    },
+    {
+      "intent": "ChannelSearch",
+      "slots": [
+        {
+          "name": "channelslot",
+          "type": "CHANNEL"
+        },
+        {
+          "name": "numberslot",
+          "type": "AMAZON.NUMBER"
+        }
+      ]
+    },
+    {
+      "intent": "SmalltalkPersonAddress"
+    },
+    {
+      "intent": "SmalltalkEmotionsCool"
+    },
+    {
+      "intent": "Speedtest"
+    },
+    {
+      "intent": "SmalltalkPersonLaugh"
+    },
+    {
+      "intent": "CancelTicket"
+    },
+    {
+      "intent": "SmalltalkOpinionGood"
+    },
+    {
+      "intent": "Record_original",
+      "slots": [
+        {
+          "name": "programsslot",
+          "type": "PROGRAMS"
+        },
+        {
+          "name": "channelslot",
+          "type": "CHANNEL"
+        },
+        {
+          "name": "numberslot",
+          "type": "AMAZON.NUMBER"
+        },
+        {
+          "name": "datetimeslot",
+          "type": "AMAZON.DATE"
+        }
+      ]
+    },
+    {
+      "intent": "SmalltalkPersonLove"
+    },
+    {
+      "intent": "SmalltalkByeGoodday"
+    },
+    {
+      "intent": "SmalltalkPersonVerifyisalwayschating"
+    },
+    {
+      "intent": "RecordStblistdirect",
+      "slots": [
+        {
+          "name": "numberslot",
+          "type": "AMAZON.NUMBER"
+        }
+      ]
+    },
+    {
+      "intent": "SmalltalkPersonOfficeName"
+    },
+    {
+      "intent": "Upsellchanneldirect",
+      "slots": [
+        {
+          "name": "channelslot",
+          "type": "CHANNEL"
+        }
+      ]
+    },
+    {
+      "intent": "SmalltalkPersonHobbies"
+    },
+    {
+      "intent": "SmalltalkPersonRelationships"
+    },
+    {
+      "intent": "SmalltalkOpinionAlexa"
+    },
+    {
+      "intent": "ProgramSearch",
+      "slots": [
+        {
+          "name": "programsslot",
+          "type": "PROGRAMS"
+        },
+        {
+          "name": "channelslot",
+          "type": "CHANNEL"
+        },
+        {
+          "name": "timeperiodslot",
+          "type": "AMAZON.TIME"
+        },
+        {
+          "name": "genreslot",
+          "type": "GENRE"
+        },
+        {
+          "name": "contenttypeslot",
+          "type": "CONTENTTYPE"
+        },
+        {
+          "name": "timeslot",
+          "type": "AMAZON.TIME"
+        },
+        {
+          "name": "dateslot",
+          "type": "AMAZON.DATE"
+        }
+      ]
+    },
+    {
+      "intent": "SmalltalkFavoritesMovie",
+      "slots": [
+        {
+          "name": "programsslot",
+          "type": "PROGRAMS"
+        }
+      ]
+    },
+    {
+      "intent": "Findtech"
+    },
+    {
+      "intent": "SmalltalkPersonSleepy"
+    },
+    {
+      "intent": "Castwise",
+      "slots": [
+        {
+          "name": "castslot",
+          "type": "CAST"
+        },
+        {
+          "name": "contenttypeslot",
+          "type": "CONTENTTYPE"
+        },
+        {
+          "name": "dateslot",
+          "type": "AMAZON.DATE"
+        },
+        {
+          "name": "channelslot",
+          "type": "CHANNEL"
+        },
+        {
+          "name": "genreslot",
+          "type": "GENRE"
+        },
+        {
+          "name": "timeperiodslot",
+          "type": "AMAZON.TIME"
+        },
+        {
+          "name": "timeslot",
+          "type": "AMAZON.TIME"
+        }
+      ]
+    },
+    {
+      "intent": "SmalltalkEmotionsHaHa"
+    },
+    {
+      "intent": "Vodsearch",
+      "slots": [
+        {
+          "name": "vodtitlesslot",
+          "type": "VODTITLES"
+        },
+        {
+          "name": "genreslot",
+          "type": "GENRE"
+        },
+        {
+          "name": "castslot",
+          "type": "CAST"
+        },
+        {
+          "name": "dateperiodslot",
+          "type": "AMAZON.DATE"
+        }
+      ]
+    },
+    {
+      "intent": "SmalltalkByeThanks"
+    },
+    {
+      "intent": "SmalltalkFavoritesTvChannel",
+      "slots": [
+        {
+          "name": "channelslot",
+          "type": "CHANNEL"
+        }
+      ]
+    },
+    {
+      "intent": "SmalltalkPersonTired"
+    },
+    {
+      "intent": "SmalltalkPersonSad"
+    },
+    {
+      "intent": "SmalltalkPersonBirthday"
+    },
+    {
+      "intent": "ProgramDetails",
+      "slots": [
+        {
+          "name": "programsslot",
+          "type": "PROGRAMS"
+        },
+        {
+          "name": "channelslot",
+          "type": "CHANNEL"
+        }
+      ]
+    },
+    {
+      "intent": "SmalltalkOthersUmean"
+    },
+    {
+      "intent": "SmalltalkOpinionWelldone"
+    },
+    {
+      "intent": "SmalltalkGreetingsWelcome"
+    },
+    {
+      "intent": "SmalltalkPersonAge"
+    },
+    {
+      "intent": "SmalltalkPersonFamilyDetails"
+    },
+    {
+      "intent": "SmalltalkOthersStopit"
+    },
+    {
+      "intent": "OnLater"
+    },
+    {
+      "intent": "Billdue"
+    },
+    {
+      "intent": "TeamSearch",
+      "slots": [
+        {
+          "name": "teamsslot",
+          "type": "TEAMS"
+        }
+      ]
+    },
+    {
+      "intent": "PackageSearch",
+      "slots": [
+        {
+          "name": "channelgenreslot",
+          "type": "CHANNELGENRE"
+        },
+        {
+          "name": "channelslot",
+          "type": "CHANNEL"
+        }
+      ]
+    },
+    {
+      "intent": "SmalltalkRelationshipsMarry"
+    },
+    {
+      "intent": "Support",
+      "slots": [
+        {
+          "name": "programsslot",
+          "type": "PROGRAMS"
+        }
+      ]
+    },
+    {
+      "intent": "SmalltalkByeNight"
+    },
+    {
+      "intent": "SmalltalkFavoritesTvShow",
+      "slots": [
+        {
+          "name": "channelslot",
+          "type": "CHANNEL"
+        },
+        {
+          "name": "contenttypeslot",
+          "type": "CONTENTTYPE"
+        }
+      ]
+    },
+    {
+      "intent": "SmalltalkRelationshipsFriend"
+    },
+    {
+      "intent": "SmalltalkOthersDonotcare"
+    },
+    {
+      "intent": "SmalltalkOthersWrong"
+    },
+    {
+      "intent": "SmalltalkByeNicemeeting"
+    },
+    {
+      "intent": "Onnow",
+      "slots": [
+        {
+          "name": "timeslot",
+          "type": "AMAZON.TIME"
+        }
+      ]
+    },
+    {
+      "intent": "RecordStblist",
+      "slots": [
+        {
+          "name": "numberslot",
+          "type": "AMAZON.NUMBER"
+        }
+      ]
+    },
+    {
+      "intent": "SmalltalkPersonHate"
+    },
+    {
+      "intent": "SmalltalkPersonOfficeSalary"
+    },
+    {
+      "intent": "SmalltalkPersonDoing"
+    },
+    {
+      "intent": "RecordTimings",
+      "slots": [
+        {
+          "name": "dateslot",
+          "type": "AMAZON.DATE"
+        },
+        {
+          "name": "datetimeslot",
+          "type": "AMAZON.DATE"
+        }
+      ]
+    },
+    {
+      "intent": "SmalltalkByeCU"
+    },
+    {
+      "intent": "SmalltalkPersonInfo"
+    },
+    {
+      "intent": "SmalltalkPersonBecomehuman"
+    },
+    {
+      "intent": "ProgramSearchDatechanged",
+      "slots": [
+        {
+          "name": "dateslot",
+          "type": "AMAZON.DATE"
+        }
+      ]
+    },
+    {
+      "intent": "GenreSearch",
+      "slots": [
+        {
+          "name": "genreslot",
+          "type": "GENRE"
+        },
+        {
+          "name": "contenttypeslot",
+          "type": "CONTENTTYPE"
+        },
+        {
+          "name": "timeperiodslot",
+          "type": "AMAZON.TIME"
+        },
+        {
+          "name": "channelslot",
+          "type": "CHANNEL"
+        },
+        {
+          "name": "timeslot",
+          "type": "AMAZON.TIME"
+        },
+        {
+          "name": "dateslot",
+          "type": "AMAZON.DATE"
+        },
+        {
+          "name": "castslot",
+          "type": "CAST"
+        },
+        {
+          "name": "programsslot",
+          "type": "PROGRAMS"
+        }
+      ]
+    },
+    {
+      "intent": "SmalltalkOpinionGoogleHome"
+    },
+    {
+      "intent": "Billenquiry"
+    },
+    {
+      "intent": "SmalltalkPersonVerifyischating"
+    },
+    {
+      "intent": "SmalltalkPersonHungry"
+    },
+    {
+      "intent": "SmalltalkHelloEvening"
+    },
+    {
+      "intent": "Ppvsearch",
+      "slots": [
+        {
+          "name": "ppvtitlesslot",
+          "type": "PPVTITLES"
+        }
+      ]
+    },
+    {
+      "intent": "Record",
+      "slots": [
+        {
+          "name": "programsslot",
+          "type": "PROGRAMS"
+        },
+        {
+          "name": "channelslot",
+          "type": "CHANNEL"
+        },
+        {
+          "name": "datetimeslot",
+          "type": "AMAZON.DATE"
+        },
+        {
+          "name": "numberslot",
+          "type": "AMAZON.NUMBER"
+        },
+        {
+          "name": "dateslot",
+          "type": "AMAZON.DATE"
+        }
+      ]
+    },
+    {
+      "intent": "Weather"
+    },
+    {
+      "intent": "SmalltalkPersonAppearance"
+    },
+    {
+      "intent": "Pgmdetails",
+      "slots": [
+        {
+          "name": "numberslot",
+          "type": "AMAZON.NUMBER"
+        },
+        {
+          "name": "programsslot",
+          "type": "PROGRAMS"
+        },
+        {
+          "name": "channelslot",
+          "type": "CHANNEL"
+        },
+        {
+          "name": "dateslot",
+          "type": "AMAZON.DATE"
+        },
+        {
+          "name": "datetimeslot",
+          "type": "AMAZON.DATE"
+        }
+      ]
+    },
+    {
+      "intent": "SmalltalkHelloNicetalking"
+    },
+    {
+      "intent": "SmalltalkOpinionOkay"
+    },
+    {
+      "intent": "SmalltalkPersonRock"
+    },
+    {
+      "intent": "SmalltalkHelloWhatsup"
+    },
+    {
+      "intent": "StartOver"
+    },
+    {
+      "intent": "DvrUpgrade",
+      "slots": [
+        {
+          "name": "numberslot",
+          "type": "AMAZON.NUMBER"
+        }
+      ]
+    },
+    {
+      "intent": "CategoryList",
+      "slots": [
+        {
+          "name": "numberslot",
+          "type": "AMAZON.NUMBER"
+        }
+      ]
+    },
+    {
+      "intent": "ProgramSearchChannelchanged",
+      "slots": [
+        {
+          "name": "channelslot",
+          "type": "CHANNEL"
+        }
+      ]
+    },
+    {
+      "intent": "SmalltalkByeBye"
+    },
+    {
+      "intent": "Rescheduleappointment"
+    },
+    {
+      "intent": "SmalltalkOpinionSorry"
+    },
+    {
+      "intent": "SmalltalkByeMustbye"
+    }
+  ]
+}

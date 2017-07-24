@@ -1,0 +1,1096 @@
+Billpay	bill pay
+Billpay	help with bill.
+Billpay	hi, i need help in paying my bill?
+Billpay	i just need help with billing and payment
+Billpay	i just need help with billing and payments
+Billpay	i need assistant wil autopay
+Billpay	i want to pay my bill
+Billpay	pay bill
+Billpay	pay bill now
+Billpay	pay bill today
+Billpay	pay billing
+Billpay	pay my bill
+Billpay	payment of my bill
+Billpay	wanna pay bill
+Billpay	where do i go to make a payment online
+Billpay	where do i go to make a payment online?
+Fiosqualify	can i get internet in my area
+Fiosqualify	do you offer fio services in my area
+Fiosqualify	do you offer fios services in my area
+Fiosqualify	fio connection in my area
+Fiosqualify	fios connection
+Fiosqualify	fios connection in my area
+Fiosqualify	get fio
+Fiosqualify	get fios
+Fiosqualify	is fio available in my area
+Fiosqualify	is fio in my zipcode
+Fiosqualify	is fio internet available in my area
+Fiosqualify	is fios available in my area
+Fiosqualify	is fios in my zipcode
+Fiosqualify	is fios internet available in my area
+Fiosqualify	looking for fio service
+Fiosqualify	looking for fios connection
+Fiosqualify	looking for fios service
+Fiosqualify	new fios connection
+SmalltalkPersonHappy	i am happy .
+SmalltalkPersonHappy	i am happy.
+SmalltalkPersonHappy	i m feeling happy .
+SmalltalkPersonHappy	i'm feeling happy.
+SmalltalkPersonVerifyisbotchating	are you a bot
+SmalltalkPersonVerifyisbotchating	are you a bot?
+SmalltalkPersonVerifyisbotchating	are you a chat bot
+SmalltalkPersonVerifyisbotchating	are you a chat bot?
+SmalltalkPersonVerifyisbotchating	are you a chat-bot
+SmalltalkPersonVerifyisbotchating	are you a chat-bot?
+SmalltalkPersonVerifyisbotchating	are you a chatbot
+SmalltalkPersonVerifyisbotchating	are you a chatbot?
+SmalltalkPersonVerifyisbotchating	are you a robot
+SmalltalkPersonVerifyisbotchating	are you a robot?
+SmalltalkPersonVerifyisbotchating	r u a chat bot
+SmalltalkPersonVerifyisbotchating	r u a chat bot?
+SmalltalkPersonVerifyisbotchating	r u a chat-bot
+SmalltalkPersonVerifyisbotchating	r u a chat-bot?
+Showoutage	any outage
+Showoutage	any outage in my area
+Showoutage	outage
+Showoutage	show outage in my area
+NoOnRecordEnd	no on record end
+Troubleshootrouter	{equipmenttypeslot} issue
+Troubleshootrouter	{equipmenttypeslot} not working
+Troubleshootrouter	internet is not working
+Troubleshootrouter	reboot my {equipmenttypeslot}
+Troubleshootrouter	reset my {equipmenttypeslot}
+Troubleshootrouter	wifi analyzer
+SmalltalkPersonImabot	i am a robot
+SmalltalkPersonImabot	i am chatbot
+SmalltalkPersonBored	get bore
+SmalltalkPersonBored	getting bored
+SmalltalkPersonBored	i am bore
+SmalltalkPersonBored	i am bored
+SmalltalkPersonVerifyispersonchating	are you a human?
+SmalltalkPersonVerifyispersonchating	r u a human?
+SmalltalkPersonVerifyispersonchating	r u a person
+SmalltalkPersonVerifyispersonchating	r u a person?
+SmalltalkPersonReal	are you real
+SmalltalkPersonReal	are you real?
+Chatwithbot	chat with bot
+SmalltalkPersonFriend	ur friend name
+SmalltalkPersonFriend	who s ur best frnd
+SmalltalkPersonFriend	who's ur best friend?
+SmalltalkPersonFriend	who's ur best frnd?
+SmalltalkPersonFriend	who's your best friend?
+SmalltalkPersonFriend	your friend name
+Packagesearch	package search
+Packagesearch	what are my {programgroupslot} channel
+Packagesearch	what are my {programgroupslot} channels
+SmalltalkRelationshipsLove	do you love me
+SmalltalkRelationshipsLove	i love u
+SmalltalkRelationshipsLove	i love you
+SmalltalkLanguage	do u speak other language
+SmalltalkLanguage	do u speak other languages?
+SmalltalkLanguage	do you speak other languages?
+SmalltalkLanguage	which language do you speak
+SmalltalkLanguage	which languages do you speak?
+Initiate	get started
+Initiate	hei bot
+Initiate	hello
+Initiate	hey
+Initiate	hey bot
+Initiate	hey team
+Initiate	hi
+Initiate	hi vera prod
+Initiate	onye veera
+Initiate	onye veera!
+Initiate	oye
+Initiate	start over
+Initiate	unlink
+Initiate	verizon
+SmalltalkPersonName	ur name
+SmalltalkPersonName	ur name please
+SmalltalkPersonName	what s ur name
+SmalltalkPersonName	what s your name
+SmalltalkPersonName	what's ur name?
+SmalltalkPersonName	what's your name?
+SmalltalkPersonName	your name
+SmalltalkPersonName	your name please
+SmalltalkPersonSleepTime	when do u sleep
+SmalltalkPersonSleepTime	when do u sleep?
+SmalltalkPersonSleepTime	when do you sleep
+SmalltalkPersonSleepTime	when do you sleep?
+SmalltalkPersonSleepTime	when is ur bed time
+SmalltalkPersonSleepTime	when is ur bed time?
+SmalltalkPersonSleepTime	when is your bed time
+SmalltalkPersonSleepTime	when is your bed time?
+MainMenu	i don't wanna record
+MainMenu	i dont want to record
+MainMenu	main menu
+SmalltalkHelloMorning	a very good morning!
+SmalltalkHelloMorning	good morning fios!
+SmalltalkHelloMorning	good morning!
+SmalltalkHelloMorning	oh good morning by the way!
+SmalltalkHelp	can u help me
+SmalltalkHelp	can you help?
+SmalltalkHelp	i need help
+SmalltalkHelp	i need your help
+Openticket	{programsslot} me ticket information plz
+Openticket	any appointment
+Openticket	cancel my scheduled tech visit
+Openticket	cancel scheduled appointment
+Openticket	cancel your technician appointment
+Openticket	give me ticket information plz
+Openticket	is tbeir any open ticket
+Openticket	is tbeir any open tickets
+Openticket	is their any open ticket
+Openticket	is their any open ticket?
+Openticket	is their any open tickets
+Openticket	open ticket
+Openticket	open tickets
+Openticket	show tickets
+Openticket	ticket
+Openticket	ticket detail
+Openticket	ticket details
+Openticket	tickets
+Openticket	want to cancel appointment
+SmalltalkHelloHello	hai
+SmalltalkHelloHello	hello!
+SmalltalkHelloHello	hey
+SmalltalkHelloHello	hi
+Upsellchannel	go ahead
+Upsellchannel	i like to subscribe
+Upsellchannel	i like to subscribe hbo
+Upsellchannel	i want to subscribe
+Upsellchannel	subscribe
+Upsellchannel	yes i want to
+Upsellchannel	yes subscribe
+MoreOptions	how can you help me
+MoreOptions	i m new to this vz
+MoreOptions	more
+MoreOptions	more option
+MoreOptions	more options
+MoreOptions	on now
+MoreOptions	on {timeslot}
+MoreOptions	option
+MoreOptions	options
+MoreOptions	reply man
+MoreOptions	so what can u show me
+MoreOptions	so what can u show me?
+MoreOptions	what all can you do?
+Linkaccount	am i logged in
+Linkaccount	link account
+Linkaccount	linkaccount
+Linkaccount	log in
+Linkaccount	log out
+Linkaccount	login
+Linkaccount	logout
+Linkaccount	sign out
+Linkaccount	signin
+Linkaccount	unlink
+Linkaccount	unsubscribe
+SmalltalkGreetingsFunny	u r very funny
+SmalltalkGreetingsFunny	you re very funny
+SmalltalkGreetingsFunny	you're very funny
+Vodpurchase	buy vod {numberslot}
+SmalltalkGreetingsGood	how are you
+SmalltalkGreetingsGood	how are you?
+SmalltalkRelationshipsKiss	give me a kiss
+SmalltalkRelationshipsKiss	i kiss you
+SmalltalkRelationshipsKiss	kiss
+SmalltalkRelationshipsKiss	kiss me
+SmalltalkPersonBusy	are you busy
+SmalltalkPersonBusy	are you busy?
+SmalltalkPersonBusy	r u busy
+SmalltalkPersonBusy	r u busy?
+Vodpricelist	vodpricelist pid paid
+Vodpricelist	vodpricelist pid pay
+SmalltalkEmotionsWow	hurray
+SmalltalkEmotionsWow	wow
+SmalltalkEmotionsWow	wow!
+ChannelSearch	{channelslot}
+ChannelSearch	{channelslot} tv
+ChannelSearch	channel # {numberslot}
+ChannelSearch	channel no of {channelslot}
+ChannelSearch	channel number of {channelslot}
+ChannelSearch	channel {numberslot}
+ChannelSearch	i want to watch {channelslot}
+ChannelSearch	is {channelslot} on seventy
+ChannelSearch	is {channelslot} on {numberslot}
+ChannelSearch	what channel is on {channelslot}
+ChannelSearch	what channel is on {numberslot}
+ChannelSearch	what channel is {channelslot}
+ChannelSearch	what channel is {channelslot} on
+ChannelSearch	what channel is {numberslot}
+ChannelSearch	what channel number is {channelslot}
+ChannelSearch	what is the channel number for {channelslot}
+ChannelSearch	what is the channel position of {channelslot}
+ChannelSearch	what s on channel {numberslot}
+ChannelSearch	whats is the channel no of {channelslot}
+ChannelSearch	whats on # {numberslot}
+ChannelSearch	whats on channel number {numberslot}
+ChannelSearch	where i can find {channelslot}
+ChannelSearch	where is {channelslot}
+SmalltalkPersonAddress	ur address please
+SmalltalkPersonAddress	ur address please?
+SmalltalkPersonAddress	where are you from
+SmalltalkPersonAddress	where are you from?
+SmalltalkPersonAddress	where r u from
+SmalltalkPersonAddress	where r u from?
+SmalltalkPersonAddress	your address
+SmalltalkPersonAddress	your address?
+SmalltalkEmotionsCool	be cool
+SmalltalkEmotionsCool	cool
+SmalltalkEmotionsCool	cool .
+SmalltalkEmotionsCool	cool.
+SmalltalkEmotionsCool	kool
+Speedtest	check my fios speed
+Speedtest	check my internet speed
+Speedtest	download speed
+Speedtest	i so in the web news you have especial $seventy almost a gigabyte of speed
+Speedtest	i want to check my internet speed
+Speedtest	internet connection is slow
+Speedtest	internet speed
+Speedtest	speed test
+Speedtest	test my internet speed
+Speedtest	test my speed
+Speedtest	upload speed
+Speedtest	what's my speed?
+Speedtest	why my internet speed is slow
+Speedtest	wifi speed
+SmalltalkPersonLaugh	can u laugh
+SmalltalkPersonLaugh	can u laugh?
+SmalltalkPersonLaugh	can you laugh
+SmalltalkPersonLaugh	can you laugh?
+CancelTicket	want to cancel
+CancelTicket	want to cancel tktregion
+SmalltalkOpinionGood	good
+SmalltalkOpinionGood	good .
+SmalltalkOpinionGood	good.
+Record_original	i want to record
+Record_original	interested in recording {programsslot} on {channelslot}
+Record_original	please record
+Record_original	record
+Record_original	record it
+Record_original	record the program
+Record_original	record the {programsslot} program on {channelslot}
+Record_original	record the {programsslot} program on {channelslot} at twelve thirty
+Record_original	record {programsslot} at {datetimeslot}
+Record_original	want to record the {programsslot} on {channelslot} at date {numberslot} time {datetimeslot} fiosid {numberslot} stationid {numberslot} regionid {numberslot} duration {numberslot}
+Record_original	want to record {programsslot} on {channelslot} at date {numberslot} time {datetimeslot} fiosid {numberslot} stationid {numberslot} regionid {numberslot} duration {numberslot}
+SmalltalkPersonLove	i love u
+SmalltalkPersonLove	i love you
+SmalltalkByeGoodday	have a good day!
+SmalltalkByeGoodday	have a nice day!
+SmalltalkPersonVerifyisalwayschating	are you always there
+SmalltalkPersonVerifyisalwayschating	are you always there?
+SmalltalkPersonVerifyisalwayschating	are you still there
+SmalltalkPersonVerifyisalwayschating	are you still there?
+SmalltalkPersonVerifyisalwayschating	r u always there
+SmalltalkPersonVerifyisalwayschating	r u always there?
+SmalltalkPersonVerifyisalwayschating	r u still there
+SmalltalkPersonVerifyisalwayschating	r u still there?
+RecordStblistdirect	stbid stbmodel qipseven thousand two hundred thirty two-ptwo regionid ninety one thousand six hundred twenty nine vhoid vhosix
+RecordStblistdirect	stbid stbmodel regionid ninety one thousand six hundred twenty nine vhoid vhosix
+RecordStblistdirect	stbid stbmodel regionid {numberslot} vhoid
+RecordStblistdirect	stbid stbmodel regionid {numberslot} vhoid vhosix
+RecordStblistdirect	stbid {numberslot} stbmodel regionid ninety one thousand six hundred twenty nine vhoid vhosix
+RecordStblistdirect	stbid {numberslot} stbmodel regionid {numberslot} vhoid vhosix
+SmalltalkPersonOfficeName	ur employer name
+SmalltalkPersonOfficeName	where do u work
+SmalltalkPersonOfficeName	where do you work
+SmalltalkPersonOfficeName	where do you work?
+SmalltalkPersonOfficeName	who is ur employer
+SmalltalkPersonOfficeName	who is your employer
+SmalltalkPersonOfficeName	who is your employer?
+SmalltalkPersonOfficeName	your employer name please
+Upsellchanneldirect	go ahead
+Upsellchanneldirect	i like to subscribe
+Upsellchanneldirect	i like to subscribe {channelslot}
+Upsellchanneldirect	i want to subscribe
+Upsellchanneldirect	subscribe
+Upsellchanneldirect	subscribe {channelslot}
+Upsellchanneldirect	yes i want to
+Upsellchanneldirect	yes subscribe
+SmalltalkPersonHobbies	what are your hobbies?
+SmalltalkPersonHobbies	what are your hobby
+SmalltalkPersonHobbies	what r ur hobbies?
+SmalltalkPersonHobbies	what r ur hobby
+SmalltalkPersonRelationships	are you single
+SmalltalkPersonRelationships	do u have a boy friend
+SmalltalkPersonRelationships	do u have a girlfriend
+SmalltalkPersonRelationships	do you a bf
+SmalltalkPersonRelationships	do you a gf
+SmalltalkPersonRelationships	do you date anyone
+SmalltalkPersonRelationships	do you have a boyfriend
+SmalltalkPersonRelationships	do you have a girl friend
+SmalltalkPersonRelationships	r u single
+SmalltalkPersonRelationships	what is your relationship status
+SmalltalkOpinionAlexa	what do u think of alexa?
+SmalltalkOpinionAlexa	what do you think of alexa
+SmalltalkOpinionAlexa	what do you think of alexa?
+ProgramSearch	{genreslot} {contenttypeslot} on {channelslot}
+ProgramSearch	{programsslot} schedule please
+ProgramSearch	{programsslot} timing
+ProgramSearch	{programsslot} timings
+ProgramSearch	{channelslot} programs {timeperiodslot}
+ProgramSearch	{channelslot} programme {timeperiodslot}
+ProgramSearch	{contenttypeslot} on {channelslot}
+ProgramSearch	{channelslot}
+ProgramSearch	{channelslot} {programsslot}
+ProgramSearch	{programsslot} homes
+ProgramSearch	{channelslot} at {timeslot}
+ProgramSearch	{contenttypeslot} playing {timeperiodslot}
+ProgramSearch	{contenttypeslot} playing at {timeslot}
+ProgramSearch	{contenttypeslot} {dateslot}
+ProgramSearch	{contenttypeslot} on {channelslot} {dateslot}
+ProgramSearch	{programsslot} on {channelslot}
+ProgramSearch	{channelslot} {contenttypeslot} at {timeslot}
+ProgramSearch	{dateslot} {timeperiodslot} {contenttypeslot}
+ProgramSearch	{contenttypeslot} on now
+ProgramSearch	{contenttypeslot} on right now
+ProgramSearch	{programsslot} season-four
+ProgramSearch	{programsslot} season two
+ProgramSearch	{programsslot} season twelve
+ProgramSearch	{channelslot} {timeperiodslot}
+ProgramSearch	{genreslot} on {channelslot}
+ProgramSearch	{programsslot}
+ProgramSearch	any {contenttypeslot} {timeperiodslot}
+ProgramSearch	any {genreslot}
+ProgramSearch	any {genreslot} on {channelslot}
+ProgramSearch	any {genreslot} shows {dateslot}
+ProgramSearch	any {genreslot} {contenttypeslot}
+ProgramSearch	any {genreslot} {contenttypeslot} now running
+ProgramSearch	any {genreslot} {contenttypeslot} on {channelslot} {timeperiodslot}
+ProgramSearch	any {genreslot} {dateslot}
+ProgramSearch	any {programsslot} on {timeperiodslot}
+ProgramSearch	any {programsslot} {timeperiodslot}
+ProgramSearch	funny . i want to watch {programsslot}
+ProgramSearch	get program info of {programsslot} on {channelslot}
+ProgramSearch	get schedule of {channelslot} {timeperiodslot}
+ProgramSearch	how about {programsslot}
+ProgramSearch	i am looking for {genreslot}
+ProgramSearch	i just want to watch {programsslot}
+ProgramSearch	i want to want {programsslot}
+ProgramSearch	i want to watch a {programsslot}
+ProgramSearch	i want to watch {programsslot}
+ProgramSearch	is there an {programsslot} game tonight
+ProgramSearch	is there any new episode {dateslot} for {programsslot}
+ProgramSearch	it s an episode of the {programsslot}
+ProgramSearch	let me the programs on {channelslot} {dateslot}
+ProgramSearch	let me the programs on {channelslot} {programsslot}
+ProgramSearch	list me the programs on {channelslot} {dateslot}
+ProgramSearch	looking for {programsslot}
+ProgramSearch	next {dateslot}
+ProgramSearch	on which channel can i see {programsslot}
+ProgramSearch	programs on {channelslot} {dateslot}
+ProgramSearch	show me the {programsslot} schedule
+ProgramSearch	show me {channelslot}
+ProgramSearch	show me {channelslot} {contenttypeslot}
+ProgramSearch	show me {programsslot}
+ProgramSearch	show me {programsslot} {contenttypeslot}
+ProgramSearch	show more episodes of teen {programsslot}
+ProgramSearch	show more episodes of {programsslot}
+ProgramSearch	show my {genreslot}
+ProgramSearch	show schedule of {programsslot}
+ProgramSearch	show schedules for {programsslot}
+ProgramSearch	show some {genreslot} {contenttypeslot}
+ProgramSearch	show {contenttypeslot} on {dateslot} {timeperiodslot}
+ProgramSearch	show {genreslot} {contenttypeslot}
+ProgramSearch	show {genreslot} {contenttypeslot} on {channelslot} at {timeslot}
+ProgramSearch	show {genreslot} {contenttypeslot} running now
+ProgramSearch	show {programsslot} events
+ProgramSearch	show {programsslot} {contenttypeslot}
+ProgramSearch	take me to {channelslot} {contenttypeslot}
+ProgramSearch	the {programsslot}
+ProgramSearch	the {programsslot} {contenttypeslot}
+ProgramSearch	timing of {programsslot} on {channelslot}
+ProgramSearch	timing of {programsslot} on {channelslot} {dateslot}
+ProgramSearch	tv listing {timeperiodslot}
+ProgramSearch	want to see {programsslot}
+ProgramSearch	what can i watch {timeperiodslot}
+ProgramSearch	what channel are the {programsslot} on
+ProgramSearch	what channel is playing {programsslot} {contenttypeslot}
+ProgramSearch	what channel is showing {programsslot}
+ProgramSearch	what channel is {programsslot}
+ProgramSearch	what channel is {programsslot} is on
+ProgramSearch	what channel is {programsslot} on
+ProgramSearch	what channel {programsslot} is running
+ProgramSearch	what is on {channelslot}
+ProgramSearch	what is on {channelslot} {timeperiodslot}
+ProgramSearch	what s currently playing in {channelslot}
+ProgramSearch	what s going on {channelslot} right now
+ProgramSearch	what s in {timeperiodslot}
+ProgramSearch	what s interesting in {channelslot}
+ProgramSearch	what s live in {channelslot}
+ProgramSearch	what s on at {timeslot}
+ProgramSearch	what s on later today at {timeslot}
+ProgramSearch	what s on now in {channelslot}
+ProgramSearch	what s on now on {channelslot}
+ProgramSearch	what s on {channelslot}
+ProgramSearch	what s on {channelslot} about {programsslot}
+ProgramSearch	what s on {channelslot} at {timeslot}
+ProgramSearch	what s on {channelslot} evening at {timeslot}
+ProgramSearch	what s on {channelslot} hd
+ProgramSearch	what s on {channelslot} on {timeslot}
+ProgramSearch	what s on {channelslot} {dateslot}
+ProgramSearch	what s on {channelslot} {dateslot} at {timeslot}
+ProgramSearch	what s on {channelslot} {timeperiodslot}
+ProgramSearch	what s on {dateslot}
+ProgramSearch	what s on {dateslot} {timeperiodslot}
+ProgramSearch	what s on {dateslot} {timeperiodslot} at {timeslot}
+ProgramSearch	what s on {timeperiodslot}
+ProgramSearch	what s on {timeperiodslot} on {channelslot}
+ProgramSearch	what time and channel is the show {programsslot}
+ProgramSearch	what time is {programsslot}
+ProgramSearch	what time is {programsslot} game {dateslot}
+ProgramSearch	what time is {programsslot} league game {dateslot}
+ProgramSearch	what {contenttypeslot} are on now
+ProgramSearch	what {contenttypeslot} are on right now
+ProgramSearch	what {contenttypeslot} are playing at {timeslot} on {channelslot}
+ProgramSearch	what {contenttypeslot} on {channelslot} {dateslot}
+ProgramSearch	what {programsslot} are on {timeperiodslot}
+ProgramSearch	what {programsslot} game is on {timeperiodslot}
+ProgramSearch	whats on channel {channelslot}
+ProgramSearch	whats on now in {channelslot}
+ProgramSearch	whats on tonight on {channelslot}
+ProgramSearch	whats on tv at {timeslot}
+ProgramSearch	whats on {channelslot}
+ProgramSearch	whats on {channelslot} at {timeslot}
+ProgramSearch	whats on {channelslot} friday
+ProgramSearch	whats on {channelslot} {dateslot}
+ProgramSearch	whats on {channelslot} {timeperiodslot}
+ProgramSearch	whats on {timeperiodslot} on {channelslot}
+ProgramSearch	when a new show the {programsslot} was coming on
+ProgramSearch	when and where is {programsslot}
+ProgramSearch	when can i a attach {programsslot}
+ProgramSearch	when can i watch {programsslot}
+ProgramSearch	when do the {programsslot} play again
+ProgramSearch	when does {programsslot} play on {channelslot} {dateslot}
+ProgramSearch	when does {programsslot} start
+ProgramSearch	when is the next episode of {programsslot}
+ProgramSearch	when is the {programsslot}
+ProgramSearch	when is the {programsslot} game
+ProgramSearch	when is the {programsslot} s
+ProgramSearch	when is {programsslot}
+ProgramSearch	when is {programsslot} in {channelslot}
+ProgramSearch	when is {programsslot} on
+ProgramSearch	when is {programsslot} on {channelslot}
+ProgramSearch	when is {programsslot} on {channelslot} today
+ProgramSearch	where i can find {programsslot}
+ProgramSearch	where i can watch {programsslot}
+ProgramSearch	where is {programsslot}
+ProgramSearch	which channel is playing {programsslot}
+ProgramSearch	will {programsslot} have a new episode {timeperiodslot}
+ProgramSearch	wts on {channelslot}
+SmalltalkFavoritesMovie	what s ur favorite cinema
+SmalltalkFavoritesMovie	what s ur favorite movie
+SmalltalkFavoritesMovie	what s ur favorite {programsslot}
+SmalltalkFavoritesMovie	what s your favorite cinema
+SmalltalkFavoritesMovie	what's ur favorite cinemas?
+SmalltalkFavoritesMovie	what's ur favorite movie?
+SmalltalkFavoritesMovie	what's your favorite cinemas?
+SmalltalkFavoritesMovie	what's your favorite film?
+SmalltalkFavoritesMovie	what's your favorite movie?
+Findtech	i am waiting for my technician
+Findtech	i m wait for my technician
+Findtech	i'm waiting for my technician
+Findtech	is the technician on his way
+Findtech	is the verizon technician on his way
+Findtech	technician did not turn up
+Findtech	where is my tech
+Findtech	where is the technician
+SmalltalkPersonSleepy	i am sleepy
+Castwise	{castslot} movies
+Castwise	{castslot} starring movies
+Castwise	{castslot} {contenttypeslot} on {channelslot} {timeperiodslot}
+Castwise	{castslot} songs
+Castwise	{castslot} music
+Castwise	{castslot} {genreslot} {contenttypeslot} at {timeslot}
+Castwise	{castslot}
+Castwise	{contenttypeslot} directed by {castslot}
+Castwise	{castslot} {contenttypeslot} {dateslot}
+Castwise	{castslot} {contenttypeslot}
+Castwise	any {castslot} movies
+Castwise	any {castslot} {contenttypeslot} now
+Castwise	any {castslot} {contenttypeslot} tonight
+Castwise	any {castslot} {contenttypeslot} {dateslot}
+Castwise	any {castslot} {contenttypeslot} {timeperiodslot}
+Castwise	i want to watch {castslot}
+Castwise	i want to watch {castslot} movies
+Castwise	i want to watch {contenttypeslot} with {castslot}
+Castwise	i want to watch {genreslot} {contenttypeslot} of {castslot}
+Castwise	im intrested in {castslot} movie
+Castwise	is ther any {castslot} {contenttypeslot}
+Castwise	looking for {castslot} movies
+Castwise	movies starring {castslot}
+Castwise	movies with {castslot}
+Castwise	rank {castslot} {contenttypeslot} from best to worst
+Castwise	show me something with {castslot}
+Castwise	show me tv {contenttypeslot} with {castslot}
+Castwise	show me {castslot} {contenttypeslot}
+Castwise	show me {castslot} {contenttypeslot} on {channelslot} {dateslot}
+Castwise	show me {contenttypeslot} directed by {castslot}
+Castwise	show me {contenttypeslot} starring {castslot}
+Castwise	show me {contenttypeslot} with {castslot}
+Castwise	show me {contenttypeslot} {castslot}
+Castwise	show {castslot} movies
+Castwise	show {castslot} {contenttypeslot} {dateslot}
+Castwise	show {contenttypeslot} with {castslot}
+Castwise	what channel is playing {castslot} {contenttypeslot}
+Castwise	what channel is showing {castslot} movies
+SmalltalkEmotionsHaHa	ha ha
+SmalltalkEmotionsHaHa	ha ha!
+SmalltalkEmotionsHaHa	he he
+SmalltalkEmotionsHaHa	la la
+SmalltalkEmotionsHaHa	la la!
+Vodsearch	{genreslot} movie on vod
+Vodsearch	{genreslot} movie on video on demand
+Vodsearch	{castslot} on demand
+Vodsearch	{vodtitlesslot} on demand
+Vodsearch	{genreslot} movies on vod
+Vodsearch	{genreslot} movies on video on demand
+Vodsearch	{genreslot} on demand
+Vodsearch	{genreslot} movies on demand
+Vodsearch	brad pitt movies on demand
+Vodsearch	brad pitt on demand
+Vodsearch	i want buy vod tonight
+Vodsearch	i want buy vod {dateperiodslot}
+Vodsearch	i want to buy
+Vodsearch	i want to buy vod
+Vodsearch	i want to buy whiplash
+Vodsearch	i want to buy {vodtitlesslot}
+Vodsearch	i want to purchase {vodtitlesslot}
+Vodsearch	i want to rent
+Vodsearch	i want to rent {vodtitlesslot}
+Vodsearch	vod list
+Vodsearch	vod tom cruise movies
+Vodsearch	vod wrestling
+Vodsearch	vod {genreslot} movies
+Vodsearch	vod {vodtitlesslot}
+Vodsearch	want to buy {vodtitlesslot}
+SmalltalkByeThanks	i appreciate the assistance
+SmalltalkByeThanks	ok thank you
+SmalltalkByeThanks	ok ty
+SmalltalkByeThanks	thank
+SmalltalkByeThanks	thank u
+SmalltalkByeThanks	thank you
+SmalltalkByeThanks	thanks
+SmalltalkByeThanks	thnx
+SmalltalkByeThanks	ty
+SmalltalkFavoritesTvChannel	what s ur favorite tv channel
+SmalltalkFavoritesTvChannel	what s your favorite {channelslot} channel
+SmalltalkFavoritesTvChannel	what's ur favorite tv channel?
+SmalltalkPersonTired	i am tired
+SmalltalkPersonSad	i am sad .
+SmalltalkPersonSad	i am sad.
+SmalltalkPersonSad	i m unhappy
+SmalltalkPersonSad	i'm unhappy
+SmalltalkPersonBirthday	ur birthday
+SmalltalkPersonBirthday	ur birthday?
+SmalltalkPersonBirthday	when is your birthday
+SmalltalkPersonBirthday	when is your birthday?
+ProgramDetails	show detail of {programsslot}
+ProgramDetails	show detail of {programsslot} on {channelslot}
+ProgramDetails	show details of {programsslot}
+ProgramDetails	show details of {programsslot} on {channelslot}
+ProgramDetails	show {programsslot} events
+SmalltalkOthersUmean	what do u mean
+SmalltalkOthersUmean	what do u mean?
+SmalltalkOthersUmean	what do you mean
+SmalltalkOthersUmean	what do you mean?
+SmalltalkOpinionWelldone	well do
+SmalltalkOpinionWelldone	well done!
+SmalltalkGreetingsWelcome	u r welcome .
+SmalltalkGreetingsWelcome	u r welcome.
+SmalltalkGreetingsWelcome	you are welcome .
+SmalltalkGreetingsWelcome	you are welcome.
+SmalltalkPersonAge	how old are you
+SmalltalkPersonAge	how old are you?
+SmalltalkPersonAge	how old r u
+SmalltalkPersonAge	how old r u?
+SmalltalkPersonAge	may i know your age?
+SmalltalkPersonAge	ur age
+SmalltalkPersonAge	your age please
+SmalltalkPersonFamilyDetails	do you have a family
+SmalltalkPersonFamilyDetails	how did you come into existence?
+SmalltalkPersonFamilyDetails	how do you come into existence
+SmalltalkPersonFamilyDetails	tell me about ur family
+SmalltalkPersonFamilyDetails	tell me about your family
+SmalltalkPersonFamilyDetails	who is in your family?
+SmalltalkPersonFamilyDetails	who made you?
+SmalltalkPersonFamilyDetails	who make you
+SmalltalkOthersStopit	stop it .
+SmalltalkOthersStopit	stop it.
+OnLater	get me recommendations
+OnLater	how about later tonight ?
+OnLater	how's it going tonight?
+OnLater	on later
+OnLater	on tonight
+OnLater	recommendations
+OnLater	show me most popular programs
+OnLater	show me most watched programs
+OnLater	show recommendations
+OnLater	show some recommendations
+OnLater	show what's on tonight
+OnLater	so what can u show me?
+OnLater	tell me what movies are on tonight
+OnLater	top movies
+OnLater	tv recommendations
+OnLater	up next
+OnLater	what movies are on at eight p.m. tonight
+OnLater	what types of movies can i watch?
+OnLater	what's coming next
+OnLater	what's most popular show
+OnLater	what's on later
+OnLater	what's on tonight?
+OnLater	what's on tonite
+OnLater	what's on tv tonight
+OnLater	what's tonight?
+OnLater	whats on later
+OnLater	whats on tonight?
+Billdue	amount due
+Billdue	bill amount
+Billdue	bill details
+Billdue	bill due
+Billdue	bill due date
+Billdue	billing details
+Billdue	can i pay my bill now
+Billdue	can you help with billing
+Billdue	due bill
+Billdue	due bill date
+Billdue	had a question about my bill
+Billdue	i need assistance with my bill
+Billdue	i need to know what my bill actually this month
+Billdue	i want to know if my bill is paid or not? because i paid my bill online through my fios application
+Billdue	i want to see my bill
+Billdue	my bill
+Billdue	please update my fios account it's stating a payment is due but i made a payment five/three/two thousand seventeen
+Billdue	view bill
+Billdue	what is my bill
+Billdue	what's my bill
+Billdue	when am i supposed to pay my bill
+Billdue	when can i pay my bill
+Billdue	when is my bill due date
+Billdue	when is my bill due?
+Billdue	when is the due date of my bill
+Billdue	when should i pay my bill
+TeamSearch	{teamsslot} next match
+TeamSearch	{teamsslot} game
+TeamSearch	i want to watch a {teamsslot} match
+TeamSearch	what time are the {teamsslot} on
+TeamSearch	what time are the {teamsslot} playing
+TeamSearch	what time {teamsslot} playing
+TeamSearch	when do the {teamsslot} play
+TeamSearch	when do the {teamsslot} play again
+TeamSearch	when does {teamsslot} play
+TeamSearch	when is {teamsslot} are playing
+TeamSearch	when is {teamsslot} playing
+TeamSearch	when is {teamsslot} playing next
+TeamSearch	when is {teamsslot} playing next match
+PackageSearch	do i get {channelslot} channel
+PackageSearch	do i have {channelslot}
+PackageSearch	is the {channelslot} channel part of my channel
+PackageSearch	is {channelgenreslot} part of my pa babe
+PackageSearch	is {channelgenreslot} part of my package
+PackageSearch	is {channelslot} in my package
+PackageSearch	is {channelslot} part of my line up
+PackageSearch	is {channelslot} part of my lineup
+PackageSearch	is {channelslot} part of my package
+PackageSearch	my {channelslot} channel
+PackageSearch	show my {channelgenreslot} channel
+PackageSearch	what are my channels for {channelgenreslot} in my package
+PackageSearch	what are my {channelgenreslot} channel
+PackageSearch	what are my {channelgenreslot} channels
+PackageSearch	what are {channelgenreslot} channel
+PackageSearch	what are {channelgenreslot} channels
+SmalltalkRelationshipsMarry	can you marry me
+SmalltalkRelationshipsMarry	marry me .
+SmalltalkRelationshipsMarry	marry me.
+Support	actually i am looking for an agent
+Support	agent
+Support	agreement
+Support	appears i lost the internet. red light on the wan light. reset modem numerous times. phone three hundred one-nine hundred thirty two-nine thousand six hundred six. tv working.
+Support	are you automated or a real person?
+Support	aren't i paying for one hundred fiftymbps upload and download?
+Support	assistance
+Support	battery
+Support	bundle
+Support	cable
+Support	can i get any help
+Support	can i please get some help.
+Support	can i talk to someone about my bill
+Support	can i talk to someone about my bill?
+Support	can i talk to someone about my package
+Support	can u pls help
+Support	cancelation
+Support	cancell
+Support	cancellation
+Support	cancelled
+Support	cancelling
+Support	charge
+Support	chat with agent
+Support	connect with human
+Support	contact number
+Support	contact number?
+Support	contact us
+Support	contract
+Support	device
+Support	disconnecting
+Support	disconnection
+Support	do you offer fios discounts to sentara employees like verizon mobile wireless does?
+Support	email
+Support	emails
+Support	equipment
+Support	for some reason the chat was not working correctly last night. no biggie. i am chatting with fios on my computer now. thanks anyway.
+Support	hello i hope i am getting a different person reading this today. it should be super simple for you guys to give me the code for samsung tv's and tell me how to do what i need to do.
+Support	hello, my battery started beeping again. would you let me know where i can get the replacement?
+Support	help
+Support	help me
+Support	hi are you able to modify payment arrangement
+Support	hi, my shows i recorded on dvr are not coming up as recorded. they are still showing under scheduled recording
+Support	hola buenos días puedo a ser les unas preguntas mi nombre es josé
+Support	how can i get dvr
+Support	how do i transfer my service if i am moving
+Support	how do i transfer my service if i am moving?
+Support	how to contact your agent
+Support	i do not want my telephone number or address included in the phone book or internet
+Support	i have a problem with my account
+Support	i have not received my bonus visa card yet.
+Support	i have received notices from other parties saying that i need to give them a new email address because verizon is shutting down verizon.net email accounts. is this true?
+Support	i just wanted to make sure my telephone number and address is not included in the phone book
+Support	i keep getting code vmsone thousand sixty two when i try to watch remotely
+Support	i need a new cable box mine is non stop rattling
+Support	i need a new cable box mine is rattling
+Support	i need information about verizon emails, i heard that they will no longer have email service! why do i not know about this from you?
+Support	i need to cancel an order that was put in by mistake....how can i do that.the order is vaeleven billion two hundred ninety seven million two hundred eighty six thousand seven hundred
+Support	i need to remove two boxes off my account
+Support	i need to talk to agent
+Support	i received an email today from sprint saying that my verizon.net email address may no longer be available after april twenty eight. is there any truth to this or is this spam?
+Support	i want a manager to call me
+Support	i want to chat with any customer service representative
+Support	i want to return equipment
+Support	i want to speak to a supervisor
+Support	i would like to change my plan
+Support	installation
+Support	internet
+Support	internet down again
+Support	internet not working
+Support	is the fios welcome bonus real?
+Support	landline
+Support	last night it was appx three/seven. now it is onethree.sixty six/onenine.sevenfive. it is almost impossible to stream with my ipad
+Support	looking for help
+Support	looking for support
+Support	maintenance
+Support	moving
+Support	need help
+Support	need password reset
+Support	need {programsslot}
+Support	order
+Support	ordered
+Support	penalty
+Support	pending
+Support	phone not working
+Support	please send a password reset to my new
+Support	reboot my router
+Support	repair
+Support	return
+Support	router
+Support	service
+Support	service disconnected
+Support	set top box
+Support	shipment
+Support	subscription
+Support	support
+Support	talk to a agent
+Support	talk to agent
+Support	talk with human
+Support	technician
+Support	telephone
+Support	thank you so much for sending your latest technician. he fixed the problem. can i get a refund for march & april when we had maybe ten total days of coverage? thanks
+Support	tv is still having issues
+Support	urgent help required
+Support	us there a reason verizon hasn't notified customers regarding transfer of their emails to aol? really, you collect money & no notice nothing??
+Support	what deals you have
+Support	when does my contract expire?
+Support	where are my twenty,zero points promised upon sign up last month
+Support	why i am being charged twice
+Support	wireless
+Support	worthless as usual, i have dsl, is there a data max?
+Support	yes he was! he said someone would be out to bury the wire running across my neighbors yards do you know when that will be?!
+SmalltalkByeNight	good night fios!
+SmalltalkByeNight	good night!
+SmalltalkByeNight	have a good night?
+SmalltalkFavoritesTvShow	what s ur favorite tv show
+SmalltalkFavoritesTvShow	what s your favorite {channelslot} {contenttypeslot}
+SmalltalkFavoritesTvShow	what's ur favorite tv show?
+SmalltalkRelationshipsFriend	be my friend.
+SmalltalkRelationshipsFriend	be my frnd
+SmalltalkRelationshipsFriend	u r my frnd
+SmalltalkRelationshipsFriend	you are my friend
+SmalltalkOthersDonotcare	i don't care
+SmalltalkOthersWrong	what s wrong with u
+SmalltalkOthersWrong	what s wrong with you
+SmalltalkOthersWrong	what's wrong with u
+SmalltalkOthersWrong	what's wrong with you
+SmalltalkOthersWrong	wrong
+SmalltalkOthersWrong	you did wrong
+SmalltalkOthersWrong	you do wrong
+SmalltalkOthersWrong	your wrong
+SmalltalkByeNicemeeting	nice meeting with u
+SmalltalkByeNicemeeting	nice meeting with you
+SmalltalkByeNicemeeting	nice to meet u
+SmalltalkByeNicemeeting	nice to meet you
+SmalltalkByeNicemeeting	nice to meet you!
+Onnow	currently playing programs
+Onnow	find me something good to watch
+Onnow	i want to know the show timings
+Onnow	new show
+Onnow	new shows?
+Onnow	on now
+Onnow	on {timeslot}
+Onnow	onnow
+Onnow	programs trending now
+Onnow	see what's on
+Onnow	see what's on now
+Onnow	show me something good on tv
+Onnow	show some movies
+Onnow	show what's on now
+Onnow	trending now
+Onnow	what is on now
+Onnow	what shows might i like
+Onnow	what's happening now
+Onnow	what's on
+Onnow	what's on now
+Onnow	what's on tv
+Onnow	what's on tv now
+Onnow	what's on tv right now
+Onnow	what's on?
+Onnow	what's showing today
+Onnow	what's trending on tv
+Onnow	whats on tv
+RecordStblist	stbid stbmodel regionid {numberslot}
+RecordStblist	stbid stbmodel regionid {numberslot} vhoid vhoseven
+RecordStblist	stbid stbmodel regionid {numberslot} vhoid vhosix
+SmalltalkPersonHate	i don't like u
+SmalltalkPersonHate	i don't like you
+SmalltalkPersonHate	i don't love u
+SmalltalkPersonHate	i don't love you
+SmalltalkPersonHate	i hate u
+SmalltalkPersonHate	i hate you
+SmalltalkPersonOfficeSalary	do you earn
+SmalltalkPersonOfficeSalary	do you earn?
+SmalltalkPersonOfficeSalary	how much do you earn
+SmalltalkPersonOfficeSalary	how much do you earn?
+SmalltalkPersonOfficeSalary	may i know your salary?
+SmalltalkPersonOfficeSalary	what is your salary
+SmalltalkPersonOfficeSalary	what is your salary?
+SmalltalkPersonDoing	what are you doing
+SmalltalkPersonDoing	what are you doing?
+SmalltalkPersonDoing	what does a chatbot do
+SmalltalkPersonDoing	what does a chatbot do?
+SmalltalkPersonDoing	what r u doing
+SmalltalkPersonDoing	what r u doing?
+SmalltalkPersonDoing	what work u do
+SmalltalkPersonDoing	what work u do?
+SmalltalkPersonDoing	what work you do
+SmalltalkPersonDoing	what work you do?
+RecordTimings	{datetimeslot}
+RecordTimings	{dateslot} six zero pm
+SmalltalkByeCU	catch you later
+SmalltalkByeCU	i will chat you later
+SmalltalkByeCU	see you
+SmalltalkByeCU	see you soon
+SmalltalkByeCU	see you!
+SmalltalkByeCU	talk to you later
+SmalltalkPersonInfo	may i know who is this?
+SmalltalkPersonInfo	who are you
+SmalltalkPersonInfo	who are you?
+SmalltalkPersonBecomehuman	do u want to become a human?
+SmalltalkPersonBecomehuman	do you want to become a human?
+ProgramSearchDatechanged	{dateslot}
+ProgramSearchDatechanged	any matches {dateslot}
+ProgramSearchDatechanged	any of these playing {dateslot}
+ProgramSearchDatechanged	how about cnn
+ProgramSearchDatechanged	how about {dateslot}
+ProgramSearchDatechanged	on {dateslot}
+ProgramSearchDatechanged	show for {dateslot}
+GenreSearch	{genreslot} on {channelslot} {timeperiodslot}
+GenreSearch	{genreslot} on {channelslot} {dateslot}
+GenreSearch	{genreslot} on {timeperiodslot}
+GenreSearch	{genreslot} on {dateslot}
+GenreSearch	{genreslot} {contenttypeslot} on {timeperiodslot}
+GenreSearch	{genreslot} {channelslot}
+GenreSearch	{genreslot} in {channelslot}
+GenreSearch	{genreslot}
+GenreSearch	{programsslot}
+GenreSearch	{genreslot} on {channelslot}
+GenreSearch	{genreslot} listings
+GenreSearch	{genreslot} {dateslot}
+GenreSearch	{genreslot} {contenttypeslot} {timeperiodslot}
+GenreSearch	{genreslot} {contenttypeslot}
+GenreSearch	{programsslot} on {channelslot}
+GenreSearch	{genreslot} {contenttypeslot} on {channelslot}
+GenreSearch	{castslot} {genreslot} {contenttypeslot} on {channelslot} {dateslot} at {timeslot}
+GenreSearch	{genreslot} {timeperiodslot}
+GenreSearch	any {castslot} {genreslot} {contenttypeslot} on {channelslot} {dateslot} at {timeslot}
+GenreSearch	any {channelslot} {contenttypeslot} {dateslot} at {timeslot}
+GenreSearch	any {genreslot}
+GenreSearch	any {genreslot} {contenttypeslot}
+GenreSearch	any {genreslot} {contenttypeslot} at {timeslot}
+GenreSearch	any {genreslot} {contenttypeslot} on {channelslot} {dateslot}
+GenreSearch	any {genreslot} {contenttypeslot} right now
+GenreSearch	any {genreslot} {contenttypeslot} {dateslot}
+GenreSearch	any {genreslot} {contenttypeslot} {timeperiodslot}
+GenreSearch	any {genreslot} {dateslot}
+GenreSearch	genre
+GenreSearch	good {genreslot}
+GenreSearch	i m looking for a good {genreslot} flick
+GenreSearch	i m looking for a good {genreslot} movie
+GenreSearch	i m looking for a good {genreslot} {contenttypeslot}
+GenreSearch	i m looking for a good {genreslot} {contenttypeslot} to watch
+GenreSearch	i m looking for good {genreslot} flick
+GenreSearch	i m really in the mood for some {genreslot} {contenttypeslot}
+GenreSearch	i want to watch {genreslot}
+GenreSearch	i want to watch {genreslot} {contenttypeslot} of {castslot}
+GenreSearch	im interested in {genreslot} {contenttypeslot}
+GenreSearch	show me something {genreslot}
+GenreSearch	show me {channelslot}
+GenreSearch	show me {genreslot}
+GenreSearch	show me {genreslot} content
+GenreSearch	show me {genreslot} on {channelslot}
+GenreSearch	show me {genreslot} on {channelslot} at {timeslot}
+GenreSearch	show me {genreslot} videos
+GenreSearch	show me {genreslot} {contenttypeslot}
+GenreSearch	show me {genreslot} {contenttypeslot} on {channelslot}
+GenreSearch	show me {genreslot} {contenttypeslot} on {channelslot} on {dateslot} at {timeslot}
+GenreSearch	show me {genreslot} {contenttypeslot} on {timeperiodslot}
+GenreSearch	show {genreslot} on {dateslot} {timeperiodslot}
+GenreSearch	show {genreslot} {contenttypeslot}
+GenreSearch	show {genreslot} {contenttypeslot} on {channelslot} {dateslot} night {timeslot}
+GenreSearch	show {genreslot} {contenttypeslot} on {channelslot} {timeslot}
+GenreSearch	show {genreslot} {dateslot}
+GenreSearch	where i can see latest {genreslot}
+SmalltalkOpinionGoogleHome	what do u think of google home?
+SmalltalkOpinionGoogleHome	what do you think of google home?
+Billenquiry	bill
+Billenquiry	can i pay my bill from the apps?
+Billenquiry	curious about reward points. basically i referred a friend who used my code to enroll in fios with multi services and we were both supposed to recieve tenk reward points after two bill cycles. it now has been over three bill cycles. any suggestions?
+Billenquiry	hello can i pay my bill on the apps?
+Billenquiry	how do i get my bill back to sixty nine.seventy five
+Billenquiry	how much do i owe verizon
+Billenquiry	how much is my bill
+Billenquiry	i can make a payment on friday..
+Billenquiry	i have a billing question
+Billenquiry	i m wonder why i m unable to make a payment arrangement online all of a sudden .
+Billenquiry	i'm wondering why i'm unable to make a payment arrangement online all of a sudden .
+Billenquiry	need help with billing
+Billenquiry	outstanding balance
+Billenquiry	payment arrangement
+Billenquiry	payment arrangements
+Billenquiry	want to cancel my bill
+Billenquiry	what is my bill
+Billenquiry	what s trouble me is that there s something on my credit report that is false
+Billenquiry	what's troubling me is that there's something on my credit report that is false
+Billenquiry	when is much bill due
+Billenquiry	when is my due date
+SmalltalkPersonVerifyischating	are u there
+SmalltalkPersonVerifyischating	are u there?
+SmalltalkPersonVerifyischating	are you there
+SmalltalkPersonVerifyischating	are you there?
+SmalltalkPersonVerifyischating	u there
+SmalltalkPersonVerifyischating	u there?
+SmalltalkPersonVerifyischating	you there
+SmalltalkPersonVerifyischating	you there?
+SmalltalkPersonHungry	are you hungry?
+SmalltalkPersonHungry	r u hungry?
+SmalltalkHelloEvening	good evening fios!
+SmalltalkHelloEvening	good evening!
+Ppvsearch	i want to buy {ppvtitlesslot}
+Ppvsearch	i want to buy {ppvtitlesslot} on ppv
+Ppvsearch	i want to purchase {ppvtitlesslot}
+Ppvsearch	ppv
+Ppvsearch	ppv {ppvtitlesslot}
+Ppvsearch	show me tna one night only
+Ppvsearch	want to buy {ppvtitlesslot}
+Ppvsearch	want to purchase {ppvtitlesslot}
+Record	interested in recording {programsslot} on {channelslot}
+Record	please record
+Record	record
+Record	record it
+Record	record the program
+Record	record the {programsslot} program on {channelslot}
+Record	record the {programsslot} program on {channelslot} at {datetimeslot}
+Record	record {programsslot} at {datetimeslot}
+Record	want to record marijuana in america {programsslot} on {channelslot} at date {dateslot} time {datetimeslot} fiosid {numberslot} stationid {numberslot} regionid {numberslot} duration {numberslot}
+Record	want to record the {programsslot} way on {channelslot} at date {dateslot} time {datetimeslot} fiosid {numberslot} stationid {numberslot} regionid {numberslot} duration {numberslot}
+Record	want to record {programsslot} on {channelslot} at date three million two hundred forty two thousand seventeen time {datetimeslot} fiosid {numberslot} stationid {numberslot} regionid {numberslot} duration {numberslot}
+Record	want to record {programsslot} on {channelslot} at date {dateslot} time {datetimeslot} fiosid {numberslot} seriesid {numberslot} stationid {numberslot} regionid {numberslot} duration {numberslot}
+Record	want to record {programsslot} on {channelslot} at date {dateslot} time {datetimeslot} fiosid {numberslot} stationid {numberslot} regionid {numberslot} duration {numberslot}
+Record	want to record {programsslot} on {channelslot} at {dateslot}
+Weather	apitest
+Weather	test
+SmalltalkPersonAppearance	what do u look like
+SmalltalkPersonAppearance	what do u look like?
+SmalltalkPersonAppearance	what do you look like
+SmalltalkPersonAppearance	what do you look like?
+Pgmdetails	get program info of program {programsslot} channel {channelslot}
+Pgmdetails	get program info of program {programsslot} channel {channelslot} date {dateslot}
+Pgmdetails	get program info of program {programsslot} channel {channelslot} fiosid {numberslot} stationid {numberslot}
+Pgmdetails	get program info of program {programsslot} channel {channelslot} fiosid {numberslot} stationid {numberslot} date {dateslot}
+Pgmdetails	get program info of program {programsslot} channel {channelslot} fiosid {numberslot} stationid {numberslot} date {dateslot} eight fifty seven zero am
+Pgmdetails	get program info of program {programsslot} channel {channelslot} fiosid {numberslot} stationid {numberslot} date {dateslot} pageid {numberslot}
+Pgmdetails	get program info of program {programsslot} channel {channelslot} fiosid {numberslot} stationid {numberslot} date {dateslot} seriesid {numberslot}
+Pgmdetails	get program info of program {programsslot} channel {channelslot} fiosid {numberslot} stationid {numberslot} date {dateslot} {datetimeslot} {datetimeslot}
+Pgmdetails	get program info of program {programsslot} channel {channelslot} network hd fiosid {numberslot} stationid {numberslot} date {dateslot}
+Pgmdetails	get program info of seriesid {numberslot}
+SmalltalkHelloNicetalking	nice to talk to u
+SmalltalkHelloNicetalking	nice to talk to you
+SmalltalkHelloNicetalking	nice to talking with you
+SmalltalkOpinionOkay	are you ok?
+SmalltalkOpinionOkay	are you okay
+SmalltalkOpinionOkay	are you okay?
+SmalltalkOpinionOkay	r u ok?
+SmalltalkOpinionOkay	r u okay
+SmalltalkOpinionOkay	r u okay?
+SmalltalkPersonRock	u rock
+SmalltalkPersonRock	you rock
+SmalltalkHelloWhatsup	what s up
+SmalltalkHelloWhatsup	what up
+SmalltalkHelloWhatsup	what's up?
+SmalltalkHelloWhatsup	whats up?
+StartOver	start over
+DvrUpgrade	{numberslot} i want to upgrade
+DvrUpgrade	i want to upgrade
+DvrUpgrade	i want to upgrade my dvr
+DvrUpgrade	please upgrade
+DvrUpgrade	upgrade my dvr
+CategoryList	category list
+CategoryList	content type
+CategoryList	content types
+CategoryList	genre
+CategoryList	genres
+CategoryList	program categories
+CategoryList	show categories list
+CategoryList	show categories list pageno {numberslot}
+CategoryList	show category list
+CategoryList	show category list pageno {numberslot}
+CategoryList	show program categories
+CategoryList	show program category
+ProgramSearchChannelchanged	{channelslot}
+ProgramSearchChannelchanged	how about {channelslot}
+ProgramSearchChannelchanged	on {channelslot}
+ProgramSearchChannelchanged	show me {channelslot} same time
+ProgramSearchChannelchanged	show on {channelslot}
+ProgramSearchChannelchanged	what about {channelslot}
+SmalltalkByeBye	bye
+SmalltalkByeBye	bye fio
+SmalltalkByeBye	bye fios
+SmalltalkByeBye	bye!
+SmalltalkByeBye	good bye
+Rescheduleappointment	change my appointment
+Rescheduleappointment	want to reschedule my appointment
+SmalltalkOpinionSorry	i m sorry
+SmalltalkOpinionSorry	i'm sorry
+SmalltalkOpinionSorry	sorry
+SmalltalkOpinionSorry	sorry .
+SmalltalkOpinionSorry	sorry.
+SmalltalkByeMustbye	i have to go!
+SmalltalkByeMustbye	i must go now
